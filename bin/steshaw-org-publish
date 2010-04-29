@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# FIXME: work-in-progress!
+
+jekyll && rsync -avz --delete _site/ username@server.com:path/

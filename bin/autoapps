@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# Note: autoapps should be sourced from your .bash_profile. The shebang above is just for file type detection in vim :).
+#
+# Usage:
+#
+#   . ~/bin/autoapps
+#
+
+script=autoapps
+
+shelly_apps=~/.shelly/autoapps
+
+# TODO: Use a path appending function.
+
+: ${SHELLY_ORIGINAL_PATH:=$PATH}
+export SHELLY_ORIGINAL_PATH=${SHELLY_ORIGINAL_PATH:-$PATH}
+
+# Clobber PATH so that we don't keep prepending to it.
+PATH=$SHELLY_ORIGINAL_PATH
+
+ls_soft_link_separator=' -> '
+
+if [[ -d $shelly_apps ]]; then
+  for dir in ${shelly_apps}/*; do
+    if [[ -d $dir ]]; then
+      if [[ -L $dir ]]; then
+        echo "$script: $dir -> "$(\ls -l "${dir}" | ruby -naF"${ls_soft_link_separator}" -e 'puts $F[1]')
+      else
+        echo $script: $dir
+      fi
+      binDir=$dir/bin
+      if [[ -d $binDir ]]; then
+        export PATH=$binDir:$PATH
+      fi
+      manDir=$dir/man
+      if [[ -d $manDir ]]; then
+        export MANPATH=$manDir:$MANPATH
+      fi
+      libDir=$dir/lib
+
+      # TODO: Make work for HP-UX, (Oracle?) Solaris, Linux and Mac.
+      if [[ -d $libDir ]]; then
+        export LD_LIBRARY_PATH=$libDir:$LD_LIBRARY
+      fi
+    fi
+  done
+fi
