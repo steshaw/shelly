@@ -1,5 +1,3 @@
-set -x # debug on
-
 # Make sure prompt is exported to subshells.
 export PS1
 
@@ -14,4 +12,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 bashrc=~/.bashrc
 [[ $(uname) == 'Darwin' && -f ${bashrc} ]] && . ${bashrc}
 
-set +x # debug off
+PATH=~/bin:$PATH
+
+export SCALA_HOME=~/.shelly/autoapps/scala
+export M2_HOME=~/.shell/autoapps/maven
+
+sync-env-to-plist PATH SCALA_HOME M2_HOME
