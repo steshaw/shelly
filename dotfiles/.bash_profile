@@ -14,7 +14,10 @@ bashrc=~/.bashrc
 
 PATH=~/bin:$PATH
 
+if [[ $(uname) == 'Darwin' ]]; then
+  export JAVA_HOME=/Library/Java/Home
+fi
 export SCALA_HOME=~/.shelly/autoapps/scala
 export M2_HOME=~/.shell/autoapps/maven
 
-sync-env-to-plist PATH SCALA_HOME M2_HOME
+sync-env-to-plist PATH JAVA_HOME SCALA_HOME M2_HOME
