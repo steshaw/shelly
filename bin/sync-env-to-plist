@@ -11,6 +11,9 @@
 # The command does not accept a filename such as ~/.MacOSX/environment.plist!
 #
 
+# Exit unless Mac OS/X
+[[ $(uname) != 'Darwin' ]] && exit
+
 scriptName=$(basename $0)
 
 domain=~/.MacOSX/environment
