@@ -1,4 +1,7 @@
 
+autoapps=~/bin/autoapps
+[[ -f ${autoapps} ]] && . ${autoapps}
+
 # TODO: add the colors like in Ubuntu prompt.
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
 PS1='\n\u@\h: \w\n\$ '
