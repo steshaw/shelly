@@ -19,5 +19,6 @@ if [[ $(uname) == 'Darwin' ]]; then
 fi
 export SCALA_HOME=~/.shelly/autoapps/scala
 export M2_HOME=~/.shell/autoapps/maven
+SATHER_HOME=/home/steshaw/.shelly/autoapps/sather
 
 sync-env-to-plist PATH JAVA_HOME SCALA_HOME M2_HOME

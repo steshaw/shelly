@@ -8,6 +8,7 @@ PS1='\n\u@\h: \w\n\$ '
 
 export EDITOR=/usr/bin/vim
 
+
 # vi[m] > emacs :)
 set -o vi
 
