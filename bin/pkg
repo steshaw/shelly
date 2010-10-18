@@ -1,0 +1,11 @@
+#!/bin/bash
+
+command=$1; shift
+
+if [[ $command = 'info' ]]; then
+  apt-cache show "$@"
+elif [[ $command = 'search' ]]; then
+  apt-cache search "$@"
+elif [[ $command = 'install' ]]; then
+  sudo apt-get install "$@"
+fi
