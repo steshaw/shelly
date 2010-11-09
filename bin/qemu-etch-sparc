@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec qemu-system-sparc -L /usr/share/openbios/ -m 256 ~/Machines/debian_etch_sparc_small.qcow2
