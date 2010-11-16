@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# Note: autoapps should be sourced from your .bash_profile. The shebang above is just for file type detection in vim :).
+# Note: Shelly apps should be sourced from your .bash_profile. The shebang above is just for file type detection in vim :).
 #
 # Usage:
 #
-#   . ~/bin/autoapps
+#   . ~/bin/auto-path
 #
 
-script=autoapps
+script=app-path
 
-shelly_apps=~/.shelly/autoapps
+shelly_apps=~/.shelly/apps
 
 # TODO: Use a path appending function.
 
