@@ -8,11 +8,11 @@ PS1='\n\u@\h: \w\n\$ '
 
 export EDITOR=/usr/bin/vim
 
-
 # vi[m] > emacs :)
 set -o vi
 
-alias ls='ls --color -FGh'
+#alias ls='ls --color -FGh'
+alias ls='ls -GFh'
 alias l='ls -l'
 alias ll='l -a'
 

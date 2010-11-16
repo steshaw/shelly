@@ -9,7 +9,9 @@ authors_file="" # unspecified
 authors_opt="-A $authors_file"
 authors_opt="" # ignore author translation for now at least
 
-if [[ $command = 'import' ]]; then
+if [[ $command = 'login' ]]; then
+    cvs login
+elif [[ $command = 'import' ]]; then
     git cvsimport -v -k -r cvs -C $cvs_module $authors_opt $cvs_module
 elif [[ $command = 'config' ]]; then
     echo git config cvsimport.module $cvs_module
