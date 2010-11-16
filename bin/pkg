@@ -8,4 +8,14 @@ elif [[ $command = 'search' ]]; then
   apt-cache search "$@"
 elif [[ $command = 'install' ]]; then
   sudo apt-get install "$@"
+elif [[ $command = 'remove' ]]; then
+  sudo apt-get autoremove "$@"
+elif [[ $command = 'update' ]]; then
+  sudo apt-get update "$@"
+elif [[ $command = 'upgrade' ]]; then
+  sudo apt-get upgrade "$@"
+else
+  basename=$(basename $0)
+  echo "${basename}: unknown command" >&2
+  exit 1
 fi

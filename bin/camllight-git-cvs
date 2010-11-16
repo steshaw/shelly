@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# http://stackoverflow.com/questions/584522/how-to-export-revision-history-from-mercurial-or-git-to-cvs/586225#586225
+
+command=$1
+cvs_module=camllight
+export CVSROOT=":pserver:anoncvs@camlcvs.inria.fr:/caml"
+authors_file="" # unspecified
+authors_opt="-A $authors_file"
+authors_opt="" # ignore author translation for now at least
+
+if [[ $command = 'import' ]]; then
+    git cvsimport -v -k -r cvs -C $cvs_module $authors_opt $cvs_module
+elif [[ $command = 'config' ]]; then
+    echo git config cvsimport.module $cvs_module
+    echo git config cvsimport.r cvs
+    echo git config cvsimport.d $CVSROOT
+else
+    echo "Usage: $0 import|config" >&2
+fi

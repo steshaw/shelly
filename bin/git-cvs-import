@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# http://stackoverflow.com/questions/584522/how-to-export-revision-history-from-mercurial-or-git-to-cvs/586225#586225
+
+command=$1
+authors_file="" # unspecified
+authors_opt="-A $authors_file"
+authors_opt="" # ignore author translation for now at least
+
+if [[ -z $CVSROOT ]]; then
+  echo "You must set \$CVSROOT" >&2
+  exit 2
+fi
+
+if [[ $# -eq 2 && $command = 'import' ]]; then
+  cvs_module=$2
+  git cvsimport -v -k -r cvs -C $cvs_module $authors_opt $cvs_module
+elif [[ $# -eq 2 && $command = 'config' ]]; then
+  cvs_module=$2
+  echo git config cvsimport.module $cvs_module
+  echo git config cvsimport.r cvs
+  echo git config cvsimport.d $CVSROOT
+else
+  echo "Usage: $0 import|config cvs-module" >&2
+  exit 2
+fi
