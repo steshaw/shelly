@@ -22,3 +22,5 @@ export M2_HOME=~/.shell/apps/maven
 SATHER_HOME=/home/steshaw/.shelly/apps/sather
 
 sync-env-to-plist PATH JAVA_HOME SCALA_HOME M2_HOME
+
+test -r /sw/bin/init.sh && . /sw/bin/init.sh
