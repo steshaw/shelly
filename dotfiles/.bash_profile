@@ -4,10 +4,6 @@ export PS1
 app_path=~/bin/app-path
 [[ -f ${app_path} ]] && . ${app_path}
 
-# MacPorts Installer addition on 2010-04-29_at_06:37:58: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 # On Mac OS seem to need to explicitly call the .bashrc
 bashrc=~/.bashrc
 [[ $(uname) == 'Darwin' && -f ${bashrc} ]] && . ${bashrc}
@@ -15,12 +11,14 @@ bashrc=~/.bashrc
 PATH=~/bin:$PATH
 
 if [[ $(uname) == 'Darwin' ]]; then
-  export JAVA_HOME=/Library/Java/Home
+#  export JAVA_HOME=/Library/Java/Home
+  export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 export SCALA_HOME=~/.shelly/apps/scala
-export M2_HOME=~/.shell/apps/maven
-SATHER_HOME=/home/steshaw/.shelly/apps/sather
+mavenDir=~/.shelly/apps/maven
+if [[ -d $mavenDir ]]; then
+  export M2_HOME=$mavenDir
+fi
+export SATHER_HOME=/home/steshaw/.shelly/apps/sather
 
 sync-env-to-plist PATH JAVA_HOME SCALA_HOME M2_HOME
-
-test -r /sw/bin/init.sh && . /sw/bin/init.sh

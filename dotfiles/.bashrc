@@ -1,6 +1,6 @@
 
-app_path=~/bin/app-path
-[[ -f ${app_path} ]] && . ${app_path}
+#app_path=~/bin/app-path
+#[[ -f ${app_path} ]] && . ${app_path}
 
 # TODO: add the colors like in Ubuntu prompt.
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
