@@ -1,8 +1,10 @@
 #!/bin/bash
 #
-# Synchronise environment variables with the ~/.MacOSX/environment.plist. On Mac, launched gui applications do not share
-# the process environment (and consequently the environment variables) of the launching process. They do however have the
-# environment variables configured in the ~/.MacOSX/environment.plist file.
+# Synchronise environment variables with the ~/.MacOSX/environment.plist.
+#
+# On Mac, launched gui applications do not share the process environment (and consequently the environment variables) 
+# of the launching process. They do however have the environment variables configured in 
+# the ~/.MacOSX/environment.plist file.
 #
 # Note: view the contents of your plist file with the following command:
 #

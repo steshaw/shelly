@@ -2,4 +2,4 @@
 
 # FIXME: work-in-progress!
 
-jekyll && rsync -avz --delete _site/ username@server.com:path/
+jekyll && rsync -avz --delete _site/ steshaw@steshaw.org:www/

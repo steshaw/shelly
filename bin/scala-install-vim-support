@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -z $SCALA_HOME ]]; then
+  echo SCALA_HOME is not set
+  exit 2
+fi
+
+for dir in ${SCALA_HOME}/misc/scala-tool-support/vim/*; do
+  if [[ -d $dir ]]; then
+    dirName=$(basename $dir)
+    targetDir=~/.vim/$dirName
+    mkdir -p $targetDir
+    cp -i $dir/* $targetDir
+  fi
+done
