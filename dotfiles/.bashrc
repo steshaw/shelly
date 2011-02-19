@@ -8,7 +8,7 @@ PS1='\n\u@\h: \w\n\$ '
 
 export EDITOR=/usr/bin/vim
 
-# vi[m] > emacs :)
+# Vim > Emacs :)
 set -o vi
 
 #alias ls='ls --color -FGh'
