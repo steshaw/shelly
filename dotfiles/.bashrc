@@ -1,10 +1,9 @@
-
-#app_path=~/bin/app-path
-#[[ -f ${app_path} ]] && . ${app_path}
+echo Executing .bashrc…
+echo dollar0=$0
 
 # TODO: add the colors like in Ubuntu prompt.
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
-PS1='\n\u@\h: \w\n\$ '
+export PS1='\n\u@\h: \w\n\$ '
 
 export EDITOR=/usr/bin/vim
 
@@ -23,5 +22,10 @@ alias rm='rm -i'
 
 alias cx='chmod +x'
 alias cw='chmod +w'
+
+alias vbp='vim ~/.bash_profile'
+alias sbp='source ~/.bash_profile'
+alias vbrc='vim ~/.bashrc'
+alias sbrc='source ~/.bashrc'
 
 alias path='echo $PATH | tr : "\n"'
