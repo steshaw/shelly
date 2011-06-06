@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mkdir -p classes && exec javac -Xlint:unchecked -classpath classes/ -d classes/ "$@"

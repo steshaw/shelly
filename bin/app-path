@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Note: Shelly apps should be sourced from your .bash_profile. The shebang above is just for file type detection in vim :).
+# Note: Shelly apps should be sourced from your .bash_profile. 
+# The shebang above is just for file type detection in vim :).
 #
 # Usage:
 #
@@ -29,19 +30,26 @@ if [[ -d $shelly_apps ]]; then
       else
         echo $script: $dir
       fi
+
       binDir=$dir/bin
       if [[ -d $binDir ]]; then
         export PATH=$binDir:$PATH
       fi
+
       manDir=$dir/man
       if [[ -d $manDir ]]; then
         export MANPATH=$manDir:$MANPATH
       fi
-      libDir=$dir/lib
 
       # TODO: Make work for HP-UX, (Oracle?) Solaris, Linux and Mac.
+      libDir=$dir/lib
       if [[ -d $libDir ]]; then
-        export LD_LIBRARY_PATH=$libDir:$LD_LIBRARY
+        export LD_LIBRARY_PATH=$libDir:$LD_LIBRARY_PATH
+      fi
+
+      pkgConfigDir=$dir/lib/pkgconfig
+      if [[ -d $pkgConfigDir ]]; then
+        export PKG_CONFIG_PATH=$pkgConfigDir:$PKG_CONFIG_PATH
       fi
     fi
   done

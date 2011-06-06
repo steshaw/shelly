@@ -15,6 +15,8 @@ alias ls='ls -GFh'
 alias l='ls -l'
 alias ll='l -a'
 
+alias wi='type -ap'
+
 # Make file ops safer.
 alias cp='cp -i'
 alias mv='mv -i'
@@ -29,3 +31,5 @@ alias vbrc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 
 alias path='echo $PATH | tr : "\n"'
+
+alias sml='rlwrap sml'

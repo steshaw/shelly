@@ -8,8 +8,9 @@
 
 [alias]
   s = status -s
-	co = checkout
-	ls = ls-files
-	slog = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+  co = checkout
+  ls = ls-files
+  slog = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+
 [merge]
-	tool = meld
+  tool = meld
