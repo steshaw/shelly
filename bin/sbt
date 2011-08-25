@@ -1,7 +1,0 @@
-#!/bin/bash
-
-sbtConfig=~/.sbtconfig
-[[ -f $sbtConfig ]] && source $sbtConfig
-
-sbtJar="$(dirname $0)/sbt-launch-0.7.5.RC0.jar"
-exec java -XX:MaxPermSize=512m -Xmx512M ${JAVA_OPTS} ${WITH_REBEL} ${SBT_OPTS} -jar ${sbtJar} "$@"
