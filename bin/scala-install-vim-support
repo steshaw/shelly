@@ -5,7 +5,14 @@ if [[ -z $SCALA_HOME ]]; then
   exit 2
 fi
 
-for dir in ${SCALA_HOME}/misc/scala-tool-support/vim/*; do
+vimSupportDir=${SCALA_HOME}/misc/scala-tool-support/vim
+if [[ ! -d $vimSupportDir ]]; then
+  echo "Error: Cannot find vim support directory: $vimSupportDir" >&2
+  echo "Is SCALA_HOME set correctly? (currently $SCALA_HOME)" >&2
+  exit 2
+fi
+
+for dir in $vimSupportDir/*; do
   if [[ -d $dir ]]; then
     dirName=$(basename $dir)
     targetDir=~/.vim/$dirName

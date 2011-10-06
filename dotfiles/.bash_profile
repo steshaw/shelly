@@ -1,11 +1,20 @@
 echo Executing .bash_profile…
 echo dollar0=$0
 
+function homeFromBin() {
+  command=$1
+  bin=$(which $command)
+  if [[ -n $bin ]]; then
+    bin=$(real-path $bin)
+    echo $(dirname $(dirname $bin))
+  fi
+}
+
 #
 # Setup PATH. Shelly apps and ~/bin.
 #
-app_path=~/bin/app-path
-[[ -f ${app_path} ]] && . ${app_path}
+appPath=~/bin/app-path
+[[ -f ${appPath} ]] && . ${appPath}
 
 PATH=~/bin:$PATH
 sync-env-to-plist PATH
@@ -30,11 +39,11 @@ sync-env-to-plist JAVA_HOME
 #
 # Scala.
 #
-scalaBin=$(which scala)
-if [[ -n $scalaBin ]]; then
-  export SCALA_HOME=$(dirname $(dirname $scalaBin))
+SCALA_HOME=$(homeFromBin scala)
+if [[ -n $SCALA_HOME ]]; then
+  export SCALA_HOME
+  sync-env-to-plist SCALA_HOME
 fi
-sync-env-to-plist SCALA_HOME
 
 #
 # JRebel.
@@ -47,10 +56,10 @@ sync-env-to-plist SCALA_HOME
 #
 # Maven.
 #
-mavenDir=~/.shelly/apps/maven
-if [[ -d $mavenDir ]]; then
-  export M2_HOME=$mavenDir
-  sync-env-to-plist PATH M2_HOME
+M2_HOME=$(homeFromBin mvn)
+if [[ -n $M2_HOME ]]; then
+  export M2_HOME
+  sync-env-to-plist M2_HOME
 fi
 
 #
