@@ -39,10 +39,10 @@ sync-env-to-plist SCALA_HOME
 #
 # JRebel.
 #
-export REBEL_HOME=~/.shelly/apps/jrebel-3.6.1
-export REBEL_JAR=$REBEL_HOME/jrebel.jar
-export WITH_REBEL="-Drebel.license=${HOME}/Downloads/javarebel.lic -noverify -javaagent:$REBEL_JAR"
-sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
+#export REBEL_HOME=~/.shelly/apps/jrebel-3.6.1
+#export REBEL_JAR=$REBEL_HOME/jrebel.jar
+#export WITH_REBEL="-Drebel.license=${HOME}/Downloads/javarebel.lic -noverify -javaagent:$REBEL_JAR"
+#sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
 
 #
 # Maven.
@@ -61,6 +61,12 @@ if [[ -d $satherHome ]]; then
   export SATHER_HOME=$satherHome
   sync-env-to-plist SATHER_HOME
 fi
+
+#
+# Haxe
+#
+export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
+sync-env-to-plist HAXE_LIBRARY_PATH
 
 #
 # On Mac OS seem to need to explicitly call the .bashrc
