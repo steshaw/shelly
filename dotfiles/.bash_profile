@@ -74,8 +74,10 @@ fi
 #
 # Haxe
 #
-export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
-sync-env-to-plist HAXE_LIBRARY_PATH
+if [[ -x $(which brew) ]]; then
+  export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
+  sync-env-to-plist HAXE_LIBRARY_PATH
+fi
 
 #
 # On Mac OS seem to need to explicitly call the .bashrc
