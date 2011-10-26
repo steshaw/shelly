@@ -31,5 +31,6 @@ alias vbrc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 
 alias path='echo $PATH | tr : "\n"'
+alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 
 alias sml='rlwrap sml'
