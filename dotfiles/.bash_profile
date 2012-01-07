@@ -1,5 +1,6 @@
-echo Executing .bash_profile…
-echo dollar0=$0
+#
+# .bash_profile
+#
 
 function homeFromBin() {
   command=$1

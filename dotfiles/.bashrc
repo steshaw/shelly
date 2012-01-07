@@ -1,5 +1,6 @@
-echo Executing .bashrc…
-echo dollar0=$0
+#
+# .bashrc
+#
 
 # TODO: add the colors like in Ubuntu prompt.
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
@@ -7,7 +8,6 @@ export PS1='\n\u@\h: \w\n\$ '
 
 export EDITOR=/usr/bin/vim
 
-# Vim > Emacs :)
 set -o vi
 
 #alias ls='ls --color -FGh'
