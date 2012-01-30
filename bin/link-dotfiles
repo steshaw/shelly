@@ -1,3 +1,17 @@
 #!/bin/bash
 
-ln -s ~/Projects/shelly/dotfiles/.[a-z]*  ~
+for file in ~/Projects/shelly/dotfiles/.[a-z]*; do
+  basefile=$(basename $file)
+  if [[ -f ~/$basefile ]]; then
+    if [[ -L ~/$basefile ]]; then
+      echo ${basefile} already a link to $(readlink -f ~/${basefile})
+    else
+      echo Moving existing ${basefile} to ${basefile}.old
+      mv -i ~/${basefile} ~/${basefile}.old
+      ln -s $file ~
+    fi
+  else
+    echo Linking ~/${basefile}
+    ln -s $file ~
+  fi
+done

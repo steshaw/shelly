@@ -1,5 +1,6 @@
-echo Executing .bash_profile…
-echo dollar0=$0
+#
+# .bash_profile
+#
 
 function homeFromBin() {
   command=$1
@@ -69,6 +70,14 @@ satherHome=/home/steshaw/.shelly/apps/sather
 if [[ -d $satherHome ]]; then
   export SATHER_HOME=$satherHome
   sync-env-to-plist SATHER_HOME
+fi
+
+#
+# Haxe
+#
+if [[ -x $(which brew) ]]; then
+  export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
+  sync-env-to-plist HAXE_LIBRARY_PATH
 fi
 
 #
