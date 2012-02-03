@@ -33,3 +33,9 @@ alias sbrc='source ~/.bashrc'
 alias path='echo $PATH | tr : "\n"'
 
 alias sml='rlwrap sml'
+
+if [[ -x $(which gnome-open) ]]; then
+  alias o='gnome-open'
+else
+  alias o='open'
+fi
