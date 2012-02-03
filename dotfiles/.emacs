@@ -1,5 +1,3 @@
-(load "~steshaw/External/Projects/rust-mode/rust-mode.el")
-
 (viper-mode)
 
 (when (featurep 'aquamacs)
