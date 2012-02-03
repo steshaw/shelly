@@ -89,6 +89,13 @@ if [[ -x $(which brew) ]]; then
 fi
 
 #
+# RVM
+#
+# Load RVM into a shell session *as a function*
+#
+[[ -s "/Users/steshaw/.rvm/scripts/rvm" ]] && source "/Users/steshaw/.rvm/scripts/rvm"
+
+#
 # On Mac OS seem to need to explicitly call the .bashrc
 #
 bashrc=~/.bashrc
