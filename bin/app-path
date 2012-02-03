@@ -12,9 +12,6 @@ script=app-path
 
 shelly_apps=~/.shelly/apps
 
-# TODO: Use a path appending function.
-
-: ${SHELLY_ORIGINAL_PATH:=$PATH}
 export SHELLY_ORIGINAL_PATH=${SHELLY_ORIGINAL_PATH:-$PATH}
 
 # Clobber PATH so that we don't keep prepending to it.
@@ -41,7 +38,6 @@ if [[ -d $shelly_apps ]]; then
         export MANPATH=$manDir:$MANPATH
       fi
 
-      # TODO: Make work for HP-UX, (Oracle?) Solaris, Linux and Mac.
       libDir=$dir/lib
       if [[ -d $libDir ]]; then
         export LD_LIBRARY_PATH=$libDir:$LD_LIBRARY_PATH
