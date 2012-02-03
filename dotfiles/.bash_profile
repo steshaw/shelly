@@ -22,8 +22,8 @@ sync-env-to-plist PATH
 #
 # Haskell
 #
-#cabalBinDir=~/.cabal/bin
-#[[ -d $cabalBinDir ]] && PATH=$cabalBinDir:$PATH
+cabalBinDir=~/.cabal/bin
+[[ -d $cabalBinDir ]] && PATH=$cabalBinDir:$PATH
 
 haskellBinDir=~/Library/Haskell/bin
 [[ -d $haskellBinDir ]] && PATH=$haskellBinDir:$PATH
