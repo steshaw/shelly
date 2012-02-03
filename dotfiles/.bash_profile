@@ -21,10 +21,18 @@ PATH=~/bin:$PATH
 sync-env-to-plist PATH
 
 #
+# Homebrew
+#
+if [[ -x $(which brew) ]]; then
+  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+  sync-env-to-plist PKG_CONFIG_PATH
+fi
+
+#
 # Haskell
 #
-#cabalBinDir=~/.cabal/bin
-#[[ -d $cabalBinDir ]] && PATH=$cabalBinDir:$PATH
+cabalBinDir=~/.cabal/bin
+[[ -d $cabalBinDir ]] && PATH=$cabalBinDir:$PATH
 
 haskellBinDir=~/Library/Haskell/bin
 [[ -d $haskellBinDir ]] && PATH=$haskellBinDir:$PATH
