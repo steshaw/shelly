@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# FIXME: work-in-progress!
-
-jekyll && rsync -avz --delete _site/ steshaw@steshaw.org:www/
