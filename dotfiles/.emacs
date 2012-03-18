@@ -10,3 +10,13 @@
     ;; switch to fullscreen mode
 ;;    (aquamacs-toggle-full-frame))
 )
+
+;; Coq
+(setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
+(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+
+(add-to-list 'load-path "~/External/Projects/emacs-color-theme-solarized")
+(require 'color-theme-solarized)
+(color-theme-solarized-light)
+
+(start-server)
