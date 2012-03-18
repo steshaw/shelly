@@ -10,7 +10,7 @@ Usage() {
 if [[ $1 = "ram" ]]; then
   mode=0
 elif [[ $1 = "disk" ]]; then
-  mode=1
+  mode=25
 elif [[ $1 = "smart" ]]; then
   mode=3
 else
