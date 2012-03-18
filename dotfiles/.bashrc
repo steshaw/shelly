@@ -34,6 +34,7 @@ alias path='echo $PATH | tr : "\n"'
 alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 
 alias sml='rlwrap sml'
+alias ocaml='rlwrap ocaml'
 
 if [[ -x $(which gnome-open) ]]; then
   alias o='gnome-open'
