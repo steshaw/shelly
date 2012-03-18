@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if brew --env >/dev/null 2>/dev/null; then
+  if [[ $1 == '--cppflags' ]]; then
+    brew --env | grep '^CPPFLAGS: ' | sed 's/^CPPFLAGS: //'
+  elif [[ $1 == '--ldflags' ]]; then
+    brew --env | grep ^LDFLAGS: | sed 's/^LDFLAGS: //'
+  else
+    echo "usage: brew-config [--cppflags|--ldflags]" >&2
+  fi
+fi
