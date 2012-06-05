@@ -1,4 +1,5 @@
-(viper-mode)
+(setq viper-mode t)
+(require 'viper)
 
 (when (featurep 'aquamacs)
     ;; switch to white on black
@@ -15,8 +16,12 @@
 (setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
 (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
+
 (add-to-list 'load-path "~/External/Projects/emacs-color-theme-solarized")
 (require 'color-theme-solarized)
 (color-theme-solarized-light)
 
-(start-server)
+; TODO: Unavailable in Aquamacs.
+;(start-server)
