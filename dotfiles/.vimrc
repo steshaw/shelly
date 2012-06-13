@@ -13,3 +13,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 au BufNewFile,BufRead *.m set filetype=modula2
 
 au BufNewFile,BufRead *.yeti setlocal filetype=yeti ts=8 sw=4 sts=4 expandtab
+
+au BufNewFile,BufRead *.cl,*.cool set filetype=cool
+
+au BufNewFile,BufRead *.cup set filetype=cup

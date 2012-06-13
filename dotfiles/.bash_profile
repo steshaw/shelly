@@ -96,7 +96,14 @@ fi
 [[ -s "/Users/steshaw/.rvm/scripts/rvm" ]] && source "/Users/steshaw/.rvm/scripts/rvm"
 
 #
-# On Mac OS seem to need to explicitly call the .bashrc
+# Setup COOL compiler class.
+#
+PATH=/usr/class/cs143/cool/bin:$PATH
+
+#
+# Explicitly call the .bashrc
 #
 bashrc=~/.bashrc
-[[ $(uname) == 'Darwin' && -f ${bashrc} ]] && . ${bashrc}
+[[ -f ${bashrc} ]] && . ${bashrc}
+
+
