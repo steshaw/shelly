@@ -68,6 +68,7 @@ sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
 M2_HOME=$(homeFromBin mvn)
 if [[ -n $M2_HOME ]]; then
   export M2_HOME
+  export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
   sync-env-to-plist M2_HOME
 fi
 
@@ -105,5 +106,3 @@ PATH=/usr/class/cs143/cool/bin:$PATH
 #
 bashrc=~/.bashrc
 [[ -f ${bashrc} ]] && . ${bashrc}
-
-

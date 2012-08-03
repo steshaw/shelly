@@ -2,9 +2,12 @@
 # .bashrc
 #
 
-# TODO: add the colors like in Ubuntu prompt.
+skeletonBashrc=/etc/skel.bashrc
+[[ -f ${skeletonBashrc} ]] && . ${skeletonBashrc}
+
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
-export PS1='\n\u@\h: \w\n\$ '
+#export PS1='\n\u@\h: \w\n\$ '
+export PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\]\n\$ '
 
 export EDITOR=/usr/bin/vim
 
@@ -38,6 +41,10 @@ alias ocaml='rlwrap ocaml'
 
 if [[ -x $(which gnome-open) ]]; then
   alias o='gnome-open'
+elif [[ -x $(which xdg-open) ]]; then
+  alias o='xdg-open'
 else
   alias o='open'
 fi
+
+[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
