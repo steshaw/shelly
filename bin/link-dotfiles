@@ -1,6 +1,17 @@
 #!/bin/bash
 
-for file in ~/Projects/shelly/dotfiles/.[a-z]*; do
+set -x
+
+fromDir=$(dirname $0)/../dotfiles
+
+if [[ ! -f $fromDir/.bashrc ]]; then
+  echo Cannot find $fromDir/.bashrc
+  exit 1
+fi
+
+echo fromDir=${fromDir}
+
+for file in ${fromDir}/.[a-z]*; do
   basefile=$(basename $file)
   if [[ -f ~/$basefile ]]; then
     if [[ -L ~/$basefile ]]; then
