@@ -47,4 +47,6 @@ else
   alias o='open'
 fi
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local

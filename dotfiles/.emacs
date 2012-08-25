@@ -1,6 +1,12 @@
+;
+; Viper
+;
 (setq viper-mode t)
 (require 'viper)
 
+;
+; Theme
+;
 (when (featurep 'aquamacs)
     ;; switch to white on black
     (color-theme-initialize)
@@ -12,13 +18,21 @@
 ;;    (aquamacs-toggle-full-frame))
 )
 
+;
 ; Coq
+;
 (setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
 (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
+;
+; Agda
+;
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
 
+;
+; Solarized
+;
 (add-to-list 'load-path "~/External/Projects/emacs-color-theme-solarized")
 (require 'color-theme-solarized)
 (color-theme-solarized-light)
