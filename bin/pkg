@@ -2,18 +2,44 @@
 
 command=$1; shift
 
+uname=$(uname)
+
 if [[ $command = 'info' ]]; then
-  apt-cache show "$@"
+  if [[ $uname = 'Darwin' ]]; then
+    brew info "$@"
+  else
+    apt-cache show "$@"
+  fi
 elif [[ $command = 'search' ]]; then
-  apt-cache search "$@"
+  if [[ $uname = 'Darwin' ]]; then
+    brew search "$@"
+  else
+    apt-cache search "$@"
+  fi
 elif [[ $command = 'install' ]]; then
-  sudo apt-get install "$@"
-elif [[ $command = 'remove' ]]; then
-  sudo apt-get autoremove "$@"
+  if [[ $uname = 'Darwin' ]]; then
+    brew install "$@"
+  else
+    sudo apt-get install "$@"
+  fi
+elif [[ $command = 'remove' || $command = "uninstall" ]]; then
+  if [[ $uname = 'Darwin' ]]; then
+    brew uninstall "$@"
+  else
+    sudo apt-get autoremove "$@"
+  fi
 elif [[ $command = 'update' ]]; then
-  sudo apt-get update "$@"
+  if [[ $uname = 'Darwin' ]]; then
+    brew update "$@"
+  else
+    sudo apt-get update "$@"
+  fi
 elif [[ $command = 'upgrade' ]]; then
-  sudo apt-get upgrade "$@"
+  if [[ $uname = 'Darwin' ]]; then
+    brew upgrade "$@"
+  else
+    sudo apt-get upgrade "$@"
+  fi
 else
   basename=$(basename $0)
   echo "${basename}: unknown command" >&2
