@@ -68,6 +68,7 @@ sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
 M2_HOME=$(homeFromBin mvn)
 if [[ -n $M2_HOME ]]; then
   export M2_HOME
+  export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
   sync-env-to-plist M2_HOME
 fi
 
@@ -96,7 +97,12 @@ fi
 [[ -s "/Users/steshaw/.rvm/scripts/rvm" ]] && source "/Users/steshaw/.rvm/scripts/rvm"
 
 #
-# On Mac OS seem to need to explicitly call the .bashrc
+# Setup COOL compiler class.
+#
+PATH=/usr/class/cs143/cool/bin:$PATH
+
+#
+# Explicitly call the .bashrc
 #
 bashrc=~/.bashrc
-[[ $(uname) == 'Darwin' && -f ${bashrc} ]] && . ${bashrc}
+[[ -f ${bashrc} ]] && . ${bashrc}
