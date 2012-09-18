@@ -7,6 +7,7 @@
 ;
 ; Aquamacs theme
 ; 
+;
 (when (featurep 'aquamacs)
     ;; switch to white on black
     (color-theme-initialize)
@@ -29,6 +30,7 @@
 ;
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
+
 ;
 ; Solarized
 ;
