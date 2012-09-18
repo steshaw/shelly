@@ -47,4 +47,7 @@ else
   alias o='open'
 fi
 
+alias git-svn-up='git stash && git svn rebase && git stash pop'
+alias git-svn-commit='git stash && git svn dcommit && git stash pop'
+
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local

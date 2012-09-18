@@ -1,6 +1,6 @@
 [user]
   name = Steven Shaw
-  email = steven@steshaw.org
+  email = steven.shaw@flightcentre.com.au
 
 [color]
   diff = auto
@@ -14,3 +14,7 @@
 
 [merge]
   tool = meld
+[core]
+	excludesfile = /home/steshaw/.gitignore.global
+;[svn]
+;	authorsfile = /home/steshaw/.git.svn.authors.txt
