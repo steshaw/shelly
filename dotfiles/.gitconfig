@@ -11,6 +11,7 @@
   co = checkout
   ls = ls-files
   slog = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+  llog = log --date=local
 
 [merge]
   tool = meld

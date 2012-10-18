@@ -1,0 +1,9 @@
+#!/bin/bash
+
+log=svn.stats.log
+svn log -v --xml >${log} &&
+JAVA_HOME=/usr/lib/jvm/java-7-oracle statsvn \
+  -include "paymentgate-server/**/*.java;paymentgate-server/**/*.html;paymentgate-server/**/*.xhtml;paymentgate-server/**/*.sh;paymentgate-server/**/*.bat;paymentgate-server/**/*.cmd;gta-api-import/**/*.scala" \
+  -output-dir svnstats.out \
+  ${log} . &&
+sensible-browser svnstats.out/index.html

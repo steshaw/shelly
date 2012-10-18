@@ -13,8 +13,8 @@ export EDITOR=/usr/bin/vim
 
 set -o vi
 
-#alias ls='ls --color -FGh'
-alias ls='ls -GFh'
+alias ls='ls --color -Fh'
+#alias ls='ls -GFh'
 alias l='ls -l'
 alias ll='l -a'
 
