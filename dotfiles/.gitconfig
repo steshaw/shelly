@@ -17,5 +17,6 @@
   tool = meld
 [core]
 	excludesfile = /home/steshaw/.gitignore.global
+	autocrlf = input
 ;[svn]
 ;	authorsfile = /home/steshaw/.git.svn.authors.txt

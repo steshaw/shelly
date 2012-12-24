@@ -1,5 +1,6 @@
 #!/bin/bash
 
+svn up
 log=svn.stats.log
 svn log -v --xml >${log} &&
 JAVA_HOME=/usr/lib/jvm/java-7-oracle statsvn \
@@ -7,3 +8,7 @@ JAVA_HOME=/usr/lib/jvm/java-7-oracle statsvn \
   -output-dir svnstats.out \
   ${log} . &&
 sensible-browser svnstats.out/index.html
+
+exit
+
+#  -exclude "paymentgate-server/src/main/java/net/flitech/coredb/model/**/*.java;paymentgate-server/src/main/java/net/flitech/paymentgate/model/**/*.java" \
