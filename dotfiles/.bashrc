@@ -28,8 +28,8 @@ alias rm='rm -i'
 alias cx='chmod +x'
 alias cw='chmod +w'
 
-alias vbp='vim ~/.bash_profile'
-alias sbp='source ~/.bash_profile'
+alias vbp='vim ~/.profile'
+alias sbp='source ~/.profile'
 alias vbrc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 
