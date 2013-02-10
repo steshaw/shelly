@@ -1,0 +1,9 @@
+mvn --settings ${HOME}/.m2/settings.thirdparty.xml deploy:deploy-file \
+      -DgroupId=com.microsoft \
+      -DartifactId=sqljdbc4 \
+      -Dversion=4.0.2206 \
+      -Dpackaging=jar \
+      -Dfile=sqljdbc4.jar \
+      -Durl=http://adevl66.au.fcl.internal:8081/nexus/content/repositories/thirdparty \
+      -DrepositoryId=thirdparty
+

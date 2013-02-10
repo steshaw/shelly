@@ -1,6 +1,6 @@
 [user]
   name = Steven Shaw
-  email = steven@steshaw.org
+  email = steshaw@gmail.com
 
 [color]
   diff = auto
@@ -11,6 +11,13 @@
   co = checkout
   ls = ls-files
   slog = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+  llog = log --date=local
 
 [merge]
   tool = meld
+
+[core]
+	excludesfile = /home/steshaw/.gitignore.global
+	autocrlf = input
+[credential]
+	helper = cache --timeout 36000

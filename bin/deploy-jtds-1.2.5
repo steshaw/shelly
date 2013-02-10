@@ -1,0 +1,10 @@
+mvn --settings ${HOME}/.m2/settings.thirdparty.xml deploy:deploy-file \
+      -DgroupId=net.sourceforge.jtds \
+      -DartifactId=jtds \
+      -Dversion=1.2.5 \
+      -Dclassifier= \
+      -Dpackaging=jar \
+      -Dfile=jtds-1.2.5.jar \
+      -Durl=http://adevl66.au.fcl.internal:8081/nexus/content/repositories/thirdparty \
+      -DrepositoryId=thirdparty
+

@@ -1,11 +1,12 @@
 ;
-; Viper
+; Viper - vi/vim emulation
 ;
 (setq viper-mode t)
 (require 'viper)
 
 ;
-; Theme
+; Aquamacs theme
+; 
 ;
 (when (featurep 'aquamacs)
     ;; switch to white on black
@@ -37,16 +38,18 @@
 (require 'color-theme-solarized)
 (color-theme-solarized-light)
 
-;
-; Coq
-;
-(setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
-(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
 ;
 ; ProofGeneral
 ;
 (load-file "/Users/steshaw/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el")
 
+; Scala
+;
+(add-to-list 'load-path "/path/to/some/directory/scala-mode")
+(require 'scala-mode-auto)
+
+;
 ; TODO: Unavailable in Aquamacs.
+;
 ;(start-server)

@@ -13,8 +13,8 @@ export EDITOR=/usr/bin/vim
 
 set -o vi
 
-#alias ls='ls --color -FGh'
-alias ls='ls -GFh'
+alias ls='ls --color -Fh'
+#alias ls='ls -GFh'
 alias l='ls -l'
 alias ll='l -a'
 
@@ -28,8 +28,8 @@ alias rm='rm -i'
 alias cx='chmod +x'
 alias cw='chmod +w'
 
-alias vbp='vim ~/.bash_profile'
-alias sbp='source ~/.bash_profile'
+alias vbp='vim ~/.profile'
+alias sbp='source ~/.profile'
 alias vbrc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 
@@ -46,6 +46,10 @@ elif [[ -x $(which xdg-open) ]]; then
 else
   alias o='open'
 fi
+
+# These are dangerous.
+#alias git-svn-up='git stash && git svn rebase && git stash pop'
+#alias git-svn-commit='git stash && git svn dcommit && git stash pop'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 

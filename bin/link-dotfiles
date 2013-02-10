@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 fromDir=$(dirname $0)/../dotfiles
 
 if [[ ! -f $fromDir/.bashrc ]]; then
