@@ -27,8 +27,8 @@
 ;
 ; Agda
 ;
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+;(load-file (let ((coding-system-for-read 'utf-8))
+;                (shell-command-to-string "agda-mode locate")))
 
 ;
 ; Solarized
@@ -36,6 +36,17 @@
 (add-to-list 'load-path "~/External/Projects/emacs-color-theme-solarized")
 (require 'color-theme-solarized)
 (color-theme-solarized-light)
+
+;
+; Coq
+;
+(setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
+(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+
+;
+; ProofGeneral
+;
+(load-file "/Users/steshaw/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el")
 
 ; TODO: Unavailable in Aquamacs.
 ;(start-server)
