@@ -7,11 +7,14 @@
   status = auto
 
 [alias]
-  s = status -s
+  s = status --short --branch
   co = checkout
   ls = ls-files
-  slog = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+  slog = log --oneline --decorate
+  slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
   llog = log --date=local
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  wdiff = diff --word-diff 
 
 [merge]
   tool = meld
