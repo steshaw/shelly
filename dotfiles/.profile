@@ -112,3 +112,8 @@ PATH=/usr/class/cs143/cool/bin:$PATH
 #
 bashrc=~/.bashrc
 [[ -f ${bashrc} ]] && . ${bashrc}
+
+#
+# Ephox etools
+#
+PATH="${HOME}/bin.etools:${PATH}"
