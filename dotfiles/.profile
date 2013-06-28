@@ -2,7 +2,7 @@
 # .bash_profile
 #
 
-function homeFromBin() {
+homeFromBin() {
   command=$1
   bin=$(which $command)
   if [[ -n $bin ]]; then
