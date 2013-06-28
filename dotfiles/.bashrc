@@ -104,6 +104,7 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+[[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
 
 ### Added by the Heroku Toolbelt
