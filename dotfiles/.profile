@@ -17,7 +17,10 @@ homeFromBin() {
 appPath=~/bin/app-path
 [ -f ${appPath} ] && . ${appPath}
 
-PATH=~/bin:$PATH
+homeBin="${HOME}/bin"
+if [ -d "${homeBin}" ] ; then
+  PATH="$homeBin:$PATH"
+fi
 sync-env-to-plist PATH
 
 #
@@ -40,7 +43,7 @@ haskellBinDir=~/Library/Haskell/bin
 #
 # Java.
 #
-if [ "$(uname)" == 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 sync-env-to-plist JAVA_HOME
@@ -110,8 +113,11 @@ PATH=/usr/class/cs143/cool/bin:$PATH
 #
 # Explicitly call the .bashrc
 #
-bashrc=~/.bashrc
-[ -f ${bashrc} ] && . ${bashrc}
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+  bashrc="$HOME/.bashrc"
+  [ -f ${bashrc} ] && . ${bashrc}
+fi
 
 #
 # Ephox etools
