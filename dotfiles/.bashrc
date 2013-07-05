@@ -3,14 +3,14 @@
 #
 
 skeletonBashrc=/etc/skel.bashrc
-[[ -f ${skeletonBashrc} ]] && . ${skeletonBashrc}
+[ -f "${skeletonBashrc}" ] && . ${skeletonBashrc}
 
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
 #export PS1='\n\u@\h: \w\n\$ '
 
 
 gitPrompt=~/.git-prompt.sh
-[[ -f ${gitPrompt} ]] && . ${gitPrompt}
+[ -f "${gitPrompt}" ] && . ${gitPrompt}
 
 bash_prompt() {
   case $TERM in
@@ -94,9 +94,9 @@ alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
-if [[ -x $(which gnome-open) ]]; then
+if [ -x "$(which gnome-open)" ]; then
   alias o='gnome-open'
-elif [[ -x $(which xdg-open) ]]; then
+elif [ -x "$(which xdg-open)" ]; then
   alias o='xdg-open'
 else
   alias o='open'
@@ -108,7 +108,11 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
+bashrcLocal=~/.bashrc.local
+[ -f "${bashrcLocal}" ] && source "${bashrcLocal}"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### trying here
+PATH="${PATH}:${HOME}/bin.etools"

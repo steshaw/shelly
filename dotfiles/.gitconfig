@@ -1,10 +1,12 @@
 [user]
   name = Steven Shaw
-  email = steshaw@gmail.com
+  email = steven.shaw@ephox.com
+;  email = steshaw@gmail.com
 
 [color]
   diff = auto
   status = auto
+  branch = auto
 
 [alias]
   s = status --short --branch
@@ -14,13 +16,23 @@
   slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
   llog = log --date=local
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-  wdiff = diff --word-diff 
+  wdiff = diff --word-diff
 
 [merge]
   tool = meld
 
 [core]
-	excludesfile = /home/steshaw/.gitignore.global
-	autocrlf = input
+  excludesfile = /home/steshaw/.gitignore.global
+  autocrlf = input
+
 [credential]
-	helper = cache --timeout 36000
+  helper = cache --timeout 36000
+
+[push]
+  default = simple
+
+;[merge]
+;  tool = meld
+
+;[credential]
+;  helper = cache --timeout 36000
