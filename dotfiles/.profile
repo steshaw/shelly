@@ -5,7 +5,7 @@
 homeFromBin() {
   command=$1
   bin=$(which $command)
-  if [[ -n $bin ]]; then
+  if [ -n "$bin" ]; then
     bin=$(real-path $bin)
     echo $(dirname $(dirname $bin))
   fi
@@ -15,7 +15,7 @@ homeFromBin() {
 # Setup PATH. Shelly apps and ~/bin.
 #
 appPath=~/bin/app-path
-[[ -f ${appPath} ]] && . ${appPath}
+[ -f ${appPath} ] && . ${appPath}
 
 PATH=~/bin:$PATH
 sync-env-to-plist PATH
@@ -23,7 +23,7 @@ sync-env-to-plist PATH
 #
 # Homebrew
 #
-if [[ -x $(which brew) ]]; then
+if [ -x "$(which brew)" ]; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   sync-env-to-plist PKG_CONFIG_PATH
 fi
@@ -32,15 +32,15 @@ fi
 # Haskell
 #
 cabalBinDir=~/.cabal/bin
-[[ -d $cabalBinDir ]] && PATH=$cabalBinDir:$PATH
+[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
 
 haskellBinDir=~/Library/Haskell/bin
-[[ -d $haskellBinDir ]] && PATH=$haskellBinDir:$PATH
+[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
 
 #
 # Java.
 #
-if [[ $(uname) == 'Darwin' ]]; then
+if [ "$(uname)" == 'Darwin' ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 sync-env-to-plist JAVA_HOME
@@ -48,8 +48,8 @@ sync-env-to-plist JAVA_HOME
 #
 # Scala.
 #
-SCALA_HOME=$(homeFromBin scala)
-if [[ -n $SCALA_HOME ]]; then
+SCALA_HOME="$(homeFromBin scala)"
+if [ -n $SCALA_HOME ]; then
   export SCALA_HOME
   sync-env-to-plist SCALA_HOME
 fi
@@ -71,8 +71,8 @@ sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
 #
 # Maven.
 #
-M2_HOME=$(homeFromBin mvn)
-if [[ -n $M2_HOME ]]; then
+M2_HOME="$(homeFromBin mvn)"
+if [ -n $M2_HOME ]; then
   export M2_HOME
   export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
   sync-env-to-plist M2_HOME
@@ -82,7 +82,7 @@ fi
 # Sather.
 #
 satherHome=/home/steshaw/.shelly/apps/sather
-if [[ -d $satherHome ]]; then
+if [ -d "$satherHome" ]; then
   export SATHER_HOME=$satherHome
   sync-env-to-plist SATHER_HOME
 fi
@@ -90,7 +90,7 @@ fi
 #
 # Haxe
 #
-if [[ -x $(which brew) ]]; then
+if [ -x "$(which brew)" ]; then
   export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
   sync-env-to-plist HAXE_LIBRARY_PATH
 fi
@@ -100,7 +100,7 @@ fi
 #
 # Load RVM into a shell session *as a function*
 #
-[[ -s "/Users/steshaw/.rvm/scripts/rvm" ]] && source "/Users/steshaw/.rvm/scripts/rvm"
+[ -s "/Users/steshaw/.rvm/scripts/rvm" ] && source "/Users/steshaw/.rvm/scripts/rvm"
 
 #
 # Setup COOL compiler class.
@@ -111,9 +111,9 @@ PATH=/usr/class/cs143/cool/bin:$PATH
 # Explicitly call the .bashrc
 #
 bashrc=~/.bashrc
-[[ -f ${bashrc} ]] && . ${bashrc}
+[ -f ${bashrc} ] && . ${bashrc}
 
 #
 # Ephox etools
 #
-PATH="${HOME}/bin.etools:${PATH}"
+PATH="${PATH}:${HOME}/bin.etools"
