@@ -8,6 +8,10 @@ skeletonBashrc=/etc/skel.bashrc
 # 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
 #export PS1='\n\u@\h: \w\n\$ '
 
+
+gitPrompt=~/.git-prompt.sh
+[[ -f ${gitPrompt} ]] && . ${gitPrompt}
+
 bash_prompt() {
   case $TERM in
     xterm*|rxvt*)

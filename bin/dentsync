@@ -1,0 +1,37 @@
+CHINA=cero
+TEMP_CHINA=/tmp/nuke.remote.depend
+
+if [ "$1" == "" ]; then
+  PROJECT=`pwd`
+elif [ -d "$1" ]; then
+  PROJECT=$1
+else
+  PROJECT="~/work/$1"
+fi
+
+if [ -f "$PROJECT/build/depend.js" ]; then
+  echo "old style build/depend.js projects not supported"
+  exit 1
+fi
+
+if [ ! -d "$PROJECT/config" ]; then
+  echo "unable to find config folder in $PROJECT"
+  exit 1
+fi
+
+before=`date +%s`
+
+echo ""
+echo "denting into $TEMP_CHINA on $CHINA"
+echo ""
+
+ssh $CHINA "mkdir -p $TEMP_CHINA" && 
+rsync -aH --delete $PROJECT/config $CHINA:$TEMP_CHINA && 
+ssh $CHINA "cd $TEMP_CHINA && dent -clean" && 
+echo "" &&
+echo "syncing remote lib folder back to here" &&
+echo "" &&
+rsync -aHP --delete --exclude '*.zip' $CHINA:$TEMP_CHINA/lib $PROJECT
+
+echo ""
+echo "Total time for dent: $((($(date +%s))-${before})) seconds"
