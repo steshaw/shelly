@@ -1,7 +1,6 @@
 [user]
   name = Steven Shaw
-  email = steshaw@gmail.com
-;  email = steven.shaw@ephox.com
+  email = steven.shaw@ephox.com
 
 [color]
   diff = auto
