@@ -1,11 +1,12 @@
 ;
-; Viper
+; Viper - vi/vim emulation
 ;
 (setq viper-mode t)
 (require 'viper)
 
 ;
-; Theme
+; Aquamacs theme
+; 
 ;
 (when (featurep 'aquamacs)
     ;; switch to white on black
@@ -27,8 +28,8 @@
 ;
 ; Agda
 ;
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+;(load-file (let ((coding-system-for-read 'utf-8))
+;                (shell-command-to-string "agda-mode locate")))
 
 ;
 ; Solarized
@@ -37,5 +38,18 @@
 (require 'color-theme-solarized)
 (color-theme-solarized-light)
 
+
+;
+; ProofGeneral
+;
+(load-file "/Users/steshaw/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el")
+
+; Scala
+;
+(add-to-list 'load-path "/path/to/some/directory/scala-mode")
+(require 'scala-mode-auto)
+
+;
 ; TODO: Unavailable in Aquamacs.
+;
 ;(start-server)

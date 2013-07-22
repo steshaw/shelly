@@ -42,6 +42,6 @@ elif [[ $command = 'upgrade' ]]; then
   fi
 else
   basename=$(basename $0)
-  echo "${basename}: unknown command" >&2
+  echo "${basename}: '${command}' is an unknown command" >&2
   exit 1
 fi

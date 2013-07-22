@@ -1,0 +1,5 @@
+#!/bin/bash
+
+startPath=$1; shift
+
+find $startPath -type d \( -name .svn -o -name .git -o -name .hg -o -name target \) -prune -o "$@"

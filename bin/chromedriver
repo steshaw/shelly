@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo exec /usr/bin/google-chrome "$@"
+exec /usr/bin/google-chrome "$@"

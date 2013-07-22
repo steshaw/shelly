@@ -1,0 +1,33 @@
+#!/bin/bash
+
+war=$(ls paymentgate-server/target/*.war)
+dbChangeLog='paymentgate-server/src/main/resources/db-changelog.xml'
+driverJar=${HOME}/.m2/repository/com/microsoft/sqljdbc4/4.0.2206/sqljdbc4-4.0.2206.jar
+
+set -x
+
+liquibase \
+  --driver=com.microsoft.sqlserver.jdbc.SQLServerDriver \
+  --classpath=${war} \
+  --changeLogFile=${dbChangeLog} \
+  --url='jdbc:sqlserver://abnew500.au.fcl.internal;user=PaymentGateUser;password=X57ahUjU;databaseName=PaymentGate_DEV' \
+  "$@"
+
+#echo "rollbackToDateSQL 2012-11-01T00:00:00 -Dproject.version=1 -Dbuild.number=1 > rollback.sql"
+
+exit
+
+===Rollback Database===
+Go to server where liquibase is installed
+Open a command prompt and go to the directory where the release package has been unzipped
+Execute the command below.  Replace username, password, database URL (if PROD deploy) and rollback date
+
+PROD
+--url="jdbc:sqlserver://asydw95.au.fcl.internal;databaseName=PaymentGate_PRD"
+
+STAGE
+--url="jdbc:sqlserver://asydw49.au.fcl.internal;databaseName=PaymentGate_STG"
+
+liquibase --driver=com.microsoft.sqlserver.jdbc.SQLServerDriver --classpath=*.war --changeLogFile=/WEB-INF/classes/db-changelog.xml --url="jdbc:sqlserver://asydw49.au.fcl.internal;databaseName=PaymentGate_STG" --username=PaymentGateUser --password=X57ahUjU rollbackToDateSQL 2012-11-01T00:00:00 -Dproject.version=1 -Dbuild.number=1 > rollback.sql
+
+Execute the rollback.sql file that was generated on Prod or Stage database (depending on where app deploy is currently going to)

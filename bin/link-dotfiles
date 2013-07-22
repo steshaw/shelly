@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 fromDir=$(dirname $0)/../dotfiles
 
 if [[ ! -f $fromDir/.bashrc ]]; then
@@ -9,13 +7,11 @@ if [[ ! -f $fromDir/.bashrc ]]; then
   exit 1
 fi
 
-echo fromDir=${fromDir}
-
 for file in ${fromDir}/.[a-z]*; do
   basefile=$(basename $file)
   if [[ -f ~/$basefile ]]; then
     if [[ -L ~/$basefile ]]; then
-      echo ${basefile} already a link to $(readlink -f ~/${basefile})
+      echo ${basefile} already a link to $(readlink ~/${basefile})
     else
       echo Moving existing ${basefile} to ${basefile}.old
       mv -i ~/${basefile} ~/${basefile}.old
