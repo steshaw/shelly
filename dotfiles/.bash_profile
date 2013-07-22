@@ -90,6 +90,12 @@ if [[ -x $(which brew) ]]; then
 fi
 
 #
+# NekoVM
+#
+nekoLib="${HOME}/.shelly/local/nekovm-trunk/lib/neko"
+[[ -d $nekoLib ]] && export NEKOPATH=${nekoLib}
+
+#
 # RVM
 #
 # Load RVM into a shell session *as a function*
