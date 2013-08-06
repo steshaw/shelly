@@ -1,6 +1,6 @@
 [user]
   name = Steven Shaw
-  email = steven.shaw@ephox.com
+  email = steshaw@gmail.com
 
 [color]
   diff = auto
@@ -21,7 +21,7 @@
   tool = meld
 
 [core]
-  excludesfile = /home/steshaw/.gitignore.global
+  excludesfile = ~/.gitignore.global
   autocrlf = input
 
 [credential]
