@@ -34,7 +34,7 @@ fi
 #
 # Haskell
 #
-cabalBinDir=~/.cabal/bin
+cabalBinDir=${HOME}/.cabal/bin
 [ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
 
 haskellBinDir=~/Library/Haskell/bin
