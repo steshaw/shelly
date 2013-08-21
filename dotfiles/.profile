@@ -12,11 +12,20 @@ homeFromBin() {
 }
 
 #
-# Setup PATH. Shelly apps and ~/bin.
+# Setup shelly app-path.
 #
-appPath=~/bin/app-path
-[ -f ${appPath} ] && . ${appPath}
+shellyBin="${HOME}/Projects/shelly/bin"
+if [ -d "${shellyBin}" ] ; then
+  appPath=${shellyBin}/app-path
+  [ -f ${appPath} ] && . ${appPath}
 
+  PATH="${shellyBin}:${PATH}"
+  sync-env-to-plist PATH
+fi
+
+#
+# Add ~/bin to PATH
+#
 homeBin="${HOME}/bin"
 if [ -d "${homeBin}" ] ; then
   PATH="$homeBin:$PATH"
