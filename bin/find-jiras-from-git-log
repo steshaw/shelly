@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# The '^' is appended the bottom/since hash because is not inclusive.
+git log 8214f6612973dec88d793bc755d66726f12c4327^..def8626b434f8891708a0d92540d356635cb5b49 | grep EL- | perl -pe 's/^.*\b(EL-\d+)\b.*$/\1/;' | sort -u

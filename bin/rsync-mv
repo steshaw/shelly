@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then exec rsync; fi
+
+exec rsync --archive --hard-links --extended-attributes --remove-source-files --progress "$@"
