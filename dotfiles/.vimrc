@@ -13,8 +13,9 @@ set expandtab
 set smarttab
 set smartindent
 set cindent
-
 set modelines=5
+
+execute pathogen#infect()
 
 " Break hard-links - may need to break hard-links when using Mercurial optimised clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
