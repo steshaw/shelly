@@ -1,4 +1,12 @@
 #!/bin/bash
 
+if [[ $# -ne 2 ]]; then
+  echo "usage: $(basename $0) start-commit end-commit" >&2
+  exit 2
+fi
+
+startCommit=$1
+endCommit=$2
+
 # The '^' is appended the bottom/since hash because is not inclusive.
-git log 8214f6612973dec88d793bc755d66726f12c4327^..def8626b434f8891708a0d92540d356635cb5b49 | grep EL- | perl -pe 's/^.*\b(EL-\d+)\b.*$/\1/;' | sort -u
+git log "${startCommit}^..${endCommit}" | grep EL- | perl -pe 's/^.*\b(EL-\d+)\b.*$/\1/;' | sort -u
