@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function printPath {
+  tr : '\n'
+}
+
+echo PATH:
+echo $PATH | printPath
+echo
+echo LD_LIBRARY_PATH:
+echo $LD_LIBRARY_PATH | printPath
+echo
+echo DYLD_LIBRARY_PATH:
+echo $DYLD_LIBRARY_PATH | printPath
