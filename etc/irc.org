@@ -1,0 +1,16 @@
+
+* irc.freenode.net
+
+  - ##ats
+  - ##hott
+  - #bfpg
+  - #fp-in-scala
+  - #ghc
+  - #haskell
+  - #haskell-lens
+  - #haskell.au
+  - #idris
+  - #nanomsg
+  - #scala
+  - #scalaz
+
