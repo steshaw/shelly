@@ -16,12 +16,13 @@
   llog = log --date=local
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
   wdiff = diff --word-diff
+  undo = reset --soft HEAD^
 
 [merge]
   tool = meld
 
 [core]
-  excludesfile = /home/steshaw/.gitignore.global
+  excludesfile = ~/.gitignore.global
   autocrlf = input
 
 [credential]

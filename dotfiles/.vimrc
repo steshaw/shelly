@@ -13,8 +13,9 @@ set expandtab
 set smarttab
 set smartindent
 set cindent
-
 set modelines=5
+
+execute pathogen#infect()
 
 " Break hard-links - may need to break hard-links when using Mercurial optimised clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
@@ -24,3 +25,4 @@ au BufNewFile,BufRead *.m set filetype=modula2
 au BufNewFile,BufRead *.yeti setlocal filetype=yeti ts=8 sw=4 sts=4 expandtab
 au BufNewFile,BufRead *.cl,*.cool set filetype=cool
 au BufNewFile,BufRead *.cup set filetype=cup
+au BufNewFile,BufRead *.g4 set filetype=antlr

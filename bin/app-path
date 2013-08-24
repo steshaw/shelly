@@ -12,10 +12,15 @@ script=app-path
 
 shelly_apps=~/.shelly/apps
 
+# Save the original paths.
 export SHELLY_ORIGINAL_PATH=${SHELLY_ORIGINAL_PATH:-$PATH}
+export SHELLY_ORIGINAL_LD_LIBRARY_PATH=${SHELLY_ORIGINAL_LD_LIBRARY_PATH:-$LD_LIBRARY_PATH}
+export SHELLY_ORIGINAL_DYLD_LIBRARY_PATH=${SHELLY_ORIGINAL_DYLD_LIBRARY_PATH:-$DYLD_LIBRARY_PATH}
 
-# Clobber PATH so that we don't keep prepending to it.
+# Clobber paths so that we don't keep prepending to them.
 PATH=$SHELLY_ORIGINAL_PATH
+LD_LIBRARY_PATH=$SHELL_ORIGINAL_LD_LIBRARY_PATH
+DYLD_LIBRARY_PATH=$SHELL_ORIGINAL_DYLD_LIBRARY_PATH
 
 ls_soft_link_separator=' -> '
 
@@ -41,6 +46,7 @@ if [ -d "$shelly_apps" ]; then
       libDir=$dir/lib
       if [ -d "$libDir" ]; then
         export LD_LIBRARY_PATH=$libDir:$LD_LIBRARY_PATH
+        export DYLD_LIBRARY_PATH=$libDir:$LD_LIBRARY_PATH
       fi
 
       pkgConfigDir=$dir/lib/pkgconfig

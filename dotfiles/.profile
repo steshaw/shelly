@@ -12,11 +12,20 @@ homeFromBin() {
 }
 
 #
-# Setup PATH. Shelly apps and ~/bin.
+# Setup shelly app-path.
 #
-appPath=~/bin/app-path
-[ -f ${appPath} ] && . ${appPath}
+shellyBin="${HOME}/Projects/shelly/bin"
+if [ -d "${shellyBin}" ] ; then
+  appPath=${shellyBin}/app-path
+  [ -f ${appPath} ] && . ${appPath}
 
+  PATH="${shellyBin}:${PATH}"
+  sync-env-to-plist PATH
+fi
+
+#
+# Add ~/bin to PATH
+#
 homeBin="${HOME}/bin"
 if [ -d "${homeBin}" ] ; then
   PATH="$homeBin:$PATH"
@@ -99,11 +108,25 @@ if [ -x "$(which brew)" ]; then
 fi
 
 #
+# NekoVM
+#
+nekoLib="${HOME}/.shelly/local/nekovm-trunk/lib/neko"
+[[ -d $nekoLib ]] && export NEKOPATH=${nekoLib}
+
+#
 # RVM
 #
 # Load RVM into a shell session *as a function*
 #
 [ -s "/Users/steshaw/.rvm/scripts/rvm" ] && source "/Users/steshaw/.rvm/scripts/rvm"
+
+#
+# Antlr
+#
+if [[ -d ${HOME}/.shelly/local/antlr ]]; then
+  alias antlr4="java -jar ${HOME}/.shelly/local/antlr/antlr-4.1-complete.jar"
+  alias grun="java -cp .:${HOME}/.shelly/local/antlr/antlr-4.1-complete.jar org.antlr.v4.runtime.misc.TestRig"
+fi
 
 #
 # Setup COOL compiler class.
