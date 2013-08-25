@@ -34,22 +34,25 @@
 ;
 ; Solarized
 ;
-(add-to-list 'load-path "~/External/Projects/emacs-color-theme-solarized")
-(require 'color-theme-solarized)
-(color-theme-solarized-light)
-
+(let ((emacs-color-theme-solarized-dir "~/.shelly/local/emacs-color-theme-solarized"))
+  (if (featurep 'aquamacs)
+    (progn
+      (add-to-list 'load-path emacs-color-theme-solarized-dir)
+      (require 'color-theme-solarized)
+      (color-theme-solarized-light))
+    (progn
+      (add-to-list 'custom-theme-load-path emacs-color-theme-solarized-dir)
+      (load-theme 'solarized-dark t))))
 
 ;
 ; ProofGeneral
 ;
-(load-file "/Users/steshaw/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el")
+(if (featurep 'aquamacs)
+  (load-file "~/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el"))
 
 ; Scala
 ;
-(add-to-list 'load-path "/path/to/some/directory/scala-mode")
-(require 'scala-mode-auto)
+;(add-to-list 'load-path "/path/to/some/directory/scala-mode")
+;(require 'scala-mode-auto)
 
-;
-; TODO: Unavailable in Aquamacs.
-;
-;(start-server)
+(server-start)
