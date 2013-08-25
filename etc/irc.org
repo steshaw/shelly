@@ -1,4 +1,3 @@
-
 * irc.freenode.net
 
   - ##ats
@@ -13,4 +12,3 @@
   - #nanomsg
   - #scala
   - #scalaz
-
