@@ -129,6 +129,12 @@ if [[ -d ${HOME}/.shelly/local/antlr ]]; then
 fi
 
 #
+# Emacs 24
+#
+macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
+[[ -d $macEmacsBin ]] && PATH=${macEmacsBin}:${PATH}
+
+#
 # Setup COOL compiler class.
 #
 PATH=/usr/class/cs143/cool/bin:$PATH
