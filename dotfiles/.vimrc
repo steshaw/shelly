@@ -15,6 +15,10 @@ set smartindent
 set cindent
 set modelines=5
 
+if has("gui_running")
+  colorscheme koehler
+endif
+
 execute pathogen#infect()
 
 " Break hard-links - may need to break hard-links when using Mercurial optimised clones.
