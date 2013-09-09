@@ -9,6 +9,7 @@
   - #haskell-lens
   - #haskell.au
   - #idris
+  - #illumos
   - #nanomsg
   - #scala
   - #scalaz
