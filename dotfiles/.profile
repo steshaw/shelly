@@ -35,6 +35,8 @@ sync-env-to-plist PATH
 #
 # Homebrew
 #
+brewBin=/usr/local/bin
+[[ -d $brewBin ]] && PATH=${brewBin}:${PATH}
 if [ -x "$(which brew)" ]; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   sync-env-to-plist PKG_CONFIG_PATH
@@ -147,6 +149,7 @@ if [ -n "$BASH_VERSION" ]; then
   bashrc="$HOME/.bashrc"
   [ -f ${bashrc} ] && . ${bashrc}
 fi
+
 
 #
 # Ephox etools

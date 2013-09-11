@@ -5,6 +5,18 @@
 (require 'viper)
 
 ;
+; Speedbar
+;
+(custom-set-variables
+ '(speedbar-show-unknown-files t)
+ '(sr-speedbar-auto-refresh t)
+ '(sr-speedbar-right-side nil)
+)
+(load-file "~/sr-speedbar.el")
+(require 'sr-speedbar)
+(sr-speedbar-open)
+
+;
 ; Aquamacs theme
 ; 
 ;
@@ -50,9 +62,28 @@
 (if (featurep 'aquamacs)
   (load-file "~/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el"))
 
+;
 ; Scala
 ;
-;(add-to-list 'load-path "/path/to/some/directory/scala-mode")
-;(require 'scala-mode-auto)
 
+; scala-mode2
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+  (unless (package-installed-p 'scala-mode2)
+     (package-refresh-contents) (package-install 'scala-mode2))
+
+; ensime
+(add-to-list 'load-path "~/.shelly/local/src/main/elisp/")
+(require 'ensime)
+
+;; This step causes the ensime-mode to be started whenever
+;; scala-mode is started for a buffer. You may have to customize this step
+;; if you're not using the standard scala mode.
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+;
+;
+;
 (server-start)

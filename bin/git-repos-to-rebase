@@ -1,0 +1,31 @@
+#!/bin/bash
+
+findRepos() {
+  find . -type d -name .git | sed -e 's-/\.git$--'  
+}
+
+listBranches() {
+  git branch --list | perl -pe 's/^\* //'
+}
+
+pruneBranches() {
+  git fetch -p
+}
+
+switchToRebase() {
+  branch=$1
+  echo Switching ${branch} to rebase
+  git config branch.${branch}.rebase true
+}
+
+allBranchesToRebase() {
+  listBranches | while read branch; do
+    switchToRebase ${branch}
+  done
+}
+
+findRepos | while read repo; do
+  echo $repo
+  (cd $repo && pruneBranches && allBranchesToRebase)
+  echo
+done
