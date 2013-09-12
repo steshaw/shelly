@@ -12,5 +12,6 @@
   - #idris
   - #illumos
   - #nanomsg
+  - #ocaml
   - #scala
   - #scalaz
