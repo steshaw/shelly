@@ -28,7 +28,7 @@ elif [[ $command = 'remove' || $command = "uninstall" ]]; then
   else
     sudo apt-get autoremove "$@"
   fi
-elif [[ $command = 'update' ]]; then
+elif [[ $command = 'refresh' || $command = 'update' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew update "$@"
   else
