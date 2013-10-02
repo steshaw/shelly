@@ -1,4 +1,10 @@
 ;
+; Org
+;
+(require 'package)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+;
 ; Viper - vi/vim emulation
 ;
 (setq viper-mode t)
