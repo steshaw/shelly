@@ -1,14 +1,14 @@
 * irc.freenode.net
 
   - ##ats
-  - ##hott
   - #bfpg
   - #coreos
   - #fp-in-scala
   - #ghc
   - #haskell
-  - #haskell-lens
   - #haskell.au
+  - #haskell-lens
+  - ##hott
   - #idris
   - #illumos
   - #nanomsg
