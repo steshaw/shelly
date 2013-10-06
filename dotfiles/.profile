@@ -69,12 +69,6 @@ if [ -n $SCALA_HOME ]; then
 fi
 
 #
-# sbt
-#
-export SBT_OPTS="-Dhttp.proxyHost=proxy.bne.flitech.net -Dhttp.proxyPort=3128 -Dhttp.nonProxyHosts=localhost|127.0.0.0/8|*.flitech.net|*.fcl.internal|*.fcltest"
-sync-env-to-plist SBT_OPTS
-
-#
 # JRebel.
 #
 export REBEL_HOME=/Applications/ZeroTurnaround/JRebel
