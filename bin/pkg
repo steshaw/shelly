@@ -4,6 +4,13 @@ command=$1; shift
 
 uname=$(uname)
 
+Usage() {
+  cat >&2 <<!
+usage: $(basename $0) info|search|install|remove|refresh|upgrade|installed|files
+!
+  exit 2
+}
+
 if [[ $command = 'info' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew info "$@"
@@ -40,8 +47,18 @@ elif [[ $command = 'upgrade' ]]; then
   else
     sudo apt-get upgrade "$@"
   fi
+elif [[ $command = 'installed' ]]; then
+  if [[ $uname = 'Darwin' ]]; then
+    echo "Not implemented" >&2
+  else
+    dpkg --get-selections
+  fi
+elif [[ $command = 'files' ]]; then
+  if [[ $uname = 'Darwin' ]]; then
+    echo "Not implemented" >&2
+  else
+    dpkg -L "$@"
+  fi
 else
-  basename=$(basename $0)
-  echo "${basename}: '${command}' is an unknown command" >&2
-  exit 1
+  Usage
 fi
