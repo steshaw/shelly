@@ -3,6 +3,7 @@
   - ##ats
   - #bfpg
   - #coreos
+  - #freebsd
   - #fp-in-scala
   - #ghc
   - #haskell
