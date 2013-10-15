@@ -16,3 +16,4 @@
   - #ocaml
   - #scala
   - #scalaz
+  - #sml
