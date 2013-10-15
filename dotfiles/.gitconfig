@@ -18,9 +18,6 @@
   wdiff = diff --word-diff
   undo = reset --soft HEAD^
 
-[merge]
-  tool = meld
-
 [core]
   excludesfile = ~/.gitignore.global
   autocrlf = input
@@ -30,13 +27,22 @@
 
 [push]
   default = simple
-
-;[merge]
-;  tool = meld
-
 ;[credential]
 ;  helper = cache --timeout 36000
+
 [rerere]
   enabled = true
+
 [branch]
   autosetuprebase = always
+
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
+
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	trustExitCode = true
+	cmd = /usr/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
