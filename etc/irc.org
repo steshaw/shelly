@@ -14,6 +14,7 @@
   - #illumos
   - #nanomsg
   - #ocaml
+  - #proglangdesign
   - #scala
   - #scalaz
   - #sml
