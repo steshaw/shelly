@@ -89,7 +89,8 @@
 ;; if you're not using the standard scala mode.
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-;
-;
-;
+(load-file "~/.emacs.d/confluence.el")
+;(require 'confluence)
+;(setq confluence-url "http://docs.ephox.com/rpc/xmlrpc")
+
 (server-start)
