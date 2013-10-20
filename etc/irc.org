@@ -3,8 +3,8 @@
   - ##ats
   - #bfpg
   - #coreos
-  - #freebsd
   - #fp-in-scala
+  - #freebsd
   - #ghc
   - #haskell
   - #haskell.au
