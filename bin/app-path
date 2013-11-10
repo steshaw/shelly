@@ -27,11 +27,11 @@ ls_soft_link_separator=' -> '
 if [ -d "$shelly_apps" ]; then
   for dir in ${shelly_apps}/*; do
     if [ "-d $dir" ]; then
-      if [ -L "$dir" ]; then
-        echo "$script: $dir -> "$(\ls -l "${dir}" | ruby -naF"${ls_soft_link_separator}" -e 'puts $F[1]')
-      else
-        echo $script: $dir
-      fi
+#      if [ -L "$dir" ]; then
+#        echo "$script: $dir -> "$(\ls -l "${dir}" | ruby -naF"${ls_soft_link_separator}" -e 'puts $F[1]')
+#      else
+#        echo $script: $dir
+#      fi
 
       binDir=$dir/bin
       if [ -d "$binDir" ]; then

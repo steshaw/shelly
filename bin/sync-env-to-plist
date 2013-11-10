@@ -22,7 +22,7 @@ domain=~/.MacOSX/environment
 
 function export_to_plist() {
   for var in "$@"; do
-    echo "$scriptName: synchronising $var with $domain"
+#    echo "$scriptName: synchronising $var with $domain"
     cmd="defaults write $domain ${var} \"\$${var}\""
     bash -c "$cmd"
   done
