@@ -119,3 +119,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### trying here
 PATH="${PATH}:${HOME}/bin.etools"
 PATH="${PATH}:${HOME}/work/editlive/editlivejava/bin"
+
+shopt -s globstat
