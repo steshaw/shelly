@@ -148,4 +148,4 @@ fi
 #
 # Ephox etools
 #
-PATH="${PATH}:${HOME}/bin.etools"
+PATH="${HOME}/bin.etools:${PATH}"

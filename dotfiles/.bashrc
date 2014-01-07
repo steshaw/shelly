@@ -120,4 +120,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 PATH="${PATH}:${HOME}/bin.etools"
 PATH="${PATH}:${HOME}/work/editlive/editlivejava/bin"
 
-shopt -s globstat
+shopt -s globstar
