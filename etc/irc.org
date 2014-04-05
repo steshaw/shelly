@@ -15,6 +15,7 @@
   - #nanomsg
   - #ocaml
   - #proglangdesign
+  - #purescript
   - #scala
   - #scalaz
   - #sml
