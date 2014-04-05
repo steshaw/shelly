@@ -99,15 +99,18 @@ fi
 # Haxe
 #
 if [ -x "$(which brew)" ]; then
-  export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
-  sync-env-to-plist HAXE_LIBRARY_PATH
+  HAXE_STD_PATH="$(brew --prefix)/lib/haxe/std"
+  if [[ -d ${HAXE_STD_PATH} ]]; then
+    export HAXE_STD_PATH
+    sync-env-to-plist HAXE_STD_PATH
+  fi
 fi
 
 #
 # NekoVM
 #
-nekoLib="${HOME}/.shelly/local/nekovm-trunk/lib/neko"
-[[ -d $nekoLib ]] && export NEKOPATH=${nekoLib}
+#nekoLib="${HOME}/.shelly/local/nekovm-trunk/lib/neko"
+#[[ -d $nekoLib ]] && export NEKOPATH=${nekoLib}
 
 #
 # RVM
