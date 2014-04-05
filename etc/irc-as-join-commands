@@ -1,0 +1,1 @@
+perl -ne 'if (/^  -/) {s/^  -/join/; print}' irc.org
