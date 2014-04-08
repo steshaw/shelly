@@ -31,3 +31,4 @@ au BufNewFile,BufRead *.cl,*.cool set filetype=cool
 au BufNewFile,BufRead *.cup set filetype=cup
 au BufNewFile,BufRead *.g4 set filetype=antlr
 au BufNewFile,BufRead *.idr set filetype=haskell
+au BufNewFile,BufRead *.purs set filetype=haskell
