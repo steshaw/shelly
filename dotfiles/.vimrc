@@ -9,9 +9,9 @@ fun Vundle()
   "Plugin 'kien/ctrlp.vim'
   "Plugin 'scrooloose/nerdtree'
   "Plugin 'scrooloose/nerdcommenter'
-  "Plugin 'scrooloose/syntastic'
+  Plugin 'scrooloose/syntastic'
   "Plugin 'tpope/vim-surround'
-  "Plugin 'flazz/vim-colorschemes'
+  Plugin 'flazz/vim-colorschemes'
   Plugin 'bling/vim-airline'
   Plugin 'airblade/vim-gitgutter'
 
@@ -62,5 +62,9 @@ autocmd BufNewFile,BufRead *.cup set filetype=cup
 autocmd BufNewFile,BufRead *.g4 set filetype=antlr
 autocmd BufNewFile,BufRead *.idr set filetype=haskell
 autocmd BufNewFile,BufRead *.purs set filetype=haskell
+
+let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
+
+autocmd BufWritePost *.hs,.hsc GhcModCheckAndLintAsync
 
 autocmd FileType make setlocal noexpandtab
