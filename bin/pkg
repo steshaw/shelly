@@ -47,9 +47,9 @@ elif [[ $command = 'upgrade' ]]; then
   else
     sudo apt-get upgrade "$@"
   fi
-elif [[ $command = 'installed' ]]; then
+elif [[ $command = 'installed' || $command = 'list' ]]; then
   if [[ $uname = 'Darwin' ]]; then
-    echo "Not implemented" >&2
+    brew list -1
   else
     dpkg --get-selections
   fi
