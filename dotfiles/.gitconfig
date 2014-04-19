@@ -1,59 +1,59 @@
 [user]
-  name = Steven Shaw
-  email = steven@steshaw.org
+	name = Steven Shaw
+	email = steven@steshaw.org
 
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+	diff = auto
+	status = auto
+	branch = auto
 
 [alias]
-  s = status --short --branch
-  co = checkout
-  ls = ls-files
-  slog = log --oneline --decorate
-  slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
-  llog = log --date=local
-  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-  wdiff = diff --word-diff
-  undo = reset --soft HEAD^
+	s = status --short --branch
+	co = checkout
+	ls = ls-files
+	slog = log --oneline --decorate
+	slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+	llog = log --date=local
+	graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+	wdiff = diff --word-diff
+	undo = reset --soft HEAD^
 
 [core]
-  excludesfile = ~/.gitignore.global
-  autocrlf = input
+	excludesfile = ~/.gitignore.global
+	autocrlf = input
 
 [credential]
-  helper = cache --timeout 36000
+	helper = cache --timeout 36000
 
 [push]
-  default = simple
+	default = simple
 ;[credential]
 ;  helper = cache --timeout 36000
 
 [rerere]
-  enabled = true
+	enabled = true
 
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 
 [diff]
-  tool = diffmerge
+	tool = diffmerge
 [difftool "diffmerge"]
-  cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
 
 [merge]
-  tool = diffmerge
+	tool = diffmerge
 [mergetool "diffmerge"]
-  trustExitCode = true
-  cmd = /usr/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
+	cmd = /usr/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [fetch]
-  prune = true
+	prune = true
 [filter "media"]
-  clean = git-media-clean %f
-  smudge = git-media-smudge %f
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
