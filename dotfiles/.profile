@@ -43,6 +43,13 @@ if [ -x "$(which brew)" ]; then
 fi
 
 #
+# bash-completions
+#
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+  . "$(brew --prefix)/etc/bash_completion"
+fi
+
+#
 # Haskell
 #
 cabalBinDir=${HOME}/.cabal/bin
@@ -152,3 +159,5 @@ fi
 # Ephox etools
 #
 PATH="${HOME}/bin.etools:${PATH}"
+
+sync-env-to-plist PATH
