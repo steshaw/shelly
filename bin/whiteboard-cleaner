@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#
+# Adapted from https://gist.github.com/lelandbatey/8677901
+#
+
+Usage() {
+  echo "usage: $(basename $0) input-file output-file" >&2
+  exit 2
+}
+
+if [[ $# -ne 2 ]]; then
+  Usage
+fi
+
+inputFile=$1
+outputFile=$2
+
+convert "${inputFile}" -morphology Convolve DoG:15,100,0 -negate -normalize -blur 0x1 -channel RBG -level 60%,91%,0.1 "${outputFile}"
