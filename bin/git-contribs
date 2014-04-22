@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#
+# Adapted from Scala 2.11.0 release announcement.
+#
+#   http://scala-lang.org/news/2014/04/21/release-notes-2.11.0.html
+#
+
+git log --no-merges --oneline master --format='%aN'  | sort | uniq -c | sort -rn
