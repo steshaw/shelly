@@ -7,6 +7,7 @@
   - #fp-in-scala
   - #freebsd
   - #ghc
+  - #hakyll
   - #haskell
   - #haskell.au
   - #haskell-lens
