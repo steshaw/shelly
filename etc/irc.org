@@ -9,8 +9,8 @@
   - #ghc
   - #hakyll
   - #haskell
-  - #haskell.au
   - #haskell-lens
+  - #haskell.au
   - ##hott
   - #idris
   - #illumos
@@ -21,3 +21,4 @@
   - #scala
   - #scalaz
   - #sml
+  - #zeromq
