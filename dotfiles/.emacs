@@ -18,7 +18,7 @@
  '(sr-speedbar-auto-refresh t)
  '(sr-speedbar-right-side nil)
 )
-(load-file "~/sr-speedbar.el")
+(load-file "~/.emacs.d/sr-speedbar.el")
 (require 'sr-speedbar)
 (sr-speedbar-open)
 
@@ -89,8 +89,8 @@
 ;; if you're not using the standard scala mode.
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-(load-file "~/.emacs.d/confluence.el")
-;(require 'confluence)
-;(setq confluence-url "http://docs.ephox.com/rpc/xmlrpc")
+;(load-file "~/.emacs.d/confluence.el")
+;;(require 'confluence)
+;;(setq confluence-url "http://docs.ephox.com/rpc/xmlrpc")
 
 (server-start)
