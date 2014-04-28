@@ -2,14 +2,21 @@
 
   - ##ats
   - #bfpg
+  - ##categorytheory
+  - #coq
   - #coreos
+  - #diagrams
   - #elm
   - #fp-in-scala
   - #freebsd
   - #ghc
+  - #ghcjs
   - #hakyll
   - #haskell
+  - #haskell-game
   - #haskell-lens
+  - #haskell-llvm
+  - #haskell-mobile
   - #haskell.au
   - ##hott
   - #idris
