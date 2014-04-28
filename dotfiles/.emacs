@@ -81,8 +81,8 @@
      (package-refresh-contents) (package-install 'scala-mode2))
 
 ; ensime
-(add-to-list 'load-path "~/.shelly/local/src/main/elisp/")
-(require 'ensime)
+;(add-to-list 'load-path "~/.shelly/local/src/main/elisp/")
+;(require 'ensime)
 
 ;; This step causes the ensime-mode to be started whenever
 ;; scala-mode is started for a buffer. You may have to customize this step
