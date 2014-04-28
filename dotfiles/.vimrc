@@ -6,6 +6,9 @@ fun Vundle()
   call vundle#rc()
   Plugin 'gmarik/vundle' " required
 
+  "
+  " Misc
+  "
   "Plugin 'kien/ctrlp.vim'
   "Plugin 'scrooloose/nerdtree'
   "Plugin 'scrooloose/nerdcommenter'
@@ -15,6 +18,9 @@ fun Vundle()
   Plugin 'bling/vim-airline'
   Plugin 'airblade/vim-gitgutter'
 
+  "
+  " Haskell/Glorious/GHC
+  "
   Plugin 'dag/vim2hs'
   Plugin 'merijn/haskellFoldIndent'
 
@@ -24,6 +30,11 @@ fun Vundle()
   Plugin 'eagletmt/ghcmod-vim'
   Plugin 'eagletmt/tinytest' " required for ghcmod-vim
   Plugin 'Shougo/vimproc' " required by ghcmod-vim
+
+  "
+  " Scala
+  "
+  Bundle 'repos-scala/scala-vundle'
 
   filetype plugin indent on " required by Vundle
 endf
