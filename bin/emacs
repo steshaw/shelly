@@ -1,0 +1,9 @@
+#!/bin/bash
+
+AQUAMACS=/Applications/Aquamacs.app/Contents/MacOS
+
+if [[ -d ${AQUAMACS} ]]; then
+  exec ${AQUAMACS}/Aquamacs "$@"
+else
+  exec /usr/bin/emacs "$@"
+fi
