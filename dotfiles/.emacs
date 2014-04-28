@@ -65,8 +65,8 @@
 ;
 ; ProofGeneral
 ;
-(if (featurep 'aquamacs)
-  (load-file "~/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el"))
+;(if (featurep 'aquamacs)
+;  (load-file "~/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el"))
 
 ;
 ; Scala
