@@ -1,0 +1,6 @@
+#!/bin/bash -exv
+
+cd ~/.shelly/apps
+for dir in ../local/cabal/*; do
+  ln -sf ${dir}/.cabal-sandbox $(basename ${dir})
+done
