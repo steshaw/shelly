@@ -1,9 +1,14 @@
-#!/bin/bash
+#!/bin/bash -e
 
-AQUAMACS=/Applications/Aquamacs.app/Contents/MacOS
+sysApplications=/Applications
+usrApplications=~/Applications
 
-if [[ -d ${AQUAMACS} ]]; then
-  exec ${AQUAMACS}/Aquamacs "$@"
+aquamacsApp=Aquamacs.app/Contents/MacOS/Aquamacs
+
+if [[ -x ${sysApplications}/${aquamacsApp} ]]; then
+  exec ${sysApplications}/${aquamacsApp} "$@"
+elif [[ -x ${usrApplications}/${aquamacsApp} ]]; then
+  exec ${usrApplications}/${aquamacsApp} "$@"
 else
   exec /usr/bin/emacs "$@"
 fi
