@@ -70,6 +70,7 @@ function setTabTitle() {
 PROMPT_COMMAND="setTabTitle; $PROMPT_COMMAND"
 
 export EDITOR=/usr/bin/vim
+alias e='${EDITOR}'
 
 set -o vi
 

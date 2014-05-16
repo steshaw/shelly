@@ -1,8 +1,9 @@
 ;
 ; Org
 ;
-(require 'package)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+;(require 'package)
+(setq org-src-fontify-natively t)
+;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;
 ; Viper - vi/vim emulation
