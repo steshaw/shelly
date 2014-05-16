@@ -57,7 +57,7 @@
     (progn
       (add-to-list 'load-path emacs-color-theme-solarized-dir)
       (require 'color-theme-solarized)
-      (color-theme-solarized-light))
+      (color-theme-solarized-dark))
     (progn
       (add-to-list 'custom-theme-load-path emacs-color-theme-solarized-dir)
       (load-theme 'solarized-dark t))))
