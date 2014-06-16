@@ -24,25 +24,6 @@ if [ -d "${shellyBin}" ] ; then
 fi
 
 #
-# Add ~/bin to PATH
-#
-homeBin="${HOME}/bin"
-if [ -d "${homeBin}" ] ; then
-  PATH="$homeBin:$PATH"
-fi
-sync-env-to-plist PATH
-
-#
-# Homebrew
-#
-brewBin=/usr/local/bin
-[[ -d $brewBin ]] && PATH=${brewBin}:${PATH}
-if [ -x "$(which brew)" ]; then
-  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-  sync-env-to-plist PKG_CONFIG_PATH
-fi
-
-#
 # bash-completions
 #
 if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
@@ -154,10 +135,27 @@ if [ -n "$BASH_VERSION" ]; then
   [ -f ${bashrc} ] && . ${bashrc}
 fi
 
-
 #
 # Ephox etools
 #
 PATH="${HOME}/bin.etools:${PATH}"
+sync-env-to-plist PATH
 
+#
+# Homebrew
+#
+brewBin=/usr/local/bin
+[[ -d $brewBin ]] && PATH=${brewBin}:${PATH}
+if [ -x "$(which brew)" ]; then
+  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+  sync-env-to-plist PKG_CONFIG_PATH
+fi
+
+#
+# Add ~/bin to PATH
+#
+homeBin="${HOME}/bin"
+if [ -d "${homeBin}" ] ; then
+  PATH="$homeBin:$PATH"
+fi
 sync-env-to-plist PATH
