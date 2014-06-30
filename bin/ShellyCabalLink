@@ -1,6 +1,6 @@
-#!/bin/bash -exv
+#!/bin/bash -uexv
 
 cd ~/.shelly/apps
-for dir in ../local/cabal/*; do
+for dir in ../cabal-sandboxes/*; do
   ln -sf ${dir}/.cabal-sandbox $(basename ${dir})
 done
