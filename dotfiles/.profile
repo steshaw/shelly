@@ -138,7 +138,7 @@ fi
 #
 # Ephox etools
 #
-PATH="${HOME}/bin.etools:${PATH}"
+PATH="${HOME}/.ephox/etools/bin:${PATH}"
 sync-env-to-plist PATH
 
 #
