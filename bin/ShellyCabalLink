@@ -1,4 +1,6 @@
-#!/bin/bash -uexv
+#!/bin/bash -uex
+
+${DEBUG:-}
 
 cd ~/.shelly/apps
 for dir in ../cabal-sandboxes/*; do
