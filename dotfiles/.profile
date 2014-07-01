@@ -136,12 +136,6 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 #
-# Ephox etools
-#
-PATH="${HOME}/.ephox/etools/bin:${PATH}"
-sync-env-to-plist PATH
-
-#
 # Homebrew
 #
 brewBin=/usr/local/bin
@@ -158,4 +152,10 @@ homeBin="${HOME}/bin"
 if [ -d "${homeBin}" ] ; then
   PATH="$homeBin:$PATH"
 fi
+sync-env-to-plist PATH
+
+#
+# Ephox etools
+#
+PATH="${PATH}:${HOME}/.ephox/etools/bin"
 sync-env-to-plist PATH
