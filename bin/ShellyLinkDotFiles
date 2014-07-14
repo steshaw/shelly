@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fromDir=$(dirname $0)/../dotfiles
+fromDir=$(RealPath $(dirname $0)/../dotfiles)
 
 if [[ ! -f $fromDir/.bashrc ]]; then
   echo Cannot find $fromDir/.bashrc

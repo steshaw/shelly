@@ -20,7 +20,6 @@ if [ -d "${shellyBin}" ] ; then
   [ -f ${appPath} ] && . ${appPath}
 
   PATH="${shellyBin}:${PATH}"
-  sync-env-to-plist PATH
 fi
 
 #
@@ -127,15 +126,6 @@ macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
 PATH=/usr/class/cs143/cool/bin:$PATH
 
 #
-# Explicitly call the .bashrc
-#
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-  bashrc="$HOME/.bashrc"
-  [ -f ${bashrc} ] && . ${bashrc}
-fi
-
-#
 # Homebrew
 #
 brewBin=/usr/local/bin
@@ -146,18 +136,34 @@ if [ -x "$(which brew)" ]; then
 fi
 
 #
-# Add ~/bin to PATH
-#
-homeBin="${HOME}/bin"
-if [ -d "${homeBin}" ] ; then
-  PATH="$homeBin:$PATH"
-fi
-sync-env-to-plist PATH
-
-#
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 #
 export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
-if [ -d "$GHC_DOT_APP" ]; then
-    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+if [[ -d "$GHC_DOT_APP" ]]; then
+  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
+
+#
+# Add ~/bin to PATH
+#
+homeBin="${HOME}/bin"
+if [[ -d "${homeBin}" ]]; then
+  PATH="$homeBin:$PATH"
+fi
+
+#
+# Nix
+#
+nixsh=~/.nix-profile/etc/profile.d/nix.sh
+[[ -e ${nixsh} ]] && source ${nixsh}
+
+#
+# Explicitly call the .bashrc
+#
+# if running bash
+if [[ -n "$BASH_VERSION" ]]; then
+  bashrc="$HOME/.bashrc"
+  [[ -f ${bashrc} ]] && source ${bashrc}
+fi
+
+sync-env-to-plist PATH
