@@ -16,8 +16,8 @@ homeFromBin() {
 #
 shellyBin="${HOME}/Projects/shelly/bin"
 if [ -d "${shellyBin}" ] ; then
-  appPath=${shellyBin}/app-path
-  [ -f ${appPath} ] && . ${appPath}
+  shellyPath=${shellyBin}/ShellyPath
+  [ -f ${shellyPath} ] && . ${shellyPath}
 
   PATH="${shellyBin}:${PATH}"
 fi
