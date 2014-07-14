@@ -25,8 +25,13 @@ fi
 #
 # bash-completions
 #
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-  . "$(brew --prefix)/etc/bash_completion"
+if [ -x "$(which brew)" ]; then
+  bashCompletion="$(brew --prefix)/etc/bash_completion"
+else
+  completions="/etc/profile.d/bash_completion.sh"
+fi
+if [ -f "${completions}/etc/bash_completion" ]; then
+  source "${prefix}/etc/bash_completion"
 fi
 
 #
