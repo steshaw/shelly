@@ -33,11 +33,11 @@ fi
 #
 # Haskell
 #
-cabalBinDir=${HOME}/.cabal/bin
-[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
-
-haskellBinDir=~/Library/Haskell/bin
-[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
+#cabalBinDir=${HOME}/.cabal/bin
+#[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
+#
+#haskellBinDir=~/Library/Haskell/bin
+#[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
 
 #
 # Java.
@@ -155,7 +155,9 @@ fi
 sync-env-to-plist PATH
 
 #
-# Ephox etools
+# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 #
-PATH="${PATH}:${HOME}/.ephox/etools/bin"
-sync-env-to-plist PATH
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+if [ -d "$GHC_DOT_APP" ]; then
+    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
