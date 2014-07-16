@@ -2,6 +2,8 @@
 
 ${DEBUG:-}
 
+: ${SHELLY_PKG_HOME:=${HOME}/.shelly}
+
 if [[ $# -ne 1 ]]; then
   echo "usage: $(basename $0) cabal-package-name" >&2
   exit 2
@@ -10,14 +12,12 @@ fi
 pkg=${1}
 
 function bail() {
-set -x
   msg=$1
   echo "${msg}" >&2
   exit 1
 }
 
-dir=~/.shelly/cabal-sandboxes/${pkg}
-echo dir="[[${dir}]]"
+dir=${SHELLY_PKG_HOME}/cabal-sandboxes/${pkg}
 
 if [[ -d ${dir} ]]; then
   bail "Package ${pkg} seems to be installed already. ${dir} exists."
