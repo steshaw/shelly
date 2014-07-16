@@ -10,7 +10,10 @@
 
 script=app-path
 
-shelly_apps=~/.shelly/apps
+export SHELLY_ENV=${SHELLY_ENV:-~/.shelly/env/0}
+
+# If using the default env, ensure the dir exists.
+[[ ${SHELLY_ENV} = ~/.shelly/env/0 ]] && mkdir -p ${SHELLY_ENV}
 
 # Save the original paths.
 export SHELLY_ORIGINAL_PATH=${SHELLY_ORIGINAL_PATH:-$PATH}
@@ -24,8 +27,8 @@ DYLD_LIBRARY_PATH=$SHELL_ORIGINAL_DYLD_LIBRARY_PATH
 
 ls_soft_link_separator=' -> '
 
-if [ -d "$shelly_apps" ]; then
-  for dir in ${shelly_apps}/*; do
+if [ -d "$SHELLY_ENV" ]; then
+  for dir in ${SHELLY_ENV}/*; do
     if [ "-d $dir" ]; then
 #      if [ -L "$dir" ]; then
 #        echo "$script: $dir -> "$(\ls -l "${dir}" | ruby -naF"${ls_soft_link_separator}" -e 'puts $F[1]')

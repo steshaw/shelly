@@ -16,28 +16,32 @@ homeFromBin() {
 #
 shellyBin="${HOME}/Projects/shelly/bin"
 if [ -d "${shellyBin}" ] ; then
-  appPath=${shellyBin}/app-path
-  [ -f ${appPath} ] && . ${appPath}
+  shellyPath=${shellyBin}/ShellyPath
+  [ -f ${shellyPath} ] && . ${shellyPath}
 
   PATH="${shellyBin}:${PATH}"
-  sync-env-to-plist PATH
 fi
 
 #
 # bash-completions
 #
-if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-  . "$(brew --prefix)/etc/bash_completion"
+if [ -x "$(which brew)" ]; then
+  bashCompletion="$(brew --prefix)/etc/bash_completion"
+else
+  completions="/etc/profile.d/bash_completion.sh"
+fi
+if [ -f "${completions}/etc/bash_completion" ]; then
+  source "${prefix}/etc/bash_completion"
 fi
 
 #
 # Haskell
 #
-cabalBinDir=${HOME}/.cabal/bin
-[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
-
-haskellBinDir=~/Library/Haskell/bin
-[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
+#cabalBinDir=${HOME}/.cabal/bin
+#[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
+#
+#haskellBinDir=~/Library/Haskell/bin
+#[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
 
 #
 # Java.
@@ -127,15 +131,6 @@ macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
 PATH=/usr/class/cs143/cool/bin:$PATH
 
 #
-# Explicitly call the .bashrc
-#
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-  bashrc="$HOME/.bashrc"
-  [ -f ${bashrc} ] && . ${bashrc}
-fi
-
-#
 # Homebrew
 #
 brewBin=/usr/local/bin
@@ -146,16 +141,34 @@ if [ -x "$(which brew)" ]; then
 fi
 
 #
+# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
+#
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+if [[ -d "$GHC_DOT_APP" ]]; then
+  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
+
+#
 # Add ~/bin to PATH
 #
 homeBin="${HOME}/bin"
-if [ -d "${homeBin}" ] ; then
+if [[ -d "${homeBin}" ]]; then
   PATH="$homeBin:$PATH"
 fi
-sync-env-to-plist PATH
 
 #
-# Ephox etools
+# Nix
 #
-PATH="${PATH}:${HOME}/.ephox/etools/bin"
+nixsh=~/.nix-profile/etc/profile.d/nix.sh
+[[ -e ${nixsh} ]] && source ${nixsh}
+
+#
+# Explicitly call the .bashrc
+#
+# if running bash
+if [[ -n "$BASH_VERSION" ]]; then
+  bashrc="$HOME/.bashrc"
+  [[ -f ${bashrc} ]] && source ${bashrc}
+fi
+
 sync-env-to-plist PATH
