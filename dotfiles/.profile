@@ -6,7 +6,7 @@ homeFromBin() {
   command=$1
   bin=$(which $command)
   if [ -n "$bin" ]; then
-    bin=$(real-path $bin)
+    bin=$(RealPath $bin)
     echo $(dirname $(dirname $bin))
   fi
 }
