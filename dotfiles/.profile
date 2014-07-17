@@ -126,11 +126,6 @@ macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
 [[ -d $macEmacsBin ]] && PATH=${macEmacsBin}:${PATH}
 
 #
-# Setup COOL compiler class.
-#
-PATH=/usr/class/cs143/cool/bin:$PATH
-
-#
 # Homebrew
 #
 brewBin=/usr/local/bin
