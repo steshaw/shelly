@@ -1,0 +1,79 @@
+#!/bin/bash -eu
+
+scriptName="$(basename $0)"
+
+function Bail {
+  exitCode=$1
+  msg=$2
+  echo "${scriptName}: Error: ${msg}" >&2
+  exit ${exitCode}
+}
+
+function Usage {
+  echo "usage: ${scriptName} dir [ext]" >&2
+  exit 2
+}
+
+all=0
+if [[ $# -gt 1 && ${1} = '-a' ]]; then
+  all=1; shift
+fi
+
+if [[ $# -gt 2 ]]; then
+  Usage
+fi
+
+function ChooseTar() {
+  if [[ -x $(which gtar) ]]; then
+    echo gtar
+  else
+    echo tar
+  fi
+}
+
+TAR="$(ChooseTar) --verify"
+
+dir=${1}; shift
+
+# If we have xz, default to xz, otherwise gzip.
+if [[ -x $(which xz) ]]; then
+  extension=txz
+else 
+  extension=tgz
+fi
+
+# Allow user to override file extension i.e. compression type.
+if [[ $# -eq 1 ]]; then
+  extension=${1}
+fi
+
+if [[ ! -d ${dir} ]]; then
+  Bail 2 "${dir} is not a directory"
+fi
+
+stamp=$(timestamp)
+
+Tar() {
+  tarFile=${1}
+  if [[ "${extension}" == 'txz' ]]; then
+    (set -x && time XZ_OPT="-${level}" ${TAR} -cJf ${tarFile} ${dir})
+  elif [[ "${extension}" == 'tgz' ]]; then
+    (set -x && time GZIP="-${level}" ${TAR} -czf ${tarFile} ${dir})
+  else
+    Bail "Unexpected invalid extension ${extension}. Programmer error"
+  fi
+}
+
+if [[ ${all} -eq 0 ]]; then
+  level=9
+  Tar "${dir}-${stamp}.txz"
+else
+  levels="1 2 3 4 5 6 7 8 9"
+  if [[ "${extension}" == 'txz' ]]; then
+    levels="0 ${levels}"
+  fi
+
+  for level in ${levels}; do
+    Tar "${dir}-${stamp}-${level}.txz"
+  done
+fi

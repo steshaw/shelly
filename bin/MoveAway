@@ -1,0 +1,6 @@
+#!/bin/bash -eu
+
+for file in "$@"; do
+  bup=$(GenerateBackupFilename "${file}")
+  mv "${file}" "${bup}"
+done

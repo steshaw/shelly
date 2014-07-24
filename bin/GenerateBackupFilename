@@ -1,0 +1,30 @@
+#!/bin/bash -eu
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: $(basename $0) filename" >&2
+  exit 2
+fi
+
+file=${1}; shift
+
+basename=$(basename "${file}")
+path=$(dirname "${file}")
+
+# If our filename has a "." in it.
+if echo "${basename}" | grep '\.' >/dev/null; then
+  filename=${basename%\.*}
+  extension=${basename##*\.}
+else
+  filename="${basename}"
+  extension=""
+fi
+
+function Last() {
+  if [[ -z ${extension} ]]; then
+    echo ""
+  else
+    echo ".${extension}"
+  fi
+}
+
+echo ${path}/${filename}.$(timestamp)$(Last)

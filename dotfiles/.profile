@@ -6,7 +6,7 @@ homeFromBin() {
   command=$1
   bin=$(which $command)
   if [ -n "$bin" ]; then
-    bin=$(real-path $bin)
+    bin=$(RealPath $bin)
     echo $(dirname $(dirname $bin))
   fi
 }
@@ -115,11 +115,6 @@ fi
 #
 macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
 [[ -d $macEmacsBin ]] && PATH=${macEmacsBin}:${PATH}
-
-#
-# Setup COOL compiler class.
-#
-PATH=/usr/class/cs143/cool/bin:$PATH
 
 #
 # Homebrew

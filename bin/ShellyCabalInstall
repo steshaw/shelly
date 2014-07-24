@@ -7,16 +7,17 @@ if [[ $# -lt 1 ]]; then
   exit 2
 fi
 
+: ${SHELLY_PKG_HOME:=${HOME}/.shelly}
+
 pkg=${1}; shift
 
 function bail() {
-set -x
   msg=$1
   echo "${msg}" >&2
   exit 1
 }
 
-dir=~/.shelly/cabal-sandboxes/${pkg}
+dir=${SHELLY_PKG_HOME}/cabal-sandboxes/${pkg}
 
 if [[ -d ${dir} ]]; then
   bail "Package ${pkg} seems to be installed already. ${dir} exists."
