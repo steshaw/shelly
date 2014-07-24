@@ -35,15 +35,6 @@ if [ -f "${completions}/etc/bash_completion" ]; then
 fi
 
 #
-# Haskell
-#
-#cabalBinDir=${HOME}/.cabal/bin
-#[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
-#
-#haskellBinDir=~/Library/Haskell/bin
-#[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
-
-#
 # Java.
 #
 if [ "$(uname)" = 'Darwin' ]; then
@@ -141,11 +132,20 @@ if [ -x "$(which brew)" ]; then
 fi
 
 #
+# Haskell
+#
+cabalBinDir=${HOME}/.cabal/bin
+[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
+
+haskellBinDir=~/Library/Haskell/bin
+[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
+
+#
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 #
 export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 if [[ -d "$GHC_DOT_APP" ]]; then
-  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+  export PATH="${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
 
 #
