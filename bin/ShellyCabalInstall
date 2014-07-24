@@ -2,12 +2,12 @@
 
 ${DEBUG:-}
 
-if [[ $# -ne 1 ]]; then
-  echo "usage: $(basename $0) cabal-package-name" >&2
+if [[ $# -lt 1 ]]; then
+  echo "usage: $(basename $0) cabal-package-name [args to cabal install]" >&2
   exit 2
 fi
 
-pkg=${1}
+pkg=${1}; shift
 
 function bail() {
 set -x
@@ -17,7 +17,6 @@ set -x
 }
 
 dir=~/.shelly/cabal-sandboxes/${pkg}
-echo dir="[[${dir}]]"
 
 if [[ -d ${dir} ]]; then
   bail "Package ${pkg} seems to be installed already. ${dir} exists."
@@ -26,4 +25,4 @@ fi
 mkdir -p ${dir}
 cd ${dir}
 cabal sandbox init
-cabal install ${pkg}
+cabal install "$@" ${pkg}
