@@ -2,6 +2,12 @@
 # .bash_profile
 #
 
+prependPaths() {
+  for path in "$@"; do
+    [[ -d ${path} ]] && PATH=${path}:${PATH}
+  done
+}
+
 homeFromBin() {
   command=$1
   bin=$(which $command)
@@ -119,8 +125,7 @@ macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
 #
 # Homebrew
 #
-brewBin=/usr/local/bin
-[[ -d $brewBin ]] && PATH=${brewBin}:${PATH}
+prependPaths /usr/local/bin /usr/local/sbin
 if [ -x "$(which brew)" ]; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   sync-env-to-plist PKG_CONFIG_PATH
