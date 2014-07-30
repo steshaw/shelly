@@ -8,6 +8,12 @@ prependPaths() {
   done
 }
 
+sourceExists() {
+  for path in "$@"; do
+    [[ -e ${path} ]] && source ${path}
+  done
+}
+
 homeFromBin() {
   command=$1
   bin=$(which $command)
@@ -18,26 +24,18 @@ homeFromBin() {
 }
 
 #
-# Setup shelly app-path.
+# Setup shelly path.
 #
-shellyBin="${HOME}/Projects/shelly/bin"
-if [ -d "${shellyBin}" ] ; then
-  shellyPath=${shellyBin}/ShellyPath
-  [ -f ${shellyPath} ] && . ${shellyPath}
-
-  PATH="${shellyBin}:${PATH}"
-fi
+prependPaths ~/Projects/shelly/bin
+source ShellyPath
 
 #
 # bash-completions
 #
 if [ -x "$(which brew)" ]; then
-  bashCompletion="$(brew --prefix)/etc/bash_completion"
+  sourceExists "$(brew --prefix)/etc/bash_completion"
 else
-  completions="/etc/profile.d/bash_completion.sh"
-fi
-if [ -f "${completions}/etc/bash_completion" ]; then
-  source "${prefix}/etc/bash_completion"
+  sourceExists /etc/profile.d/bash_completion.sh
 fi
 
 #
@@ -45,8 +43,8 @@ fi
 #
 if [ "$(uname)" = 'Darwin' ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
+  sync-env-to-plist JAVA_HOME
 fi
-sync-env-to-plist JAVA_HOME
 
 #
 # Scala.
@@ -69,7 +67,7 @@ sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
 # Maven.
 #
 M2_HOME="$(homeFromBin mvn)"
-if [ -n $M2_HOME ]; then
+if [[ -n $M2_HOME ]]; then
   export M2_HOME
   export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
   sync-env-to-plist M2_HOME
@@ -119,8 +117,7 @@ fi
 #
 # Emacs 24
 #
-macEmacsBin=/Applications/Emacs.app/Contents/MacOS/bin
-[[ -d $macEmacsBin ]] && PATH=${macEmacsBin}:${PATH}
+prependPaths /Applications/Emacs.app/Contents/MacOS/bin
 
 #
 # Homebrew
@@ -134,33 +131,23 @@ fi
 #
 # Haskell
 #
-cabalBinDir=${HOME}/.cabal/bin
-[ -d $cabalBinDir ] && PATH=$cabalBinDir:$PATH
-
-haskellBinDir=~/Library/Haskell/bin
-[ -d $haskellBinDir ] && PATH=$haskellBinDir:$PATH
+prependPaths ~/.cabal/bin ~/Library/Haskell/bin
 
 #
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 #
 export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
-if [[ -d "$GHC_DOT_APP" ]]; then
-  export PATH="${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
+prependPaths "${GHC_DOT_APP}/Contents/bin"
 
 #
 # Add ~/bin to PATH
 #
-homeBin="${HOME}/bin"
-if [[ -d "${homeBin}" ]]; then
-  PATH="$homeBin:$PATH"
-fi
+prependPaths ~/bin
 
 #
 # Nix
 #
-nixsh=~/.nix-profile/etc/profile.d/nix.sh
-[[ -e ${nixsh} ]] && source ${nixsh}
+sourceExists ~/.nix-profile/etc/profile.d/nix.sh
 
 #
 # Explicitly call the .bashrc
