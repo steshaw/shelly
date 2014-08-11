@@ -30,6 +30,17 @@ prependPaths ~/Projects/shelly/bin
 source ShellyPath
 
 #
+# Homebrew
+#
+# Some other configuration rely on brew being in the PATH, so it must be early.
+#
+prependPaths /usr/local/bin /usr/local/sbin
+if [ -x "$(which brew)" ]; then
+  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+  sync-env-to-plist PKG_CONFIG_PATH
+fi
+
+#
 # Java.
 #
 if [ "$(uname)" = 'Darwin' ]; then
@@ -111,15 +122,6 @@ fi
 prependPaths /Applications/Emacs.app/Contents/MacOS/bin
 
 #
-# Homebrew
-#
-prependPaths /usr/local/bin /usr/local/sbin
-if [ -x "$(which brew)" ]; then
-  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-  sync-env-to-plist PKG_CONFIG_PATH
-fi
-
-#
 # Haskell
 #
 prependPaths ~/.cabal/bin ~/Library/Haskell/bin
@@ -131,14 +133,14 @@ export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 prependPaths "${GHC_DOT_APP}/Contents/bin"
 
 #
-# Add ~/bin to PATH
-#
-prependPaths ~/bin
-
-#
 # Nix
 #
 sourceExists ~/.nix-profile/etc/profile.d/nix.sh
+
+#
+# Add ~/bin to PATH
+#
+prependPaths ~/bin
 
 #
 # Explicitly call the .bashrc
