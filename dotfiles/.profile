@@ -145,8 +145,7 @@ sourceExists ~/.nix-profile/etc/profile.d/nix.sh
 #
 # if running bash
 if [[ -n "$BASH_VERSION" ]]; then
-  bashrc="$HOME/.bashrc"
-  [[ -f ${bashrc} ]] && source ${bashrc}
+  sourceExists ~/.bashrc
 fi
 
 sync-env-to-plist PATH
