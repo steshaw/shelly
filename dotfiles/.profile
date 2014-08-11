@@ -95,7 +95,7 @@ fi
 #
 # Load RVM into a shell session *as a function*
 #
-[ -s "/Users/steshaw/.rvm/scripts/rvm" ] && source "/Users/steshaw/.rvm/scripts/rvm"
+sourceExists ~/.rvm/scripts/rvm
 
 #
 # Antlr
