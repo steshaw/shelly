@@ -30,15 +30,6 @@ prependPaths ~/Projects/shelly/bin
 source ShellyPath
 
 #
-# bash-completions
-#
-if [ -x "$(which brew)" ]; then
-  sourceExists "$(brew --prefix)/etc/bash_completion"
-else
-  sourceExists /etc/profile.d/bash_completion.sh
-fi
-
-#
 # Java.
 #
 if [ "$(uname)" = 'Darwin' ]; then

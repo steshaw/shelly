@@ -5,12 +5,14 @@
 skeletonBashrc=/etc/skel.bashrc
 [ -f "${skeletonBashrc}" ] && . ${skeletonBashrc}
 
-# 3 line prompt: newline + user@host + regular prompt (i.e. $ or #).
-#export PS1='\n\u@\h: \w\n\$ '
-
-
-gitPrompt=~/.git-prompt.sh
-[ -f "${gitPrompt}" ] && . ${gitPrompt}
+#
+# bash-completions
+#
+if [ -x "$(which brew)" ]; then
+  sourceExists "$(brew --prefix)/etc/bash_completion"
+else
+  sourceExists /etc/profile.d/bash_completion.sh
+fi
 
 bash_prompt() {
   case $TERM in
@@ -55,7 +57,7 @@ bash_prompt() {
   
   local UC=$W           # user's color
   [ $UID -eq "0" ] && UC=$R # root's color
-  
+
   #PS1="$TITLEBAR ${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD}${EMK}]${UC}\\$ ${NONE}"
   # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
   # extra backslash in front of \$ to make bash colorize the prompt
