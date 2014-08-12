@@ -1,6 +1,14 @@
 if [[ "$(uname)" = 'Darwin' ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   sync-env-to-plist JAVA_HOME
+
+  SwitchJDK() {
+    if [[ $# -ne 1 ]]; then
+      echo "usage: SwitchJDK 1.7|1.8" >&2
+    else
+      export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+    fi
+  }
 fi
 
 # ex: filetype=sh tabstop=20 shiftwidth=2 expandtab
