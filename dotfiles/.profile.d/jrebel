@@ -1,0 +1,8 @@
+if [[ -d /Applications/ZeroTurnaround/JRebel ]]; then
+  export REBEL_HOME=/Applications/ZeroTurnaround/JRebel
+  export REBEL_JAR=$REBEL_HOME/jrebel.jar
+  export WITH_REBEL="-Drebel.license=${HOME}/Downloads/jrebel.lic -noverify -javaagent:$REBEL_JAR"
+  sync-env-to-plist REBEL_HOME REBEL_JAR WITH_REBEL
+fi
+
+# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab

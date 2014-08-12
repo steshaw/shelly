@@ -1,0 +1,6 @@
+if [[ "$(uname)" = 'Darwin' ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+  sync-env-to-plist JAVA_HOME
+fi
+
+# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab

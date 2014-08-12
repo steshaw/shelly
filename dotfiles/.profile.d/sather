@@ -1,0 +1,9 @@
+
+satherHome=/home/steshaw/.shelly/apps/sather
+if [[ -d "$satherHome" ]]; then
+  export SATHER_HOME=$satherHome
+  sync-env-to-plist SATHER_HOME
+fi
+unset satherHome
+
+# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab

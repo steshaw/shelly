@@ -1,0 +1,8 @@
+if [[ -d "$(homeFromBin mvn)" ]]; then
+  export M2_HOME="$(homeFromBin mvn)"
+  export M2_HOME
+  export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+  sync-env-to-plist M2_HOME
+fi
+
+# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab
