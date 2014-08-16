@@ -1,9 +1,13 @@
-prependPaths ~/.cabal/bin ~/Library/Haskell/bin
+#
+# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/ (or Homebrew ghcformacosx)
+#
 
-#
-# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
-#
-export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
-prependPaths "${GHC_DOT_APP}/Contents/bin"
+set -x
+
+export GHC_DOT_APP=$(firstDirectory ~/Applications/ghc-7.8.3.app /Applications/ghc-7.8.3.app)
+if [[ -n $GHC_DOT_APP ]]; then
+  prependPaths ~/.cabal/bin "${GHC_DOT_APP}/Contents/bin"
+fi
+set +x
 
 # ex: filetype=sh tabstop=20 shiftwidth=2 expandtab

@@ -14,6 +14,13 @@ sourceExists() {
   done
 }
 
+firstDirectory() {
+  for dir in "$@"; do
+    [[ -d ${dir} ]] && echo "${dir}"
+  done
+  echo ""
+}
+
 homeFromBin() {
   command=$1
   bin=$(which $command)
