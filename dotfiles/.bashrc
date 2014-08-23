@@ -67,7 +67,8 @@ bash_prompt() {
 bash_prompt
 
 function setTabTitle() {
-  echo -ne "\033]0;$(basename ${PWD})\007"
+  local base=$(basename "${PWD}")
+  echo -ne "\033]0;${base}\007"
 }
 PROMPT_COMMAND="setTabTitle; $PROMPT_COMMAND"
 
