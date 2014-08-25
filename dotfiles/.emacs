@@ -1,3 +1,5 @@
+(server-start)
+
 ;
 ; Org
 ;
@@ -94,4 +96,11 @@
 ;;(require 'confluence)
 ;;(setq confluence-url "http://docs.ephox.com/rpc/xmlrpc")
 
-(server-start)
+;
+; Idris
+;
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
+(require 'idris-mode)
