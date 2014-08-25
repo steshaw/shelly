@@ -2,8 +2,8 @@ set nocompatible
 
 fun Vundle()
   filetype off " required by Vundle
-  set rtp+=~/.vim/bundle/vundle
-  call vundle#rc()
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
   Plugin 'gmarik/vundle' " required
 
   "
@@ -17,6 +17,11 @@ fun Vundle()
   Plugin 'flazz/vim-colorschemes'
   Plugin 'bling/vim-airline'
   Plugin 'airblade/vim-gitgutter'
+
+  "
+  " Idris
+  "
+  Bundle 'idris-hackers/idris-vim'
 
   "
   " Haskell/Glorious/GHC
@@ -37,6 +42,7 @@ fun Vundle()
   Bundle 'repos-scala/scala-vundle'
 
   filetype plugin indent on " required by Vundle
+  call vundle#end()
 endf
 call Vundle()
 
@@ -71,7 +77,7 @@ autocmd BufNewFile,BufRead *.yeti setlocal filetype=yeti ts=8 sw=4 sts=4 expandt
 autocmd BufNewFile,BufRead *.cl,*.cool set filetype=cool
 autocmd BufNewFile,BufRead *.cup set filetype=cup
 autocmd BufNewFile,BufRead *.g4 set filetype=antlr
-autocmd BufNewFile,BufRead *.idr set filetype=haskell
+"autocmd BufNewFile,BufRead *.idr set filetype=haskell
 autocmd BufNewFile,BufRead *.purs set filetype=haskell
 
 let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
