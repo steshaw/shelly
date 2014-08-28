@@ -5,7 +5,7 @@
 #
 # Usage:
 #
-#   source ~/Projects/shell/bin/ShellyPath
+#   source /path/to/shelly/bin/ShellyPath
 #
 
 export SHELLY_ENV=${SHELLY_ENV:-~/.shelly/env/0}

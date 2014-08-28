@@ -33,8 +33,9 @@ homeFromBin() {
 #
 # Setup shelly path.
 #
-source ~/Projects/shelly/bin/ShellyPath
-prependPaths ~/Projects/shelly/bin
+SHELLY_HOME=~/Projects/steshaw/shelly
+prependPaths ${SHELLY_HOME}/bin
+source ShellyPath
 
 #
 # Homebrew
