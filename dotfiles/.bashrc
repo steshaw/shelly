@@ -2,8 +2,7 @@
 # .bashrc
 #
 
-skeletonBashrc=/etc/skel.bashrc
-[ -f "${skeletonBashrc}" ] && . ${skeletonBashrc}
+sourceExists /etc/skel/.bashrc
 
 #
 # bash-completions
