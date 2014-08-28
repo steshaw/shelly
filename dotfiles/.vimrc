@@ -2,7 +2,7 @@ set nocompatible
 
 fun Vundle()
   filetype off " required by Vundle
-  set rtp+=~/.vim/bundle/Vundle.vim
+  set rtp+=~/.vim/bundle/vundle
   call vundle#begin()
   Plugin 'gmarik/vundle' " required
 
