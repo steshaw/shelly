@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/bash -ue
+
+shellyBin=$(dirname $0)
+PATH=${shellyBin}:${PATH}
 
 fromDir=$(RealPath $(dirname $0)/../dotfiles)
 
