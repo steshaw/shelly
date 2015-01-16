@@ -7,4 +7,6 @@ if [[ -n $GHC_DOT_APP ]]; then
   prependPaths ~/.cabal/bin "${GHC_DOT_APP}/Contents/bin"
 fi
 
+prependPaths ~/Library/Haskell/ghc-7.8.3/lib/happy-1.19.4/bin
+
 # ex: filetype=sh tabstop=20 shiftwidth=2 expandtab
