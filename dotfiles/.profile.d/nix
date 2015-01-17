@@ -1,10 +1,6 @@
-set -x
-
 sourceExists ~/.nix-profile/etc/profile.d/nix.sh
 
 path=~/Projects/joelteon/nixpkgs
 if [[ -d ${path} ]]; then
   export NIX_PATH=${path}:nixpkgs=${path}
 fi
-
-set +x
