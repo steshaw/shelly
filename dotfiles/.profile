@@ -49,11 +49,6 @@ if [ -x "$(which brew)" ]; then
 fi
 
 #
-# Nix
-#
-sourceExists ~/.nix-profile/etc/profile.d/nix.sh
-
-#
 # Source ~/.profile.d/*
 #
 for file in ~/.profile.d/*; do
@@ -74,3 +69,4 @@ if [[ -n "$BASH_VERSION" ]]; then
 fi
 
 sync-env-to-plist PATH
+if [ -e /Users/steshaw/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steshaw/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
