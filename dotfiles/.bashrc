@@ -110,10 +110,6 @@ else
   alias o='open'
 fi
 
-# These are dangerous.
-#alias git-svn-up='git stash && git svn rebase && git stash pop'
-#alias git-svn-commit='git stash && git svn dcommit && git stash pop'
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 bashrcLocal=~/.bashrc.local
