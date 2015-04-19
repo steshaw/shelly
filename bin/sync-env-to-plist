@@ -18,13 +18,15 @@
 
 scriptName=$(basename $0)
 
-domain=~/.MacOSX/environment
+#domain=~/.MacOSX/environment
 
 function export_to_plist() {
   for var in "$@"; do
 #    echo "$scriptName: synchronising $var with $domain"
-    cmd="defaults write $domain ${var} \"\$${var}\""
-    bash -c "$cmd"
+#    cmd="defaults write $domain ${var} \"\$${var}\""
+#    bash -c "$cmd"
+    cmd="launchctl setenv ${var} \"\$${var}\""
+    bash -c "set -x; $cmd"
   done
 }
 
