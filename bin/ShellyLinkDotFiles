@@ -12,7 +12,7 @@ fi
 
 for file in ${fromDir}/.[a-z]*; do
   basefile=$(basename $file)
-  if [[ -f ~/$basefile ]]; then
+  if [[ -w ~/$basefile ]]; then
     if [[ -L ~/$basefile ]]; then
       echo ${basefile} already a link to $(readlink ~/${basefile})
     else
