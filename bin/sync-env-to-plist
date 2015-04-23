@@ -26,7 +26,7 @@ function export_to_plist() {
 #    cmd="defaults write $domain ${var} \"\$${var}\""
 #    bash -c "$cmd"
     cmd="launchctl setenv ${var} \"\$${var}\""
-    bash -c "set -x; $cmd"
+    bash -c "$cmd"
   done
 }
 
