@@ -17,6 +17,13 @@
 	graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
 	wdiff = diff --word-diff
 	undo = reset HEAD^
+	cm = commit
+	ac = !git add -A && git commit
+	st = status -sb
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 [core]
 	excludesfile = ~/.gitignore.global
@@ -27,8 +34,6 @@
 
 [push]
 	default = simple
-;[credential]
-;  helper = cache --timeout 36000
 
 [rerere]
 	enabled = true
@@ -53,7 +58,7 @@
 	smudge = git-media-smudge %f
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
