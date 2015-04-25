@@ -6,6 +6,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+	ui = 1
 
 [alias]
 	s = status --short --branch
