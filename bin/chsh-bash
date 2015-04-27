@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#
+# Switch login shell back to bash.
+#
+
+bash="$(which bash)"
+if ! grep -Fxq "${bash}" /etc/shells; then
+  echo "${bash}" | sudo tee -a /etc/shells
+fi
+chsh -s "${bash}"
