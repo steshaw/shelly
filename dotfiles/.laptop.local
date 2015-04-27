@@ -1,0 +1,63 @@
+#!/bin/sh
+
+#
+# brew
+#
+
+brew tap homebrew/versions
+packages=(
+  agda
+  bash
+  bash-completion2
+  cabal-install
+  ghc
+  idris
+  myrepos
+  node
+  objective-caml
+  rlwrap
+  sbt
+  scala
+  tree
+  vim
+  wget
+  youtube-dl
+)
+for package in "${packages[@]}"; do
+  brew_install_or_upgrade ${package}
+done
+
+#
+# Caskroom.io
+#
+
+brew install caskroom/cask/brew-cask
+
+casks=(
+  aquamacs
+  atom
+  brackets
+  caffeine
+  dropbox
+  firefox
+  google-chrome
+  intellij-idea-ce
+  iterm2
+  java
+  kindle
+  spectacle
+  viscosity
+)
+for cask in "${casks[@]}"; do
+  brew cask install ${cask}
+done
+
+#
+# Switch login shell back to bash.
+#
+
+bash="$(which bash)"
+if ! grep -Fxq "${bash}" /etc/shells; then
+  echo "${bash}" | sudo tee -a /etc/shells
+fi
+chsh -s "${bash}"
