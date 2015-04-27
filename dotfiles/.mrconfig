@@ -1,0 +1,20 @@
+[DEFAULT]
+git_gc = git gc "$@"
+
+[Projects/steshaw/shelly]
+checkout = git clone 'git@github.com:steshaw/shelly.git' 'shelly'
+
+[Projects/steshaw/nand2tetris]
+checkout = git clone 'git@bitbucket.org:steshaw/nand2tetris' 'nand2tetris'
+
+[Projects/steshaw/notes]
+checkout = git clone 'git@bitbucket.org:steshaw/notes' 'notes'
+
+[Projects/steshaw/playground]
+checkout = git clone 'git@github.com:steshaw/playground.git' 'playground'
+
+[Projects/steshaw/reactive-2015]
+checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
+
+[Projects/steshaw/idris]
+checkout = git clone 'git@github.com:steshaw/idris' 'idris'
