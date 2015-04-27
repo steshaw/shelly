@@ -9,6 +9,7 @@ sourceExists /etc/skel/.bashrc
 #
 if [ -x "$(which brew)" ]; then
   sourceExists "$(brew --prefix)/etc/bash_completion"
+  sourceExists "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 else
   sourceExists /etc/profile.d/bash_completion.sh
 fi
