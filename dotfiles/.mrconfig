@@ -18,3 +18,12 @@ checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
 
 [Projects/steshaw/idris]
 checkout = git clone 'git@github.com:steshaw/idris' 'idris'
+
+[Projects/steshaw/commercialhaskell]
+checkout = git clone 'git@github.com:steshaw/commercialhaskell.git' 'commercialhaskell'
+
+[Projects/steshaw/docs]
+checkout = git clone 'git@bitbucket.org:steshaw/docs.git' 'docs'
+
+[Projects/steshaw/steshaw.org]
+checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
