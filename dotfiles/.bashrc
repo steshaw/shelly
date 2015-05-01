@@ -17,7 +17,7 @@ fi
 bash_prompt() {
   case $TERM in
     xterm*|rxvt*)
-      local TITLEBAR='\[\033]0;\u:${NEW_PWD}\007\]'
+      local TITLEBAR='\[\033]0;\u@\h:\w\007\]'
       ;;
     *)
       local TITLEBAR=""
@@ -34,7 +34,7 @@ bash_prompt() {
   local M="\[\033[0;35m\]"  # magenta
   local C="\[\033[0;36m\]"  # cyan
   local W="\[\033[0;37m\]"  # white
-  
+
   # emphasized (bolded) colors
   local EMK="\[\033[1;30m\]"
   local EMR="\[\033[1;31m\]"
@@ -44,7 +44,7 @@ bash_prompt() {
   local EMM="\[\033[1;35m\]"
   local EMC="\[\033[1;36m\]"
   local EMW="\[\033[1;37m\]"
-  
+
   # background colors
   local BGK="\[\033[40m\]"
   local BGR="\[\033[41m\]"
@@ -54,15 +54,15 @@ bash_prompt() {
   local BGM="\[\033[45m\]"
   local BGC="\[\033[46m\]"
   local BGW="\[\033[47m\]"
-  
+
   local UC=$W           # user's color
   [ $UID -eq "0" ] && UC=$R # root's color
 
-  #PS1="$TITLEBAR ${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD}${EMK}]${UC}\\$ ${NONE}"
+#  PS1="$TITLEBAR ${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD}${EMK}]${UC}\\$ ${NONE}"
   # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
   # extra backslash in front of \$ to make bash colorize the prompt
 
-  PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\]$(__git_ps1)\n➯ '
+  PS1="${TITLEBAR}\n\${debian_chroot:+($debian_chroot)}${C}\u@\h:\w${EMB}$(__git_ps1)\n${EMG}➯ ${NONE}"
 }
 bash_prompt
 
