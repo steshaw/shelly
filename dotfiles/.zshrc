@@ -8,7 +8,7 @@ export ZSH=/Users/steshaw/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -89,6 +89,8 @@ alias ll='l -A'
 alias la='l -a'
 
 set -o vi
+bindkey -M vicmd 'j' vi-down-line-or-history
+bindkey -M vicmd 'k' vi-up-line-or-history
 
 #
 # multiline prompt
