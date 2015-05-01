@@ -93,7 +93,9 @@ set -o vi
 #
 # multiline prompt
 #
-PROMPT=$'\n%{$fg[cyan]%}%n@%m:%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}\n${ret_status}%{$fg_bold[green]%}λ % %{$reset_color%}'
+local prompt_char="%(#:#:$)"
+local ret_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
+PROMPT=$'\n%{$fg[cyan]%}%n@%m%{$reset_color%}:%{$fg[magenta]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)\n${ret_status}%{$reset_color%} '
 
 #
 # rbenv setup
