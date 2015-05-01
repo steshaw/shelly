@@ -95,9 +95,9 @@ bindkey -M vicmd 'k' vi-up-line-or-history
 #
 # multiline prompt
 #
-local prompt_char="%(#:#:$)"
-local ret_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
-PROMPT=$'\n%{$fg[cyan]%}%n@%m%{$reset_color%}:%{$fg[magenta]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)\n${ret_status}%{$reset_color%} '
+local prompt_char="%(#:#:➯)"
+local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
+PROMPT=$'\n%{$fg[cyan]%}%n@%m:%~ %{$fg_bold[blue]%}$(git_prompt_info)\n${exit_status}%{$reset_color%} '
 
 #
 # rbenv setup
