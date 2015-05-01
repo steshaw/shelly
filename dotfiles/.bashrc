@@ -80,7 +80,7 @@ set -o vi
 #alias ls='ls --color -Fh'
 alias ls='ls -GFh'
 alias l='ls -l'
-alias ll='l -a'
+alias ll='l -A'
 
 alias wi='type -ap'
 
@@ -120,3 +120,6 @@ bashrcLocal=~/.bashrc.local
 export PATH="/usr/local/heroku/bin:$PATH"
 
 shopt -s globstar 2>/dev/null
+
+# added by travis gem
+[ -f /Users/steshaw/.travis/travis.sh ] && source /Users/steshaw/.travis/travis.sh
