@@ -1,5 +1,6 @@
 [DEFAULT]
 git_gc = git gc "$@"
+sync = echo No upstream
 
 [Projects/steshaw/shelly]
 checkout = git clone 'git@github.com:steshaw/shelly.git' 'shelly'
@@ -11,19 +12,40 @@ checkout = git clone 'git@bitbucket.org:steshaw/nand2tetris' 'nand2tetris'
 checkout = git clone 'git@bitbucket.org:steshaw/notes' 'notes'
 
 [Projects/steshaw/playground]
-checkout = git clone 'git@github.com:steshaw/playground.git' 'playground'
+checkout = git clone --depth 1 'git@github.com:steshaw/playground.git' 'playground'
 
 [Projects/steshaw/reactive-2015]
 checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
 
 [Projects/steshaw/idris]
-checkout = git clone 'git@github.com:steshaw/idris' 'idris'
+checkout =
+  git clone 'git@github.com:steshaw/idris' 'idris'
+  cd idris
+  git remote add upstream git@github.com:idris-lang/Idris-dev.git
+sync =
+  git fetch upstream
+  git rebase upstream/master
 
 [Projects/steshaw/commercialhaskell]
-checkout = git clone 'git@github.com:steshaw/commercialhaskell.git' 'commercialhaskell'
+checkout =
+  git clone 'git@github.com:steshaw/commercialhaskell.git' 'commercialhaskell'
+  cd commercialhaskell
+  git remote add upstream git@github.com:commercialhaskell/commercialhaskell.git
+sync =
+  git fetch upstream
+  git rebase upstream/master
 
 [Projects/steshaw/docs]
-checkout = git clone 'git@bitbucket.org:steshaw/docs.git' 'docs'
+checkout = git clone --depth 1 'git@bitbucket.org:steshaw/docs.git' 'docs'
 
 [Projects/steshaw/steshaw.org]
 checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
+
+[Projects/steshaw/nixpkgs]
+checkout =
+  git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
+  cd nixpkgs
+  git remote add upstream git@github.com:NixOS/nixpkgs.git
+sync =
+  git fetch upstream
+  git rebase upstream/master
