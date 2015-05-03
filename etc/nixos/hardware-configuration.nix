@@ -12,7 +12,7 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = pkgs.lib.mkForce
+  fileSystems."/" =
     { device = "/dev/disk/by-uuid/827143d1-e83c-4c77-99bd-a6ede1408008";
       fsType = "btrfs";
     };
