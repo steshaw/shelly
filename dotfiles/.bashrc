@@ -12,6 +12,9 @@ if [ -x "$(which brew)" ]; then
   sourceExists "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 else
   sourceExists /etc/profile.d/bash_completion.sh
+  sourceExists /etc/bash_completion.d/git-prompt.sh
+  sourceExists /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh
+  sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
 bash_prompt() {
