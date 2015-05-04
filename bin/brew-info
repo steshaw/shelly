@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if brew --env >/dev/null 2>/dev/null; then
   if [[ $1 == '--cppflags' ]]; then
