@@ -1,0 +1,5 @@
+#!/bin/sh -eu
+
+curl -O https://raw.githubusercontent.com/steshaw/shelly/master/dotfiles/.mrconfig
+mr checkout
+Projects/steshaw/shelly/bin/ShellyLinkDotFiles
