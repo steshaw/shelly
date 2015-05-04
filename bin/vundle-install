@@ -1,4 +1,6 @@
-#!/bin/bash -e
+#!/bin/sh
+
+set -eu
 
 bundle=~/.vim/bundle
 vundle=${bundle}/vundle

@@ -1,4 +1,4 @@
-#!/bin/bash -ue
+#!/bin/sh
 #
 # Synchronise environment variables with the ~/.MacOSX/environment.plist.
 #
@@ -12,6 +12,8 @@
 #
 # The command does not accept a filename such as ~/.MacOSX/environment.plist!
 #
+
+set -eu
 
 # Exit unless Mac OS/X
 [[ $(uname) != 'Darwin' ]] && exit

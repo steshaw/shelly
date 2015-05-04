@@ -1,4 +1,6 @@
-#!/bin/bash -ue
+#!/bin/sh
+
+set -eu
 
 shellyBin=$(dirname $0)
 PATH=${shellyBin}:${PATH}
