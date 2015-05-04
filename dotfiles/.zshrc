@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/steshaw/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/heroku/bin:/Users/steshaw/.rbenv/shims:/usr/local/bin:/Users/steshaw/Projects/steshaw/shelly/bin:/Users/steshaw/.shelly/env/0/stylish-haskell/bin:/Users/steshaw/.shelly/env/0/happy/bin:/Users/steshaw/.shelly/env/0/hakyll/bin:/Users/steshaw/.shelly/env/0/ghc-mod/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steshaw/.rvm/bin"
+#export PATH="/usr/local/heroku/bin:/Users/steshaw/.rbenv/shims:/usr/local/bin:/Users/steshaw/Projects/steshaw/shelly/bin:/Users/steshaw/.shelly/env/0/stylish-haskell/bin:/Users/steshaw/.shelly/env/0/happy/bin:/Users/steshaw/.shelly/env/0/hakyll/bin:/Users/steshaw/.shelly/env/0/ghc-mod/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steshaw/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -102,12 +102,14 @@ PROMPT=$'\n%{$fg[cyan]%}%n@%m:%~ %{$fg_bold[blue]%}$(git_prompt_info)\n${exit_st
 #
 # rbenv setup
 #
-export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - zsh --no-rehash)"
+if which rbenv >/dev/null 2>&1; then
+  export PATH="$HOME/.bin:$PATH"
+  eval "$(rbenv init - zsh --no-rehash)"
+fi
 
 #
 # travis gem setup
 #
 [ -f /Users/steshaw/.travis/travis.sh ] && source /Users/steshaw/.travis/travis.sh
 
-source dnvm.sh
+[ -r dnvm.sh ] && source dnvm.sh
