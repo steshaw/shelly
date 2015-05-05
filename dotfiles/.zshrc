@@ -113,3 +113,5 @@ fi
 [ -f /Users/steshaw/.travis/travis.sh ] && source /Users/steshaw/.travis/travis.sh
 
 [ -r dnvm.sh ] && source dnvm.sh
+
+export PATH

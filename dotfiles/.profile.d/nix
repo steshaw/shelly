@@ -1,6 +1,8 @@
 sourceExists ~/.nix-profile/etc/profile.d/nix.sh
 
-path=~/Projects/joelteon/nixpkgs
-if [[ -d ${path} ]]; then
-  export NIX_PATH=${path}:nixpkgs=${path}
+if [[ "$(uname)" == 'Darwin' ]]; then
+  nixpkgs=~/Projects/steshaw/nixpkgs
+  if [[ -d ${nixpkgs} ]]; then
+    export NIX_PATH="nixpkgs=${nixpkgs}"
+  fi
 fi

@@ -3,14 +3,14 @@
 #
 
 prependPaths() {
-  for path in "$@"; do
-    [[ -d ${path} ]] && PATH=${path}:${PATH}
+  for path_ in "$@"; do
+    [[ -d ${path_} ]] && PATH=${path_}:${PATH}
   done
 }
 
 sourceExists() {
-  for path in "$@"; do
-    [[ -e ${path} ]] && source ${path}
+  for path_ in "$@"; do
+    [[ -e ${path_} ]] && source ${path_}
   done
 }
 
@@ -69,4 +69,3 @@ if [[ -n "$BASH_VERSION" ]]; then
 fi
 
 sync-env-to-plist PATH
-if [ -e /Users/steshaw/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steshaw/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
