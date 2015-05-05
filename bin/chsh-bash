@@ -1,8 +1,9 @@
-#!/bin/sh
-
+#!/usr/bin/env bash
 #
 # Switch login shell back to bash.
 #
+
+set -eu
 
 bash="$(which bash)"
 if ! grep -Fxq "${bash}" /etc/shells; then
