@@ -11,6 +11,5 @@ generate-ssh-key
 github-add-key
 bitbucket-add-key
 
-curl -O https://raw.githubusercontent.com/steshaw/shelly/master/dotfiles/.mrconfig
 MYREPOS_SKIP=1 mr --trust-all --config ~/shelly/dotfiles/.mrconfig checkout
 ~/Projects/steshaw/github.com/shelly/bin/ShellyLinkDotFiles
