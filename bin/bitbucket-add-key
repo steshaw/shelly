@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eux
+
+title="${USER}@$(hostname) (added by shelly/bootstrap)"
+key="$(cat ~/.ssh/id_rsa.pub)"
+user=${USER}
+
+echo "Authenticating to Bitbucket as ${user}"
+
+curl --user ${user} -X POST https://bitbucket.org/api/1.0/users/${user}/ssh-keys \
+    --data-urlencode "label=${title}" \
+    --data-urlencode "key=${key}" 

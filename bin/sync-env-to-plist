@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Synchronise environment variables with the ~/.MacOSX/environment.plist.
 #

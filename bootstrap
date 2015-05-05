@@ -1,5 +1,16 @@
-#!/bin/sh -eu
+#!/usr/bin/env bash
+
+set -eu
+
+which apt-get >/dev/null 2>&1 && sudo apt-get install myrepos git
+
+git clone https://github.com/steshaw/shelly.git ~/shelly
+PATH=~/shelly/bin:${PATH}
+
+generate-ssh-key
+github-add-key
+bitbucket-add-key
 
 curl -O https://raw.githubusercontent.com/steshaw/shelly/master/dotfiles/.mrconfig
-mr checkout
-Projects/steshaw/shelly/bin/ShellyLinkDotFiles
+MYREPOS_SKIP=1 mr --trust-all --config ~/shelly/dotfiles/.mrconfig checkout
+~/Projects/steshaw/github.com/shelly/bin/ShellyLinkDotFiles
