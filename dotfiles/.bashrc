@@ -103,6 +103,11 @@ alias sbrc='source ~/.bashrc'
 alias path='echo $PATH | tr : "\n"'
 alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 
+if [[ "$(uname)" != 'Darwin' ]]; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
@@ -126,3 +131,5 @@ shopt -s globstar 2>/dev/null
 
 # added by travis gem
 [ -f /Users/steshaw/.travis/travis.sh ] && source /Users/steshaw/.travis/travis.sh
+
+true
