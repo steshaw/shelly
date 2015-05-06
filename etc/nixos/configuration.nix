@@ -31,6 +31,7 @@
     extraGroups = [ "wheel" "vboxsf" ];
     password = "steshaw";
     uid = 1000;
+    shell = "${pkgs.zsh}/bin/zsh";
   };
 
   services.xserver = {
@@ -49,11 +50,23 @@
 #    options = "uid=1000,gid=73,rw";
 #  };
 
+  nix.trustedBinaryCaches = [
+    http://hydra.nixos.org
+    http://cache.nixos.org
+    http://hydra.cryp.to
+  ];
+  nix.binaryCaches = [
+    http://hydra.nixos.org
+    http://cache.nixos.org
+    http://hydra.cryp.to
+  ];
+
   environment.systemPackages = with pkgs; [
-    docker
     vim
     git
-    zsh
+    which
+    python
+    docker
     gnupg
   ];
 }
