@@ -2,6 +2,8 @@
 # .bashrc
 #
 
+echo Executing ~/.bashrc
+
 sourceExists /etc/skel/.bashrc
 
 #

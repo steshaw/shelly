@@ -2,6 +2,8 @@
 # .profile
 #
 
+echo Executing ~/.profile
+
 prependPaths() {
   for path_ in "$@"; do
     [[ -d ${path_} ]] && PATH=${path_}:${PATH}
