@@ -4,6 +4,17 @@
 
 echo Executing ~/.profile
 
+#
+# FIX ${SHELL}
+#
+echo "SHELL (before) = ${SHELL}"
+if [[ -n $BASH_VERSION ]]; then
+  SHELL="$(which bash)"
+elif [[ -n $ZSH_VERSION ]]; then
+  SHELL="$(which zsh)"
+fi
+echo "SHELL (after)  = ${SHELL}"
+
 prependPaths() {
   for path_ in "$@"; do
     [[ -d ${path_} ]] && PATH=${path_}:${PATH}
