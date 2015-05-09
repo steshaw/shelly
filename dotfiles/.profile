@@ -35,7 +35,7 @@ homeFromBin() {
 #
 # Setup shelly path.
 #
-SHELLY_BIN=~/Projects/steshaw/github/shelly/bin
+SHELLY_BIN=~/Projects/steshaw/github.com/shelly/bin
 source ${SHELLY_BIN}/ShellyPath
 prependPaths ${SHELLY_BIN}
 
