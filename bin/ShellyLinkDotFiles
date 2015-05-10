@@ -2,28 +2,31 @@
 
 set -eu
 
-shellyBin=$(dirname $0)
+shellyBin=$(dirname "$0")
 PATH=${shellyBin}:${PATH}
 
-fromDir=$(RealPath $(dirname $0)/../dotfiles)
+binDir=$(dirname "$0")
+fromDir=$(RealPath "${binDir}/../dotfiles")
 
 if [[ ! -f $fromDir/.bashrc ]]; then
-  echo Cannot find $fromDir/.bashrc
+  echo "Cannot find $fromDir/.bashrc"
   exit 1
 fi
 
 for file in ${fromDir}/.[a-z]*; do
-  basefile=$(basename $file)
-  if [[ -w ~/$basefile ]]; then
-    if [[ -L ~/$basefile ]]; then
-      echo ${basefile} already a link to $(readlink ~/${basefile})
+  baseFile=$(basename "$file")
+  fullPath=~/$baseFile
+  if [[ -w ${fullPath} ]]; then
+    if [[ -L ${fullPath} ]]; then
+      expandedLink=$(readlink "${fullPath}")
+      echo "${baseFile} already a link to ${expandedLink}"
     else
-      echo Moving existing ${basefile} to ${basefile}.old
-      mv -i ~/${basefile} ~/${basefile}.old
-      ln -s $file ~
+      echo "Moving existing ${baseFile} to ${baseFile}.old"
+      mv -i "${fullPath}" "${fullPath}.old"
+      ln -s "${file}" ~
     fi
   else
-    echo Linking ~/${basefile}
-    ln -s $file ~
+    echo "Linking ${fullPath}"
+    ln -s "${file}" ~
   fi
 done
