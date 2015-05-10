@@ -1,8 +1,10 @@
-#!/bin/bash -uex
+#!/usr/bin/env bash
 
 ${DEBUG:-}
 
-cd ${SHELLY_ENV}
+set -ue
+
+cd "${SHELLY_ENV}"
 for dir in ~/.shelly/cabal-sandboxes/*; do
-  ln -sf ${dir}/.cabal-sandbox $(basename ${dir})
+  ln -sf "${dir}/.cabal-sandbox $(basename "${dir}")"
 done
