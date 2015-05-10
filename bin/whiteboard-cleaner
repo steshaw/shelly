@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
 
 #
 # Adapted from https://gist.github.com/lelandbatey/8677901
 #
 
 Usage() {
-  echo "usage: $(basename $0) input-file output-file" >&2
+  echo "usage: $(basename "$0") input-file output-file" >&2
   exit 2
 }
 

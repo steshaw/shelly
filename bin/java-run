@@ -1,3 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
 
 exec java -cp classes/ "$@"

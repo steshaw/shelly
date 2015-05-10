@@ -1,15 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-command=$1; shift
+set -eu
 
 uname=$(uname)
 
 Usage() {
   cat >&2 <<!
-usage: $(basename $0) info|search|install|remove|refresh|upgrade|installed|files
+usage: $(basename "$0") info|search|install|remove|refresh|upgrade|installed|files
 !
   exit 2
 }
+
+[[ $# -eq -0 ]] && Usage
+
+command=$1; shift
 
 if [[ $command = 'info' ]]; then
   if [[ $uname = 'Darwin' ]]; then

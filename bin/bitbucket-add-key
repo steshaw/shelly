@@ -8,6 +8,6 @@ user=${USER}
 
 echo "Authenticating to Bitbucket as ${user}"
 
-curl --user ${user} -X POST https://bitbucket.org/api/1.0/users/${user}/ssh-keys \
+curl --user "${user}" -X POST "https://bitbucket.org/api/1.0/users/${user}/ssh-keys" \
     --data-urlencode "label=${title}" \
     --data-urlencode "key=${key}" 

@@ -1,12 +1,14 @@
-#!/bin/bash -eu
+#!/usr/bin/env bash
 
-scriptName="$(basename $0)"
+set -eu
+
+scriptName=$(basename "$0")
 
 function Bail {
   exitCode=$1
   msg=$2
   echo "${scriptName}: Error: ${msg}" >&2
-  exit ${exitCode}
+  exit "${exitCode}"
 }
 
 function Usage {
@@ -19,7 +21,7 @@ if [[ $# -gt 1 && ${1} = '-a' ]]; then
   all=1; shift
 fi
 
-if [[ $# -gt 2 ]]; then
+if [[ $# -eq 0 || $# -gt 2 ]]; then
   Usage
 fi
 
@@ -31,7 +33,7 @@ function ChooseTar() {
   fi
 }
 
-TAR="$(ChooseTar) --verify"
+TAR="$(ChooseTar)"
 
 dir=${1}; shift
 
@@ -56,9 +58,9 @@ stamp=$(timestamp)
 Tar() {
   tarFile=${1}
   if [[ "${extension}" == 'txz' ]]; then
-    (set -x && time XZ_OPT="-${level}" ${TAR} -cJf ${tarFile} ${dir})
+    (set -x && time XZ_OPT="-${level}" ${TAR} -cJf "${tarFile}" "${dir}")
   elif [[ "${extension}" == 'tgz' ]]; then
-    (set -x && time GZIP="-${level}" ${TAR} -czf ${tarFile} ${dir})
+    (set -x && time GZIP="-${level}" ${TAR} -czf "${tarFile}" "${dir}")
   else
     Bail "Unexpected invalid extension ${extension}. Programmer error"
   fi

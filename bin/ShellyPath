@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Note: Shelly apps should be sourced from your .bash_profile. 
 # The shebang above is just for file type detection in vim :).

@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
 
 #
 # Adapted from Scala 2.11.0 release announcement.

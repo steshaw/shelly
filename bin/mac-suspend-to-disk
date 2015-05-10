@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
 
 #
 # * Discovered from:
@@ -24,7 +26,7 @@ MODE_BACKUP=/tmp/hibernate_mode.bak
 SUSPEND_TO_DISK=25 #see man pmset
 
 display_settings() {
-    echo "Current settings: " $(pmset -g | grep hibernatemode)
+    echo "Current settings: $(pmset -g | grep hibernatemode)"
 }
 
 save_settings() {
@@ -34,7 +36,7 @@ save_settings() {
 
 restore_settings() {
     echo "restoring settings"
-    pmset -a hibernatemode $(cat $MODE_BACKUP)
+    pmset -a hibernatemode "$(cat $MODE_BACKUP)"
 }
 
 set_only_disk_hibernate() {

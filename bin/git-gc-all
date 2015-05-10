@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [[ $1 == "-?" || $1 == "-h" || $1 == "--help" || $1 == "-help" ]]; then
-  echo "usage: $(basename $0) [directories to start from]" >&2
+set -eu
+
+if [[ $# -gt 0 && ($1 == "-?" || $1 == "-h" || $1 == "--help" || $1 == "-help") ]]; then
+  echo "usage: $(basename "$0") [directories to start from]" >&2
   exit 2
 fi
 
@@ -14,7 +16,7 @@ fi
     repos=~/.cache/git-repos.txt
     if [[ ! -f $repos || "$(find ${repos} -mmin +1440)" != "" ]]; then
       # file is old or not foundi - regenerate.
-      mkdir -p $(dirname ${repos})
+      mkdir -p "$(dirname ${repos})"
       FindEm ~ >${repos}
     fi
     cat ${repos}
@@ -23,6 +25,6 @@ fi
   fi
 ) | while read repo; do
   echo -e "-- $repo --"
-  (cd $repo && git gc)
+  (cd "$repo" && git gc)
   echo
 done

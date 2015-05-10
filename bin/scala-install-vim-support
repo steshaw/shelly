@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
 
 if [[ -z $SCALA_HOME ]]; then
   echo SCALA_HOME is not set
@@ -14,9 +16,9 @@ fi
 
 for dir in $vimSupportDir/*; do
   if [[ -d $dir ]]; then
-    dirName=$(basename $dir)
+    dirName=$(basename "$dir")
     targetDir=~/.vim/$dirName
-    mkdir -p $targetDir
-    cp -i $dir/* $targetDir
+    mkdir -p "$targetDir"
+    cp -i "$dir"/* "$targetDir"
   fi
 done

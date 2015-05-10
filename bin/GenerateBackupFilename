@@ -29,4 +29,4 @@ function Last() {
   fi
 }
 
-echo ${path}/${filename}.$(timestamp)$(Last)
+echo "${path}/${filename}.$(timestamp)$(Last)"

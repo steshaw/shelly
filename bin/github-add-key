@@ -4,8 +4,8 @@ set -eu
 
 title="${USER}@$(hostname) (added by shelly/bootstrap)"
 key="$(cat ~/.ssh/id_rsa.pub)"
-user=${USER}"
+user="${USER}"
 
 echo "Authenticating to GitHub as ${user}"
 
-curl -u ${user} -d "{\"title\": \"${title}\", \"key\": \"${key}\"" https://api.github.com/user/keys
+curl -u "${user}" -d "{\"title\": \"${title}\", \"key\": \"${key}\"" https://api.github.com/user/keys

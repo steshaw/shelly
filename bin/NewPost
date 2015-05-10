@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -eu
 set -o noclobber
 
 if [[ $# -eq 0 ]]; then
-  echo "usage: $0 a blog post title" >&2
+  echo "usage: $(basename "$0") a blog post title" >&2
   exit 2
 fi
 if [[ ! -d posts ]]; then
@@ -12,14 +12,14 @@ if [[ ! -d posts ]]; then
   exit 1
 fi
 
-title="$@"
+title="$*"
 
 timestamp="$(date +%Y-%m-%dT%H:%M:%S%z)"
-justDate="$(echo ${timestamp} | cut -c1-10)"
+justDate="$(echo "${timestamp}" | cut -c1-10)"
 
-filename="posts/${justDate}-$(echo ${title} | sed 's/ /-/g' | tr 'A-Z'  'a-z')"
+filename="posts/${justDate}-$(echo "${title}" | sed 's/ /-/g' | tr '[:upper:]'  '[:lower:]').org"
 
-cat >${filename} <<!
+cat >"${filename}" <<!
 ---
 title: ${title}
 date: $(timestamp)

@@ -3,7 +3,7 @@
 set -eu
 
 Usage() {
-  echo "usage: $(basename $0) ram|disk|smart" >&2
+  echo "usage: $(basename "$0") ram|disk|smart" >&2
   exit 2
 }
 
