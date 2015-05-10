@@ -3,11 +3,12 @@
 ${DEBUG:-}
 
 if [[ $# -lt 1 ]]; then
-  echo "usage: $(basename $0) cabal-package-name [args to cabal install]" >&2
+  name=$(basename "${0}")
+  echo "usage: ${name} cabal-package-name [args to cabal install]" >&2
   exit 2
 fi
 
-: ${SHELLY_PKG_HOME:=${HOME}/.shelly}
+: "${SHELLY_PKG_HOME:=${HOME}/.shelly}"
 
 pkg=${1}; shift
 
@@ -23,7 +24,7 @@ if [[ -d ${dir} ]]; then
   bail "Package ${pkg} seems to be installed already. ${dir} exists."
 fi
 
-mkdir -p ${dir}
-cd ${dir}
+mkdir -p "${dir}"
+cd "${dir}"
 cabal sandbox init
-cabal install "$@" ${pkg}
+cabal install "$@" "${pkg}"
