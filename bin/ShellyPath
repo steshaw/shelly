@@ -23,17 +23,9 @@ PATH=$SHELLY_ORIGINAL_PATH
 LD_LIBRARY_PATH=$SHELL_ORIGINAL_LD_LIBRARY_PATH
 DYLD_LIBRARY_PATH=$SHELL_ORIGINAL_DYLD_LIBRARY_PATH
 
-ls_soft_link_separator=' -> '
-
 if [ -d "$SHELLY_ENV" ]; then
   for dir in ${SHELLY_ENV}/*; do
     if [ "-d $dir" ]; then
-#      if [ -L "$dir" ]; then
-#        echo "$script: $dir -> "$(\ls -l "${dir}" | ruby -naF"${ls_soft_link_separator}" -e 'puts $F[1]')
-#      else
-#        echo $script: $dir
-#      fi
-
       binDir=$dir/bin
       if [ -d "$binDir" ]; then
         export PATH=$binDir:$PATH
