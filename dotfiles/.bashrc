@@ -85,7 +85,7 @@ bash_prompt() {
 
   if [[ $(id -u) -eq "0" ]]; then
     local UC=${EMR}       # user's color
-    local UP='\\$'        # user's prompt
+    local UP='\$'         # user's prompt
   else
     local UC=${EMG}       # user's color
     local UP='➯'          # user's prompt
