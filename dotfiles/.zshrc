@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+
+set -u
+
 echo Executing ~/.zshrc
 
 # Path to your oh-my-zsh installation.

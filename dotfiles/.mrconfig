@@ -19,9 +19,9 @@ checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
 
 [Projects/steshaw/github.com/idris]
 checkout =
-  git clone 'git@github.com:steshaw/idris' 'idris'
-  cd idris
-  git remote add upstream git@github.com:idris-lang/Idris-dev.git
+	 git clone 'git@github.com:steshaw/idris' 'idris'
+	 cd idris
+	 git remote add upstream git@github.com:idris-lang/Idris-dev.git
 update = GitSyncUpstream
 
 [Projects/steshaw/github.com/commercialhaskell]
@@ -40,7 +40,14 @@ checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
 
 [Projects/steshaw/github.com/nixpkgs]
 checkout =
-  git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
-  cd nixpkgs
-  git remote add upstream git@github.com:NixOS/nixpkgs.git
+	 git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
+	 cd nixpkgs
+	 git remote add upstream git@github.com:NixOS/nixpkgs.git
+update = GitSyncUpstream
+
+[Projects/steshaw/github.com/oh-my-zsh]
+checkout =
+	 git clone 'git@github.com:steshaw/oh-my-zsh.git' 'oh-my-zsh'
+	 cd oh-my-zsh
+	 git remote add upstream git@github.com:robbyrussell/oh-my-zsh.git
 update = GitSyncUpstream

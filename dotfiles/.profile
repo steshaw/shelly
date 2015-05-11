@@ -1,6 +1,6 @@
-#
-# .profile
-#
+#!/usr/bin/env bash
+
+set -u
 
 echo Executing ~/.profile
 
@@ -8,9 +8,9 @@ echo Executing ~/.profile
 # FIX ${SHELL}
 #
 echo "SHELL (before) = ${SHELL}"
-if [[ -n $BASH_VERSION ]]; then
+if [[ -n ${BASH_VERSION:-} ]]; then
   SHELL="$(which bash)"
-elif [[ -n $ZSH_VERSION ]]; then
+elif [[ -n ${ZSH_VERSION:-} ]]; then
   SHELL="$(which zsh)"
 fi
 echo "SHELL (after)  = ${SHELL}"
@@ -23,7 +23,7 @@ prependPaths() {
 
 sourceExists() {
   for path_ in "$@"; do
-    [[ -e ${path_} ]] && source ${path_}
+    [[ -e ${path_} ]] && source "${path_}"
   done
 }
 
@@ -36,10 +36,10 @@ firstDirectory() {
 
 homeFromBin() {
   command=$1
-  bin=$(which $command)
+  bin=$(which "$command")
   if [ -n "$bin" ]; then
-    bin=$(RealPath $bin)
-    echo $(dirname $(dirname $bin))
+    bin=$(RealPath "$bin")
+    dirname "$(dirname "$bin")"
   fi
 }
 
@@ -65,7 +65,7 @@ fi
 # Source ~/.profile.d/*
 #
 for file in ~/.profile.d/*; do
-  sourceExists ${file}
+  sourceExists "${file}"
 done
 
 #
@@ -77,7 +77,7 @@ prependPaths ~/bin
 # Explicitly call the .bashrc
 #
 # if running bash
-if [[ -n "$BASH_VERSION" ]]; then
+if [[ -n ${BASH_VERSION:-} ]]; then
   sourceExists ~/.bashrc
 fi
 

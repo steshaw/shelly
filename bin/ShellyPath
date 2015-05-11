@@ -15,8 +15,8 @@ export SHELLY_ENV=${SHELLY_ENV:-~/.shelly/env/0}
 
 # Save the original paths.
 export SHELLY_ORIGINAL_PATH=${SHELLY_ORIGINAL_PATH:-$PATH}
-export SHELLY_ORIGINAL_LD_LIBRARY_PATH=${SHELLY_ORIGINAL_LD_LIBRARY_PATH:-$LD_LIBRARY_PATH}
-export SHELLY_ORIGINAL_DYLD_LIBRARY_PATH=${SHELLY_ORIGINAL_DYLD_LIBRARY_PATH:-$DYLD_LIBRARY_PATH}
+export SHELLY_ORIGINAL_LD_LIBRARY_PATH=${SHELLY_ORIGINAL_LD_LIBRARY_PATH:-${LD_LIBRARY_PATH:-}}
+export SHELLY_ORIGINAL_DYLD_LIBRARY_PATH=${SHELLY_ORIGINAL_DYLD_LIBRARY_PATH:-${DYLD_LIBRARY_PATH:-}}
 
 # Clobber paths so that we don't keep prepending to them.
 PATH=$SHELLY_ORIGINAL_PATH
@@ -25,7 +25,7 @@ DYLD_LIBRARY_PATH=$SHELLY_ORIGINAL_DYLD_LIBRARY_PATH
 
 if [ -d "$SHELLY_ENV" ]; then
   for dir in ${SHELLY_ENV}/*; do
-    if [ "-d $dir" ]; then
+    if [ -d "$dir" ]; then
       binDir=$dir/bin
       if [ -d "$binDir" ]; then
         export PATH=$binDir:$PATH

@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eu
 
 #
 # brew
@@ -24,7 +26,7 @@ packages=(
   youtube-dl
 )
 for package in "${packages[@]}"; do
-  brew_install_or_upgrade ${package}
+  brew_install_or_upgrade "${package}"
 done
 
 #
@@ -49,7 +51,7 @@ casks=(
   viscosity
 )
 for cask in "${casks[@]}"; do
-  brew cask install ${cask}
+  brew cask install "${cask}"
 done
 
 #
