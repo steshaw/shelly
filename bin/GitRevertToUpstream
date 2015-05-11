@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [[ $# -ne 1 || $1 != '--force' ]]; then
+  cat <<! >&2
+usage: $(basename "$0") --force
+
+Reverts origin/master to upstream/master.
+Warning: uses force push
+!
+  exit 2
+fi
+
+#
+# HT http://stackoverflow.com/a/8135023/482382
+#
+git fetch upstream
+git reset --hard upstream/master
+git push origin +master
