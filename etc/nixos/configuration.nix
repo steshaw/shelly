@@ -51,22 +51,23 @@
 #  };
 
   nix.trustedBinaryCaches = [ 
-    http://hydra.nixos.org
-    http://cache.nixos.org
+#    http://hydra.nixos.org
+#    http://cache.nixos.org
     http://hydra.cryp.to
   ];
   nix.binaryCaches = [ 
-    http://hydra.nixos.org
-    http://cache.nixos.org
+#    http://hydra.nixos.org
+#    http://cache.nixos.org
     http://hydra.cryp.to
   ];
+
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
     git
     which
     python
-    docker
     gnupg
   ];
 }
