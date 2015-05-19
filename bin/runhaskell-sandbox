@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [[ $# -eq 0 ]]; then
+  cat >&2 <<!
+usage: $(basename $0) sandbox-name
+!
+  exit 2
+fi
+
+sandbox=$1; shift
+
+packageDb=$(ls -d ~/.shelly/cabal-sandboxes/${sandbox}/.cabal-sandbox/*-packages.conf.d)
+
+exec runghc -no-user-package-db -package-db="${packageDb}" ${1+"$@"}
