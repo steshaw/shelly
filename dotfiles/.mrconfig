@@ -56,14 +56,6 @@ update = GitSyncUpstream
 [Projects/steshaw/github.com/techradar]
 checkout = git clone 'git@github.com:steshaw/techradar.git' 'techradar'
 
-[Projects/steshaw/github.com/sauerbraten]
-checkout =
-  git clone --depth 1 'git@github.com:steshaw/sauerbraten.git' 'sauerbraten'
-  cd sauerbraten
-  git remote add upstream git@github.com:inexor-game/sauerbraten.git
-update = GitSyncUpstream
-skip = [ -n "${MYREPOS_SKIP}" ]
-
 [Projects/steshaw/github.com/fsharpworkshop]
 checkout =
   git clone git@github.com:steshaw/fsharpworkshop.git
