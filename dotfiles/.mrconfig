@@ -18,17 +18,17 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
 
 [Projects/steshaw/github.com/idris]
-checkout = 
-	 git clone 'git@github.com:steshaw/idris' 'idris'
-	 cd idris
-	 git remote add upstream git@github.com:idris-lang/Idris-dev.git
+checkout =
+  git clone 'git@github.com:steshaw/idris' 'idris'
+  cd idris
+  git remote add upstream git@github.com:idris-lang/Idris-dev.git
 update = GitSyncUpstream
 
 [Projects/steshaw/github.com/commercialhaskell]
-checkout = 
-	 git clone 'git@github.com:steshaw/commercialhaskell.git' 'commercialhaskell'
-	 cd commercialhaskell
-	 git remote add upstream git@github.com:commercialhaskell/commercialhaskell.git
+checkout =
+  git clone 'git@github.com:steshaw/commercialhaskell.git' 'commercialhaskell'
+  cd commercialhaskell
+  git remote add upstream git@github.com:commercialhaskell/commercialhaskell.git
 update = GitSyncUpstream
 
 [Projects/steshaw/bitbucket.org/docs]
@@ -39,34 +39,41 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
 
 [Projects/steshaw/github.com/nixpkgs]
-checkout = 
-	 git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
-	 cd nixpkgs
-	 git remote add upstream git@github.com:NixOS/nixpkgs.git
+checkout =
+  git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
+  cd nixpkgs
+  git remote add upstream git@github.com:NixOS/nixpkgs.git
 update = GitSyncUpstream
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/oh-my-zsh]
-checkout = 
-	 git clone 'git@github.com:steshaw/oh-my-zsh.git' 'oh-my-zsh'
-	 cd oh-my-zsh
-	 git remote add upstream git@github.com:robbyrussell/oh-my-zsh.git
+checkout =
+  git clone 'git@github.com:steshaw/oh-my-zsh.git' 'oh-my-zsh'
+  cd oh-my-zsh
+  git remote add upstream git@github.com:robbyrussell/oh-my-zsh.git
 update = GitSyncUpstream
 
 [Projects/steshaw/github.com/techradar]
 checkout = git clone 'git@github.com:steshaw/techradar.git' 'techradar'
 
 [Projects/steshaw/github.com/sauerbraten]
-checkout = 
-	 git clone --depth 1 'git@github.com:steshaw/sauerbraten.git' 'sauerbraten'
-	 cd sauerbraten
-	 git remote add upstream git@github.com:inexor-game/sauerbraten.git
+checkout =
+  git clone --depth 1 'git@github.com:steshaw/sauerbraten.git' 'sauerbraten'
+  cd sauerbraten
+  git remote add upstream git@github.com:inexor-game/sauerbraten.git
 update = GitSyncUpstream
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/fsharpworkshop]
-checkout = 
+checkout =
   git clone git@github.com:steshaw/fsharpworkshop.git
-	 cd fsharpworkshop
-	 git remote add upstream git@github.com:jorgef/fsharpworkshop.git
+  cd fsharpworkshop
+  git remote add upstream git@github.com:jorgef/fsharpworkshop.git
+update = GitSyncUpstream
+
+[Projects/steshaw/github.com/laptop]
+checkout =
+  git clone git@github.com:steshaw/laptop.git
+  cd fsharpworkshop
+  git remote add upstream git@github.com:thoughtbot/laptop.git
 update = GitSyncUpstream

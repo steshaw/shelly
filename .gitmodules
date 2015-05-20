@@ -1,0 +1,3 @@
+[submodule "modules/laptop"]
+	path = modules/laptop
+	url = git@github.com:steshaw/laptop.git

@@ -91,11 +91,11 @@ bash_prompt() {
     local UP='➯'          # user's prompt
   fi
 
-#  PS1="$TITLEBAR ${EMK}[${UC}\u${EMK}@${UC}\h ${EMB}\${NEW_PWD}${EMK}]${UC}\\$ ${NONE}"
-  # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
-  # extra backslash in front of \$ to make bash colorize the prompt
+  DC="${EMB}" # pwd colour
+  SC="${EMM}" # separator colour
+  GC="${EMY}" # git prompt colour
 
-  PS1="${TITLEBAR}\n\${debian_chroot:+(${debian_chroot:-})}${C}\u@\h:\w${EMB}$(set +u; __git_ps1; set -u)\n${EMG}${UC}${UP}${NONE} "
+  PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}$(set +u; __git_ps1; set -u)\n${UC}${UP}${NONE} "
 }
 bash_prompt
 
