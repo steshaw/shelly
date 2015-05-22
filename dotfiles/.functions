@@ -1,0 +1,28 @@
+
+prependPaths() {
+  for path_ in "$@"; do
+    [[ -d ${path_} ]] && PATH=${path_}:${PATH}
+  done
+}
+
+sourceExists() {
+  for path_ in "$@"; do
+    [[ -e ${path_} ]] && source "${path_}"
+  done
+}
+
+firstDirectory() {
+  for dir in "$@"; do
+    [[ -d ${dir} ]] && echo "${dir}"
+  done
+  echo ""
+}
+
+homeFromBin() {
+  command=$1
+  bin=$(which "$command")
+  if [ -n "$bin" ]; then
+    bin=$(RealPath "$bin")
+    dirname "$(dirname "$bin")"
+  fi
+}

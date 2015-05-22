@@ -4,6 +4,8 @@ set -u
 
 echo Executing ~/.profile
 
+source ~/.functions
+
 #
 # FIX ${SHELL}
 #
@@ -14,34 +16,6 @@ elif [[ -n ${ZSH_VERSION:-} ]]; then
   SHELL="$(which zsh)"
 fi
 echo "SHELL (after)  = ${SHELL}"
-
-prependPaths() {
-  for path_ in "$@"; do
-    [[ -d ${path_} ]] && PATH=${path_}:${PATH}
-  done
-}
-
-sourceExists() {
-  for path_ in "$@"; do
-    [[ -e ${path_} ]] && source "${path_}"
-  done
-}
-
-firstDirectory() {
-  for dir in "$@"; do
-    [[ -d ${dir} ]] && echo "${dir}"
-  done
-  echo ""
-}
-
-homeFromBin() {
-  command=$1
-  bin=$(which "$command")
-  if [ -n "$bin" ]; then
-    bin=$(RealPath "$bin")
-    dirname "$(dirname "$bin")"
-  fi
-}
 
 #
 # Setup shelly path.
@@ -82,3 +56,4 @@ if [[ -n ${BASH_VERSION:-} ]]; then
 fi
 
 sync-env-to-plist PATH
+if [ -e /Users/steshaw/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steshaw/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -4,6 +4,8 @@ set -u
 
 echo Executing ~/.bashrc
 
+source ~/.functions
+
 sourceExists /etc/skel/.bashrc
 
 #
@@ -96,7 +98,7 @@ bash_prompt() {
   SC="${EMM}" # separator colour
   GC="${EMY}" # git prompt colour
 
-  PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}$(set +u; __git_ps1; set -u)\n${UPC}${UP}${NONE} "
+  PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(set +u; __git_ps1; set -u)\n${UPC}${UP}${NONE} "
 }
 bash_prompt
 
