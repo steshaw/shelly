@@ -63,5 +63,5 @@ checkout =
 	 git remote add upstream git@github.com:thoughtbot/laptop.git
 update = GitSyncUpstream
 
-[Projects/steshaw/github.com/foo]
-checkout = git clone 'git@github.com:steshaw/foo.git' 'foo'
+[Projects/steshaw/github.com/huttons-razor]
+checkout = git clone 'git@github.com:steshaw/huttons-razor.git' 'huttons-razor'
