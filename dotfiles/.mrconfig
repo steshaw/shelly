@@ -4,6 +4,9 @@ git_gc = git gc "$@"
 [Projects/steshaw/github.com/shelly]
 checkout = git clone 'git@github.com:steshaw/shelly.git' 'shelly'
 
+[Projects/steshaw/github.com/plt]
+checkout = git clone git@github.com:steshaw/plt
+
 [Projects/steshaw/bitbucket.org/nand2tetris]
 checkout = git clone 'git@bitbucket.org:steshaw/nand2tetris' 'nand2tetris'
 
