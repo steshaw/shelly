@@ -68,3 +68,6 @@ update = GitSyncUpstream
 
 [Projects/steshaw/github.com/huttons-razor]
 checkout = git clone 'git@github.com:steshaw/huttons-razor.git' 'huttons-razor'
+
+[Projects/steshaw/github.com/language-swift-quote]
+checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swift-quote'
