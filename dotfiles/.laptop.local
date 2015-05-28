@@ -43,12 +43,20 @@ casks=(
   dropbox
   firefox
   google-chrome
+  graphviz
+  horndis
+  idris
+  intellij-idea
   intellij-idea-ce
   iterm2
   java
   kindle
+  rescuetime
   spectacle
   viscosity
+  xamarin-mdk
+  xamarin-studio
+  xquartz
 )
 for cask in "${casks[@]}"; do
   brew cask install "${cask}"
