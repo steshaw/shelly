@@ -120,4 +120,11 @@ fi
 
 [ -r dnvm.sh ] && source dnvm.sh
 
+cdpath=(
+  ~/Projects/steshaw
+  ~/Projects/steshaw/swift-haskell
+  ~/Projects/steshaw/bitbucket.org
+  ~/Projects/steshaw/github.com
+)
+
 export PATH
