@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+TOOLS="ctags haskellngPackages.codex haskellngPackages.ghc-mod haskellngPackages.hasktags haskellngPackages.hlint haskellngPackages.hscope haskellngPackages.pointfree haskellngPackages.pointful haskellngPackages.stylish-haskell"
+
+EXPR="with (import <nixpkgs> {}).pkgs; with (import <nixpkgs/pkgs/development/haskell-modules/lib.nix> { inherit pkgs; });"
+if [ -e "shell.nix" ]
+then
+  PKG="(import ./shell.nix)"
+else
+  PKG="myHaskellProject"
+  EXPR="$EXPR let myHaskellProject = (haskellngPackages.override { overrides = self: super: { myHaskellProject = self.callPackage ./. {}; }; }).myHaskellProject; in "
+fi
+
+EXPR="$EXPR (overrideCabal $PKG (drv: { buildTools = [ $TOOLS ]; } )).env"
+
+nix-shell -E "$EXPR"
