@@ -81,20 +81,8 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+[[ -r ~/.shrc ]] && source ~/.shrc
 
-export EDITOR=vim
-export VISUAL=${EDITOR}
-alias szshrc="source ~/.zshrc"
-alias zshrc="${VISUAL} ~/.zshrc"
-alias ohmyzsh="${VISUAL} ~/.oh-my-zsh"
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
-alias l='ls -lFh'
-alias ll='l -A'
-alias la='l -a'
-
-set -o vi
 bindkey -M vicmd 'j' vi-down-line-or-history
 bindkey -M vicmd 'k' vi-up-line-or-history
 
@@ -104,19 +92,6 @@ bindkey -M vicmd 'k' vi-up-line-or-history
 local prompt_char="%(#:#:➯)"
 local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
 PROMPT=$'\n%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_prompt_info)\n${exit_status}%{$reset_color%} '
-
-#
-# rbenv setup
-#
-if which rbenv >/dev/null 2>&1; then
-  export PATH="$HOME/.bin:$PATH"
-  eval "$(rbenv init - zsh --no-rehash)"
-fi
-
-#
-# travis gem setup
-#
-[ -f /Users/steshaw/.travis/travis.sh ] && source /Users/steshaw/.travis/travis.sh
 
 [ -r dnvm.sh ] && source dnvm.sh
 

@@ -4,8 +4,6 @@ set -u
 
 echo Executing ~/.bashrc
 
-source ~/.functions
-
 sourceExists /etc/skel/.bashrc
 
 #
@@ -109,63 +107,9 @@ function setTabTitle() {
 }
 PROMPT_COMMAND="setTabTitle; ${PROMPT_COMMANDL:-}"
 
-export EDITOR
-EDITOR=$(which vim)
-alias e='${EDITOR}'
+shopt -s globstar 2>/dev/null # Use globstar if we're using Bash > 4.0
 
-set -o vi
-
-#alias ls='ls --color -Fh'
-alias ls='ls -GFh'
-alias l='ls -l'
-alias ll='l -A'
-
-alias wi='type -ap'
-
-# Make file ops safer.
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
-alias cx='chmod +x'
-alias cw='chmod +w'
-
-alias vbp='vim ~/.profile'
-alias sbp='source ~/.profile'
-alias vbrc='vim ~/.bashrc'
-alias sbrc='source ~/.bashrc'
-
-alias path='echo $PATH | tr : "\n"'
-alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
-
-if [[ "$(uname)" != 'Darwin' ]]; then
-  alias pbcopy='xsel --clipboard --input'
-  alias pbpaste='xsel --clipboard --output'
-fi
-
-alias sml='rlwrap sml'
-alias ocaml='rlwrap ocaml'
-
-if [ -x "$(which gnome-open)" ]; then
-  alias o='gnome-open'
-elif [ -x "$(which xdg-open)" ]; then
-  alias o='xdg-open'
-else
-  alias o='open'
-fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-bashrcLocal=~/.bashrc.local
-[ -f "${bashrcLocal}" ] && source "${bashrcLocal}"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-shopt -s globstar 2>/dev/null
-
-# added by travis gem
-[ -f /Users/steshaw/.travis/travis.sh ] && source /Users/steshaw/.travis/travis.sh
+sourceExists ~/.shrc
 
 set +u
 
