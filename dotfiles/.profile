@@ -56,4 +56,3 @@ if [[ -n ${BASH_VERSION:-} ]]; then
 fi
 
 sync-env-to-plist PATH
-if [ -e /Users/steshaw/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/steshaw/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
