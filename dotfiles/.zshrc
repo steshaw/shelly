@@ -96,7 +96,9 @@ PROMPT=$'\n%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_promp
 [ -r dnvm.sh ] && source dnvm.sh
 
 cdpath=(
+  ~/Projects
   ~/Projects/steshaw
+  ~/Projects/ol
   ~/Projects/steshaw/swift-haskell
   ~/Projects/steshaw/bitbucket.org
   ~/Projects/steshaw/github.com
