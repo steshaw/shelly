@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
 
 git checkout master
 git pull --rebase
 git fetch upstream
 git rebase upstream/master
+git pull --rebase
 git push
