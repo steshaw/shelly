@@ -2,7 +2,9 @@
 
 set -eu
 
-git fetch upstream
 git checkout master
+git pull --rebase
+git fetch upstream
 git rebase upstream/master
+git pull --rebase
 git push

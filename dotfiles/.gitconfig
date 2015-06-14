@@ -48,6 +48,9 @@
 [difftool "diffmerge"]
 	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
 
+[pull]
+  rebase = true
+
 [merge]
 	tool = diffmerge
 [mergetool "diffmerge"]
