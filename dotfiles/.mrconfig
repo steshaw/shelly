@@ -62,3 +62,6 @@ checkout = git clone 'git://github.com/mainland/language-c-quote.git' 'language-
 
 [Projects/steshaw/swift-haskell/language-swift-quote]
 checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swift-quote'
+
+[Projects/steshaw/github.com/sicp-notes]
+checkout = git clone git@github.com:steshaw/sicp-notes
