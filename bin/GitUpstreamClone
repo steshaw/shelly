@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -eu
+
+script=$(basename ${0})
+
+if [[ $# -ne 2 ]]; then
+  echo "usage: ${script} <your-repository> <upstream-repo>" >&2
+  exit 2
+fi
+
+repo=${1}
+upstream=${2}
+
+directory=$(echo "${repo}" | perl -pe 's/^.*://; s-^.*/--; s/\.git$//;')
+
+if [[ -e ${directory} ]]; then
+  echo "${script}: ${directory} already exists" >&2
+  exit 1
+fi
+
+git clone "${repo}"
+if [[ ! -d ${directory} ]]; then
+  echo "${script}: Something went wrong. Expected ${directory} to have been created." >&2
+  exit 1
+fi
+
+cd ${directory}
+git remote add upstream ${upstream}

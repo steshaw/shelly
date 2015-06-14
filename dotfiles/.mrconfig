@@ -21,18 +21,12 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
 
 [Projects/steshaw/github.com/idris]
-checkout = 
-	 git clone 'git@github.com:steshaw/idris' 'idris'
-	 cd idris
-	 git remote add upstream git@github.com:idris-lang/Idris-dev.git
-update = GitSyncUpstream
+checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
+update = GitUpstreamSync
 
 [Projects/steshaw/github.com/commercialhaskell]
-checkout = 
-	 git clone 'git@github.com:steshaw/commercialhaskell.git' 'commercialhaskell'
-	 cd commercialhaskell
-	 git remote add upstream git@github.com:commercialhaskell/commercialhaskell.git
-update = GitSyncUpstream
+checkout = GitUpstreamClone git@github.com:steshaw/commercialhaskell.git git@github.com:commercialhaskell/commercialhaskell
+update = GitUpstreamSync
 
 [Projects/steshaw/bitbucket.org/docs]
 checkout = git clone --depth 1 'git@bitbucket.org:steshaw/docs.git' 'docs'
@@ -42,29 +36,20 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
 
 [Projects/steshaw/github.com/nixpkgs]
-checkout = 
-	 git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
-	 cd nixpkgs
-	 git remote add upstream git@github.com:NixOS/nixpkgs.git
-update = GitSyncUpstream
+checkout = GitUpstreamClone git@github.com:steshaw/nixpkgs git@github.com:NixOS/nixpkgs
+update = GitUpstreamSync
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/oh-my-zsh]
-checkout = 
-	 git clone 'git@github.com:steshaw/oh-my-zsh.git' 'oh-my-zsh'
-	 cd oh-my-zsh
-	 git remote add upstream git@github.com:robbyrussell/oh-my-zsh.git
-update = GitSyncUpstream
+checkout = GitUpstreamClone git@github.com:steshaw/oh-my-zsh git@github.com:robbyrussell/oh-my-zsh
+update = GitUpstreamSync
 
 [Projects/steshaw/github.com/techradar]
 checkout = git clone 'git@github.com:steshaw/techradar.git' 'techradar'
 
 [Projects/steshaw/github.com/laptop]
-checkout = 
-	 git clone git@github.com:steshaw/laptop.git
-	 cd fsharpworkshop
-	 git remote add upstream git@github.com:thoughtbot/laptop.git
-update = GitSyncUpstream
+checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
+update = GitUpstreamSync
 
 [Projects/steshaw/github.com/huttons-razor]
 checkout = git clone 'git@github.com:steshaw/huttons-razor.git' 'huttons-razor'
