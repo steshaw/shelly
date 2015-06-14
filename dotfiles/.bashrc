@@ -107,7 +107,17 @@ function setTabTitle() {
 }
 PROMPT_COMMAND="setTabTitle; ${PROMPT_COMMANDL:-}"
 
-shopt -s globstar 2>/dev/null # Use globstar if we're using Bash > 4.0
+function shellOption {
+  option=$1
+  shopt -s ${option} || echo "Cannot set '${option}', perhaps you are not running Bash 4.x.x?"
+}
+
+shellOption globstar 2>/dev/null # Use globstar if we're using Bash > 4.0
+shellOption nullglob
+shellOption autocd
+shellOption xpg_echo
+
+set -o noclobber
 
 sourceExists ~/.shrc
 

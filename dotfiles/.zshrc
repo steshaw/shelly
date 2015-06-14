@@ -80,8 +80,10 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-[[ -r ~/.shrc ]] && source ~/.shrc
+
+sourceExists ~/.shrc
+
+setopt noclobber
 
 bindkey -M vicmd 'j' vi-down-line-or-history
 bindkey -M vicmd 'k' vi-up-line-or-history
@@ -93,13 +95,6 @@ local prompt_char="%(#:#:➯)"
 local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
 PROMPT=$'\n%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_prompt_info)\n${exit_status}%{$reset_color%} '
 
-[ -r dnvm.sh ] && source dnvm.sh
-
-cdpath=(
-  ~/Projects/steshaw
-  ~/Projects/steshaw/swift-haskell
-  ~/Projects/steshaw/bitbucket.org
-  ~/Projects/steshaw/github.com
-)
+sourceExists dnvm.sh
 
 export PATH

@@ -6,6 +6,8 @@ fun Vundle()
   call vundle#begin()
   Plugin 'gmarik/vundle' " required
 
+  Plugin 'jceb/vim-orgmode'
+
   "
   " Misc
   "

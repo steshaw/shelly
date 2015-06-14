@@ -51,6 +51,16 @@ else
   alias o='open'
 fi
 
+cdpath=(
+  .
+  ~/Projects/steshaw
+  ~/Projects/steshaw/swift-haskell
+  ~/Projects/steshaw/bitbucket.org
+  ~/Projects/steshaw/github.com
+)
+
+PATH=bin:$PATH
+
 sourceExists ~/.travis/travis.sh # for travis gem
 sourceExists ~/.shrc.local
 
