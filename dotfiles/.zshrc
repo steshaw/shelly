@@ -104,4 +104,6 @@ cdpath=(
   ~/Projects/steshaw/github.com
 )
 
+eval `/usr/libexec/path_helper -s`
+
 export PATH
