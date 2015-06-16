@@ -79,8 +79,8 @@ autocmd BufNewFile,BufRead *.yeti setlocal filetype=yeti ts=8 sw=4 sts=4 expandt
 autocmd BufNewFile,BufRead *.cl,*.cool set filetype=cool
 autocmd BufNewFile,BufRead *.cup set filetype=cup
 autocmd BufNewFile,BufRead *.g4 set filetype=antlr
-"autocmd BufNewFile,BufRead *.idr set filetype=haskell
 autocmd BufNewFile,BufRead *.purs set filetype=haskell
+autocmd BufNewFile,BufRead *.scala,*.sbt set filetype=scala
 
 let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
 
