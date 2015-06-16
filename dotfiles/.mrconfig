@@ -37,7 +37,7 @@ checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
 
 [Projects/steshaw/github.com/nixpkgs]
 checkout = GitUpstreamClone git@github.com:steshaw/nixpkgs git@github.com:NixOS/nixpkgs
-update = GitUpstreamSync
+update = echo Please update nixpkgs manually
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/oh-my-zsh]
