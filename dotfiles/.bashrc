@@ -4,6 +4,7 @@ set -u
 
 echo Executing ~/.bashrc
 
+[ -r ~/.functions ] && source ~/.functions
 sourceExists /etc/skel/.bashrc
 
 #
@@ -117,7 +118,10 @@ shellOption nullglob
 shellOption autocd
 shellOption xpg_echo
 
-set -o noclobber
+# Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
+if [[ $- == *i* && -z $IN_NIX_SHELL ]]; then
+  set -o noclobber
+fi
 
 sourceExists ~/.shrc
 
