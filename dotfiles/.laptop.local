@@ -20,6 +20,7 @@ packages=(
   rlwrap
   sbt
   scala
+  scalariform
   tree
   vim
   wget
