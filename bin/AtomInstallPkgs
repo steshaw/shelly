@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eu
+
+atomPkgs=$(grep -v '^#' ~/.atom.pkgs)
+
+for pkg in ${atomPkgs}; do
+  apm install "${pkg}"
+done

@@ -63,17 +63,7 @@ for cask in "${casks[@]}"; do
   brew cask install "${cask}"
 done
 
-atomPkgs=(
-  atom-save-all
-#  autosave
-  ide-haskell
-  language-haskell
-  org
-  vim-mode
-)
-for pkg in "${atomPkgs[@]}"; do
-  apm install "${pkg}"
-done
+AtomInstallPkgs
 
 #
 # Switch login shell back to bash.
