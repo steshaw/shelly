@@ -44,8 +44,8 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 checkout = GitUpstreamClone git@github.com:steshaw/oh-my-zsh git@github.com:robbyrussell/oh-my-zsh
 update = GitUpstreamSync
 
-[Projects/steshaw/github.com/techradar]
-checkout = git clone 'git@github.com:steshaw/techradar.git' 'techradar'
+[Projects/steshaw/github.com/radar]
+checkout = git clone git@github.com:steshaw/radar.git
 
 [Projects/steshaw/github.com/laptop]
 checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
@@ -69,3 +69,6 @@ checkout = git clone git@github.com:steshaw/sicp-notes
 [Projects/steshaw/github.com/talks]
 checkout = GitUpstreamClone git@github.com:bfpg/talks.git git@github.com:bfpg/talks.git
 update = GitUpstreamSync
+
+[Projects/steshaw/github.com/triplet-src.github.io]
+checkout = git clone git@github.com:triplet-src/triplet-src.github.io
