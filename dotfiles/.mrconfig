@@ -10,8 +10,8 @@ checkout = git clone git@github.com:steshaw/plt
 [Projects/steshaw/bitbucket.org/nand2tetris]
 checkout = git clone 'git@bitbucket.org:steshaw/nand2tetris' 'nand2tetris'
 
-[Projects/steshaw/bitbucket.org/notes]
-checkout = git clone 'git@bitbucket.org:steshaw/notes' 'notes'
+[Projects/steshaw/bitbucket.org/secrets]
+checkout = git clone 'git@bitbucket.org:steshaw/notes' 'secrets'
 
 [Projects/steshaw/github.com/playground]
 checkout = git clone --depth 1 'git@github.com:steshaw/playground.git' 'playground'
