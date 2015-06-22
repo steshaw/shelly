@@ -1,6 +1,11 @@
 atom-save-all
+
 #  autosave
+
 ide-haskell
 language-haskell
+autocomplete-haskell
+haskell-ghc-mod
+
 org
 vim-mode
