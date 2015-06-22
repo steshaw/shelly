@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eux
+set -m # Enable job control.
+
+mysqld=$(which mysqld_safe)
+dir=$(dirname $(dirname $mysqld)) # Directory with the trailing /bin.
+log="${dir}/var/mysql/$(hostname).err"
+
+${mysqld} &
+tail -fn1000 ${log} &
+
+jobs
+
+fg %1
