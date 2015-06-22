@@ -66,8 +66,8 @@ checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swi
 [Projects/steshaw/github.com/sicp-notes]
 checkout = git clone git@github.com:steshaw/sicp-notes
 
-[Projects/steshaw/github.com/talks]
-checkout = GitUpstreamClone git@github.com:bfpg/talks.git git@github.com:bfpg/talks.git
+[Projects/steshaw/github.com/bfpg-talks]
+checkout = GitUpstreamClone git@github.com:steshaw/bfpg-talks.git git@github.com:bfpg/talks.git
 update = GitUpstreamSync
 
 [Projects/steshaw/github.com/triplet-src.github.io]
