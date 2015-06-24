@@ -72,3 +72,9 @@ update = GitUpstreamSync
 
 [Projects/steshaw/github.com/triplet-src.github.io]
 checkout = git clone git@github.com:triplet-src/triplet-src.github.io
+
+[Projects/steshaw/github.com/gists/gaming-pc]
+checkout = git clone 'git@gist.github.com:/a3d07afb4fe3fb64c44a.git' 'gaming-pc'
+
+[Projects/steshaw/github.com/gists/ideas]
+checkout = git clone 'git@gist.github.com:/8eb69cc1ee4f4db3420e.git' 'ideas'
