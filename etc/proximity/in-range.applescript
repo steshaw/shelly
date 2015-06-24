@@ -1,3 +1,5 @@
 tell application "System Events"
-	set properties of security preferences to {require password to wake:false}
+	tell security preferences
+		set require password to wake to false
+	end tell
 end tell
