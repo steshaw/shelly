@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -eux
+
+# TODO: in Haskell, there are nice arg-munging libraries :).
+if [[ $# -ne 1 ]]; then
+  echo "usage $(basename $0): github-url" >&2
+  exit 2
+fi
+
+#
+# TODO: in Haskell, these archane text manipulations would be able to be nicer.
+#
+url=${1%%\.git}
+project=${url##*/}
+
+#
+# TODO: in Haskell, we could write a library for pretty output like this.
+#
+echo "    url = [[$url]]"
+echo "project = [[$project]]"
+
+#
+# TODO: looks a job for a Turtle!
+#
+mkdir "${project}"
+cd "${project}"
+readmeFile=README.org
+echo "* ${project}" >> ${readmeFile}
+git init
+git add ${readmeFile}
+git commit -m 'Initial'
+git remote add origin ${url}
+git push -u origin master
+mr register .
