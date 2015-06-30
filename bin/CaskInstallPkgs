@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eu
+
+#
+# Ensure Caskroom.io is installed.
+#
+brew install caskroom/cask/brew-cask
+
+packages=$(
+  cat ~/.shelly/etc/cask.pkgs |
+  grep -v '^#' |
+  grep -v '^\s*$'
+)
+
+for package in ${packages}; do
+  brew cask install "${package}"
+done

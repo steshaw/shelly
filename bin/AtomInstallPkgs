@@ -2,7 +2,7 @@
 
 set -eu
 
-atomPkgs=$(cat ~/.atom.pkgs | grep -v '^#' | grep -v '^\s*$')
+atomPkgs=$(cat ~/.shelly/etc/atom.pkgs | grep -v '^#' | grep -v '^\s*$')
 
 for pkg in ${atomPkgs}; do
   apm install "${pkg}"
