@@ -2,9 +2,22 @@
 
 set -eu
 
-git checkout master
+function Usage {
+  echo "usage: $(basename $0) [branch]" >&2
+  exit 2
+}
+
+if [[ $# -eq 0 ]]; then
+  branch=master
+elif [[ $# -eq 1 ]]; then
+  branch=$1
+else
+  Usage
+fi
+
+git checkout ${branch}
 git pull --rebase
 git fetch upstream
-git rebase upstream/master
+git rebase upstream/${branch}
 git pull --rebase
 git push

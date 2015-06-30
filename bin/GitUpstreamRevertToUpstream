@@ -2,7 +2,7 @@
 
 set -eu
 
-if [[ $# -ne 1 || $1 != '--force' ]]; then
+function Usage() {
   cat <<! >&2
 usage: $(basename "$0") --force
 
@@ -10,11 +10,24 @@ Reverts origin/master to upstream/master.
 Warning: uses force push
 !
   exit 2
+}
+
+if [[ $# -ne 0 && $1 != '--force' ]]; then
+  Usage
+fi
+shift
+
+if [[ $# -eq 0 ]]; then
+  branch=master
+elif [[ $# -eq 1 ]]; then
+  branch=$1
+else
+  Usage
 fi
 
 #
 # HT http://stackoverflow.com/a/8135023/482382
 #
 git fetch upstream
-git reset --hard upstream/master
-git push origin +master
+git reset --hard upstream/${branch}
+git push origin +${branch}
