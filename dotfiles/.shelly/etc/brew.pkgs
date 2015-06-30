@@ -1,5 +1,4 @@
 agda
-aspell
 bash
 homebrew/versions/bash-completion2
 binutils
@@ -7,7 +6,6 @@ boot2docker
 caskroom/cask/brew-cask
 coreutils
 ctags
-curl
 docker
 findutils
 fswatch
@@ -39,7 +37,13 @@ the_silver_searcher
 tmux
 tree
 vim
-weechat
 wget
 youtube-dl
 zsh
+
+#
+# Weechat needs aspell and curl to be installed first.
+#
+aspell
+curl
+weechat --with-aspell --with-curl

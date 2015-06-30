@@ -16,17 +16,3 @@ packages=$(
 for pkg in ${packages}; do
   brew install "${pkg}"
 done
-
-#
-# Now install the exceptions
-#
-# TODO: How to get Homebrew to tell me how it installed stuff?
-#
-
-#
-# weechat — weechat.org
-#
-# Best installed with these options.
-#
-brew install curl aspell # just in case these have been removed from brew.pkgs
-brew install weechat --with-aspell --with-curl
