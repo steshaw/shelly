@@ -7,6 +7,10 @@ function Usage {
   exit 2
 }
 
+#
+# Be nice to have a -n option that prevent execution. But `getopts` is yuk. Need Turtle.
+#
+
 if [[ $# -eq 0 ]]; then
   branch=master
 elif [[ $# -eq 1 ]]; then

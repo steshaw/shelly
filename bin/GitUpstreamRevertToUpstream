@@ -4,10 +4,10 @@ set -eu
 
 function Usage() {
   cat <<! >&2
-usage: $(basename "$0") --force
+usage: $(basename "$0") --force [branch=master]
 
-Reverts origin/master to upstream/master.
-Warning: uses force push
+Reverts origin/<branch> to upstream/<branch>
+Warning: effectively uses force push
 !
   exit 2
 }
