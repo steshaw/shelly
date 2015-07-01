@@ -2,7 +2,7 @@
 git_gc = git gc "$@"
 
 [Projects/steshaw/github.com/shelly]
-checkout = git clone 'git@github.com:steshaw/shelly.git' 'shelly'
+checkout = git clone git@github.com:steshaw/shelly
 
 [Projects/steshaw/github.com/plt]
 checkout = git clone git@github.com:steshaw/plt
@@ -14,7 +14,7 @@ checkout = git clone 'git@bitbucket.org:steshaw/nand2tetris' 'nand2tetris'
 checkout = git clone 'git@bitbucket.org:steshaw/notes' 'secrets'
 
 [Projects/steshaw/github.com/playground]
-checkout = git clone --depth 1 'git@github.com:steshaw/playground.git' 'playground'
+checkout = git clone --depth 1 git@github.com:steshaw/playground
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/bitbucket.org/reactive-2015]
@@ -25,11 +25,11 @@ checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-la
 update = GitUpstreamSync
 
 [Projects/steshaw/github.com/commercialhaskell]
-checkout = GitUpstreamClone git@github.com:steshaw/commercialhaskell.git git@github.com:commercialhaskell/commercialhaskell
+checkout = GitUpstreamClone git@github.com:steshaw/commercialhaskell git@github.com:commercialhaskell/commercialhaskell
 update = GitUpstreamSync
 
 [Projects/steshaw/bitbucket.org/docs]
-checkout = git clone --depth 1 'git@bitbucket.org:steshaw/docs.git' 'docs'
+checkout = git clone --depth 1 git@bitbucket.org:steshaw/docs
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/steshaw.org]
@@ -45,20 +45,20 @@ checkout = GitUpstreamClone git@github.com:steshaw/oh-my-zsh git@github.com:robb
 update = GitUpstreamSync
 
 [Projects/steshaw/github.com/radar]
-checkout = git clone git@github.com:steshaw/radar.git
+checkout = git clone git@github.com:steshaw/radar
 
 [Projects/steshaw/github.com/laptop]
 checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
 update = GitUpstreamSync
 
 [Projects/steshaw/github.com/huttons-razor]
-checkout = git clone 'git@github.com:steshaw/huttons-razor.git' 'huttons-razor'
+checkout = git clone git@github.com:steshaw/huttons-razor
 
 [Projects/steshaw/swift-haskell/language-c-inline]
-checkout = git clone 'git@github.com:mchakravarty/language-c-inline.git' 'language-c-inline'
+checkout = git clone git@github.com:mchakravarty/language-c-inline
 
 [Projects/steshaw/swift-haskell/language-c-quote]
-checkout = git clone 'git://github.com/mainland/language-c-quote.git' 'language-c-quote'
+checkout = git clone git://github.com/mainland/language-c-quote
 
 [Projects/steshaw/swift-haskell/language-swift-quote]
 checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swift-quote'
@@ -67,17 +67,17 @@ checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swi
 checkout = git clone git@github.com:steshaw/sicp-notes
 
 [Projects/steshaw/github.com/bfpg-talks]
-checkout = GitUpstreamClone git@github.com:steshaw/bfpg-talks.git git@github.com:bfpg/talks.git
+checkout = GitUpstreamClone git@github.com:steshaw/bfpg-talks git@github.com:bfpg/talks
 update = GitUpstreamSync
 
 [Projects/steshaw/github.com/triplet-src.github.io]
 checkout = git clone --recursive git@github.com:triplet-src/triplet-src.github.io
 
 [Projects/steshaw/github.com/gists/gaming-pc]
-checkout = git clone 'git@gist.github.com:/a3d07afb4fe3fb64c44a.git' 'gaming-pc'
+checkout = git clone 'git@gist.github.com:/a3d07afb4fe3fb64c44a' 'gaming-pc'
 
 [Projects/steshaw/github.com/gists/ideas]
-checkout = git clone 'git@gist.github.com:/8eb69cc1ee4f4db3420e.git' 'ideas'
+checkout = git clone 'git@gist.github.com:/8eb69cc1ee4f4db3420e' 'ideas'
 
 [Projects/steshaw/github.com/togetherness.github.io]
 checkout = git clone 'git@github.com:togetherness/togetherness.github.io' 'togetherness.github.io'
