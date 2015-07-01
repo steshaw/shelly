@@ -11,6 +11,7 @@ findutils
 fswatch
 git
 ghc
+graphviz
 heroku-toolbelt
 httpie
 hub
