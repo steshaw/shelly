@@ -1,9 +1,12 @@
 *.o
 *.hi
 *.swp
+*.log
+
 *~
 ~*
 \.#*
 \#*
+
 .DS_Store
 .localized
