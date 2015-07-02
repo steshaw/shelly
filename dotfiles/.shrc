@@ -8,8 +8,13 @@ fi
 if which vim >/dev/null; then
   export EDITOR=$(which vim)
   export VISUAL=${EDITOR}
-  alias e='${EDITOR}'
 fi
+
+alias e='${EDITOR}'
+# we :: which edit
+function we {
+  e "$(which $1)"
+}
 
 set -o vi
 
