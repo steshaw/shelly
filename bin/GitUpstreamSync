@@ -19,9 +19,7 @@ else
   Usage
 fi
 
-git checkout ${branch}
-git pull --rebase
 git fetch upstream
+git checkout ${branch}
+
 git rebase upstream/${branch}
-git pull --rebase
-git push
