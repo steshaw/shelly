@@ -104,6 +104,7 @@ cdpath=(
   ~/Projects/steshaw/swift-haskell
   ~/Projects/steshaw/bitbucket.org
   ~/Projects/steshaw/github.com
+  ~/Projects/steshaw/github.com/gists
 )
 
 eval `/usr/libexec/path_helper -s`
