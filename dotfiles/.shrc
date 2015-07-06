@@ -10,7 +10,7 @@ if which vim >/dev/null; then
 fi
 
 if which emacsclient >/dev/null; then
-  export EDITOR=emacsopen
+  export EDITOR=emacsclient
 fi
 
 alias e='${EDITOR}'
