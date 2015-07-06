@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -eu
+
+script=$(basename $0)
+
+for file in "$@"; do
+  base=${file%.org}
+#  echo "file = [[$file]]"
+#  echo "base = [[$base]]"
+  org=$base.org
+  html=$base.html
+#  echo "orgFile = [[$base.org]]"
+#  echo "htmlFile = [[$base.html]]"
+  if [[ -r $org && -w $html && $html -ot $org ]]; then
+    set +x
+    echo $$org -> $html
+    echo "${script}: $org ➔ $html" >&2
+    pandoc --smart --to=html5 --self-contained --output ${html} ${org}
+    set -x
+  else
+    # Be nice to say why we are skipping here
+    echo "${script}: skipping $org" >&2
+  fi
+done
