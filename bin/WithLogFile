@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eu
+
+command="$@"
+first="${command%% *}"
+base="$(basename $first)"
+log="${base}.log"
+
+$command 2>&1 | tee $log
