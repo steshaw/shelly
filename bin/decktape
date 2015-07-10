@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -eux
+${DEBUG:-}
+
+deckTapeHome=~/Projects/steshaw/github.com/decktape
+
+function RunDeckTape {
+  cd ${deckTapeHome} # Required to help decktape find it's plugins (in the lib/ directory, I presume).
+  exec ${deckTapeHome}/bin/phantomjs ${deckTapeHome}/decktape.js "$@"
+}
+
+# hack parameters
+if [[ $# -eq 3 ]]; then
+  command=$1
+  url=$2
+  outputFile=$3
+  RunDeckTape ${command} ${url} $(RealPath ${outputFile})
+elif [[ $# -eq 2 ]]; then
+  url=$1
+  outputFile=$2
+  RunDeckTape ${url} $(RealPath ${outputFile})
+fi
