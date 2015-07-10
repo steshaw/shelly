@@ -9,9 +9,9 @@ if which vim >/dev/null; then
   export EDITOR=$(which vim)
 fi
 
-if which emacsclient >/dev/null; then
-  export EDITOR=emacsclient
-fi
+#if which emacsclient >/dev/null; then
+#  export EDITOR=emacsclient
+#fi
 
 alias e='${EDITOR}'
 export VISUAL=${EDITOR}
