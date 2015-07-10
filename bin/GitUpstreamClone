@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -eu
+${DEBUG:-}
 
 script=$(basename ${0})
 
@@ -11,8 +12,6 @@ fi
 
 if [[ $# -eq 3 ]]; then
   branch=$1; shift
-else
-  branch=master
 fi
 
 repo=${1}
@@ -25,7 +24,13 @@ if [[ -e ${directory} ]]; then
   exit 1
 fi
 
-git clone --branch ${branch} "${repo}"
+branchOpts=""
+if [[ -n ${branch:-} ]]; then
+  branchOpts="--branch ${branch}"
+fi
+
+git clone ${branchOpts} "${repo}"
+
 if [[ ! -d ${directory} ]]; then
   echo "${script}: Something went wrong. Expected ${directory} to have been created." >&2
   exit 1
