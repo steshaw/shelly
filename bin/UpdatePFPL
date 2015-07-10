@@ -7,12 +7,5 @@ cd ~/Downloads
 src=PFPL-downloaded.pdf
 dest=PFPL.pdf
 
-wget -O ${src} http://www.cs.cmu.edu/~rwh/plbook/book.pdf && if [[ $? -eq 0 ]]; then
-  cmp ${src} ${dest}
-  if [[ $? -eq 0 ]]; then
-    echo "no change"
-    rm ${src}
-  else
-    mv ${src} ${dest}
-  fi
-fi
+wget -O ${src} http://www.cs.cmu.edu/~rwh/plbook/book.pdf
+rsync-mv ${src} ${dest}
