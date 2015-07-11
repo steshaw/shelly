@@ -1,1 +1,1 @@
-[[ -d /app/halcyon ]] && eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
+false && [[ -d /app/halcyon ]] && eval "$( HALCYON_NO_SELF_UPDATE=1 "/app/halcyon/halcyon" paths )"
