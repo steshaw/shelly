@@ -120,4 +120,19 @@ update = GitUpstreamSync
 checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astefanutti/decktape
 update = GitUpstreamSync
 
+
 #---------------------------------------------------------------------------------------------------
+# External projects
+# ---------------------------------------------------------------------------------------------------
+
+[Projects/github.com/dhanji/loop]
+checkout = git clone git@github.com:dhanji/loop
+
+[Projects/github.com/bobatkey/Forvie]
+checkout = git clone git@github.com:bobatkey/Forvie
+
+[Projects/github.com/bobatkey/foveran]
+checkout = git clone git@github.com:bobatkey/foveran
+
+# ---------------------------------------------------------------------------------------------------
+
