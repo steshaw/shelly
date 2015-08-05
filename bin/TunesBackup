@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd ~/Downloads
+
+exec rsync --archive --hard-links --extended-attributes --progress Tunes/ Tunes.bup
