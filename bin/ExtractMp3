@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+
+ffmpeg="ffmpeg -n -loglevel warning"
+
+if [[ $# -eq 0 ]]; then
+  for file in *.mp4; do
+    ${ffmpeg} -i "${file}" "${file%.mp4}.mp3" || true
+  done
+else
+  for file in "$@"; do
+    ${ffmpeg} -i "${file}" "${file%.mp4}.mp3" || true
+  done
+fi
+
