@@ -16,7 +16,7 @@ checkout = git clone --depth 1 git@github.com:steshaw/playground
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/steshaw.org]
-checkout = git clone 'git@github.com:steshaw/steshaw.org' 'steshaw.org'
+checkout = git clone git@github.com:steshaw/steshaw.org
 
 [Projects/steshaw/github.com/radar]
 checkout = git clone git@github.com:steshaw/radar
@@ -47,7 +47,7 @@ checkout = git clone 'git@gist.github.com:/8eb69cc1ee4f4db3420e' 'ideas'
 #---------------------------------------------------------------------------------------------------
 
 [Projects/steshaw/github.com/togetherness.github.io]
-checkout = git clone 'git@github.com:togetherness/togetherness.github.io' 'togetherness.github.io'
+checkout = git clone git@github.com:togetherness/togetherness.github.io
 
 
 #---------------------------------------------------------------------------------------------------
@@ -109,8 +109,7 @@ update = echo Please update nixpkgs manually
 skip = [ -n "${MYREPOS_SKIP}" ]
 
 [Projects/steshaw/github.com/oh-my-zsh]
-checkout = GitUpstreamClone git@github.com:steshaw/oh-my-zsh git@github.com:robbyrussell/oh-my-zsh
-update = GitUpstreamSync
+checkout = git clone git@github.com:robbyrussell/oh-my-zsh
 
 [Projects/steshaw/github.com/laptop]
 checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
