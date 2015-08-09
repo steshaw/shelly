@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -u
+#set -eu
 
 echo Executing ~/.profile
 

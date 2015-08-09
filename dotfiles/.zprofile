@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -u
+#set -eu
 
 echo "Executing ~/.zprofile (delegating to ~/.profile)"
 
