@@ -101,7 +101,7 @@ update = GitUpstreamSync
 
 [Projects/steshaw/github.com/scalaz]
 checkout = GitUpstreamClone series/7.1.x git@github.com:steshaw/scalaz git@github.com:scalaz/scalaz
-update = GitUpstreamSync
+update = GitUpstreamSync series/7.1.x
 
 [Projects/steshaw/github.com/nixpkgs]
 checkout = GitUpstreamClone git@github.com:steshaw/nixpkgs git@github.com:NixOS/nixpkgs
