@@ -3,7 +3,6 @@
 #set -eu
 
 echo Executing ~/.zshrc
-[[ -r ~/.bashrc ]] && source ~/.bashrc
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
