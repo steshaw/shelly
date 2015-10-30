@@ -50,7 +50,6 @@ call Vundle()
 
 syntax enable
 filetype indent on
-filetype on
 
 set showmatch
 set background=dark
