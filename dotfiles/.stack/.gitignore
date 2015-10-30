@@ -1,0 +1,8 @@
+build-plan/
+build-plan-cache/
+global/
+indices/
+precompiled/
+setup-exe-cache/
+snapshots/
+templates/
