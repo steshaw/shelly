@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec perl -pi.bak -e 's/([a-z])-([a-z])/\1\u\2/g' "$@"
