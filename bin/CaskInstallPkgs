@@ -5,7 +5,7 @@ set -eu
 #
 # Ensure Caskroom.io is installed.
 #
-brew install caskroom/cask/brew-cask || true
+brew tap caskroom/cask
 
 packages=$(
   cat ~/.shelly/etc/cask.pkgs |
