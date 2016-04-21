@@ -119,7 +119,7 @@ shellOption autocd
 shellOption xpg_echo
 
 # Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
-if [[ $- == *i* && -z $IN_NIX_SHELL ]]; then
+if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
