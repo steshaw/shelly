@@ -43,28 +43,6 @@ checkout = git clone 'git@gist.github.com:/8eb69cc1ee4f4db3420e' 'ideas'
 
 
 #---------------------------------------------------------------------------------------------------
-# Togetherness
-#---------------------------------------------------------------------------------------------------
-
-[Projects/steshaw/github.com/togetherness.github.io]
-checkout = git clone git@github.com:togetherness/togetherness.github.io
-
-
-#---------------------------------------------------------------------------------------------------
-# Haskell <-> Swift
-#---------------------------------------------------------------------------------------------------
-
-[Projects/steshaw/swift-haskell/language-c-inline]
-checkout = git clone git@github.com:mchakravarty/language-c-inline
-
-[Projects/steshaw/swift-haskell/language-c-quote]
-checkout = git clone git://github.com/mainland/language-c-quote
-
-[Projects/steshaw/swift-haskell/language-swift-quote]
-checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swift-quote'
-
-
-#---------------------------------------------------------------------------------------------------
 # Private repositories
 #---------------------------------------------------------------------------------------------------
 
@@ -85,6 +63,10 @@ checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
 
 [Projects/steshaw/github.com/bfpg-talks]
 checkout = GitUpstreamClone git@github.com:steshaw/bfpg-talks git@github.com:bfpg/talks
+update = GitUpstreamSync
+
+[Projects/steshaw/github.com/fpinscala]
+checkout = GitUpstreamClone git@github.com:steshaw/fpinscala git@github.com:fpinscala/fpinscala
 update = GitUpstreamSync
 
 [Projects/steshaw/github.com/idris]
@@ -134,4 +116,3 @@ checkout = git clone git@github.com:bobatkey/Forvie
 checkout = git clone git@github.com:bobatkey/foveran
 
 # ---------------------------------------------------------------------------------------------------
-
