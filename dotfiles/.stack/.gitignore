@@ -3,6 +3,7 @@ build-plan-cache/
 global/
 indices/
 precompiled/
+programs/
 setup-exe-cache/
 snapshots/
 templates/
