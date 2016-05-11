@@ -69,6 +69,10 @@ update = GitUpstreamSync
 checkout = GitUpstreamClone git@github.com:steshaw/fpinscala git@github.com:fpinscala/fpinscala
 update = GitUpstreamSync
 
+[Projects/steshaw/github.com/intellij-scala]
+checkout = GitUpstreamClone git@github.com:steshaw/intellij-scala.git git@github.com:JetBrains/intellij-scala.git
+update = GitUpstreamSync
+
 [Projects/steshaw/github.com/idris]
 checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
 update = GitUpstreamSync
