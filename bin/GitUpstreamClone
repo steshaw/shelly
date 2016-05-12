@@ -5,13 +5,9 @@ ${DEBUG:-}
 
 script=$(basename ${0})
 
-if [[ $# -ne 2 && $# -ne 3 ]]; then
-  echo "usage: ${script} [branch] <your-repository> <upstream-repo>" >&2
+if [[ $# -ne 2 ]]; then
+  echo "usage: ${script} <your-repository> <upstream-repo>" >&2
   exit 2
-fi
-
-if [[ $# -eq 3 ]]; then
-  branch=$1; shift
 fi
 
 repo=${1}
@@ -24,12 +20,7 @@ if [[ -e ${directory} ]]; then
   exit 1
 fi
 
-branchOpts=""
-if [[ -n ${branch:-} ]]; then
-  branchOpts="--branch ${branch}"
-fi
-
-git clone ${branchOpts} "${repo}"
+git clone "${repo}"
 
 if [[ ! -d ${directory} ]]; then
   echo "${script}: Something went wrong. Expected ${directory} to have been created." >&2

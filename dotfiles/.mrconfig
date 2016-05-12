@@ -2,8 +2,11 @@
 git_gc = git gc "$@"
 
 #---------------------------------------------------------------------------------------------------
-# My projects
+# Projects
 #---------------------------------------------------------------------------------------------------
+
+[Projects/steshaw/github.com/steshaw.org]
+checkout = git clone git@github.com:steshaw/steshaw.org
 
 [Projects/steshaw/github.com/shelly]
 checkout = git clone git@github.com:steshaw/shelly
@@ -15,95 +18,38 @@ checkout = git clone git@github.com:steshaw/plt
 checkout = git clone --depth 1 git@github.com:steshaw/playground
 skip = [ -n "${MYREPOS_SKIP}" ]
 
-[Projects/steshaw/github.com/steshaw.org]
-checkout = git clone git@github.com:steshaw/steshaw.org
-
-[Projects/steshaw/github.com/radar]
-checkout = git clone git@github.com:steshaw/radar
-
-[Projects/steshaw/github.com/huttons-razor]
-checkout = git clone git@github.com:steshaw/huttons-razor
-
-[Projects/steshaw/github.com/triplet-src.github.io]
-checkout = git clone --recursive git@github.com:triplet-src/triplet-src.github.io
-
-[Projects/steshaw/github.com/sicp-notes]
-checkout = git clone git@github.com:steshaw/sicp-notes
-
+[Projects/steshaw/bitbucket.org/docs]
+checkout = git clone --depth 1 git@bitbucket.org:steshaw/docs
+skip = [ -n "${MYREPOS_SKIP}" ]
 
 #---------------------------------------------------------------------------------------------------
 # Gists
 #---------------------------------------------------------------------------------------------------
 
-[Projects/steshaw/github.com/gists/gaming-pc]
-checkout = git clone 'git@gist.github.com:/a3d07afb4fe3fb64c44a' 'gaming-pc'
-
-[Projects/steshaw/github.com/gists/ideas]
-checkout = git clone 'git@gist.github.com:/8eb69cc1ee4f4db3420e' 'ideas'
-
-
 #---------------------------------------------------------------------------------------------------
-# Private repositories
-#---------------------------------------------------------------------------------------------------
-
-[Projects/steshaw/bitbucket.org/docs]
-checkout = git clone --depth 1 git@bitbucket.org:steshaw/docs
-skip = [ -n "${MYREPOS_SKIP}" ]
-
-[Projects/steshaw/bitbucket.org/nand2tetris]
-checkout = git clone 'git@bitbucket.org:steshaw/nand2tetris' 'nand2tetris'
-
-[Projects/steshaw/bitbucket.org/reactive-2015]
-checkout = git clone 'git@bitbucket.org:steshaw/reactive-2015' 'reactive-2015'
-
-
-#---------------------------------------------------------------------------------------------------
-# GitHub forks
+# Forks
 # ---------------------------------------------------------------------------------------------------
-
-[Projects/steshaw/github.com/bfpg-talks]
-checkout = GitUpstreamClone git@github.com:steshaw/bfpg-talks git@github.com:bfpg/talks
-update = GitUpstreamSync
 
 [Projects/steshaw/github.com/fpinscala]
 checkout = GitUpstreamClone git@github.com:steshaw/fpinscala git@github.com:fpinscala/fpinscala
-update = GitUpstreamSync
 
 [Projects/steshaw/github.com/intellij-scala]
 checkout = GitUpstreamClone git@github.com:steshaw/intellij-scala.git git@github.com:JetBrains/intellij-scala.git
-update = GitUpstreamSync
 
 [Projects/steshaw/github.com/idris]
 checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
-update = GitUpstreamSync
-
-[Projects/steshaw/github.com/commercialhaskell]
-checkout = GitUpstreamClone git@github.com:steshaw/commercialhaskell git@github.com:commercialhaskell/commercialhaskell
-update = GitUpstreamSync
-
-[Projects/steshaw/github.com/cats]
-checkout = GitUpstreamClone git@github.com:steshaw/cats git@github.com:non/cats
-update = GitUpstreamSync
 
 [Projects/steshaw/github.com/scalaz]
-checkout = GitUpstreamClone series/7.1.x git@github.com:steshaw/scalaz git@github.com:scalaz/scalaz
-update = GitUpstreamSync series/7.1.x
-
-[Projects/steshaw/github.com/nixpkgs]
-checkout = GitUpstreamClone git@github.com:steshaw/nixpkgs git@github.com:NixOS/nixpkgs
-update = echo Please update nixpkgs manually
-skip = [ -n "${MYREPOS_SKIP}" ]
+checkout = GitUpstreamClone git@github.com:steshaw/scalaz git@github.com:scalaz/scalaz
 
 [Projects/steshaw/github.com/oh-my-zsh]
 checkout = git clone git@github.com:robbyrussell/oh-my-zsh
 
 [Projects/steshaw/github.com/laptop]
 checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
-update = GitUpstreamSync
 
 [Projects/steshaw/github.com/decktape]
 checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astefanutti/decktape
-update = GitUpstreamSync
 
 
 #---------------------------------------------------------------------------------------------------
