@@ -5,16 +5,16 @@ git_gc = git gc "$@"
 # Projects
 #---------------------------------------------------------------------------------------------------
 
-[Projects/steshaw/github.com/steshaw.org]
+[Projects/steshaw/steshaw.org]
 checkout = git clone git@github.com:steshaw/steshaw.org
 
-[Projects/steshaw/github.com/shelly]
+[Projects/steshaw/shelly]
 checkout = git clone git@github.com:steshaw/shelly
 
-[Projects/steshaw/github.com/plt]
+[Projects/steshaw/plt]
 checkout = git clone git@github.com:steshaw/plt
 
-[Projects/steshaw/github.com/playground]
+[Projects/steshaw/playground]
 checkout = git clone --depth 1 git@github.com:steshaw/playground
 skip = [ -n "${MYREPOS_SKIP}" ]
 
@@ -30,25 +30,22 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 # Forks
 # ---------------------------------------------------------------------------------------------------
 
-[Projects/steshaw/github.com/fpinscala]
+[Projects/steshaw/fpinscala]
 checkout = GitUpstreamClone git@github.com:steshaw/fpinscala git@github.com:fpinscala/fpinscala
 
-[Projects/steshaw/github.com/intellij-scala]
+[Projects/steshaw/intellij-scala]
 checkout = GitUpstreamClone git@github.com:steshaw/intellij-scala.git git@github.com:JetBrains/intellij-scala.git
 
-[Projects/steshaw/github.com/idris]
+[Projects/steshaw/idris]
 checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
 
-[Projects/steshaw/github.com/scalaz]
+[Projects/steshaw/scalaz]
 checkout = GitUpstreamClone git@github.com:steshaw/scalaz git@github.com:scalaz/scalaz
 
-[Projects/steshaw/github.com/oh-my-zsh]
-checkout = git clone git@github.com:robbyrussell/oh-my-zsh
-
-[Projects/steshaw/github.com/laptop]
+[Projects/steshaw/laptop]
 checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
 
-[Projects/steshaw/github.com/decktape]
+[Projects/steshaw/decktape]
 checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astefanutti/decktape
 
 
@@ -56,13 +53,13 @@ checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astef
 # External projects
 # ---------------------------------------------------------------------------------------------------
 
-[Projects/github.com/dhanji/loop]
+[Projects/dhanji/loop]
 checkout = git clone git@github.com:dhanji/loop
 
-[Projects/github.com/bobatkey/Forvie]
+[Projects/bobatkey/Forvie]
 checkout = git clone git@github.com:bobatkey/Forvie
 
-[Projects/github.com/bobatkey/foveran]
+[Projects/bobatkey/foveran]
 checkout = git clone git@github.com:bobatkey/foveran
 
 # ---------------------------------------------------------------------------------------------------

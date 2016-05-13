@@ -16,5 +16,5 @@ ln -s ~/shelly/dotfiles/.gitconfig ~ # Mainly for branch.autosetuprebase
 MYREPOS_SKIP=1 mr --trust-all --config ~/shelly/dotfiles/.mrconfig checkout
 
 rm ~/shelly/dotfiles/.gitconfig
-~/Projects/steshaw/github.com/shelly/bin/ShellyLinkDotFiles
+~/Projects/steshaw/shelly/bin/ShellyLinkDotFiles
 rm -rf ~/.shelly
