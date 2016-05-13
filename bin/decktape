@@ -3,7 +3,7 @@
 set -eu
 ${DEBUG:-}
 
-deckTapeHome=~/Projects/steshaw/github.com/decktape
+deckTapeHome=~/Projects/steshaw/decktape
 
 function RunDeckTape {
   cd ${deckTapeHome} # Required to help decktape find it's plugins (in the lib/ directory, I presume).
