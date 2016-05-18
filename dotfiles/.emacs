@@ -9,6 +9,8 @@
 ; Evil
 ;
 (setq evil-shift-width 2)
+(with-eval-after-load 'evil
+  (defalias #'forward-evil-word #'forward-evil-symbol))
 (require 'evil)
 (evil-mode 1)
 
