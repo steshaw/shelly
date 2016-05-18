@@ -69,6 +69,7 @@ fi
 
 cdpath=(
   .
+  ~/Projects
   ~/Projects/steshaw
   ~/Projects/steshaw/swift-haskell
   ~/Projects/steshaw/bitbucket.org
