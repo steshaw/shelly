@@ -24,10 +24,11 @@
 ;
 ; Agda
 ;
-;(load-file (let ((coding-system-for-read 'utf-8))
-;                (shell-command-to-string "agda-mode locate")))
-;(add-hook 'evil-insert-state-entry-hook (lambda () (set-input-method "Agda")))
-;(add-hook 'evil-insert-state-exit-hook (lambda () (set-input-method nil)))
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "/usr/local/bin/agda-mode locate")))
+(require 'agda-input); for unicode input via latex names like \forall.
+(add-hook 'evil-insert-state-entry-hook (lambda () (set-input-method "Agda")))
+(add-hook 'evil-insert-state-exit-hook (lambda () (set-input-method nil)))
 
 ;
 ; ProofGeneral
@@ -39,6 +40,10 @@
 (server-start)
 
 ;(load-theme 'solarized-dark)
+
+
+; Put "\n" at the end of the last line like Vim.
+(setq require-final-newline t)
 
 (setq default-frame-alis
   '((width . 100)
