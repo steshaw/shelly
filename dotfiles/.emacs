@@ -39,8 +39,7 @@
 
 (server-start)
 
-;(load-theme 'solarized-dark)
-
+(load-theme 'solarized-dark)
 
 ; Put "\n" at the end of the last line like Vim.
 (setq require-final-newline t)
