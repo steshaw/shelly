@@ -1,9 +1,21 @@
+;
+; Set up Emacs package system.
+;
 (require 'package)
 (add-to-list 'package-archives 
              '("melpa" . "http://melpa.org/packages/"))
 ;(add-to-list 'package-archives
 ;             '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
+
+;
+; Fix PATH on MacOS via exec-path-from-shell.
+; https://github.com/purcell/exec-path-from-shell
+;
+(message (getenv "PATH"))
+(when (memq window-system '(mac ns))
+   (exec-path-from-shell-initialize))
+(message (getenv "PATH"))
 
 ;
 ; Evil
@@ -25,7 +37,7 @@
 ; Agda
 ;
 (load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "/usr/local/bin/agda-mode locate")))
+                (shell-command-to-string "agda-mode locate")))
 (require 'agda-input); for unicode input via latex names like \forall.
 (add-hook 'evil-insert-state-entry-hook (lambda () (set-input-method "Agda")))
 (add-hook 'evil-insert-state-exit-hook (lambda () (set-input-method nil)))
@@ -35,18 +47,32 @@
 ;
 ;(if (featurep 'aquamacs)
 ;  (load-file "~/.shelly/apps/ProofGeneral-4.1/generic/proof-site.el"))
-(load-file "/usr/local/Cellar/proof-general/4.2/share/emacs/site-lisp/proof-general/generic/proof-site.el")
+;(load-file "/usr/local/Cellar/proof-general/4.2/share/emacs/site-lisp/proof-general/generic/proof-site.el")
+
+;; Open .v files with Proof General's Coq mode
+(load "~/.emacs.d/lisp/PG/generic/proof-site")
+;; Load company-coq when opening Coq files
+(add-hook 'coq-mode-hook #'company-coq-mode)
 
 (server-start)
 
-(load-theme 'solarized-dark)
+(load-theme 'solarized-light)
 
 ; Put "\n" at the end of the last line like Vim.
 (setq require-final-newline t)
+
+; No splash screen!
+(setq inhibit-startup-message t)
 
 (setq default-frame-alis
   '((width . 100)
     (height . 45)))
 
-(custom-set-variables
- '(inhibit-startup-screen t))
+; No tabs!
+(setq-default indent-tabs-mode nil)
+
+; Fill to column 80.
+(setq-default fill-column 80)
+
+; Don't wrap lines.
+(set-default 'truncate-lines t)

@@ -67,19 +67,19 @@ if has("gui_running")
   colorscheme koehler
 endif
 
-"execute pathogen#infect()
+execute pathogen#infect()
 
 " Break hard-links - may need to break hard-links when using Mercurial optimised clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
 
-autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
-autocmd BufNewFile,BufRead *.m set filetype=modula2
-autocmd BufNewFile,BufRead *.yeti setlocal filetype=yeti ts=8 sw=4 sts=4 expandtab
-autocmd BufNewFile,BufRead *.cl,*.cool set filetype=cool
-autocmd BufNewFile,BufRead *.cup set filetype=cup
-autocmd BufNewFile,BufRead *.g4 set filetype=antlr
-autocmd BufNewFile,BufRead *.purs set filetype=haskell
-autocmd BufNewFile,BufRead *.scala,*.sbt set filetype=scala
+"autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+"autocmd BufNewFile,BufRead *.m set filetype=modula2
+"autocmd BufNewFile,BufRead *.yeti setlocal filetype=yeti ts=8 sw=4 sts=4 expandtab
+"autocmd BufNewFile,BufRead *.cl,*.cool set filetype=cool
+"autocmd BufNewFile,BufRead *.cup set filetype=cup
+"autocmd BufNewFile,BufRead *.g4 set filetype=antlr
+"autocmd BufNewFile,BufRead *.purs set filetype=haskell
+"autocmd BufNewFile,BufRead *.scala,*.sbt set filetype=scala
 
 let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
 
