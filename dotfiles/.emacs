@@ -48,7 +48,7 @@
 ; Org
 ;
 ;(require 'package)
-;(setq org-src-fontify-natively t)
+(setq org-src-fontify-natively t)
 ;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;
