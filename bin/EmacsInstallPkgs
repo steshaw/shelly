@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -eu
+
+function proofGeneral {
+  pgDir=~/.emacs.d/lisp/PG
+  if [[ -d ${pgDir} ]]; then
+    cd ${pgDir}
+    git pull
+  else
+    git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
+    cd ~/.emacs.d/lisp/PG
+  fi
+  emacs=/Applications/Aquamacs.app/Contents/MacOS/Aquamacs
+  if [[ ! -x ${emacs} ]]; then
+    echo "Cannot find Aquamacs to compile ProofGeneral" >&2
+  else
+    make clean; make EMACS="${emacs}"
+  fi
+}
+
+proofGeneral
