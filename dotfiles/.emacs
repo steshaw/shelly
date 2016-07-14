@@ -2,11 +2,29 @@
 ; Set up Emacs package system.
 ;
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
 ;(add-to-list 'package-archives
 ;             '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
+
+; fetch the list of packages available
+(or (file-exists-p package-user-dir)
+  (package-refresh-contents))
+
+(defun ensure-packages-installed (&rest packages)
+  (mapcar (lambda (package)
+    (unless (package-installed-p package)
+      (package-install package))) packages))
+
+(ensure-packages-installed
+  'exec-path-from-shell
+  'evil
+  'haskell-mode
+  'idris-mode
+  'org
+  'solarized-theme
+  )
 
 ;
 ; Fix PATH on MacOS via exec-path-from-shell.
@@ -59,9 +77,13 @@
 ;; Load company-coq when opening Coq files
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
+;
+; Miscelleanous customisations
+;
+
 (server-start)
 
-(load-theme 'solarized-dark)
+(load-theme 'solarized-light t)
 
 ; Put "\n" at the end of the last line like Vim.
 (setq require-final-newline t)
@@ -81,3 +103,5 @@
 
 ; Don't wrap lines.
 (set-default 'truncate-lines t)
+
+(kill-buffer "*scratch*")
