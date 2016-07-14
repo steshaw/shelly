@@ -1,9 +1,13 @@
+echo Sourcing $0
+
 #
 # On Mac, this is required.
 #
-if [[ -x /usr/libexec/path_helper ]]; then
-  eval `/usr/libexec/path_helper -s`
-fi
+#if [[ -x /usr/libexec/path_helper ]]; then
+#  echo "PATH (before path_helper) $PATH"
+#  eval `/usr/libexec/path_helper -s`
+#  echo "PATH (after  path_helper) $PATH"
+#fi
 
 if which vim >/dev/null; then
   export EDITOR=$(which vim)
@@ -76,8 +80,6 @@ cdpath=(
   ~/Projects/steshaw/github.com
   ~/Projects/steshaw/github.com/gists
 )
-
-PATH=bin:$PATH
 
 sourceExists ~/.travis/travis.sh # for travis gem
 sourceExists ~/.shrc.local

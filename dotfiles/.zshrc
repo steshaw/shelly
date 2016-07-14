@@ -106,6 +106,6 @@ cdpath=(
   ~/Projects/steshaw
 )
 
-eval `/usr/libexec/path_helper -s`
+#eval `/usr/libexec/path_helper -s`
 
 export PATH

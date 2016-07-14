@@ -1,6 +1,4 @@
-prependPaths ~/Applications/Emacs.app/Contents/MacOS/bin
-prependPaths ~/Applications/Aquamacs.app/Contents/MacOS/bin
-prependPaths /Applications/Aquamacs.app/Contents/MacOS/bin
 prependPaths /Applications/Emacs.app/Contents/MacOS/bin
+prependPaths /Applications/Aquamacs.app/Contents/MacOS/bin
 
 # ex: filetype=sh tabstop=20 shiftwidth=2 expandtab

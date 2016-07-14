@@ -4,6 +4,15 @@
 
 echo Executing ~/.profile
 
+function prettyPath {
+  echo "{"
+  echo $PATH | tr : '\n' | perl -pe 's/^/  /'
+  echo "}"
+}
+
+echo "PATH (before) = \c"
+prettyPath
+
 source ~/.functions
 
 #
@@ -55,4 +64,6 @@ if [[ -n ${BASH_VERSION:-} ]]; then
   sourceExists ~/.bashrc
 fi
 
+echo "PATH (after) = \c"
+prettyPath
 sync-env-to-plist PATH

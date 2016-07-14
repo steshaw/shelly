@@ -1,12 +1,20 @@
+#!/usr/bin/env bash
+
 prependPaths() {
   for path_ in "$@"; do
-    [[ -d ${path_} ]] && PATH=${path_}:${PATH}
+    if [[ -d ${path_} ]]; then
+      echo "Prepending ${path_}"
+      PATH=${path_}:${PATH}
+    fi
   done
 }
 
 sourceExists() {
   for path_ in "$@"; do
-    [[ -e ${path_} ]] && source "${path_}"
+    if [[ -e ${path_} ]];then
+      echo "Sourcing $path_"
+      source "${path_}"
+    fi
   done
 }
 
