@@ -34,6 +34,11 @@
 ;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 ;
+; Haskell
+;
+(custom-set-variables '(haskell-process-type 'stack-ghci))
+
+;
 ; Agda
 ;
 (load-file (let ((coding-system-for-read 'utf-8))
