@@ -27,6 +27,6 @@ for file in ${fromDir}/.[a-z]*; do
     fi
   else
     echo "Linking ${fullPath}"
-    ln -s "${file}" ~
+    ln -sf "${file}" ~
   fi
 done
