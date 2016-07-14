@@ -46,9 +46,14 @@ fun Vundle()
   filetype plugin indent on " required by Vundle
   call vundle#end()
 endf
-call Vundle()
 
-syntax enable
+let maplocalleader = "\\"
+
+call Vundle()
+execute pathogen#infect()
+
+syntax on
+filetype on
 filetype indent on
 
 set showmatch
@@ -56,7 +61,7 @@ set background=dark
 set tabstop=4
 set shiftwidth=2
 set softtabstop=2
-"set textwidth=120
+set textwidth=80
 set expandtab
 set smarttab
 set smartindent
@@ -66,8 +71,6 @@ set modelines=5
 if has("gui_running")
   colorscheme koehler
 endif
-
-execute pathogen#infect()
 
 " Break hard-links - may need to break hard-links when using Mercurial optimised clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
