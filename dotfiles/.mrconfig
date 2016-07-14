@@ -30,17 +30,8 @@ skip = [ -n "${MYREPOS_SKIP}" ]
 # Forks
 # ---------------------------------------------------------------------------------------------------
 
-[Projects/steshaw/fpinscala]
-checkout = GitUpstreamClone git@github.com:steshaw/fpinscala git@github.com:fpinscala/fpinscala
-
-[Projects/steshaw/intellij-scala]
-checkout = GitUpstreamClone git@github.com:steshaw/intellij-scala.git git@github.com:JetBrains/intellij-scala.git
-
 [Projects/steshaw/idris]
 checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
-
-[Projects/steshaw/scalaz]
-checkout = GitUpstreamClone git@github.com:steshaw/scalaz git@github.com:scalaz/scalaz
 
 [Projects/steshaw/laptop]
 checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
