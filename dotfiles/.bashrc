@@ -11,7 +11,7 @@ sourceExists /etc/skel/.bashrc
 # bash-completions
 #
 set +u
-if [ -x "$(which brew)" ]; then
+if [ -x "$(which brew 2>&-)" ]; then
   sourceExists "$(brew --prefix)/share/bash-completion/bash_completion" || sourceExists "$(brew --prefix)/etc/bash_completion"
   sourceExists "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 else

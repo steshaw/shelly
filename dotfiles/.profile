@@ -39,7 +39,7 @@ prependPaths ${SHELLY_BIN}
 # Some other configuration rely on brew being in the PATH, so it must be early.
 #
 prependPaths /usr/local/bin /usr/local/sbin
-if [ -x "$(which brew)" ]; then
+if [ -x "$(which brew 2>&-)" ]; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   sync-env-to-plist PKG_CONFIG_PATH
 fi

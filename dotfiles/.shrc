@@ -9,11 +9,11 @@ echo Sourcing $0
 #  echo "PATH (after  path_helper) $PATH"
 #fi
 
-if which vim >/dev/null; then
+if which vim >&- 2>&-; then
   export EDITOR=$(which vim)
 fi
 
-#if which emacsclient >/dev/null; then
+#if which emacsclient >&- 2>&-; then
 #  export EDITOR=emacsclient
 #fi
 
@@ -63,9 +63,9 @@ fi
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
-if [ -x "$(which gnome-open)" ]; then
+if [ -x "$(which gnome-open 2>&-)" ]; then
   alias o='gnome-open'
-elif [ -x "$(which xdg-open)" ]; then
+elif [ -x "$(which xdg-open 2>&-)" ]; then
   alias o='xdg-open'
 else
   alias o='open'
