@@ -17,6 +17,7 @@ if [ -x "$(which brew 2>&-)" ]; then
 else
   sourceExists /etc/profile.d/bash_completion.sh
   sourceExists /etc/bash_completion.d/git-prompt.sh
+  sourceExists /usr/share/git/git-prompt.sh # Works on MSYS2 when bash-completion is installed
   sourceExists /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh
   sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
