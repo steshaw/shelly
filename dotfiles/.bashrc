@@ -109,6 +109,12 @@ function setTabTitle() {
 }
 PROMPT_COMMAND="setTabTitle; ${PROMPT_COMMANDL:-}"
 
+# FIXME : Unfortunately something goes wrong on MSYS2 but this bash prompt file
+# FIXME : is a big hack anyhow.
+if [[ ${OSTYPE} = msys ]]; then
+  PROMPT_COMMAND='__git_ps1 "\n\u@\h:\w" \\n"\\\$ "'
+fi
+
 function shellOption {
   option=$1
   shopt -s ${option} || echo "Cannot set '${option}', perhaps you are not running Bash 4.x.x?"
