@@ -2,14 +2,25 @@
 
 set -eu
 
-which apt-get >/dev/null 2>&1 && sudo apt-get install myrepos git
+# FIXME: Need to ensure myrepos and git on other platforms.
+which apt-get >/dev/null 2>&1 && (
+  echo Installing myrepos and git...
+  sudo apt-get install myrepos git
+)
 
-mr bootstrap https://raw.githubusercontent.com/steshaw/shelly/master/dotfiles/.mrconfig
-
+echo Bootstrap shelly...
 SHELLY_HOME=~/Projects/shelly
 PATH=${SHELLY_HOME}/bin:${PATH}
 ShellyLinkDotFiles
 
+echo Generate ssh key...
 generate-ssh-key
+
+echo Add key to GitHub...
 github-add-key
+
+echo Add key to Bitbucket...
 bitbucket-add-key
+
+echo Bootstrap myrepos...
+mr checkout

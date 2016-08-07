@@ -74,11 +74,6 @@ fi
 cdpath=(
   .
   ~/Projects
-  ~/Projects/steshaw
-  ~/Projects/steshaw/swift-haskell
-  ~/Projects/steshaw/bitbucket.org
-  ~/Projects/steshaw/github.com
-  ~/Projects/steshaw/github.com/gists
 )
 
 sourceExists ~/.travis/travis.sh # for travis gem

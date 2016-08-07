@@ -29,7 +29,8 @@ echo "SHELL (after)  = ${SHELL}"
 #
 # Setup shelly path.
 #
-SHELLY_BIN=~/Projects/steshaw/shelly/bin
+SHELLY_HOME=~/Projects/shelly
+SHELLY_BIN=${SHELLY_HOME}/bin
 source ${SHELLY_BIN}/ShellyPath
 prependPaths ${SHELLY_BIN}
 

@@ -1,5 +1,6 @@
 [DEFAULT]
-git_gc = git gc "$@"
+gc = git gc "$@"
+
 
 #---------------------------------------------------------------------------------------------------
 # Projects
@@ -11,15 +12,22 @@ checkout = git clone git@github.com:steshaw/steshaw.org
 [Projects/shelly]
 checkout = git clone git@github.com:steshaw/shelly
 
+
 #---------------------------------------------------------------------------------------------------
 # Forks
 # ---------------------------------------------------------------------------------------------------
 
 [Projects/idris]
-checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
+checkout =
+  git clone git@github.com:steshaw/idris
+  cd idris
+  git remote add upstream git@github.com:idris-lang/Idris-dev
 
 [Projects/decktape]
-checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astefanutti/decktape
+checkout =
+  git clone --depth 1 git@github.com:steshaw/decktape
+  cd decktape
+  git remote add upstream git@github.com:astefanutti/decktape
 
 
 #---------------------------------------------------------------------------------------------------
