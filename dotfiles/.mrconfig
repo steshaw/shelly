@@ -5,38 +5,20 @@ git_gc = git gc "$@"
 # Projects
 #---------------------------------------------------------------------------------------------------
 
-[Projects/steshaw/steshaw.org]
+[Projects/steshaw.org]
 checkout = git clone git@github.com:steshaw/steshaw.org
 
-[Projects/steshaw/shelly]
+[Projects/shelly]
 checkout = git clone git@github.com:steshaw/shelly
-
-[Projects/steshaw/plt]
-checkout = git clone git@github.com:steshaw/plt
-
-[Projects/steshaw/playground]
-checkout = git clone --depth 1 git@github.com:steshaw/playground
-skip = [ -n "${MYREPOS_SKIP}" ]
-
-[Projects/steshaw/bitbucket.org/docs]
-checkout = git clone --depth 1 git@bitbucket.org:steshaw/docs
-skip = [ -n "${MYREPOS_SKIP}" ]
-
-#---------------------------------------------------------------------------------------------------
-# Gists
-#---------------------------------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------------------------------
 # Forks
 # ---------------------------------------------------------------------------------------------------
 
-[Projects/steshaw/idris]
+[Projects/idris]
 checkout = GitUpstreamClone git@github.com:steshaw/idris git@github.com:idris-lang/Idris-dev
 
-[Projects/steshaw/laptop]
-checkout = GitUpstreamClone git@github.com:steshaw/laptop git@github.com:thoughtbot/laptop
-
-[Projects/steshaw/decktape]
+[Projects/decktape]
 checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astefanutti/decktape
 
 
@@ -44,10 +26,10 @@ checkout = GitUpstreamClone git@github.com:steshaw/decktape git@github.com:astef
 # External projects
 # ---------------------------------------------------------------------------------------------------
 
-[Projects/bobatkey/Forvie]
-checkout = git clone git@github.com:bobatkey/Forvie
-
-[Projects/bobatkey/foveran]
-checkout = git clone git@github.com:bobatkey/foveran
+#[Projects/bobatkey/Forvie]
+#checkout = git clone git@github.com:bobatkey/Forvie
+#
+#[Projects/bobatkey/foveran]
+#checkout = git clone git@github.com:bobatkey/foveran
 
 # ---------------------------------------------------------------------------------------------------

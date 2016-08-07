@@ -4,17 +4,12 @@ set -eu
 
 which apt-get >/dev/null 2>&1 && sudo apt-get install myrepos git
 
-git clone https://github.com/steshaw/shelly.git ~/shelly
-PATH=~/shelly/bin:${PATH}
-~/shelly/bin/ShellyLinkDotFiles
+mr bootstrap https://raw.githubusercontent.com/steshaw/shelly/master/dotfiles/.mrconfig
+
+SHELLY_HOME=~/Projects/shelly
+PATH=${SHELLY_HOME}/bin:${PATH}
+ShellyLinkDotFiles
 
 generate-ssh-key
 github-add-key
 bitbucket-add-key
-
-ln -s ~/shelly/dotfiles/.gitconfig ~ # Mainly for branch.autosetuprebase
-MYREPOS_SKIP=1 mr --trust-all --config ~/shelly/dotfiles/.mrconfig checkout
-
-rm ~/shelly/dotfiles/.gitconfig
-~/Projects/steshaw/shelly/bin/ShellyLinkDotFiles
-rm -rf ~/.shelly
