@@ -103,7 +103,7 @@ PROMPT=$'\n%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_promp
 sourceExists dnvm.sh
 
 cdpath=(
-  ~/Projects/steshaw
+  ~/Projects
 )
 
 #eval `/usr/libexec/path_helper -s`
