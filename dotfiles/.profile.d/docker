@@ -1,0 +1,3 @@
+if which -s docker-machine; then
+  eval "$(docker-machine env)"
+fi
