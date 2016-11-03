@@ -106,6 +106,4 @@ cdpath=(
   ~/Projects
 )
 
-#eval `/usr/libexec/path_helper -s`
-
 export PATH

@@ -1,23 +1,14 @@
-echo Sourcing $0
-
-#
-# On Mac, this is required.
-#
-#if [[ -x /usr/libexec/path_helper ]]; then
-#  echo "PATH (before path_helper) $PATH"
-#  eval `/usr/libexec/path_helper -s`
-#  echo "PATH (after  path_helper) $PATH"
-#fi
+echo Executing ~/.shrc
 
 if which vim >&- 2>&-; then
-  export EDITOR=$(which vim)
+  export EDITOR="$(which vim)"
 fi
 
 #if which emacsclient >&- 2>&-; then
 #  export EDITOR=emacsclient
 #fi
 
-alias e='${EDITOR}'
+alias e='emacsclient -n'
 export VISUAL=${EDITOR}
 # we :: which edit
 function we {

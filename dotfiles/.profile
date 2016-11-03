@@ -16,6 +16,15 @@ prettyPath
 source ~/.functions
 
 #
+# On Mac, this is required.
+#
+if [[ -x /usr/libexec/path_helper ]]; then
+  echo "PATH (before path_helper) $PATH"
+  eval `/usr/libexec/path_helper -s`
+  echo "PATH (after  path_helper) $PATH"
+fi
+
+#
 # FIX ${SHELL}
 #
 echo "SHELL (before) = ${SHELL}"

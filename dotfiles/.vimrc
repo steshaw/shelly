@@ -28,20 +28,20 @@ fun Vundle()
   "
   " Haskell/Glorious/GHC
   "
-  Plugin 'dag/vim2hs'
-  Plugin 'merijn/haskellFoldIndent'
+"  Plugin 'dag/vim2hs'
+"  Plugin 'merijn/haskellFoldIndent'
 
-  Plugin 'eagletmt/neco-ghc'
+"  Plugin 'eagletmt/neco-ghc'
   Plugin 'Shougo/neocomplcache.vim' " required by neco-ghc
 
-  Plugin 'eagletmt/ghcmod-vim'
-  Plugin 'eagletmt/tinytest' " required for ghcmod-vim
-  Plugin 'Shougo/vimproc' " required by ghcmod-vim
+"  Plugin 'eagletmt/ghcmod-vim'
+"  Plugin 'eagletmt/tinytest' " required for ghcmod-vim
+"  Plugin 'Shougo/vimproc' " required by ghcmod-vim
 
   "
   " Scala
   "
-  Bundle 'repos-scala/scala-vundle'
+"  Bundle 'repos-scala/scala-vundle'
 
   filetype plugin indent on " required by Vundle
   call vundle#end()
