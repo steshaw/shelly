@@ -1,0 +1,15 @@
+** Shelly
+
+My dotfiles (known as =shelly=).
+
+Bootstrapping on a new machine:
+
+#+begin_src bash session
+  $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
+#+end_src
+
+I now tend away from automatically installing all my Homebrew/Cask packages but can use the following if necessary:
+
+#+begin_src bash session
+  $ InstallPkgs
+#+end_src
