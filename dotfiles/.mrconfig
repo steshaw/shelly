@@ -1,21 +1,11 @@
 [DEFAULT]
 gc = git gc "$@"
 
-
-#---------------------------------------------------------------------------------------------------
-# Projects
-#---------------------------------------------------------------------------------------------------
-
 [Projects/steshaw.org]
 checkout = git clone git@github.com:steshaw/steshaw.org
 
 [Projects/shelly]
 checkout = git clone git@github.com:steshaw/shelly
-
-
-#---------------------------------------------------------------------------------------------------
-# Forks
-# ---------------------------------------------------------------------------------------------------
 
 [Projects/idris]
 checkout =
@@ -28,16 +18,3 @@ checkout =
   git clone --depth 1 git@github.com:steshaw/decktape
   cd decktape
   git remote add upstream git@github.com:astefanutti/decktape
-
-
-#---------------------------------------------------------------------------------------------------
-# External projects
-# ---------------------------------------------------------------------------------------------------
-
-#[Projects/bobatkey/Forvie]
-#checkout = git clone git@github.com:bobatkey/Forvie
-#
-#[Projects/bobatkey/foveran]
-#checkout = git clone git@github.com:bobatkey/foveran
-
-# ---------------------------------------------------------------------------------------------------
