@@ -2,25 +2,35 @@
 
 set -eu
 
+echo Bootstrapping shelly...
+
 # FIXME: Need to ensure myrepos and git on other platforms.
-which apt-get >/dev/null 2>&1 && (
-  echo Installing myrepos and git...
-  sudo apt-get install myrepos git
+hash git mr || (
+  echo "Please ensure that git and myrepos are installed" >&2
+  exit 1
 )
 
-echo Bootstrap shelly...
+git clone https://github.com/steshaw/shelly.git ~/Projects/shelly
+(
+  cd ~/Projects/shelly
+  git remote set-url origin git@github.com:steshaw/shelly.git
+)
+
 SHELLY_HOME=~/Projects/shelly
 PATH=${SHELLY_HOME}/bin:${PATH}
 ShellyLinkDotFiles
 
 echo Generate ssh key...
 generate-ssh-key
+echo
 
 echo Add key to GitHub...
 github-add-key
+echo
 
 echo Add key to Bitbucket...
 bitbucket-add-key
+echo
 
 echo Bootstrap myrepos...
 mr checkout
