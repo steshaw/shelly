@@ -50,7 +50,7 @@ endf
 let maplocalleader = "\\"
 
 call Vundle()
-execute pathogen#infect()
+"execute pathogen#infect()
 
 syntax on
 filetype on
@@ -84,7 +84,7 @@ set backupcopy=auto,breakhardlink ",breaksymlink
 "autocmd BufNewFile,BufRead *.purs set filetype=haskell
 "autocmd BufNewFile,BufRead *.scala,*.sbt set filetype=scala
 
-let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
+"let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
 
 autocmd BufWritePost *.hs,.hsc GhcModCheckAndLintAsync
 

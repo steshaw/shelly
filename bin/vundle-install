@@ -14,4 +14,4 @@ else
 fi
 vim +PluginInstall +qall
 
-(cd ${bundle}/vimproc && make)
+#(cd ${bundle}/vimproc && make)
