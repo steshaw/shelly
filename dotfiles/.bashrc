@@ -130,6 +130,8 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
+CDPATH=.:~/Projects
+
 sourceExists ~/.shrc
 
 set +u
