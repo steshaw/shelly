@@ -10,7 +10,7 @@ function prettyPath {
   echo "}"
 }
 
-echo "PATH (before) = \c"
+echo -e "PATH (before) = \c"
 prettyPath
 
 source ~/.functions
@@ -74,6 +74,6 @@ if [[ -n ${BASH_VERSION:-} ]]; then
   sourceExists ~/.bashrc
 fi
 
-echo "PATH (after) = \c"
+echo -e "PATH (after) = \c"
 prettyPath
 sync-env-to-plist PATH
