@@ -1,7 +1,10 @@
 templates:
   params:
-    author-email: steven@steshaw.org
     author-name: Steven Shaw
+    author-email: steven@steshaw.org
+    # Using "license" here does not work. We'd need to provide an alternative
+    # LICENSE file anyhow...
     license: BSD2
     copyright: (c) 2017, Steven Shaw
     github-username: steshaw
+    category: Example
