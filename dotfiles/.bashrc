@@ -10,9 +10,10 @@ sourceExists /etc/skel/.bashrc
 #
 # bash-completions + git-prompt.
 #
+set +u
 if which brew 2>&-; then
   echo 'No completions :('
-  sourceExists "$(brew --prefix)/etc/bash_completion"
+#  sourceExists "$(brew --prefix)/etc/bash_completion"
 #  complete -D -o bashdefault -o default
   sourceExists "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 else
@@ -22,6 +23,7 @@ else
   sourceExists /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh
   sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
+set -u
 
 bash_prompt() {
   case $TERM in
@@ -132,8 +134,6 @@ fi
 
 CDPATH=.:~/Projects
 
-sourceExists ~/.shrc
-
 # Google Cloud
 sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
 sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
@@ -142,6 +142,8 @@ sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 if which kubectl >/dev/null; then
   source <(kubectl completion bash)
 fi
+
+sourceExists ~/.shrc
 
 set +u
 true
