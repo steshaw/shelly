@@ -12,10 +12,11 @@ sourceExists /etc/skel/.bashrc
 #
 set +u
 if which brew 2>&-; then
-  echo 'No completions :('
-#  sourceExists "$(brew --prefix)/etc/bash_completion"
+  # if using bash-completion version 1.
+  sourceExists "$(brew --prefix)/etc/bash_completion"
+  # For bash-completion@2.
+  sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
 #  complete -D -o bashdefault -o default
-  sourceExists "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 else
   sourceExists /etc/profile.d/bash_completion.sh
   sourceExists /etc/bash_completion.d/git-prompt.sh
