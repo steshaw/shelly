@@ -32,9 +32,10 @@ values."
    dotspacemacs-configuration-layers
    '(
      agda
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
+;;     (haskell :variables haskell-completion-backend 'intero)
      haskell
      helm
      idris
@@ -127,10 +128,10 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(zonokai-blue
-                         zonokai-red)
-;   dotspacemacs-themes '(sanityinc-solarized-dark
-;                         sanityinc-solarized-light)
+;   dotspacemacs-themes '(zonokai-blue
+;                         zonokai-red)
+   dotspacemacs-themes '(sanityinc-solarized-dark
+                         sanityinc-solarized-light)
 ;   dotspacemacs-themes '(spacemacs-dark
 ;                         spacemacs-light)
 
@@ -139,7 +140,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Menlo"
-                               :size 18
+                               :size 17
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -328,7 +329,7 @@ you should place your code here."
    (quote
     ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#3C3D37")
+ '(fci-rule-color "#3C3D37" t)
  '(fill-column 100)
  '(flycheck-checker-error-threshold nil)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
@@ -346,7 +347,7 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (zonokai-theme oldlace-theme ob-sml sml-mode powerline spinner pcache org alert log4e gntp markdown-mode hydra parent-mode hide-comnt projectile request yasnippet gitignore-mode pos-tip flycheck pkg-info epl flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight f s diminish ghc company haskell-mode bind-map bind-key packed dash helm avy helm-core popup async package-build idris-mode prop-menu ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline smeargle reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint launchctl intero info+ indent-guide ido-vertical-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-ag haskell-snippets google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump company-ghci company-ghc column-enforce-mode cmm-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (helm-company helm-c-yasnippet company-statistics company-cabal auto-yasnippet ac-ispell auto-complete zonokai-theme oldlace-theme ob-sml sml-mode powerline spinner pcache org alert log4e gntp markdown-mode hydra parent-mode hide-comnt projectile request yasnippet gitignore-mode pos-tip flycheck pkg-info epl flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight f s diminish ghc company haskell-mode bind-map bind-key packed dash helm avy helm-core popup async package-build idris-mode prop-menu ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline smeargle reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file neotree move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint launchctl intero info+ indent-guide ido-vertical-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-ag haskell-snippets google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump company-ghci company-ghc column-enforce-mode cmm-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(standard-indent 2)
