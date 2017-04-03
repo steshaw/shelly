@@ -1,74 +1,43 @@
 [user]
-	name = Steven Shaw
-	email = steven@steshaw.org
-
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = 1
+  name = Steven Shaw
+  email = steven@steshaw.org
 
 [alias]
-	s = status --short --branch
-	st = status
-	co = checkout
-	ls = ls-files
-	slog = log --oneline --decorate
-	slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
-	llog = log --date=local
-	graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-	wdiff = diff --word-diff
-	undo = reset HEAD^
-	cm = commit
-	ac = !git add -A && git commit
-	st = status -sb
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	who = blame
+  co = checkout
+  ls = ls-files
+  who = blame
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  st = status
+  cm = commit
+  s = status --short --branch
+  slog = log --oneline --decorate
+  slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
+  llog = log --date=local
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  wdiff = diff --word-diff
+  undo = reset HEAD^
+  ac = !git add -A && git commit
 
 [core]
-	excludesfile = ~/.gitignore.global
-;	autocrlf = input
+  excludesfile = ~/.gitignore.global
 
 [credential]
-	helper = cache --timeout 36000
+  helper = cache --timeout 36000
 
 [push]
-	default = simple
+  default = simple
 
 [rerere]
-	enabled = true
+  enabled = true
 
 [branch]
-	autosetuprebase = always
-
-[diff]
-	tool = diffmerge
-[difftool "diffmerge"]
-	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
+  autosetuprebase = always
 
 [pull]
   rebase = true
 
-[merge]
-	tool = diffmerge
-[mergetool "diffmerge"]
-	trustExitCode = true
-	cmd = /usr/bin/diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [fetch]
-	prune = true
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  prune = true
