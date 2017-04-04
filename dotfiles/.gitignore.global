@@ -14,3 +14,4 @@
 .idea/
 .ideaHaskellLib/
 *.iml
+cabal.config
