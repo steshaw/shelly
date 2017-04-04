@@ -48,6 +48,9 @@ alias gaa='git add --all'
 alias path='echo $PATH | tr : "\n"'
 alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 
+alias haskell='stack'
+alias hs='stack'
+
 if [[ "$(uname)" != 'Darwin' ]]; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
