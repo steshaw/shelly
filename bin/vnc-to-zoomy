@@ -1,0 +1,7 @@
+gcloud compute ssh zoomy \
+    --project dev-in-cloud \
+    --zone asia-east1-a \
+    --ssh-flag="-L" \
+    --ssh-flag="5901:127.0.0.1:5901" \
+    --ssh-flag="-L" \
+    --ssh-flag="3389:127.0.0.1:3389"
