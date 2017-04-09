@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: $0 image" >&2
+  exit 2
+fi
+
+image=$1; shift
+
+baseUrl='https://registry.hub.docker.com'
+api="/v1/repositories/${image}/tags"
+
+http "${baseUrl}${api}" |
+  jq -r '.[].name'
