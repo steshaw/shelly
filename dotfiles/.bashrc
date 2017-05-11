@@ -144,6 +144,10 @@ if which kubectl >/dev/null; then
   source <(kubectl completion bash)
 fi
 
+if which hub >/dev/null; then
+  alias git=hub
+fi
+
 sourceExists ~/.shrc
 
 set +u
