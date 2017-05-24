@@ -9,4 +9,5 @@
 :def no-pretty (\_ -> return ":set -interactive-print=System.IO.print")
 :pretty
 
+:set -XOverloadedStrings
 :set -Wall -fwarn-tabs
