@@ -1,1 +1,2 @@
 force-trailing-newline: true
+line-breaks: [ ".|" ]

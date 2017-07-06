@@ -133,7 +133,7 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-CDPATH=.:~/Projects
+CDPATH=.:~/Projects:~/Projects/steshaw
 
 # Google Cloud
 sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
