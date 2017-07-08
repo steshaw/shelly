@@ -96,8 +96,8 @@ bash_prompt() {
     local UP='➯'          # user's prompt
   fi
 
-  UC="${EMC}" # user@host colour
-  DC="${EMB}" # pwd colour
+  UC="${EMB}" # user@host colour
+  DC="${EMC}" # pwd colour
   SC="${EMM}" # separator colour
   GC="${EMY}" # git prompt colour
 
