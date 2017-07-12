@@ -124,7 +124,7 @@ function shellOption {
 }
 
 shellOption globstar 2>/dev/null # Use globstar if we're using Bash > 4.0
-shellOption nullglob
+#shellOption nullglob
 shellOption autocd
 shellOption xpg_echo
 
