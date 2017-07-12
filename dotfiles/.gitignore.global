@@ -15,3 +15,6 @@
 .ideaHaskellLib/
 *.iml
 cabal.config
+
+/fe/package-lock.json
+/hestia/package-lock.json
