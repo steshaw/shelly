@@ -2,5 +2,5 @@ coreutilsBase="/usr/local/opt/coreutils/libexec"
 
 if [[ -d $coreutilsBase ]]; then
   PATH="$coreutilsBase/gnubin:$PATH"
-  MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+  MANPATH="$coreutilsBase/gnuman:$MANPATH"
 fi
