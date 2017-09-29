@@ -1,0 +1,6 @@
+gnuSedBase="/usr/local/opt/gnu-sed/libexec"
+
+if [[ -d $gnuSedBase ]]; then
+  PATH="$gnuSedBase/gnubin:$PATH"
+  MANPATH="$gnuSedBase/gnuman:$MANPATH"
+fi
