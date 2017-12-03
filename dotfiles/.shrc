@@ -1,12 +1,17 @@
 echo Executing ~/.shrc
 
-if which vim >&- 2>&-; then
-  export EDITOR="$(which vim)"
-fi
+setEditor() {
+  if [[ -z $EDITOR ]]; then
+    editor=$1
+    echo Trying $editor
+    if which $editor >&- 2>&-; then
+      export EDITOR="$(which $editor)"
+    fi
+  fi
+}
 
-#if which emacsclient >&- 2>&-; then
-#  export EDITOR=emacsclient
-#fi
+setEditor nvim
+setEditor vim
 
 alias e='emacsclient -n'
 export VISUAL=${EDITOR}
@@ -18,6 +23,10 @@ function we {
 set -o vi
 
 # Aliases
+
+if which nvim >&- 2>&-; then
+  alias vim=nvim
+fi
 
 #alias ls='ls --color -Fh'
 alias ls='ls -GFh'
