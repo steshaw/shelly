@@ -89,16 +89,16 @@ bash_prompt() {
   local BGW="\[\033[47m\]"
 
   if [[ $(id -u) -eq "0" ]]; then
-    local UPC=${EMR}       # user's color
-    local UP='\$'         # user's prompt
+    local UPC=${EMR}      # user's color
+    local UP='\#'         # user's prompt
   else
-    local UPC=${EMG}       # user's color
-    local UP='➯'          # user's prompt
+    local UPC=${G}      # user's color
+    local UP='\$' #'➯'          # user's prompt
   fi
 
   UC="${EMB}" # user@host colour
   DC="${EMC}" # pwd colour
-  SC="${EMM}" # separator colour
+  SC="${M}" # separator colour
   GC="${EMY}" # git prompt colour
 
   PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(set +u; __git_ps1; set -u)\n${UPC}${UP}${NONE} "
