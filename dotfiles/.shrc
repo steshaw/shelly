@@ -61,6 +61,8 @@ alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 alias haskell='stack'
 alias hs='stack'
 
+alias mobile-pdf='k2pdfopt -ui- -h 1280p -w 720p -dpi 294 -fc- -c -bpc 8 -om 0.2s,0,0.2s,0 -x'
+
 if [[ "$(uname)" != 'Darwin' ]]; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
