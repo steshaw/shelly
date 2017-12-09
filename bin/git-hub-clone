@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+root=~/Projects
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: $0 repo (i.e. leanprover/lean)"
+  exit 2
+fi
+
+repoPath=$1
+
+IFS=/ read -r -a fields <<<"$repoPath"
+if [[ ${#fields[@]} != 2 ]]; then
+  echo "Invalid repo path: $repoPath" >&2
+  exit 2
+fi
+
+user=${fields[0]}
+repo=${fields[1]}
+
+cd $root
+hub clone "$user/$repo" "$user/$repo"
