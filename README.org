@@ -8,7 +8,8 @@ My [[dotfiles][dotfiles]] and [[bin][shell commands]].
   $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
-I now tend away from automatically installing all my Homebrew/Cask packages but can use the following if necessary:
+The bootstrap script no longer automatically executes [[=InstallPkgs=][bin/InstallPkgs]] (for
+installing [[http://https://brew.sh/][Brews]], [[https://caskroom.github.io/][Casks]] and [[https://atom.io/][Atom]] plugins). Just do the following if you want that:
 
 #+begin_src bash session
   $ InstallPkgs
