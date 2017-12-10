@@ -1,8 +1,8 @@
-** Shelly
+* Shelly
 
-My dotfiles (known as =shelly=).
+My [[dotfiles][dotfiles]] and [[bin][shell commands]].
 
-Bootstrapping on a new machine:
+** Bootstrapping on a new machine:
 
 #+begin_src bash session
   $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
