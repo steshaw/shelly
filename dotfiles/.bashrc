@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -u
-
 echo Executing ~/.bashrc
 
 [ -r ~/.functions ] && source ~/.functions
@@ -10,7 +8,6 @@ sourceExists /etc/skel/.bashrc
 #
 # bash-completions + git-prompt.
 #
-set +u
 if which brew 2>&-; then
   # if using bash-completion version 1.
   sourceExists "$(brew --prefix)/etc/bash_completion"
@@ -24,7 +21,6 @@ else
   sourceExists /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh
   sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
-set -u
 
 bash_prompt() {
   case $TERM in
