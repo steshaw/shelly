@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+function Usage {
+  echo "usage: $(basename $0) [mobile|ipad] filename" >&2
+  exit 2
+}
+
+if [[ $# -ne 2 ]]; then
+  Usage
+fi
+
+type=$1; shift
+file=$1; shift
+
+options='-mode 2col'
+
+if [[ $type == 'mobile' ]]; then
+  device='-w 720p -h 1280p -dpi 294'
+elif [[ $type == 'ipad' ]]; then
+  device='-w 768p -h 1024p -dpi 132'
+else
+  Usage
+fi
+
+k2pdfopt \
+  $device \
+  $options \
+  -om 0.2 \
+  -c \
+  -bpc 8 \
+  -fc- \
+  -o %s-$type \
+  "$file"
+
+#  -wrap \
+#  -mag 2.0 -fc- \
+#k2pdfopt -ui- -h 1280p -w 720p -dpi 294 -fc- -c -bpc 8 -om 0.2s,0,0.2s,0 -x -o %s-phone.pdf
