@@ -22,6 +22,10 @@ else
   sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
+__git_ps1() {
+  echo ""
+}
+
 bash_prompt() {
   case $TERM in
     xterm*|rxvt*)
@@ -97,7 +101,7 @@ bash_prompt() {
   SC="${M}" # separator colour
   GC="${EMY}" # git prompt colour
 
-  PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(set +u; __git_ps1; set -u)\n${UPC}${UP}${NONE} "
+  PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(__git_ps1)\n${UPC}${UP}${NONE} "
 }
 bash_prompt
 
