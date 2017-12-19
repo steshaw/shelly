@@ -22,10 +22,6 @@ else
   sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
-__git_ps1() {
-  echo ""
-}
-
 bash_prompt() {
   case $TERM in
     xterm*|rxvt*)
