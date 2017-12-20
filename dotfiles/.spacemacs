@@ -327,6 +327,7 @@ you should place your code here."
   (spacemacs/toggle-fill-column-indicator-on)
   (setq show-trailing-whitespace t)
   (spacemacs/toggle-highlight-long-lines-globally-on)
+  (setq magit-repository-directories '("~/Projects/steshaw/" "~/Projects/"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
