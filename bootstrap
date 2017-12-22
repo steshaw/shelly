@@ -10,13 +10,14 @@ hash git mr || (
   exit 1
 )
 
-git clone https://github.com/steshaw/shelly.git ~/Projects/shelly
+SHELLY_HOME=~/Projects/steshaw/shelly
+
+git clone https://github.com/steshaw/shelly.git "$SHELLY_HOME"
 (
-  cd ~/Projects/shelly
+  cd "$SHELLY_HOME"
   git remote set-url origin git@github.com:steshaw/shelly.git
 )
 
-SHELLY_HOME=~/Projects/steshaw/shelly
 PATH=${SHELLY_HOME}/bin:${PATH}
 ShellyLinkDotFiles
 
