@@ -21,4 +21,4 @@ user=${fields[0]}
 repo=${fields[1]}
 
 cd $root
-hub clone "$user/$repo" "$user/$repo"
+git clone "git@github.com:$user/$repo" "$user/$repo"
