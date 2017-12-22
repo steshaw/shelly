@@ -24,6 +24,7 @@
   ac = !git add -A && git commit
 	l = log
 	ll = log -p
+	ff = pull --ff-only
 
 [core]
   excludesfile = ~/.gitignore.global
