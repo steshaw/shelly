@@ -16,7 +16,7 @@ git clone https://github.com/steshaw/shelly.git ~/Projects/shelly
   git remote set-url origin git@github.com:steshaw/shelly.git
 )
 
-SHELLY_HOME=~/Projects/shelly
+SHELLY_HOME=~/Projects/steshaw/shelly
 PATH=${SHELLY_HOME}/bin:${PATH}
 ShellyLinkDotFiles
 

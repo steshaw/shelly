@@ -1,19 +1,19 @@
 [DEFAULT]
 gc = git gc "$@"
 
-[Projects/steshaw.org]
+[Projects/steshaw/steshaw.org]
 checkout = git clone git@github.com:steshaw/steshaw.org
 
-[Projects/shelly]
+[Projects/steshaw/shelly]
 checkout = git clone git@github.com:steshaw/shelly
 
-[Projects/idris]
+[Projects/steshaw/idris]
 checkout =
   git clone git@github.com:steshaw/idris
   cd idris
   git remote add upstream git@github.com:idris-lang/Idris-dev
 
-[Projects/decktape]
+[Projects/steshaw/decktape]
 checkout =
   git clone --depth 1 git@github.com:steshaw/decktape
   cd decktape
