@@ -33,5 +33,8 @@ echo Add key to Bitbucket...
 bitbucket-add-key
 echo
 
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
 echo Bootstrap myrepos...
 mr checkout
