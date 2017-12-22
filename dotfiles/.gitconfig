@@ -22,6 +22,8 @@
   wdiff = diff --word-diff
   undo = reset HEAD^
   ac = !git add -A && git commit
+	l = log
+	ll = log -p
 
 [core]
   excludesfile = ~/.gitignore.global
