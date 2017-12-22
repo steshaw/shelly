@@ -328,6 +328,10 @@ you should place your code here."
   (setq show-trailing-whitespace t)
   (spacemacs/toggle-highlight-long-lines-globally-on)
   (setq magit-repository-directories '("~/Projects/steshaw/" "~/Projects/"))
+
+  ;; Use Spacemacs as the $EDITOR/$GIT_EDITOR.
+  ;; See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bsource-control/git#global-git-commit-mode
+  (global-git-commit-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
