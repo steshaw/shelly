@@ -9,12 +9,15 @@ checkout = git clone git@github.com:steshaw/shelly
 
 [Projects/steshaw/idris]
 checkout =
-  git clone git@github.com:steshaw/idris
-  cd idris
-  git remote add upstream git@github.com:idris-lang/Idris-dev
+	 git clone git@github.com:steshaw/idris
+	 cd idris
+	 git remote add upstream git@github.com:idris-lang/Idris-dev
 
 [Projects/steshaw/decktape]
 checkout =
-  git clone --depth 1 git@github.com:steshaw/decktape
-  cd decktape
-  git remote add upstream git@github.com:astefanutti/decktape
+	 git clone --depth 1 git@github.com:steshaw/decktape
+	 cd decktape
+	 git remote add upstream git@github.com:astefanutti/decktape
+
+[.emacs.d]
+checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
