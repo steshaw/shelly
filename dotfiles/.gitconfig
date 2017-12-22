@@ -4,13 +4,14 @@
 
 [alias]
   co = checkout
+	ci = commit -v --no-verify
+  cm = commit
   ls = ls-files
+  st = status
   who = blame
   tags = tag -l
   branches = branch -a
   remotes = remote -v
-  st = status
-  cm = commit
   s = status --short --branch
   slog = log --oneline --decorate
   slog1 = log --pretty='%Cred%h %Cblue%ae %Creset%s'
