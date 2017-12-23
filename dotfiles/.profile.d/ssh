@@ -1,0 +1,9 @@
+if [[ $OSTYPE == linux* ]]; then
+  if [[ -z $SSH_AGENT_PID ]]; then
+    echo "Starting ssh-agent"
+    eval $(ssh-agent -s)
+    ssh-add
+  else
+    echo "ssh-agent already started"
+  fi
+fi
