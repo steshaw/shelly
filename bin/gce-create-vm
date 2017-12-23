@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+set -x
+
+Usage() {
+  echo "usage: $(basename $0) create|attach|allow-web" >&2
+  exit 2
+}
+
+if [[ $# -ne 1 ]]; then
+  Usage
+fi
+
+region=us-central1
+zone=$region-a
+project=tlcsrc-1
+
+name=dev
+machineType=n1-highcpu-8
+imageFamily=ubuntu-1604-lts
+imageProject=ubuntu-os-cloud
+
+diskSize=60
+
+if [[ $1 == create ]]; then
+  gcloud beta compute \
+    --project=$project \
+    instances create $name \
+    --zone=$zone \
+    --machine-type=$machineType \
+    --no-restart-on-failure \
+    --maintenance-policy=TERMINATE \
+    --preemptible \
+    --image-family=$imageFamily \
+    --image-project=$imageProject \
+    --boot-disk-device-name=$name \
+    --boot-disk-size=$diskSize \
+    --boot-disk-type=pd-ssd \
+    --no-boot-disk-auto-delete \
+    --tags='http-server,https-server'
+
+elif [[ $1 == attach ]]; then
+
+  # With help from https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
+
+  gcloud compute \
+    --project=$project \
+    instances create $name \
+    --zone=$zone \
+    --machine-type=$machineType \
+    --maintenance-policy=TERMINATE \
+    --disk "name=$name,device-name=$name,mode=rw,boot=yes" \
+    --tags='http-server,https-server'
+
+elif [[ $1 == allow-web ]]; then
+
+  gcloud compute --project=$project firewall-rules create default-allow-http \
+    --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 \
+    --target-tags=http-server
+
+  gcloud compute --project=$project firewall-rules create default-allow-https \
+    --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 \
+    --target-tags=https-server
+
+else
+  Usage
+fi
+
+exit
+
+#  --service-account "682824349939-compute@developer.gserviceaccount.com" \
+#  --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring.write","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append"
+#  --min-cpu-platform "Automatic" \
