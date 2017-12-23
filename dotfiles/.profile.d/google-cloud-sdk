@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export CLOUDSDK_COMPUTE_REGION=us-central1
+export CLOUDSDK_COMPUTE_ZONE=${CLOUDSDK_COMPUTE_REGION}-a
