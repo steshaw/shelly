@@ -20,6 +20,7 @@ sudo apt-get -qy install \
   libpq-dev \
   postgresql \
   postgresql-client \
+  redis-server \
   sudo \
   time \
   vim
