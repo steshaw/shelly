@@ -1,4 +1,4 @@
-if which -s docker-machine; then
+if has docker-machine; then
   eval "$(docker-machine env)"
 fi
 

@@ -8,7 +8,7 @@ sourceExists /etc/skel/.bashrc
 #
 # bash-completions + git-prompt.
 #
-if which brew 2>&-; then
+if has brew; then
   # if using bash-completion version 1.
   sourceExists "$(brew --prefix)/etc/bash_completion"
   # For bash-completion@2.
@@ -136,11 +136,11 @@ sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.
 sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 
 # Kubernetes
-if which kubectl >/dev/null; then
+if has kubectl; then
   source <(kubectl completion bash)
 fi
 
-if which hub >/dev/null; then
+if has hub; then
   alias git=hub
 fi
 

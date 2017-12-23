@@ -1,5 +1,5 @@
 prependPaths ~/.local/bin
 
-if [[ -x $(which stack) ]]; then
+if has stack; then
   eval "$(stack --bash-completion-script stack)"
 fi

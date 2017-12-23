@@ -1,4 +1,4 @@
-if [[ -x "$(which brew 2>&-)" ]]; then
+if has brew; then
   HAXE_STD_PATH="$(brew --prefix)/lib/haxe/std"
   if [[ -d ${HAXE_STD_PATH} ]]; then
     export HAXE_STD_PATH

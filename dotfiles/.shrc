@@ -3,9 +3,12 @@ echo Executing ~/.shrc
 setEditor() {
   if [[ -z $EDITOR ]]; then
     editor=$1
-    echo Trying $editor
-    if which $editor >&- 2>&-; then
-      export EDITOR="$(which $editor)"
+    echo "Trying $editor"
+    if has "$editor"; then
+      export EDITOR="$(command -v $editor)"
+      echo "EDITOR = $EDITOR"
+    else
+      echo "We don't have $editor"
     fi
   fi
 }

@@ -27,9 +27,14 @@ firstDirectory() {
 
 homeFromBin() {
   command=$1
-  bin=$(which "$command")
+  bin=$(command -v "$command")
   if [ -n "$bin" ]; then
     bin=$(RealPath "$bin")
     dirname "$(dirname "$bin")"
   fi
+}
+
+has() {
+  command=$1
+  hash $command 2>/dev/null
 }
