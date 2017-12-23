@@ -17,6 +17,7 @@ sudo apt-get -qy install \
   nodejs \
   parallel \
   pkg-config \
+  libpq-dev \
   postgresql \
   postgresql-client \
   sudo \
