@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+gcloud config configurations activate personal
+
+GCLOUD_COMPUTE_ZONE=us-central1-a
+GCLOUD_COMPUTE_REGION=us-central1
+GCLOUD_PROJECT=tlcsrc-1
+GCLOUD_CLUSTER_NAME=k0
+
+gcloud config set compute/zone $GCLOUD_COMPUTE_ZONE
+gcloud config set compute/region $GCLOUD_COMPUTE_REGION
+gcloud config set project $GCLOUD_PROJECT
+gcloud config set container/cluster $GCLOUD_CLUSTER_NAME
+#gcloud container clusters get-credentials $GCLOUD_CLUSTER_NAME
+#kubectl config current-context
+#kubectl config get-contexts
+#kubectl config get-clusters
