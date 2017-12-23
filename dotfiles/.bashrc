@@ -2,18 +2,33 @@
 
 echo Executing ~/.bashrc
 
-[ -r ~/.functions ] && source ~/.functions
+# shellcheck source=/dev/null
+[[ -r ~/.functions ]] && source ~/.functions
 sourceExists /etc/skel/.bashrc
 
 #
 # bash-completions + git-prompt.
 #
 if has brew; then
-  # if using bash-completion version 1.
-  sourceExists "$(brew --prefix)/etc/bash_completion"
-  # For bash-completion@2.
-  sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
-#  complete -D -o bashdefault -o default
+  if [[ $BASH_VERSION == 4.* ]]; then
+    sourceExists "$(brew --prefix)/Cellar/bash-completion@2/2.7/share/bash-completion/bash_completion"
+  elif [[ $BASH_VERSION == 3.* ]]; then
+    base="$(brew --prefix)/Cellar/bash-completion/1.3_3/etc"
+    BASH_COMPLETION="$base/bash_completion"
+    BASH_COMPLETION_DIR="$base/bash_completion.d"
+#    set -x
+#    sourceExists "$base/etc/bash_completion"
+    sourceExists "$base/profile.d/bash_completion.sh"
+#    set +x
+  else
+    # Make a best effort to find the appropriate bash-completion files.
+
+    # if using bash-completion version 1.
+    sourceExists "$(brew --prefix)/etc/bash_completion"
+    # For bash-completion@2.
+    sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
+    # complete -D -o bashdefault -o default
+  fi
 else
   sourceExists /etc/profile.d/bash_completion.sh
   sourceExists /etc/bash_completion.d/git-prompt.sh
@@ -115,8 +130,11 @@ if [[ ${OSTYPE} = msys ]]; then
 fi
 
 [[ $BASH_VERSION == 4.* ]] && shopt -s globstar
-shopt -s autocd
+[[ $BASH_VERSION == 4.* ]] && shopt -s autocd
 shopt -s xpg_echo
+
+unset HISTSIZE HISTFILESIZE
+shopt -s histappend
 
 # Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
 if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
