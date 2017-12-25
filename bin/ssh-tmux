@@ -9,4 +9,8 @@ session=dev
 #ssh -YCt "$host" tmux $session
 #ssh -YC "$host" tmux $session
 
-ssh -CYt "$host" "tmux attach-session -t $session || tmux new-session -s $session"
+if true; then
+  ssh -CYt "$host" "tmux attach-session -t $session || tmux new-session -s $session"
+else
+  mosh "$host" -- "tmux attach-session -t $session || tmux new-session -s $session"
+fi
