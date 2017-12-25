@@ -15,6 +15,7 @@ sudo apt-get -qy install \
   httpie \
   libsass-dev \
   nodejs \
+  pandoc \
   parallel \
   pkg-config \
   libpq-dev \
