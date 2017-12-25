@@ -23,7 +23,13 @@ sudo apt-get -qy install \
   redis-server \
   sudo \
   time \
+  tree \
   vim
+
+#
+# Yarn
+#
+install-yarn-ubuntu
 
 #
 # Docker.
