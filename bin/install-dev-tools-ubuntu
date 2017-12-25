@@ -70,3 +70,8 @@ sudo apt-get install -qy google-cloud-sdk kubectl
 #
 curl -sSL https://get.haskellstack.org/ | sh
 stack upgrade
+
+#
+# Idris development...
+#
+pkg install -y libffi-dev zlib1g-dev libncurses5-dev libgmp3-dev pkgconf
