@@ -76,3 +76,6 @@ stack upgrade
 # Idris development...
 #
 pkg install -y libffi-dev zlib1g-dev libncurses5-dev libgmp3-dev pkgconf
+
+install-xpra-ubuntu
+install-chrome-ubuntu
