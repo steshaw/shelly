@@ -3,7 +3,7 @@
 set -euo pipefail
 
 Usage() {
-  echo "usage: $(basename $0) create|attach|allow-web|allow-dev-web" >&2
+  echo "usage: $(basename $0) create|attach|list|start|stop|allow-web|allow-dev-web" >&2
   exit 2
 }
 
@@ -11,6 +11,7 @@ if [[ $# -ne 1 ]]; then
   Usage
 fi
 
+account='steshaw@gmail.com'
 region=us-central1
 zone=$region-a
 
@@ -63,6 +64,21 @@ elif [[ $1 == attach ]]; then
     --preemptible \
     --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
     --tags=$tags
+
+elif [[ $1 == start || $1 == stop ]]; then
+
+  gcloud \
+    --account=$account \
+    compute \
+    --project=$project \
+    instances "$1" $name \
+    --zone=$zone
+
+elif [[ $1 == list ]]; then
+
+  gcloud --account steshaw@gmail.com \
+    compute --project tlcsrc-1 \
+    instances list
 
 elif [[ $1 == from-snapshot ]]; then
 
