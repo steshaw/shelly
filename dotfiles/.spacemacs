@@ -330,6 +330,13 @@ you should place your code here."
   ;; Use Spacemacs as the $EDITOR/$GIT_EDITOR.
   ;; See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bsource-control/git#global-git-commit-mode
   (global-git-commit-mode t)
+
+  ;; 2-space indentation for JS/JSON.
+  (setq-default js2-basic-offset 2
+                js-indent-level 2)
+
+  ;; 2-space indentation for HTML too.
+  (setq web-mode-markup-indent-offset 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
