@@ -59,6 +59,7 @@ alias gaa='git add --all'
 alias gst='git status'
 
 alias path='echo $PATH | tr : "\n"'
+alias cdpath='echo $CDPATH | tr : "\n"'
 alias macpath='defaults read ~/.MacOSX/environment PATH | tr : "\n"'
 
 alias haskell='stack'
