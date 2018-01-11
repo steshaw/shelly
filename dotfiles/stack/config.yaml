@@ -5,6 +5,6 @@ templates:
     # Using "license" here does not work. We'd need to provide an alternative
     # LICENSE file anyhow...
     license: BSD2
-    copyright: (c) 2017, Steven Shaw
+    copyright: (c) 2018, Steven Shaw
     github-username: steshaw
     category: Example
