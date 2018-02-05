@@ -3,7 +3,7 @@
 set -euo pipefail
 
 Usage() {
-  echo "usage: $(basename $0) create|attach|list|start|stop|allow-web|allow-dev-web" >&2
+  echo "usage: $(basename $0) ssh|create|attach|list|start|stop|allow-web|allow-dev-web" >&2
   exit 2
 }
 
@@ -33,95 +33,115 @@ tags='dev,http-server,https-server'
 
 diskSize=60
 
-if [[ $1 == create ]]; then
-  gcloud beta compute \
+if [[ $1 == ssh ]]; then
+  gcloud \
+    --account=$account \
     --project=$project \
-    instances create $name \
-    --zone=$zone \
-    --machine-type=$machineType \
-    --no-restart-on-failure \
-    --maintenance-policy=TERMINATE \
-    --preemptible \
-    --image-family=$imageFamily \
-    --image-project=$imageProject \
-    --boot-disk-device-name=$name \
-    --boot-disk-size=$diskSize \
-    --boot-disk-type=pd-ssd \
-    --no-boot-disk-auto-delete \
-    --tags=$tags
+    beta compute ssh $name \
+      --zone=$zone
+
+elif [[ $1 == create ]]; then
+  gcloud \
+    --account=$account \
+    --project=$project \
+    beta compute instances create $name \
+      --zone=$zone \
+      --machine-type=$machineType \
+      --no-restart-on-failure \
+      --maintenance-policy=TERMINATE \
+      --preemptible \
+      --image-family=$imageFamily \
+      --image-project=$imageProject \
+      --boot-disk-device-name=$name \
+      --boot-disk-size=$diskSize \
+      --boot-disk-type=pd-ssd \
+      --no-boot-disk-auto-delete \
+      --tags=$tags
 
 elif [[ $1 == attach ]]; then
 
   # With help from https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
-  gcloud compute \
+  gcloud \
+    --account=$account \
     --project=$project \
-    instances create $name \
-    --zone=$zone \
-    --machine-type=$machineType \
-    --no-restart-on-failure \
-    --maintenance-policy=TERMINATE \
-    --preemptible \
-    --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
-    --tags=$tags
+    compute instances create $name \
+      --zone=$zone \
+      --machine-type=$machineType \
+      --no-restart-on-failure \
+      --maintenance-policy=TERMINATE \
+      --preemptible \
+      --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
+      --tags=$tags
 
 elif [[ $1 == start || $1 == stop ]]; then
 
   gcloud \
     --account=$account \
-    compute \
     --project=$project \
-    instances "$1" $name \
-    --zone=$zone
+    compute instances "$1" $name \
+      --zone=$zone
 
 elif [[ $1 == list ]]; then
 
-  gcloud --account steshaw@gmail.com \
-    compute --project tlcsrc-1 \
-    instances list
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute instances list
 
 elif [[ $1 == from-snapshot ]]; then
 
   set -x
 
-  gcloud compute \
+  gcloud \
+    --account=$account \
     --project=$project \
-    disks create $name --size=$diskSize \
-    --zone=$zone \
-    --source-snapshot=$sourceSnapshot \
-    --type=pd-ssd
+    compute disks create $name --size=$diskSize \
+      --zone=$zone \
+      --source-snapshot=$sourceSnapshot \
+      --type=pd-ssd
 
-  gcloud beta compute --project=$project \
-    instances create $name \
-    --zone=$zone \
-    --machine-type=$machineType \
-    --no-restart-on-failure \
-    --maintenance-policy=TERMINATE \
-    --preemptible \
-    --min-cpu-platform=Automatic \
-    --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
-    --tags=$tags
+  gcloud \
+    --account=$account \
+    --project=$project \
+    beta compute instances create $name \
+      --zone=$zone \
+      --machine-type=$machineType \
+      --no-restart-on-failure \
+      --maintenance-policy=TERMINATE \
+      --preemptible \
+      --min-cpu-platform=Automatic \
+      --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
+      --tags=$tags
 
 elif [[ $1 == allow-web ]]; then
 
-  gcloud compute --project=$project firewall-rules create default-allow-http \
-    --network=default \
-    --action=ALLOW --rules=tcp:80 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=http-server
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute firewall-rules create default-allow-http \
+      --network=default \
+      --action=ALLOW --rules=tcp:80 \
+      --source-ranges=0.0.0.0/0 \
+      --target-tags=http-server
 
-  gcloud compute --project=$project firewall-rules create default-allow-https \
-    --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 \
-    --target-tags=https-server
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute firewall-rules create default-allow-https \
+      --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 \
+      --target-tags=https-server
 
 elif [[ $1 == allow-dev-web ]]; then
 
-  gcloud compute --project=$project \
-    firewall-rules create allow-dev-web \
-    --description='Allow development "web" ports: 3000, 8000-8001, 8080-8081' \
-    --allow tcp:3000,tcp:8000-8001,tcp:8080-8081 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=dev
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute firewall-rules create allow-dev-web \
+      --description='Allow development "web" ports: 3000, 8000-8001, 8080-8081' \
+      --allow tcp:3000,tcp:8000-8001,tcp:8080-8081 \
+      --source-ranges=0.0.0.0/0 \
+      --target-tags=dev
 
 else
   Usage
