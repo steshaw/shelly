@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+file=test.out
+dd if=/dev/zero of=$file bs=64k count=16k conv=fdatasync
+rm $file
