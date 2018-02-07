@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [[ $1 == block ]]; then
+  printf "\e]50;CursorShape=0\x7"
+elif [[ $1 == bar ]]; then
+  printf "\e]50;CursorShape=1\x7"
+elif [[ $1 == underline ]]; then
+  printf "\e]50;CursorShape=2\x7"
+elif [[ $1 == blinking && $2 == block ]]; then
+  printf "\e[0 q"
+elif [[ $1 == blinking && $2 == bar ]]; then
+  printf "\e[5 q"
+elif [[ $1 == blinking && $2 == underline ]]; then
+  printf "\e[3 q"
+else
+  echo "usage: $0 [blinking] block|bar|underline" >&2
+  exit 2
+fi
