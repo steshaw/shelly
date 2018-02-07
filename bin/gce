@@ -3,7 +3,7 @@
 set -euo pipefail
 
 Usage() {
-  echo "usage: $(basename $0) ssh|create|attach|list|start|stop|allow-web|allow-dev-web" >&2
+  echo "usage: $(basename $0) ssh|create|attach|list|start|up|stop|down|allow-web|allow-dev-web" >&2
   exit 2
 }
 
@@ -33,14 +33,21 @@ tags='dev,http-server,https-server'
 
 diskSize=60
 
-if [[ $1 == ssh ]]; then
+command=$1
+
+# aliases
+[[ $command == up ]] && command=start
+[[ $command == down ]] && command=stop
+[[ $command == dn ]] && command=stop
+
+if [[ $command == ssh ]]; then
   gcloud \
     --account=$account \
     --project=$project \
     beta compute ssh $name \
       --zone=$zone
 
-elif [[ $1 == create ]]; then
+elif [[ $command == create ]]; then
   gcloud \
     --account=$account \
     --project=$project \
@@ -58,7 +65,7 @@ elif [[ $1 == create ]]; then
       --no-boot-disk-auto-delete \
       --tags=$tags
 
-elif [[ $1 == attach ]]; then
+elif [[ $command == attach ]]; then
 
   # With help from https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
@@ -74,22 +81,22 @@ elif [[ $1 == attach ]]; then
       --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
       --tags=$tags
 
-elif [[ $1 == start || $1 == stop ]]; then
+elif [[ $command == start || $command == stop ]]; then
 
   gcloud \
     --account=$account \
     --project=$project \
-    compute instances "$1" $name \
+    compute instances "$command" $name \
       --zone=$zone
 
-elif [[ $1 == list ]]; then
+elif [[ $command == list ]]; then
 
   gcloud \
     --account=$account \
     --project=$project \
     compute instances list
 
-elif [[ $1 == from-snapshot ]]; then
+elif [[ $command == from-snapshot ]]; then
 
   set -x
 
@@ -114,7 +121,7 @@ elif [[ $1 == from-snapshot ]]; then
       --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
       --tags=$tags
 
-elif [[ $1 == allow-web ]]; then
+elif [[ $command == allow-web ]]; then
 
   gcloud \
     --account=$account \
@@ -132,7 +139,7 @@ elif [[ $1 == allow-web ]]; then
       --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 \
       --target-tags=https-server
 
-elif [[ $1 == allow-dev-web ]]; then
+elif [[ $command == allow-dev-web ]]; then
 
   gcloud \
     --account=$account \
