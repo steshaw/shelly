@@ -1,14 +1,14 @@
-echo Executing ~/.shrc
+Echo "Executing ~/.shrc"
 
 setEditor() {
   if [[ -z $EDITOR ]]; then
     editor=$1
-    echo "Trying $editor"
+    Echo "Trying $editor"
     if has "$editor"; then
       export EDITOR="$(command -v $editor)"
-      echo "EDITOR = $EDITOR"
+      Echo "EDITOR = $EDITOR"
     else
-      echo "We don't have $editor"
+      Echo "We don't have $editor"
     fi
   fi
 }

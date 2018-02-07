@@ -3,7 +3,7 @@
 prependPaths() {
   for path_ in "$@"; do
     if [[ -d ${path_} ]]; then
-      echo "Prepending ${path_}"
+      Echo "Prepending ${path_}"
       PATH=${path_}:${PATH}
     fi
   done
@@ -12,7 +12,7 @@ prependPaths() {
 sourceExists() {
   for path_ in "$@"; do
     if [[ -e ${path_} ]];then
-      echo "Sourcing $path_"
+      Echo "Sourcing $path_"
       source "${path_}"
     fi
   done
@@ -37,4 +37,9 @@ homeFromBin() {
 has() {
   command=$1
   hash $command 2>/dev/null
+}
+
+# Only echo when we have a tty. This is so that scp will work.
+Echo() {
+  [[ -n $PS1 ]] && echo "$@"
 }

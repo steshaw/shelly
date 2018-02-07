@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-echo Executing ~/.bashrc
-
 # shellcheck source=/dev/null
 [[ -r ~/.functions ]] && source ~/.functions
+
+Echo Executing ~/.bashrc
+
 sourceExists /etc/skel/.bashrc
 
 #
@@ -38,6 +39,7 @@ else
 fi
 
 bash_prompt() {
+  [[ -z $PS1 ]] && return
   case $TERM in
     xterm*|rxvt*)
       local TITLEBAR='\[\033]0;\u@\h:\w\007\]'

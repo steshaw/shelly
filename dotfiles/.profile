@@ -1,39 +1,39 @@
 #!/usr/bin/env bash
 
 #set -eu
+[[ -r ~/.functions ]] && source ~/.functions
 
-echo Executing ~/.profile
+Echo Executing ~/.profile
 
 function prettyPath {
-  echo "{"
-  echo $PATH | tr : '\n' | perl -pe 's/^/  /'
-  echo "}"
+  Echo "{"
+  Echo $PATH | tr : '\n' | perl -pe 's/^/  /'
+  Echo "}"
 }
 
-echo -e "PATH (before) = \c"
+Echo -e "PATH (before) = \c"
 prettyPath
 
-source ~/.functions
 
 #
 # On Mac, this is required.
 #
 if [[ -x /usr/libexec/path_helper ]]; then
-  echo "PATH (before path_helper) $PATH"
+  Echo "PATH (before path_helper) $PATH"
   eval `/usr/libexec/path_helper -s`
-  echo "PATH (after  path_helper) $PATH"
+  Echo "PATH (after  path_helper) $PATH"
 fi
 
 #
 # FIX ${SHELL}
 #
-echo "SHELL (before) = ${SHELL}"
+Echo "SHELL (before) = ${SHELL}"
 if [[ -n ${BASH_VERSION:-} ]]; then
   SHELL="$(which bash)"
 elif [[ -n ${ZSH_VERSION:-} ]]; then
   SHELL="$(which zsh)"
 fi
-echo "SHELL (after)  = ${SHELL}"
+Echo "SHELL (after)  = ${SHELL}"
 
 #
 # Setup shelly path.
@@ -74,6 +74,6 @@ if [[ -n ${BASH_VERSION:-} ]]; then
   sourceExists ~/.bashrc
 fi
 
-echo -e "PATH (after) = \c"
+Echo -e "PATH (after) = \c"
 prettyPath
 sync-env-to-plist PATH
