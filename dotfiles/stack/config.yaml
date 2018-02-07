@@ -4,7 +4,7 @@ templates:
     author-email: steven@steshaw.org
     # Using "license" here does not work. We'd need to provide an alternative
     # LICENSE file anyhow...
-    license: BSD2
+    license: ISC
     copyright: (c) 2018, Steven Shaw
     github-username: steshaw
     category: Example
