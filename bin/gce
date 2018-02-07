@@ -40,7 +40,23 @@ command=$1
 [[ $command == down ]] && command=stop
 [[ $command == dn ]] && command=stop
 
-if [[ $command == ssh ]]; then
+if [[ $command == suspend || $command == hibernate ]]; then
+
+  gcloud \
+    --account=$account \
+    --project=$project \
+    alpha compute instances suspend $name \
+      --zone=$zone
+
+elif [[ $command == resume ]]; then
+
+  gcloud \
+    --account=$account \
+    --project=$project \
+    alpha compute instances resume $name \
+      --zone=$zone
+
+elif [[ $command == ssh ]]; then
   gcloud \
     --account=$account \
     --project=$project \
