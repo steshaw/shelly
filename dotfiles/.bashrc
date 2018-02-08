@@ -105,8 +105,14 @@ bash_prompt() {
     local UPC=${EMR}      # user's color
     local UP='\#'         # user's prompt
   else
-    local UPC=${G}      # user's color
-    local UP='\$' #'➯'          # user's prompt
+    local UPC=${G}        # user's color
+    local UP='\$' #'➯'    # user's prompt
+    local UP='➯'          # user's prompt
+    local UP='➮'          # user's prompt
+    local UP='➭'          # user's prompt
+    local UP='➩'          # user's prompt
+    local UP='➪'          # user's prompt
+    local UP='→'          # user's prompt
   fi
 
   UC="${EMB}" # user@host colour
