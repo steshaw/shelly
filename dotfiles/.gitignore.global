@@ -12,7 +12,8 @@
 .DS_Store
 .localized
 
-.idea/
-.ideaHaskellLib/
+/.ignore/
+/.idea/
+/.ideaHaskellLib/
 *.iml
 cabal.config
