@@ -78,7 +78,7 @@ elif [[ $command == set-machine-type ]]; then
   gcloud \
     --account=$account \
     --project=$project \
-    gcloud compute instances set-machine-type $name \
+    compute instances set-machine-type $name \
       --zone=$zone \
       --machine-type=$machineType
 #--custom-cpu=CUSTOM_CPU
