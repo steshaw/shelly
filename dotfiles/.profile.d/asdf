@@ -1,0 +1,4 @@
+sourceExists $HOME/.asdf/asdf.sh
+sourceExists $HOME/.asdf/completions/asdf.bash
+
+sourceExists /usr/local/opt/asdf/asdf.sh
