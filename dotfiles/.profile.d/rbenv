@@ -1,6 +1,8 @@
-if has rbenv; then
-  PATH=~/.rbenv/bin:${PATH}
-  eval "$(rbenv init -)"
+if false; then
+  if has rbenv; then
+    PATH=~/.rbenv/bin:${PATH}
+    eval "$(rbenv init -)"
+  fi
 fi
 
 # vim: set filetype=sh

@@ -1,4 +1,6 @@
-if [[ -d ~/.rvm ]]; then
-  export PATH="$PATH:$HOME/.rvm/bin"
-  sourceExists ~/.rvm/scripts/rvm
+if false; then
+  if [[ -d ~/.rvm ]]; then
+    export PATH="$PATH:$HOME/.rvm/bin"
+    sourceExists ~/.rvm/scripts/rvm
+  fi
 fi
