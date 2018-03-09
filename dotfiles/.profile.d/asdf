@@ -1,4 +1,8 @@
-sourceExists $HOME/.asdf/asdf.sh
-sourceExists $HOME/.asdf/completions/asdf.bash
-
-sourceExists /usr/local/opt/asdf/asdf.sh
+if [[ -r ~/.asdf/asdf.sh ]]; then
+  # local install
+  sourceExists $HOME/.asdf/asdf.sh
+  sourceExists $HOME/.asdf/completions/asdf.bash
+else
+  # Homebrew install
+  sourceExists /usr/local/opt/asdf/asdf.sh
+fi
