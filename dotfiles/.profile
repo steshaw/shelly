@@ -5,6 +5,8 @@
 
 Echo Executing ~/.profile
 
+unset PROMPT_COMMAND
+
 function prettyPath {
   Echo "{"
   Echo $PATH | tr : '\n' | perl -pe 's/^/  /'

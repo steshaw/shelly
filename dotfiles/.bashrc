@@ -129,7 +129,7 @@ function setTabTitle() {
   base=$(basename "${PWD}")
   echo -ne "\033]0;${base}\007"
 }
-PROMPT_COMMAND="setTabTitle; ${PROMPT_COMMANDL:-}"
+PROMPT_COMMAND="setTabTitle; ${PROMPT_COMMAND:-}"
 
 # FIXME : Unfortunately something goes wrong on MSYS2 but this bash prompt file
 # FIXME : is a big hack anyhow.
@@ -141,8 +141,9 @@ fi
 [[ $BASH_VERSION == 4.* ]] && shopt -s autocd
 shopt -s xpg_echo
 
-unset HISTSIZE HISTFILESIZE
+HISTSIZE=100000
 shopt -s histappend
+PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
 
 # Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
 if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
