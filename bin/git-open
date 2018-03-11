@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -ne 0 ]]; then
+  echo "usage: git-open"
+  exit 2
+fi
+
+url=$(git remote get-url origin)
+
+case $url in
+  http*)
+    echo Opening $url...
+    open $url
+    ;;
+  git@*)
+    url=http://$(echo $url | perl -pe 's/git@//; s-:-/-; s/\.git$//;')
+    echo Opening $url...
+    open $url
+    ;;
+  *)
+    echo "Unable to open origin $url"
+    exit 1
+esac
