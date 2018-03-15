@@ -432,7 +432,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
-   '((intero-targets "hestia:lib" "hestia:test:hestia-tests" "thoth:lib" "thoth:test:thoth-tests")
+   '((intero-targets "hestia:lib" "hestia:test:hestia-tests" "thoth:lib")
+     (intero-targets "hestia:lib" "hestia:test:hestia-tests" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "friendlyId:lib" "hestia:lib" "hestia:test:hestia-tests" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "hestia:lib" "hestia:test:hestia-tests")
      (intero-targets "hestia:lib" "rosetta:lib" "thoth:lib")
