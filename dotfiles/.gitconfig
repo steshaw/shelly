@@ -1,6 +1,7 @@
 [user]
   name = Steven Shaw
   email = steven@steshaw.org
+	signingkey = BCC42073A2D3A58D296E2BC593138915074894FD
 
 [alias]
   co = checkout
@@ -63,3 +64,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
   required = true
+[commit]
+;	gpgsign = true
+[gpg]
+	program = gpg
