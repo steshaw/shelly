@@ -1,4 +1,4 @@
-if false; then
+if true; then
   if has rbenv; then
     PATH=~/.rbenv/bin:${PATH}
     eval "$(rbenv init -)"
