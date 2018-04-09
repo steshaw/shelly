@@ -3,7 +3,7 @@
 set -euo pipefail
 
 Usage() {
-  echo "usage: $(basename $0) ssh|create|attach|list|start|up|stop|down|allow-web|allow-dev-web" >&2
+  echo "usage: $(basename $0) ssh|create|attach|list|status|start|up|stop|down|allow-web|allow-dev-web" >&2
   exit 2
 }
 
@@ -143,7 +143,7 @@ elif [[ $command == start || $command == stop ]]; then
     compute instances "$command" $name \
       --zone=$zone
 
-elif [[ $command == list ]]; then
+elif [[ $command == status || $command == list ]]; then
 
   set -x
   gcloud \
