@@ -1,5 +1,5 @@
 if true; then
-  if has rbenv; then
+  if [[ -d ~/.rbenv/bin ]]; then
     PATH=~/.rbenv/bin:${PATH}
     eval "$(rbenv init -)"
   fi
