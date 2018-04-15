@@ -1,11 +1,11 @@
 [user]
   name = Steven Shaw
   email = steven@steshaw.org
-	signingkey = BCC42073A2D3A58D296E2BC593138915074894FD
+	signingkey = 1D9A17DFD23DCB91
 
 [alias]
   co = checkout
-	ci = commit -v --no-verify
+  ci = commit -v --no-verify
   cm = commit
   ls = ls-files
   st = status
@@ -23,9 +23,9 @@
   wdiff = diff --word-diff
   undo = reset HEAD^
   ac = !git add -A && git commit
-	l = log
-	ll = log -p
-	ff = pull --ff-only
+  l = log
+  ll = log -p
+  ff = pull --ff-only
 
 [core]
   excludesfile = ~/.gitignore.global
@@ -61,10 +61,10 @@
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
   required = true
-[commit]
-;	gpgsign = true
 [gpg]
-	program = gpg
+  program = gpg
+[commit]
+  gpgsign = true
