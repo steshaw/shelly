@@ -4,6 +4,8 @@
 	signingkey = 1D9A17DFD23DCB91
 
 [alias]
+  alias = "!f() { git config --get-regexp "^alias.${1}$" ; }; f"
+  aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
   co = checkout
   ci = commit -v --no-verify
   cm = commit
