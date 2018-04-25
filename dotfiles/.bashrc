@@ -40,6 +40,7 @@ fi
 
 bash_prompt() {
   [[ -z $PS1 ]] && return
+
   case $TERM in
     xterm*|rxvt*)
       local TITLEBAR='\[\033]0;\u@\h:\w\007\]'
@@ -123,13 +124,6 @@ bash_prompt() {
   PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(__git_ps1)\n${UPC}${UP}${NONE} "
 }
 bash_prompt
-
-function setTabTitle() {
-  local base
-  base=$(basename "${PWD}")
-  echo -ne "\033]0;${base}\007"
-}
-PROMPT_COMMAND="setTabTitle; ${PROMPT_COMMAND:-}"
 
 # FIXME : Unfortunately something goes wrong on MSYS2 but this bash prompt file
 # FIXME : is a big hack anyhow.
