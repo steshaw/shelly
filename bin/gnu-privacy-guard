@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#
+# Delegate to gpg2 or gpg.
+#
+
+set -euo pipefail
+
+if command -v gpg2 >/dev/null; then
+  exec gpg2 "$@"
+else
+  exec gpg "$@"
+fi

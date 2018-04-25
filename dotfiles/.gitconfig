@@ -67,6 +67,6 @@
   process = git-lfs filter-process
   required = true
 [gpg]
-  program = gpg
+	program = gnu-privacy-guard
 [commit]
   gpgsign = true
