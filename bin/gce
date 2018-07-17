@@ -34,8 +34,8 @@ machineType=n1-highcpu-8
 #machineType=custom-8-12
 #machineType=custom-8-8
 #machineType=custom-4-8 # 4vCPU 8GB
-customCPU=4
-customMemory=8GB
+customCPU=8
+customMemory=10GB
 
 imageFamily=ubuntu-1604-lts
 imageProject=ubuntu-os-cloud
