@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+namespace=$1
+set -x
+kubectl config set-context $(kubectl config current-context) --namespace=$namespace
