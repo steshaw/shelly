@@ -19,6 +19,7 @@ fun Vundle()
   Plugin 'flazz/vim-colorschemes'
   Plugin 'bling/vim-airline'
   Plugin 'airblade/vim-gitgutter'
+  Plugin 'ledger/vim-ledger'
 
   "
   " Idris
