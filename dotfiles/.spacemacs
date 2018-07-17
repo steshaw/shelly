@@ -432,7 +432,23 @@ static char *gnus-pointer[] = {
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
-   '((intero-targets "hestia:lib" "hestia:test:hestia-tests" "thoth:lib")
+   '((intero-targets "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "thoth:lib")
+     (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
+     (intero-targets "khepry:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
+     (intero-targets "hermes:lib" "hestia:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
+     (intero-targets "algolia-worker:lib" "enqueuer:lib" "hermes:lib" "hestia:lib" "khepry:lib" "marx:lib" "rosetta:lib" "stripe-customer:lib" "thoth:lib" "thoth:test:thoth-tests")
+     (intero-targets "algolia-worker:lib" "algolia-worker:exe:algolia" "enqueuer:lib" "enqueuer:exe:enqueuer" "hermes:lib" "hermes:exe:hermes" "hestia:lib" "hestia:exe:hestia" "khepry:lib" "marx:lib" "rosetta:lib" "stripe-customer:lib" "stripe-customer:exe:stripe-customer" "thoth:lib")
+     (intero-targets "hermes:lib" "hermes:exe:hermes" "hestia:lib" "khepry:lib" "marx:lib" "rosetta:lib" "stripe-customer:lib" "thoth:lib")
+     (intero-targets "hestia:lib" "khepry:lib" "marx:lib" "stripe-customer:lib" "stripe-customer:exe:stripe-customer" "thoth:lib")
+     (intero-targets "hestia:lib" "khepry:lib" "rosetta:lib" "stripe-customer:exe:stripe-customer" "stripe-customer:test:stripe-customer-test" "thoth:lib")
+     (intero-targets "hestia:lib" "hestia:test:hestia-tests" "rosetta:lib" "thoth:lib")
+     (intero-targets "hestia:exe:hestia" "hestia:test:hestia-tests" "thoth:lib")
+     (intero-targets "hestia:test:hestia-tests")
+     (intero-targets "hestia:lib" "hestia:exe:hestia" "hestia:test:hestia-tests" "thoth:lib")
+     (intero-targets "thoth:lib" "thoth:test:thoth-tests")
+     (intero-targets "thoth:lib")
+     (intero-targets "hestia:lib" "hestia:exe:hestia" "hestia:test:hestia-tests" "rosetta:lib" "rosetta:test:hestia-tests" "thoth:lib" "thoth:exe:fixtures" "thoth:exe:segment-memory-bench" "thoth:test:thoth-tests")
+     (intero-targets "hestia:lib" "hestia:test:hestia-tests" "thoth:lib")
      (intero-targets "hestia:lib" "hestia:test:hestia-tests" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "friendlyId:lib" "hestia:lib" "hestia:test:hestia-tests" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "hestia:lib" "hestia:test:hestia-tests")
@@ -475,7 +491,7 @@ static char *gnus-pointer[] = {
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((type nil)) (:background "#000000" :foreground "#f8f8f2")) (((class color) (min-colors 89)) (:background "#282a36" :foreground "#f8f8f2" :family "Source Code Pro" :foundry "nil" :slant normal :weight normal :height 181 :width normal))))
+ '(default ((t (:background nil))))
  '(proof-eager-annotation-face ((t (:background "medium blue"))))
  '(proof-error-face ((t (:background "dark red"))))
  '(proof-warning-face ((t (:background "indianred3")))))
