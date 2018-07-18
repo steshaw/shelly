@@ -41,7 +41,10 @@ machineType="custom-6-$((10 * 1024))"
 machineType="custom-4-$((10 * 1024))"
 # 4vCPU 12GB RAM
 machineType="custom-4-$((12 * 1024))"
-#customCPU=4
+# 4vCPU 16GB RAM
+machineType="custom-4-$((16 * 1024))"
+
+#customCPU=8
 #customMemory=12GB
 
 imageFamily=ubuntu-1604-lts
