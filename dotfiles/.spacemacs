@@ -306,7 +306,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'all
    ))
 
 (defun dotspacemacs/user-init ()
@@ -325,8 +325,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (spacemacs/toggle-fill-column-indicator-on)
-  (setq show-trailing-whitespace t)
+;  (spacemacs/toggle-fill-column-indicator-on)
   (spacemacs/toggle-highlight-long-lines-globally-on)
   (setq magit-repository-directories '("~/Projects/steshaw/" "~/Projects/"))
 
@@ -368,7 +367,7 @@ you should place your code here."
  '(emms-mode-line-icon-image-cache
    '(image :type xpm :ascent center :data "/* XPM */\nstatic char *note[] = {\n/* width height num_colors chars_per_pixel */\n\"    10   11        2            1\",\n/* colors */\n\". c #1ba1a1\",\n\"# c None s None\",\n/* pixels */\n\"###...####\",\n\"###.#...##\",\n\"###.###...\",\n\"###.#####.\",\n\"###.#####.\",\n\"#...#####.\",\n\"....#####.\",\n\"#..######.\",\n\"#######...\",\n\"######....\",\n\"#######..#\" };"))
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#343d46")
+ '(fci-rule-color "#343d46" t)
  '(gnus-logo-colors '("#1ec1c4" "#bababa") t)
  '(gnus-mode-line-image-cache
    '(image :type xpm :ascent center :data "/* XPM */\nstatic char *gnus-pointer[] = {\n/* width height num_colors chars_per_pixel */\n\"    18    13        2            1\",\n/* colors */\n\". c #1ba1a1\",\n\"# c None s None\",\n/* pixels */\n\"##################\",\n\"######..##..######\",\n\"#####........#####\",\n\"#.##.##..##...####\",\n\"#...####.###...##.\",\n\"#..###.######.....\",\n\"#####.########...#\",\n\"###########.######\",\n\"####.###.#..######\",\n\"######..###.######\",\n\"###....####.######\",\n\"###..######.######\",\n\"###########.######\" };") t)
@@ -400,7 +399,9 @@ you should place your code here."
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
-   '((intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "thoth:lib")
+   '((intero-targets "hermes:lib" "hermes:test:hermes-test" "khepry:lib" "marx:lib" "rosetta:lib" "thoth:lib")
+     (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib")
+     (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "thoth:lib")
      (intero-targets "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib")
      (intero-targets "khepry:lib" "marx:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "rosetta:lib" "thoth:lib")
