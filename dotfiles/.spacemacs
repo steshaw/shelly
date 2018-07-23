@@ -340,6 +340,11 @@ you should place your code here."
 
   ;; 2-space indentation for HTML too.
   (setq web-mode-markup-indent-offset 2)
+
+  ;; Enable hlint with intero.
+
+  (with-eval-after-load 'intero
+    (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -395,7 +400,9 @@ you should place your code here."
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
-   '((intero-targets "khepry:lib" "marx:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
+   '((intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "thoth:lib")
+     (intero-targets "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib")
+     (intero-targets "khepry:lib" "marx:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "rosetta:lib" "thoth:lib")
      (intero-targets "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "thoth:lib")
      (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
