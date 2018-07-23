@@ -12,7 +12,7 @@
 .DS_Store
 .localized
 
-.ignore/
+.steshaw/
 /.idea/
 /.ideaHaskellLib/
 *.iml
