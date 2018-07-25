@@ -144,7 +144,16 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-CDPATH=.:~/Projects:~/Projects/steshaw:~/Projects/tlcsrc:~/Projects/betterteamapp:~/Projects/punchh
+cdPaths=(
+  .
+  ~/Projects
+  ~/Projects/steshaw
+  ~/Projects/tlcsrc
+  ~/Projects/betterteamapp
+  ~/Projects/betterteamapp/solo/workers
+  ~/Projects/punchh
+)
+CDPATH=$(IFS=':'; echo "${cdPaths[*]}")
 
 # Google Cloud
 sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
