@@ -399,7 +399,8 @@ you should place your code here."
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
-   '((intero-targets "hermes:lib" "hermes:test:hermes-test" "khepry:lib" "marx:lib" "rosetta:lib" "thoth:lib")
+   '((intero-targets "khepry:lib" "khepry:test:khepry-test")
+     (intero-targets "hermes:lib" "hermes:test:hermes-test" "khepry:lib" "marx:lib" "rosetta:lib" "thoth:lib")
      (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib")
      (intero-targets "khepry:lib" "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "thoth:lib")
      (intero-targets "mandrill-worker:lib" "mandrill-worker:test:mandrill-worker-test" "marx:lib" "rosetta:lib" "thoth:lib")
