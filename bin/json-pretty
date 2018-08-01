@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+// vim: filetype=javascript
+
+s = process.openStdin();
+d = [];
+s.on('data', function(c) {
+  d.push(c);
+});
+s.on('end',function() {
+  console.log(JSON.stringify(JSON.parse(d.join('')), null, 2));
+});
