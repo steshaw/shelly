@@ -10,7 +10,7 @@ templates:
     category: Example
 
 ghc-options:
-  "$local": -optP-Wno-nonportable-include-path
+  "$locals": -optP-Wno-nonportable-include-path
 
 extra-include-dirs:
 - /usr/local/opt/openssl/include
