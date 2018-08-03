@@ -11,6 +11,7 @@ templates:
 
 ghc-options:
   "$locals": -optP-Wno-nonportable-include-path
+#  "hestia": -optP-Wno-nonportable-include-path
 
 extra-include-dirs:
 - /usr/local/opt/openssl/include
