@@ -142,8 +142,8 @@ values."
    ;; with 2 themes variants, one dark and one light)
 ;;   dotspacemacs-themes '(spacemacs-dark
 ;;                         spacemacs-light)
-   dotspacemacs-themes '(deeper-blue
-                         dracula)
+   dotspacemacs-themes '(zen-and-art
+                         twilight)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
