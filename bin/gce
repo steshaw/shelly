@@ -47,11 +47,8 @@ machineType="custom-8-$((10 * 1024))"
 # 8vCPU 12GB RAM
 machineType="custom-8-$((12 * 1024))"
 
-# 6vCPU 10GB RAM
-machineType="custom-6-$((10 * 1024))"
-
-#customCPU=6
-#customMemory=10GB
+# 8vCPU 10GB RAM
+machineType="custom-8-$((10 * 1024))"
 
 imageFamily=ubuntu-1604-lts
 imageProject=ubuntu-os-cloud
