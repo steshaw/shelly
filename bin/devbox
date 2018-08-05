@@ -29,11 +29,11 @@ zone=$region-a
 project=tlcsrc-1
 
 name=dev
-name=derby
 name=dev-au
+name=derby
 
 disk=dev-au
-diskSize=80GB
+diskSize=40GB
 diskType=pd-ssd
 
 machineType=n1-standard-4
@@ -105,7 +105,7 @@ elif [[ $command == ssh ]]; then
   gcloud \
     --account=$account \
     --project=$project \
-    beta compute ssh $name \
+    compute ssh $name \
       --zone=$zone
 
 elif [[ $command == set-machine-type ]]; then
@@ -121,10 +121,10 @@ elif [[ $command == set-machine-type ]]; then
 elif [[ $command == create-fresh ]]; then
 
   set -x
-  echo gcloud \
+  gcloud \
     --account=$account \
     --project=$project \
-    beta compute instances create $name \
+    compute instances create $name \
       --zone=$zone \
       --machine-type=$machineType \
       --no-restart-on-failure \
