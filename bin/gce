@@ -3,7 +3,15 @@
 set -euo pipefail
 
 Usage() {
-  echo "usage: $(basename $0) run|ssh|create|attach|list|status|start|up|stop|down|allow-web|allow-dev-web" >&2
+  cat <<EOF >&2
+usage: $(basename $0) command [args]
+  run | ssh
+  create-fresh | create-from-disk | create-from-snapshot
+  suspend | resume
+  list/status
+  start/up | stop/down
+  allow-web | allow-dev-web
+EOF
   exit 2
 }
 
@@ -141,7 +149,7 @@ elif [[ $command == create-disk-from-snapshot ]]; then
       --type=$diskType \
       --zone=$zone
 
-elif [[ $command == create-with-disk ]]; then
+elif [[ $command == create-from-disk ]]; then
 
   # With help from https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
@@ -175,7 +183,7 @@ elif [[ $command == status || $command == list ]]; then
     --project=$project \
     compute instances list
 
-elif [[ $command == from-snapshot ]]; then
+elif [[ $command == create-from-snapshot ]]; then
 
   set -x
 
