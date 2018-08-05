@@ -56,6 +56,8 @@ machineType="custom-8-$((12 * 1024))"
 
 # 6vCPU 10GB RAM
 machineType="custom-6-$((10 * 1024))"
+# 4vCPU 10GB RAM
+machineType="custom-4-$((10 * 1024))"
 
 imageProject=ubuntu-os-cloud
 imageFamily=ubuntu-1604-lts
@@ -66,7 +68,7 @@ tags='dev,http-server,https-server'
 snapshot=dev-au-snapshot-1
 sourceSnapshot=dev-1
 
-command=$1
+command=$1; shift
 
 # aliases
 [[ $command == up ]] && command=start
@@ -75,7 +77,6 @@ command=$1
 
 if [[ $command == run ]]; then
 
-  shift
   gcloud \
     --account=$account \
     --project=$project \
@@ -101,6 +102,9 @@ elif [[ $command == resume ]]; then
 
 elif [[ $command == ssh ]]; then
 
+  if [[ $# -eq 1 ]]; then
+    name=$1
+  fi
   set -x
   gcloud \
     --account=$account \
@@ -110,6 +114,9 @@ elif [[ $command == ssh ]]; then
 
 elif [[ $command == set-machine-type ]]; then
 
+  if [[ $# -eq 1 ]]; then
+    name=$1
+  fi
   set -x
   gcloud \
     --account=$account \
@@ -168,6 +175,9 @@ elif [[ $command == create-from-disk ]]; then
 
 elif [[ $command == start || $command == stop ]]; then
 
+  if [[ $# -eq 1 ]]; then
+    name=$1
+  fi
   set -x
   gcloud \
     --account=$account \
