@@ -29,8 +29,8 @@ zone=$region-a
 project=tlcsrc-1
 
 name=dev
-name=dev-au
 name=derby
+name=dev-au
 
 disk=dev-au
 diskSize=80GB
