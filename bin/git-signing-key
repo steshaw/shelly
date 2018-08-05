@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+key=1D9A17DFD23DCB91
+
+if [[ $1 == export ]]; then
+  gpg --output git-gpg-key-pub.gpg --armor --export $key
+  gpg --output git-gpg-key-sec.gpg --armor --export-secret-key $key
+elif [[ $1 == import ]]; then
+  gpg --import git-gpg-key-pub.gpg
+  gpg --allow-secret-key-import --import git-gpg-key-sec.gpg
+else
+  echo "usage: $(basename $0) import|export" >&2
+  exit 2
+fi
