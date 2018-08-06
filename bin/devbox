@@ -187,7 +187,6 @@ elif [[ $command == start || $command == stop ]]; then
 
 elif [[ $command == status || $command == list ]]; then
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
