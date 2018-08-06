@@ -5,36 +5,26 @@ set -eu
 echo Bootstrapping shelly...
 
 # FIXME: Need to ensure myrepos and git on other platforms.
-hash git mr || (
-  echo "Please ensure that git and myrepos are installed" >&2
+hash git python || (
+  echo "Please ensure that git and python are installed" >&2
   exit 1
 )
 
 SHELLY_HOME=~/Projects/steshaw/shelly
 
-git clone https://github.com/steshaw/shelly.git "$SHELLY_HOME"
-(
-  cd "$SHELLY_HOME"
-  git remote set-url origin git@github.com:steshaw/shelly.git
-)
+if [[ ! -d $SHELLY_HOME ]]; then
+  git clone https://github.com/steshaw/shelly.git "$SHELLY_HOME"
+  (
+    cd "$SHELLY_HOME"
+    git remote set-url origin git@github.com:steshaw/shelly.git
+  )
+fi
 
 PATH=${SHELLY_HOME}/bin:${PATH}
 ShellyLinkDotFiles
 
-echo Generate ssh key...
-generate-ssh-key
-echo
-
-echo Add key to GitHub...
-github-add-key
-echo
-
-echo Add key to Bitbucket...
-bitbucket-add-key
-echo
-
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-
-echo Bootstrap myrepos...
-mr checkout
+if [[ ! -f ~/.ssh/id_rsa ]]; then
+  echo Generate ssh key...
+  generate-ssh-key
+  echo
+fi
