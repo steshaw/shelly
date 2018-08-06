@@ -325,6 +325,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ; mouse scrolling in terminal.
+  (global-set-key [mouse-4] 'scroll-down-line)
+  (global-set-key [mouse-5] 'scroll-up-line)
+
 ;  (spacemacs/toggle-fill-column-indicator-on)
   (spacemacs/toggle-highlight-long-lines-globally-on)
   (setq magit-repository-directories '("~/Projects/steshaw/" "~/Projects/"))
