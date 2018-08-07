@@ -155,10 +155,6 @@ cdPaths=(
 )
 CDPATH=$(IFS=':'; echo "${cdPaths[*]}")
 
-# Google Cloud
-sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
-
 # Kubernetes
 if has kubectl; then
   source <(kubectl completion bash)
