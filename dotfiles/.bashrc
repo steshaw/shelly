@@ -12,7 +12,8 @@ sourceExists /etc/skel/.bashrc
 #
 if has brew; then
   if [[ $BASH_VERSION == 4.* ]]; then
-    sourceExists "$(brew --prefix)/Cellar/bash-completion@2/2.7/share/bash-completion/bash_completion"
+    # requires `brew install bash-completion@2`.
+    sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
   elif [[ $BASH_VERSION == 3.* ]]; then
     base="$(brew --prefix)/Cellar/bash-completion/1.3_3/etc"
     BASH_COMPLETION="$base/bash_completion"
