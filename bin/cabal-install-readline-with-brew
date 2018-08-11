@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -eu
-
-dir=/usr/local/Cellar/readline/6.2.4
-
-cabal install readline \
-        --configure-option=--with-readline-libraries="${dir}/lib" \
-        --configure-option=--with-readline-includes="${dir}/include"
