@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
-title="${USER}@$(hostname) (added by shelly/bootstrap)"
+title="${USER}@$(hostname) (added by shelly/bin/github-add-key)"
 key="$(cat ~/.ssh/id_rsa.pub)"
 user="${USER}"
 
 echo "Authenticating to GitHub as ${user}"
 
-curl -u "${user}" -d "{\"title\": \"${title}\", \"key\": \"${key}\"" https://api.github.com/user/keys
+read -rs -p "Enter password for ${user}: " password
+echo
+read -p "Enter OTP: " otp
+
+otp="$(echo $otp | sed -e 's/ //')"
+
+curl \
+  -u "${user}:${password}" \
+  -H "X-GitHub-OTP: ${otp}" \
+  -d "{\"title\": \"${title}\", \"key\": \"${key}\""\
+  https://api.github.com/user/keys
