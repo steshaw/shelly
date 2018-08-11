@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -eu
-
-mkdir -p classes && exec javac -Xlint:unchecked -classpath classes/ -d classes/ "$@"
