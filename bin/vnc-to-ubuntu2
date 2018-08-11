@@ -1,5 +1,0 @@
-gcloud compute ssh ubuntu2 \
-    --project ud615-160407 \
-    --zone asia-east1-a \
-    --ssh-flag="-L" \
-    --ssh-flag="5901:localhost:5901"
