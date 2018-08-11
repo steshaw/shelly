@@ -5,7 +5,7 @@ set -euo pipefail
 # Cribbed from
 # https://samthursfield.wordpress.com/2015/08/08/cleaning-up-stale-git-branches/
 
-for b in $(git branch --remote --no-merged); do
+for b in $(git branch --remote --no-merged | grep -v -- '->'); do
   echo $b
   git show $b --pretty="format:  Last commit: %cd" | head -n 1
   echo -n "  Commits from 'master': "
