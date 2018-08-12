@@ -1,5 +1,3 @@
-prependPaths ~/.local/bin
-
 if has stack; then
   eval "$(stack --bash-completion-script stack)"
 fi

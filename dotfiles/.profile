@@ -64,17 +64,17 @@ for file in ~/.profile.d/*; do
 done
 
 #
-# Add ~/bin to PATH
-#
-prependPaths ~/bin
-
-#
 # Explicitly call the .bashrc
 #
 # if running bash
 if [[ -n ${BASH_VERSION:-} ]]; then
   sourceExists ~/.bashrc
 fi
+
+#
+# Add user's private bins to PATH.
+#
+prependPaths ~/.local/bin ~/bin
 
 Echo -e "PATH (after) = \c"
 prettyPath
