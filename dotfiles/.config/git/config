@@ -30,7 +30,7 @@
   ff = pull --ff-only
 
 [core]
-  excludesfile = ~/.gitignore.global
+  excludesfile = ~/.config/git/ignore
 
 [credential]
   helper = cache --timeout 36000
