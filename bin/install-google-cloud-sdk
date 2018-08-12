@@ -16,7 +16,7 @@ if hash lsb_release 2>/dev/null; then
   curl -LsS https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
   # Update the package list and install the Cloud SDK
-  sudo apt-get update && sudo apt-get install google-cloud-sdk
+  sudo apt-get -y update && sudo apt-get -y install google-cloud-sdk
 
 elif hash brew 2>/dev/null; then
   echo "Looks like we're on macOS with Homebrew"
