@@ -454,7 +454,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "hestia:lib" "khepry:lib" "thoth:lib")
+    ((intero-targets "hestia:lib")
+     (intero-targets "hestia:lib" "khepry:lib" "thoth:lib")
      (intero-targets "khepry:lib" "thoth:lib")
      (intero-targets "khepry:lib" "rosetta:lib" "thoth:lib")
      (intero-targets "thoth:lib" "zendesk-worker:lib")
