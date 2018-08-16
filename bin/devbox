@@ -176,7 +176,6 @@ elif [[ $command == start || $command == stop ]]; then
   if [[ $# -eq 1 ]]; then
     name=$1
   fi
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
