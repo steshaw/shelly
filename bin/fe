@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# fe - Find and Edit
+#
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: fe command" >&2
+  exit 2
+fi
+
+vim $(which $1)
