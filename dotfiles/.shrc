@@ -27,8 +27,10 @@ set -o vi
 
 # Aliases
 
-if which nvim >&- 2>&-; then
-  alias vim=nvim
+alias v="$EDITOR"
+alias vi="$EDITOR"
+if has nvim; then
+  alias vim=nvim # When we can vim, we probably want nvim...
 fi
 
 #alias ls='ls --color -Fh'
