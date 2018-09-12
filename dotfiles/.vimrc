@@ -52,7 +52,6 @@ fun Plug()
 
   call plug#begin('~/.vim/plugged')
   call Plugs()
-  filetype plugin indent on " apparently required?
   call plug#end()
 endfun
 
@@ -66,10 +65,6 @@ autocmd FileType * highlight ErrorMsg
 if has("gui_running")
   colorscheme koehler
 endif
-
-syntax on
-filetype on
-filetype indent on
 
 set showmatch
 set background=dark
