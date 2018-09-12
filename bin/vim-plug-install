@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+vim +PlugInstall +qall
+
+#(cd ${bundle}/vimproc && make)

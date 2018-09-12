@@ -1,5 +1,47 @@
 set nocompatible
 
+fun Plugs()
+  " colour schemes
+"  Plug 'captbaritone/molokai'
+  Plug 'flazz/vim-colorschemes'
+
+  " Org mode
+  Plug 'jceb/vim-orgmode'
+  Plug 'tpope/vim-speeddating' " dependency
+
+  Plug 'idris-hackers/idris-vim'
+
+  " Misc
+  Plug 'kien/ctrlp.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'scrooloose/syntastic'
+  Plug 'tpope/vim-surround'
+  Plug 'bling/vim-airline'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'ledger/vim-ledger'
+endfun
+
+fun Plug()
+  " Install vim-plug if we don't already have it
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+  if has('nvim')
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+      silent !mkdir -p ~/.local/share/nvim/site/autoload
+      silent !ln -s ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
+    endif
+  endif
+
+  call plug#begin('~/.vim/plugged')
+  call Plugs()
+  filetype plugin indent on " required by vim-plug
+  call plug#end()
+endfun
+
 fun Vundle()
   filetype off " required by Vundle
   set rtp+=~/.vim/bundle/vundle
@@ -46,12 +88,13 @@ fun Vundle()
 
   filetype plugin indent on " required by Vundle
   call vundle#end()
-endf
+endfun
 
 let maplocalleader = "\\"
 
-call Vundle()
-"execute pathogen#infect()
+call Plug()
+
+colorscheme molokai
 
 syntax on
 filetype on
