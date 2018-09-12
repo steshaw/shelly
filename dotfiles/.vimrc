@@ -17,6 +17,7 @@ fun Plugs()
 
   " Colour schemes.
   Plug 'captbaritone/molokai'
+  Plug 'joshdick/onedark.vim'
 "  Plug 'flazz/vim-colorschemes'
 
   " Org mode.
@@ -59,6 +60,7 @@ let maplocalleader = "\\"
 
 call Plug()
 colorscheme molokai
+"colorscheme onedark
 " Override ErrorMsg color as molokai has a poor one!
 autocmd FileType * highlight ErrorMsg
   \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
