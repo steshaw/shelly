@@ -95,6 +95,9 @@ let maplocalleader = "\\"
 call Plug()
 
 colorscheme molokai
+if has("gui_running")
+  colorscheme koehler
+endif
 
 syntax on
 filetype on
@@ -112,10 +115,6 @@ set smartindent
 set cindent
 set modelines=5
 
-if has("gui_running")
-  colorscheme koehler
-endif
-
 " Break hard-links - may need to break hard-links when using Mercurial optimised clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
 
@@ -130,7 +129,7 @@ set backupcopy=auto,breakhardlink ",breaksymlink
 
 "let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
 
-autocmd BufWritePost *.hs,.hsc GhcModCheckAndLintAsync
+"autocmd BufWritePost *.hs,.hsc GhcModCheckAndLintAsync
 
 autocmd FileType make setlocal noexpandtab
 
