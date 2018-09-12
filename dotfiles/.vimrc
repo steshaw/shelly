@@ -1,17 +1,31 @@
 set nocompatible
 
 fun Plugs()
-  " colour schemes
-"  Plug 'captbaritone/molokai'
-  Plug 'flazz/vim-colorschemes'
+  " Haskell/Glorious/GHC
 
-  " Org mode
+  " intero-neovim looks to be pretty early.
+"  Plug 'parsonsmatt/intero-neovim'
+"  Plug 'neomake/neomake' " intero-neovim likes this.
+
+"  Plugin 'dag/vim2hs'
+"  Plugin 'merijn/haskellFoldIndent'
+"  Plugin 'eagletmt/neco-ghc'
+"  Plugin 'Shougo/neocomplcache.vim' " required by neco-ghc
+"  Plugin 'eagletmt/ghcmod-vim'
+"  Plugin 'eagletmt/tinytest' " required for ghcmod-vim
+"  Plugin 'Shougo/vimproc' " required by ghcmod-vim
+
+  " Colour schemes.
+  Plug 'captbaritone/molokai'
+"  Plug 'flazz/vim-colorschemes'
+
+  " Org mode.
   Plug 'jceb/vim-orgmode'
   Plug 'tpope/vim-speeddating' " dependency
 
   Plug 'idris-hackers/idris-vim'
 
-  " Misc
+  " Misc.
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
@@ -38,63 +52,17 @@ fun Plug()
 
   call plug#begin('~/.vim/plugged')
   call Plugs()
-  filetype plugin indent on " required by vim-plug
+  filetype plugin indent on " apparently required?
   call plug#end()
-endfun
-
-fun Vundle()
-  filetype off " required by Vundle
-  set rtp+=~/.vim/bundle/vundle
-  call vundle#begin()
-  Plugin 'gmarik/vundle' " required
-
-  Plugin 'jceb/vim-orgmode'
-
-  "
-  " Misc
-  "
-  "Plugin 'kien/ctrlp.vim'
-  "Plugin 'scrooloose/nerdtree'
-  "Plugin 'scrooloose/nerdcommenter'
-  Plugin 'scrooloose/syntastic'
-  "Plugin 'tpope/vim-surround'
-  Plugin 'flazz/vim-colorschemes'
-  Plugin 'bling/vim-airline'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'ledger/vim-ledger'
-
-  "
-  " Idris
-  "
-  Bundle 'idris-hackers/idris-vim'
-
-  "
-  " Haskell/Glorious/GHC
-  "
-"  Plugin 'dag/vim2hs'
-"  Plugin 'merijn/haskellFoldIndent'
-
-"  Plugin 'eagletmt/neco-ghc'
-  Plugin 'Shougo/neocomplcache.vim' " required by neco-ghc
-
-"  Plugin 'eagletmt/ghcmod-vim'
-"  Plugin 'eagletmt/tinytest' " required for ghcmod-vim
-"  Plugin 'Shougo/vimproc' " required by ghcmod-vim
-
-  "
-  " Scala
-  "
-"  Bundle 'repos-scala/scala-vundle'
-
-  filetype plugin indent on " required by Vundle
-  call vundle#end()
 endfun
 
 let maplocalleader = "\\"
 
 call Plug()
-
 colorscheme molokai
+" Override ErrorMsg color as molokai has a poor one!
+autocmd FileType * highlight ErrorMsg
+  \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
 if has("gui_running")
   colorscheme koehler
 endif
@@ -115,7 +83,8 @@ set smartindent
 set cindent
 set modelines=5
 
-" Break hard-links - may need to break hard-links when using Mercurial optimised clones.
+" Break hard-links — may need to break hard-links when using Mercurial optimised
+" clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
 
 "autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
@@ -135,16 +104,12 @@ autocmd FileType make setlocal noexpandtab
 
 augroup vimrc
   " Highlight trailing whitespace.
-  autocmd FileType * highlight TrailingWhitespace
-        \ ctermbg=lightgray ctermfg=black guibg=lightgray guifg=black
-  autocmd FileType * match TrailingWhitespace /\s\+$/
+  autocmd FileType * match ErrorMsg /\s\+$/
 
   " Highlight lines exceeding textwidth.
-  autocmd FileType * highlight ExcessWidth
-        \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
   autocmd FileType *
         \ if &textwidth |
-        \    exec '2match ExcessWidth /\%' . string(&textwidth) . 'v.\+/' |
+        \    exec '2match ErrorMsg /\%>' . string(&textwidth) . 'v.\+/' |
         \ endif
 augroup end
 
