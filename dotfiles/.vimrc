@@ -133,6 +133,21 @@ set backupcopy=auto,breakhardlink ",breaksymlink
 
 autocmd FileType make setlocal noexpandtab
 
+augroup vimrc
+  " Highlight trailing whitespace.
+  autocmd FileType * highlight TrailingWhitespace
+        \ ctermbg=lightgray ctermfg=black guibg=lightgray guifg=black
+  autocmd FileType * match TrailingWhitespace /\s\+$/
+
+  " Highlight lines exceeding textwidth.
+  autocmd FileType * highlight ExcessWidth
+        \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
+  autocmd FileType *
+        \ if &textwidth |
+        \    exec '2match ExcessWidth /\%' . string(&textwidth) . 'v.\+/' |
+        \ endif
+augroup end
+
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
 inoremap jj <esc>
 inoremap jk <esc>
