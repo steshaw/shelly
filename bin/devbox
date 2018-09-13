@@ -85,9 +85,13 @@ elif [[ $command == resume ]]; then
 
 elif [[ $command == ssh ]]; then
 
-  if [[ $# -eq 1 ]]; then
-    name=$1
+  # Override default instance name.
+  if [[ $# -ge 2 && $1 == '--name' ]]; then
+    name=$2
+    shift
+    shift
   fi
+
   set -x
   gcloud \
     --account=$account \
@@ -98,8 +102,11 @@ elif [[ $command == ssh ]]; then
 
 elif [[ $command == set-machine-type ]]; then
 
-  if [[ $# -eq 1 ]]; then
-    name=$1
+  # Override default instance name.
+  if [[ $# -ge 2 && $1 == '--name' ]]; then
+    name=$2
+    shift
+    shift
   fi
   set -x
   gcloud \
