@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-exec tmux -CC new-session -AD main
+exec tmux -CC new-session -AD -s main
