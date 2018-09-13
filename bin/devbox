@@ -39,23 +39,8 @@ diskType=pd-ssd
 machineType=n1-standard-4
 machineType=n1-highcpu-8
 
-# 4vCPU 10GB RAM
-machineType="custom-4-$((10 * 1024))"
-# 4vCPU 12GB RAM
-machineType="custom-4-$((12 * 1024))"
-# 4vCPU 16GB RAM
-machineType="custom-4-$((16 * 1024))"
-# 4vCPU 10GB RAM
-machineType="custom-4-$((10 * 1024))"
-# 6vCPU 10GB RAM
-machineType="custom-6-$((10 * 1024))"
 # 8vCPU 10GB RAM
 machineType="custom-8-$((10 * 1024))"
-# 8vCPU 12GB RAM
-machineType="custom-8-$((12 * 1024))"
-
-# 6vCPU 10GB RAM
-machineType="custom-6-$((10 * 1024))"
 
 imageProject=ubuntu-os-cloud
 imageFamily=ubuntu-1604-lts
@@ -103,11 +88,13 @@ elif [[ $command == ssh ]]; then
   if [[ $# -eq 1 ]]; then
     name=$1
   fi
+  set -x
   gcloud \
     --account=$account \
     --project=$project \
     compute ssh $name \
-      --zone=$zone
+      --zone=$zone \
+      "--command=$@"
 
 elif [[ $command == set-machine-type ]]; then
 

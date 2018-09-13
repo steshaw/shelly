@@ -1,0 +1,5 @@
+#!/usr/bin/env
+
+set -euo pipefail
+
+exec tmux -CC new-session -AD main
