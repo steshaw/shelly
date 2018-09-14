@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+${DEBUG:-}
 
 Usage() {
   cat <<EOF >&2
-usage: $(basename $0) command [args]
+usage: $(basename "$0") command [args]
   run | ssh
   create-fresh | create-from-disk | create-from-snapshot
   suspend | resume
@@ -20,13 +21,9 @@ if [[ $# -eq 0 ]]; then
 fi
 
 account='steshaw@gmail.com'
-region=us-central1
-zone=$region-a
-
+project=tlcsrc-1
 region=australia-southeast1
 zone=$region-a
-
-project=tlcsrc-1
 
 name=dev
 name=dev-au
@@ -51,12 +48,21 @@ tags='dev,http-server,https-server'
 snapshot=dev-au-snapshot-1
 sourceSnapshot=dev-1
 
+# Override default instance name.
+if [[ $# -ge 2 && $1 == '--name' ]]; then
+  name=$2
+  shift
+  shift
+fi
+
 command=$1; shift
 
 # aliases
 [[ $command == up ]] && command=start
 [[ $command == down ]] && command=stop
 [[ $command == dn ]] && command=stop
+[[ $command == connect ]] && command=tmux-control-mode
+[[ $command == in ]] && command=tmux-control-mode
 
 if [[ $command == run ]]; then
 
@@ -67,62 +73,54 @@ if [[ $command == run ]]; then
 
 elif [[ $command == suspend || $command == hibernate ]]; then
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
-    alpha compute instances suspend $name \
+    alpha compute instances suspend "$name" \
       --zone=$zone
 
 elif [[ $command == resume ]]; then
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
-    alpha compute instances resume $name \
+    alpha compute instances resume "$name" \
       --zone=$zone
 
 elif [[ $command == ssh ]]; then
 
-  # Override default instance name.
-  if [[ $# -ge 2 && $1 == '--name' ]]; then
-    name=$2
-    shift
-    shift
-  fi
-
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
-    compute ssh $name \
+    compute ssh "$name" \
       --zone=$zone \
-      "--command=$@"
+      "--command=$*"
+
+elif [[ $command == tmux-control-mode ]]; then
+
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute ssh "$name" \
+      --zone=$zone \
+      '--ssh-flag=-tt' \
+      '--command=source ~/.profile && tmux-cc-session'
 
 elif [[ $command == set-machine-type ]]; then
 
-  # Override default instance name.
-  if [[ $# -ge 2 && $1 == '--name' ]]; then
-    name=$2
-    shift
-    shift
-  fi
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
-    compute instances set-machine-type $name \
+    compute instances set-machine-type "$name" \
       --zone=$zone \
       --machine-type=$machineType \
 
 elif [[ $command == create-fresh ]]; then
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
-    compute instances create $name \
+    compute instances create "$name" \
       --zone=$zone \
       --machine-type=$machineType \
       --no-restart-on-failure \
@@ -130,7 +128,7 @@ elif [[ $command == create-fresh ]]; then
       --preemptible \
       --image-family=$imageFamily \
       --image-project=$imageProject \
-      --boot-disk-device-name=$name \
+      --boot-disk-device-name="$name" \
       --boot-disk-size=$diskSize \
       --boot-disk-type=$diskType \
       --no-boot-disk-auto-delete \
@@ -138,7 +136,6 @@ elif [[ $command == create-fresh ]]; then
 
 elif [[ $command == create-disk-from-snapshot ]]; then
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
@@ -151,11 +148,10 @@ elif [[ $command == create-from-disk ]]; then
 
   # With help from https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
-    compute instances create $name \
+    compute instances create "$name" \
       --zone=$zone \
       --machine-type=$machineType \
       --no-restart-on-failure \
@@ -172,7 +168,7 @@ elif [[ $command == start || $command == stop ]]; then
   gcloud \
     --account=$account \
     --project=$project \
-    compute instances "$command" $name \
+    compute instances "$command" "$name" \
       --zone=$zone
 
 elif [[ $command == status || $command == list ]]; then
@@ -184,12 +180,10 @@ elif [[ $command == status || $command == list ]]; then
 
 elif [[ $command == create-from-snapshot ]]; then
 
-  set -x
-
   gcloud \
     --account=$account \
     --project=$project \
-    compute disks create $name --size=$diskSize \
+    compute disks create "$name" --size=$diskSize \
       --zone=$zone \
       --source-snapshot=$sourceSnapshot \
       --type=pd-ssd
@@ -197,7 +191,7 @@ elif [[ $command == create-from-snapshot ]]; then
   gcloud \
     --account=$account \
     --project=$project \
-    beta compute instances create $name \
+    beta compute instances create "$name" \
       --zone=$zone \
       --machine-type=$machineType \
       --no-restart-on-failure \
@@ -208,8 +202,6 @@ elif [[ $command == create-from-snapshot ]]; then
       --tags=$tags
 
 elif [[ $command == allow-web ]]; then
-
-  set -x
 
   gcloud \
     --account=$account \
@@ -229,7 +221,6 @@ elif [[ $command == allow-web ]]; then
 
 elif [[ $command == allow-dev-web ]]; then
 
-  set -x
   gcloud \
     --account=$account \
     --project=$project \
