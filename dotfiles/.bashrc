@@ -107,14 +107,16 @@ bash_prompt() {
     local UPC=${EMR}      # user's color
     local UP='\#'         # user's prompt
   else
-    local UPC=${G}        # user's color
-    local UP='\$' #'➯'    # user's prompt
+    local UPC=${EMG}      # user's color
     local UP='➯'          # user's prompt
     local UP='➮'          # user's prompt
     local UP='➭'          # user's prompt
     local UP='➩'          # user's prompt
     local UP='➪'          # user's prompt
     local UP='→'          # user's prompt
+    local UP='→'          # user's prompt
+    local UP='➝'          # users' prompt
+    local UP='\$'         # user's prompt
   fi
 
   UC="${EMB}" # user@host colour
@@ -122,7 +124,9 @@ bash_prompt() {
   SC="${M}" # separator colour
   GC="${EMY}" # git prompt colour
 
-  PS1="${TITLEBAR}\n${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(__git_ps1)\n${UPC}${UP}${NONE} "
+  local promptLine1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(__git_ps1)"
+  local promptLine2="${UPC}╰─${UP}${NONE} "
+  PS1="${TITLEBAR}\n${promptLine1}\n${promptLine2}"
 }
 bash_prompt
 
