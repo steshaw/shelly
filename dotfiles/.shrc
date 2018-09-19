@@ -29,9 +29,6 @@ set -o vi
 
 alias v="$EDITOR"
 alias vi="$EDITOR"
-if has nvim; then
-  alias vim=nvim # When we can vim, we probably want nvim...
-fi
 
 #alias ls='ls --color -Fh'
 alias ls='ls -GFh'
