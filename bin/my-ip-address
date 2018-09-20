@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dig -4 o-o.myaddr.l.google.com txt @ns1.google.com +short | perl -pe 's/^"//; s/"$//'
