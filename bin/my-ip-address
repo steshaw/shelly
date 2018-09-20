@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-dig -4 o-o.myaddr.l.google.com txt @ns1.google.com +short | perl -pe 's/^"//; s/"$//'
+dig -4 txt +short o-o.myaddr.l.google.com @ns1.google.com |
+  perl -pe 's/^"(.*)"$/\1/'
