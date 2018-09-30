@@ -1,4 +1,5 @@
 .steshaw/
+.tmp/
 
 *.o
 *.hi
