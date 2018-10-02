@@ -57,8 +57,9 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     (spell-checking
-      :variables enable-flyspell-auto-completion t)
+     spell-checking
+;     (spell-checking
+;      :variables enable-flyspell-auto-completion t)
      sql
      syntax-checking
      themes-megapack
@@ -369,6 +370,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
  '(ansi-term-color-vector
    [unspecified "#081724" "#ff694d" "#68f6cb" "#fffe4e" "#bad6e2" "#afc0fd" "#d2f1ff" "#d3f9ee"] t)
  '(compilation-message-face (quote default))
@@ -461,7 +464,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "enqueuer:lib" "hestia:lib" "thoth:lib")
+    ((intero-targets "algolia-worker:lib")
+     (intero-targets "enqueuer:lib" "hestia:lib" "thoth:lib")
      (intero-targets "hestia:lib")
      (intero-targets "hestia:lib" "khepry:lib" "thoth:lib")
      (intero-targets "khepry:lib" "thoth:lib")
