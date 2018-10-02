@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+url='https://status.github.com/api/status.json'
+status="$(curl -s $url |  jq --raw-output '.status')"
+echo "GitHub API status: $status"
