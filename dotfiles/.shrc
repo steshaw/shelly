@@ -72,14 +72,6 @@ fi
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
-if [ -x "$(which gnome-open 2>&-)" ]; then
-  alias o='gnome-open'
-elif [ -x "$(which xdg-open 2>&-)" ]; then
-  alias o='xdg-open'
-else
-  alias o='open'
-fi
-
 cdpath=(
   .
   ~/Projects

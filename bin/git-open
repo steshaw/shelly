@@ -11,13 +11,13 @@ url=$(git remote get-url origin)
 
 case $url in
   http*)
-    echo Opening $url...
-    open $url
+    echo Opening $url ...
+    o $url
     ;;
   git@*)
     url=http://$(echo $url | perl -pe 's/git@//; s-:-/-; s/\.git$//;')
-    echo Opening $url...
-    open $url
+    echo Opening $url ...
+    o $url
     ;;
   *)
     echo "Unable to open origin $url"
