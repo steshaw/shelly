@@ -53,6 +53,8 @@ let maplocalleader = "\\"
 
 call Plug()
 
+let g:syntastic_sh_shellcheck_args="-x"
+
 colorscheme molokai
 " Override ErrorMsg color as molokai has a poor one!
 autocmd FileType * highlight ErrorMsg

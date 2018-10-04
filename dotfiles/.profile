@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -eu
+# shellcheck source=.functions
 [[ -r ~/.functions ]] && source ~/.functions
 
 Echo Executing ~/.profile
@@ -8,14 +8,12 @@ Echo Executing ~/.profile
 unset PROMPT_COMMAND
 
 function prettyPath {
-  Echo "{"
-  Echo $PATH | tr : '\n' | perl -pe 's/^/  /'
+  Echo "$@" "{"
+  Echo "$PATH" | tr : '\n' | perl -pe 's/^/  /'
   Echo "}"
 }
 
-Echo -e "PATH (before) = \c"
-prettyPath
-
+prettyPath "PATH (before) = "
 
 #
 # On Mac, this is required.
@@ -31,9 +29,9 @@ fi
 #
 Echo "SHELL (before) = ${SHELL}"
 if [[ -n ${BASH_VERSION:-} ]]; then
-  SHELL="$(which bash)"
+  SHELL="$(command -v bash)"
 elif [[ -n ${ZSH_VERSION:-} ]]; then
-  SHELL="$(which zsh)"
+  SHELL="$(command -v zsh)"
 fi
 Echo "SHELL (after)  = ${SHELL}"
 
@@ -51,7 +49,7 @@ prependPaths ${SHELLY_BIN}
 # Some other configuration rely on brew being in the PATH, so it must be early.
 #
 prependPaths /usr/local/bin /usr/local/sbin
-if [ -x "$(which brew 2>&-)" ]; then
+if has brew; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   sync-env-to-plist PKG_CONFIG_PATH
 fi
@@ -76,6 +74,7 @@ fi
 #
 prependPaths ~/.local/bin ~/bin
 
-Echo -e "PATH (after) = \c"
-prettyPath
+prettyPath "PATH (after) = "
 sync-env-to-plist PATH
+
+sourceExists ~/.profile.local

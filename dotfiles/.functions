@@ -36,7 +36,7 @@ homeFromBin() {
 
 has() {
   command=$1
-  hash $command 2>/dev/null
+  command -v "$command" >/dev/null
 }
 
 # Only echo when we have a tty. This is so that scp will work.
