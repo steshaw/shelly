@@ -1,30 +1,22 @@
 set nocompatible
 
 fun Plugs()
-  " Haskell/Glorious/GHC
-
-  " intero-neovim looks to be pretty early.
-"  Plug 'parsonsmatt/intero-neovim'
-"  Plug 'neomake/neomake' " intero-neovim likes this.
-
-"  Plugin 'dag/vim2hs'
-"  Plugin 'merijn/haskellFoldIndent'
-"  Plugin 'eagletmt/neco-ghc'
-"  Plugin 'Shougo/neocomplcache.vim' " required by neco-ghc
-"  Plugin 'eagletmt/ghcmod-vim'
-"  Plugin 'eagletmt/tinytest' " required for ghcmod-vim
-"  Plugin 'Shougo/vimproc' " required by ghcmod-vim
-
   " Colour schemes.
   Plug 'captbaritone/molokai'
-  Plug 'joshdick/onedark.vim'
-"  Plug 'flazz/vim-colorschemes'
+  if 0
+    Plug 'crusoexia/vim-monokai'
+    Plug 'joshdick/onedark.vim'
+    Plug 'chriskempson/base16-vim'
+    Plug 'flazz/vim-colorschemes'
+  endif
 
   " Org mode.
   Plug 'jceb/vim-orgmode'
   Plug 'tpope/vim-speeddating' " dependency
 
+  " Modes
   Plug 'idris-hackers/idris-vim'
+  Plug 'ledger/vim-ledger'
 
   " Misc.
   Plug 'ntpeters/vim-better-whitespace'
@@ -36,7 +28,6 @@ fun Plugs()
   Plug 'tpope/vim-surround'
   Plug 'bling/vim-airline'
   Plug 'airblade/vim-gitgutter'
-  Plug 'ledger/vim-ledger'
 endfun
 
 fun Plug()
@@ -61,8 +52,8 @@ endfun
 let maplocalleader = "\\"
 
 call Plug()
+
 colorscheme molokai
-"colorscheme onedark
 " Override ErrorMsg color as molokai has a poor one!
 autocmd FileType * highlight ErrorMsg
   \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
@@ -85,10 +76,6 @@ set modelines=5
 " Break hard-links — may need to break hard-links when using Mercurial optimised
 " clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
-
-"let g:syntastic_haskell_checkers = ["ghc_mod", "hint"]
-
-"autocmd BufWritePost *.hs,.hsc GhcModCheckAndLintAsync
 
 autocmd FileType make setlocal noexpandtab
 
