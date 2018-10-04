@@ -28,6 +28,7 @@ fun Plugs()
 
   " Misc.
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'whatyouhide/vim-lengthmatters'
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
@@ -90,14 +91,6 @@ set backupcopy=auto,breakhardlink ",breaksymlink
 "autocmd BufWritePost *.hs,.hsc GhcModCheckAndLintAsync
 
 autocmd FileType make setlocal noexpandtab
-
-augroup vimrc
-  " Highlight lines exceeding textwidth.
-  autocmd FileType *
-        \ if &textwidth |
-        \    exec '2match ErrorMsg /\%>' . string(&textwidth) . 'v.\+/' |
-        \ endif
-augroup end
 
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
 inoremap jj <esc>
