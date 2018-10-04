@@ -122,11 +122,17 @@ bash_prompt() {
   UC="${EMB}" # user@host colour
   DC="${EMC}" # pwd colour
   SC="${M}" # separator colour
-  GC="${EMY}" # git prompt colour
+  GC="${Y}" # git prompt colour
 
-  local promptLine1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w${GC}\$(__git_ps1)"
-  local promptLine2="${UPC}╰─${UP}${NONE} "
-  PS1="${TITLEBAR}\n${promptLine1}\n${promptLine2}"
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWSTASHSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  GIT_PS1_SHOWUPSTREAM='auto'
+  GIT_PS1_SHOWCOLORHINTS=true
+
+  PROMPT_LINE_1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
+  PROMPT_LINE_2="${UPC}╰─${UP}${NONE} "
+  PROMPT_COMMAND='__git_ps1 "${TITLEBAR}\n${PROMPT_LINE_1}" "\n${PROMPT_LINE_2}" " ${GC}[%s${GC}]"'
 }
 bash_prompt
 
