@@ -41,7 +41,8 @@ machineType="custom-8-$((10 * 1024))"
 
 imageProject=ubuntu-os-cloud
 imageFamily=ubuntu-1604-lts
-imageFamily=ubuntu-minimal-1804-lts
+imageFamily=ubuntu-minimal-1804-lts # nice but no man pages
+imageFamily=ubuntu-1804-lts
 
 tags='dev,http-server,https-server'
 
