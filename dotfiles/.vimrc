@@ -27,6 +27,7 @@ fun Plugs()
   Plug 'idris-hackers/idris-vim'
 
   " Misc.
+  Plug 'ntpeters/vim-better-whitespace'
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
@@ -91,9 +92,6 @@ set backupcopy=auto,breakhardlink ",breaksymlink
 autocmd FileType make setlocal noexpandtab
 
 augroup vimrc
-  " Highlight trailing whitespace.
-  autocmd FileType * match ErrorMsg /\s\+$/
-
   " Highlight lines exceeding textwidth.
   autocmd FileType *
         \ if &textwidth |
