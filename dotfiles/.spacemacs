@@ -341,7 +341,7 @@ you should place your code here."
   (spacemacs/toggle-highlight-long-lines-globally-on)
   (setq magit-repository-directories '("~/Projects/steshaw/" "~/Projects/"))
 
-  ;; Use Spacemacs as the $EDITOR/$GIT_EDITOR.
+  ;; Use Spacemacs as the $GIT_EDITOR.
   ;; See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bsource-control/git#global-git-commit-mode
   (global-git-commit-mode t)
 
@@ -464,7 +464,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "algolia-worker:lib")
+    ((intero-targets "hestia:test:hestia-tests" "thoth:lib")
+     (intero-targets "algolia-worker:lib")
      (intero-targets "enqueuer:lib" "hestia:lib" "thoth:lib")
      (intero-targets "hestia:lib")
      (intero-targets "hestia:lib" "khepry:lib" "thoth:lib")
