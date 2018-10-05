@@ -1,37 +1,31 @@
+#!/usr/bin/env bash
+
 Echo "Executing ~/.shrc"
 
 setEditor() {
-  if [[ -z $EDITOR ]]; then
-    editor=$1
-    Echo "Trying $editor"
-    if has "$editor"; then
-      export EDITOR="$(command -v $editor)"
-      Echo "EDITOR = $EDITOR"
-    else
-      Echo "We don't have $editor"
-    fi
+  editor=$1
+  Echo "Trying $editor"
+  if has "$editor"; then
+    export VISUAL
+    VISUAL=$(command -v "$editor")
+    Echo "VISUAL = $VISUAL"
+  else
+    Echo "We don't have $editor"
   fi
 }
 
+unset EDITOR
+unset VISUAL
 setEditor nvim
 setEditor vim
-
-alias e='emacsclient -n'
-export VISUAL=${EDITOR}
-# we :: which edit
-function we {
-  e "$(which $1)"
-}
 
 set -o vi
 
 # Aliases
 
-alias v="$EDITOR"
-alias vi="$EDITOR"
+alias vi='v'
 
-#alias ls='ls --color -Fh'
-alias ls='ls -GFh'
+alias ls='ls --color -Fh'
 alias l='ls -l'
 alias ll='l -A'
 
@@ -45,14 +39,14 @@ alias rm='rm -i'
 alias cx='chmod +x'
 alias cw='chmod +w'
 
-alias vbp='vim ~/.profile'
+alias vbp='v ~/.profile'
 alias sbp='source ~/.profile'
-alias vbrc='vim ~/.bashrc'
+alias vbrc='v ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 
 alias szshrc="source ~/.zshrc"
-alias zshrc="${VISUAL} ~/.zshrc"
-alias ohmyzsh="${VISUAL} ~/.oh-my-zsh"
+alias zshrc="\${VISUAL} ~/.zshrc"
+alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
 alias gaa='git add --all'
 alias gst='git status'
@@ -80,5 +74,3 @@ cdpath=(
 
 sourceExists ~/.travis/travis.sh # for travis gem
 sourceExists ~/.shrc.local
-
-# vim: ft=sh

@@ -8,4 +8,4 @@ if [[ $# -ne 1 ]]; then
   exit 2
 fi
 
-e $(command -v $1)
+v $(command -v $1)

@@ -55,6 +55,10 @@ call Plug()
 
 let g:syntastic_sh_shellcheck_args="-x"
 
+" Don't reset the cursor style.
+" i.e. keep blinking underline from iTerm2 configuration.
+set guicursor=
+
 colorscheme molokai
 " Override ErrorMsg color as molokai has a poor one!
 autocmd FileType * highlight ErrorMsg
