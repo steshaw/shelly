@@ -20,8 +20,8 @@ if [[ $# -eq 0 ]]; then
   Usage
 fi
 
-account='steshaw@gmail.com'
-project=tlcsrc-1
+account=$DEVBOX_ACCOUNT
+project=$DEVBOX_PROJECT
 region=australia-southeast1
 zone=$region-a
 
