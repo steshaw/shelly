@@ -132,7 +132,8 @@ bash_prompt() {
 
   PROMPT_LINE_1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
   PROMPT_LINE_2="${UPC}╰─${UP}${NONE} "
-  PROMPT_COMMAND='__git_ps1 "${TITLEBAR}\n${PROMPT_LINE_1}" "\n${PROMPT_LINE_2}" " ${GC}[%s${GC}]"'
+  gitPromptCommand='__git_ps1 "${TITLEBAR}\n${PROMPT_LINE_1}" "\n${PROMPT_LINE_2}" " ${GC}[%s${GC}]"'
+  PROMPT_COMMAND="$gitPromptCommand; $PROMPT_COMMAND"
 }
 bash_prompt
 
