@@ -148,7 +148,7 @@ values."
 ;;   dotspacemacs-themes '(zen-and-art
 ;;                         twilight)
    dotspacemacs-themes '(molokai
-                         monokai)
+                         fogus)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -331,6 +331,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ; Do case-sensitive searching.
+;  (setq case-fold-search nil)
+
   (evil-leader/set-key "/" 'spacemacs/helm-project-do-ag)
 
   ; mouse scrolling in terminal.
@@ -374,6 +377,7 @@ you should place your code here."
    ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
  '(ansi-term-color-vector
    [unspecified "#081724" "#ff694d" "#68f6cb" "#fffe4e" "#bad6e2" "#afc0fd" "#d2f1ff" "#d3f9ee"] t)
+ '(case-fold-search nil)
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
@@ -464,7 +468,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "hestia:test:hestia-tests" "thoth:lib")
+    ((intero-targets "thoth:test:thoth-tests")
+     (intero-targets "hestia:test:hestia-tests" "thoth:lib")
      (intero-targets "algolia-worker:lib")
      (intero-targets "enqueuer:lib" "hestia:lib" "thoth:lib")
      (intero-targets "hestia:lib")
