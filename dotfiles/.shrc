@@ -54,9 +54,6 @@ alias gst='git status'
 alias path='echo $PATH | tr : "\n"'
 alias cdpath='echo $CDPATH | tr : "\n"'
 
-alias haskell='stack'
-alias hs='stack'
-
 if [[ "$(uname)" != 'Darwin' ]]; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
