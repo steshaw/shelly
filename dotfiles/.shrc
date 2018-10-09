@@ -9,15 +9,16 @@ setEditor() {
     export VISUAL
     VISUAL=$(command -v "$editor")
     Echo "VISUAL = $VISUAL"
+    return 0
   else
     Echo "We don't have $editor"
+    return 1
   fi
 }
 
 unset EDITOR
 unset VISUAL
-setEditor nvim
-setEditor vim
+setEditor nvim || setEditor vim
 
 set -o vi
 
