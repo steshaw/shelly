@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# Synchronise environment variables with launchctl.
+#
+# On Mac, launched gui applications do not share the process environment (and
+# consequently the environment variables) of the launching process.
+#
+
+set -eu
+
+# Exit unless Mac OS/X
+[[ $(uname) != 'Darwin' ]] && exit
+
+scriptName=$(basename "$0")
+
+function export_to_plist() {
+  for var in "$@"; do
+    cmd="launchctl setenv ${var} \"\$${var}\""
+    bash -c "$cmd"
+  done
+}
+
+function usage() {
+  cat <<! >&2
+Usage: $scriptName [-a]
+       $scriptName var1 [var2 ...]
+
+  -a        Export all environment variables.
+  var       An environment variable name to export. e.g. PATH or MANPATH
+!
+  exit 2
+}
+
+[[ $# -eq 0 ]] && usage
+
+if [[ $# -eq 1 && $1 == "-a" ]]; then
+  # sync all environment variables.
+  export_to_plist $(env | cut -d= -f1 | sort)
+else
+  export_to_plist "$@"
+fi

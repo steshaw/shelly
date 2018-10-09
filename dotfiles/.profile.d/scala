@@ -1,7 +1,7 @@
-SCALA_HOME="$(homeFromBin scala)"
-if [ -n $SCALA_HOME ]; then
-  export SCALA_HOME
-  sync-env-to-plist SCALA_HOME
-fi
+#!/usr/bin/env bash
 
-# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab
+SCALA_HOME="$(homeFromBin scala)"
+if [[ -n $SCALA_HOME ]]; then
+  export SCALA_HOME
+  macos-sync-env SCALA_HOME
+fi

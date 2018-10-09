@@ -51,7 +51,7 @@ prependPaths ${SHELLY_BIN}
 prependPaths /usr/local/bin /usr/local/sbin
 if has brew; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-  sync-env-to-plist PKG_CONFIG_PATH
+  macos-sync-env PKG_CONFIG_PATH
 fi
 
 #
@@ -75,6 +75,6 @@ fi
 prependPaths ~/.local/bin ~/bin
 
 prettyPath "PATH (after) = "
-sync-env-to-plist PATH
+macos-sync-env PATH
 
 sourceExists ~/.profile.local

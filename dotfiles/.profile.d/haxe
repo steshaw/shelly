@@ -1,8 +1,10 @@
+#!/usr/bin/env bash
+
 if has brew; then
   HAXE_STD_PATH="$(brew --prefix)/lib/haxe/std"
   if [[ -d ${HAXE_STD_PATH} ]]; then
     export HAXE_STD_PATH
-    sync-env-to-plist HAXE_STD_PATH
+    macos-sync-env HAXE_STD_PATH
   fi
 fi
 
@@ -11,5 +13,3 @@ fi
 #
 #nekoLib="${HOME}/.shelly/local/nekovm-trunk/lib/neko"
 #[[ -d $nekoLib ]] && export NEKOPATH=${nekoLib}
-
-# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab
