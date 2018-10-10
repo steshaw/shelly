@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+osType=$(uname)
+
+case $osType in
+  Linux)
+    sudo apt -y install neovim python3-neovim
+    ;;
+  Darwin)
+    brew install neovim # Seems no way to get python3-neovim here
+    ;;
+  *)
+    echo "Unsupported OS $osType"
+    exit 1
+esac
