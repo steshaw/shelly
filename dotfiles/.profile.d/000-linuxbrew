@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ -d /home/linuxbrew/.linuxbrew ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
   export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
