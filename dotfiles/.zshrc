@@ -60,7 +60,7 @@ plugins=(
 
 # User configuration
 
-#export PATH="/usr/local/heroku/bin:/Users/steshaw/.rbenv/shims:/usr/local/bin:/Users/steshaw/Projects/steshaw/shelly/bin:/Users/steshaw/.shelly/env/0/stylish-haskell/bin:/Users/steshaw/.shelly/env/0/happy/bin:/Users/steshaw/.shelly/env/0/hakyll/bin:/Users/steshaw/.shelly/env/0/ghc-mod/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steshaw/.rvm/bin"
+#export PATH="/usr/local/heroku/bin:/Users/steshaw/.rbenv/shims:/usr/local/bin:/Users/steshaw/dev/steshaw/shelly/bin:/Users/steshaw/.shelly/env/0/stylish-haskell/bin:/Users/steshaw/.shelly/env/0/happy/bin:/Users/steshaw/.shelly/env/0/hakyll/bin:/Users/steshaw/.shelly/env/0/ghc-mod/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steshaw/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -101,9 +101,5 @@ local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prom
 PROMPT=$'\n%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_prompt_info)\n${exit_status}%{$reset_color%} '
 
 sourceExists dnvm.sh
-
-cdpath=(
-  ~/Projects
-)
 
 export PATH

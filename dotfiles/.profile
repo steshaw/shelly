@@ -38,10 +38,10 @@ Echo "SHELL (after)  = ${SHELL}"
 #
 # Setup shelly path.
 #
-SHELLY_HOME=~/Projects/steshaw/shelly
-SHELLY_BIN=${SHELLY_HOME}/bin
-source ${SHELLY_BIN}/ShellyPath
-prependPaths ${SHELLY_BIN}
+SHELLY_HOME=~/dev/steshaw/shelly
+shellyBin=${SHELLY_HOME}/bin
+source ${shellyBin}/ShellyPath
+prependPaths ${shellyBin}
 
 #
 # Homebrew

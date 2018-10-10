@@ -63,10 +63,13 @@ fi
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
-cdpath=(
+cdPaths=(
   .
-  ~/Projects
-  ~/Projects/steshaw
+  ~/dev
+  ~/dev/steshaw
+  ~/dev/tlcsrc
+  ~/dev/betterteamapp
+  ~/dev/betterteamapp/solo/workers
 )
 
 sourceExists ~/.travis/travis.sh # for travis gem

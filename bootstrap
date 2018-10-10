@@ -10,7 +10,8 @@ hash git python || (
   exit 1
 )
 
-SHELLY_HOME=~/Projects/steshaw/shelly
+export SHELLY_DEV_DIR=~/dev
+SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
 if [[ ! -d $SHELLY_HOME ]]; then
   git clone https://github.com/steshaw/shelly.git "$SHELLY_HOME"
@@ -22,9 +23,3 @@ fi
 
 PATH=${SHELLY_HOME}/bin:${PATH}
 ShellyLinkDotFiles
-
-if [[ ! -f ~/.ssh/id_rsa ]]; then
-  echo Generate ssh key...
-  generate-ssh-key
-  echo
-fi

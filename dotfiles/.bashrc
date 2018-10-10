@@ -156,15 +156,7 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-cdPaths=(
-  .
-  ~/Projects
-  ~/Projects/steshaw
-  ~/Projects/tlcsrc
-  ~/Projects/betterteamapp
-  ~/Projects/betterteamapp/solo/workers
-  ~/Projects/punchh
-)
+sourceExists ~/.shrc
 CDPATH=$(IFS=':'; echo "${cdPaths[*]}")
 
 # Kubernetes
@@ -175,8 +167,6 @@ fi
 if has hub; then
   alias git=hub
 fi
-
-sourceExists ~/.shrc
 
 # If not running interactively, return
 case $- in
