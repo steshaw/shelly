@@ -13,6 +13,7 @@ elif [[ $1 == blinking && $2 == bar ]]; then
 elif [[ $1 == blinking && $2 == underline ]]; then
   printf "\e[3 q"
 else
-  echo "usage: $0 [blinking] block|bar|underline" >&2
+  command=$(basename "$0")
+  echo "usage: ${command} [blinking] block|bar|underline" >&2
   exit 2
 fi
