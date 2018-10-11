@@ -6,7 +6,9 @@ osType=$(uname)
 
 case $osType in
   Linux)
-    sudo apt -y install neovim python3-neovim
+    brew install neovim python
+    pip3 install --upgrade pip
+    pip3 install neovim
     ;;
   Darwin)
     brew install neovim python
