@@ -9,7 +9,9 @@ case $osType in
     sudo apt -y install neovim python3-neovim
     ;;
   Darwin)
-    brew install neovim # Seems no way to get python3-neovim here
+    brew install neovim python
+    pip install --upgrade pip
+    pip install neovim
     ;;
   *)
     echo "Unsupported OS $osType"
