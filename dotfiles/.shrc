@@ -20,6 +20,9 @@ unset EDITOR
 unset VISUAL
 setEditor nvim || setEditor vim
 
+# Friendly reminder on macOS that we're switching to neovim.
+[[ $(uname) == Darwin ]] && alias vim='echo Use nvim: -- nvim '
+
 set -o vi
 
 # Aliases
