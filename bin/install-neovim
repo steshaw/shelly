@@ -5,15 +5,10 @@ set -euo pipefail
 osType=$(uname)
 
 case $osType in
-  Linux)
+  Linux|Darwin)
     brew install neovim python
     pip3 install --upgrade pip
     pip3 install neovim
-    ;;
-  Darwin)
-    brew install neovim python
-    pip install --upgrade pip
-    pip install neovim
     ;;
   *)
     echo "Unsupported OS $osType"
