@@ -231,6 +231,17 @@ elif [[ $command == allow-dev-web ]]; then
       --source-ranges=0.0.0.0/0 \
       --target-tags=dev
 
+elif [[ $command == allow-mosh ]]; then
+
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute firewall-rules create allow-mosh \
+      --description='Allow mosh UDP: 60000-61000' \
+      --allow udp:60000-61000 \
+      --source-ranges=0.0.0.0/0 \
+      --target-tags=dev
+
 else
   Usage
 fi
