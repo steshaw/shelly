@@ -97,6 +97,10 @@ elif [[ $command == ssh ]]; then
       --zone=$zone \
       "--command=$*"
 
+elif [[ $command == mosh ]]; then
+
+  mosh $(devbox external-ip) "$@"
+
 elif [[ $command == tmux-control-mode ]]; then
 
   gcloud \
@@ -241,6 +245,15 @@ elif [[ $command == allow-mosh ]]; then
       --allow udp:60000-61000 \
       --source-ranges=0.0.0.0/0 \
       --target-tags=dev
+
+elif [[ $command == external-ip ]]; then
+
+  gcloud \
+    --account=$account \
+    --project=$project \
+    compute instances describe \
+      --zone=australia-southeast1-a $name \
+      --format='value(networkInterfaces[0].accessConfigs[0].natIP)'
 
 else
   Usage
