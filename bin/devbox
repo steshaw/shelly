@@ -25,9 +25,7 @@ project=$DEVBOX_PROJECT
 region=australia-southeast1
 zone=$region-a
 
-name=dev
-name=dev-au
-name=derby
+name=$DEVBOX_NAME
 
 disk=dev-au
 diskSize=40GB
