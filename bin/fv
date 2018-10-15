@@ -4,7 +4,7 @@
 #
 
 if [[ $# -ne 1 ]]; then
-  echo "usage: fe command" >&2
+  echo "usage: fv command" >&2
   exit 2
 fi
 
