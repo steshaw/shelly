@@ -78,3 +78,4 @@ prettyPath "PATH (after) = "
 macos-sync-env PATH
 
 sourceExists ~/.profile.local
+sourceExists ~/.iterm2_shell_integration.bash

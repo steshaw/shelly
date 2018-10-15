@@ -131,7 +131,7 @@ bash_prompt() {
   GIT_PS1_SHOWCOLORHINTS=true
 
   PROMPT_LINE_1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
-  PROMPT_LINE_2="${UPC}╰─${UP}${NONE} "
+  PROMPT_LINE_2="\[$(iterm2_prompt_mark)\]${UPC}╰─${UP}${NONE} "
   gitPromptCommand='__git_ps1 "${TITLEBAR}\n${PROMPT_LINE_1}" "\n${PROMPT_LINE_2}" " ${GC}[%s${GC}]"'
   PROMPT_COMMAND="$gitPromptCommand; $PROMPT_COMMAND"
 }
