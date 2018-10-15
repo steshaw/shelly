@@ -22,9 +22,7 @@ fi
 
 account=$DEVBOX_ACCOUNT
 project=$DEVBOX_PROJECT
-region=australia-southeast1
-zone=$region-a
-
+zone=$DEVBOX_ZONE
 name=$DEVBOX_NAME
 
 disk=dev-au
