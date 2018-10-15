@@ -6,6 +6,7 @@
 Echo Executing ~/.bashrc
 
 sourceExists /etc/skel/.bashrc
+sourceExists ~/.iterm2_shell_integration.bash
 
 #
 # bash-completions + git-prompt.
@@ -119,10 +120,17 @@ bash_prompt() {
     local UP='\$'         # user's prompt
   fi
 
-  UC="${EMB}" # user@host colour
-  DC="${EMC}" # pwd colour
-  SC="${M}" # separator colour
-  GC="${Y}" # git prompt colour
+  local UC="${EMB}" # user@host colour
+  local DC="${EMC}" # pwd colour
+  local SC="${M}" # separator colour
+  local GC="${Y}" # git prompt colour
+  local PROMPT_LINE_1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
+  local PROMPT_LINE_2="${UPC}╰─${UP}${NONE} "
+  local iterm2Mark="\[$(iterm2_prompt_mark)\]"
+
+  GIT_PS1_1="${TITLEBAR}\n${PROMPT_LINE_1}"
+  GIT_PS1_2="\n${iterm2Mark}${PROMPT_LINE_2}"
+  GIT_PS1_3=" ${GC}[%s${GC}]"
 
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWSTASHSTATE=true
@@ -130,26 +138,37 @@ bash_prompt() {
   GIT_PS1_SHOWUPSTREAM='auto'
   GIT_PS1_SHOWCOLORHINTS=true
 
-  PROMPT_LINE_1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
-  PROMPT_LINE_2="\[$(iterm2_prompt_mark)\]${UPC}╰─${UP}${NONE} "
-  gitPromptCommand='__git_ps1 "${TITLEBAR}\n${PROMPT_LINE_1}" "\n${PROMPT_LINE_2}" " ${GC}[%s${GC}]"'
-  PROMPT_COMMAND="$gitPromptCommand; $PROMPT_COMMAND"
+  setGitPrompt() {
+    if [[ ${OSTYPE} = msys ]]; then
+      # FIXME: Set a simpler prompt for MSYS2 as the regular one doesn't work.
+      __git_ps1 "\n\u@\h:\w" \\n"\\\$ "
+    else
+      __git_ps1 "${GIT_PS1_1}" "${GIT_PS1_2}" "${GIT_PS1_3}"
+    fi
+  }
+  precmd_functions+=(setGitPrompt)
 }
 bash_prompt
-
-# FIXME : Unfortunately something goes wrong on MSYS2 but this bash prompt file
-# FIXME : is a big hack anyhow.
-if [[ ${OSTYPE} = msys ]]; then
-  PROMPT_COMMAND='__git_ps1 "\n\u@\h:\w" \\n"\\\$ "'
-fi
+unset -f bash_prompt
 
 [[ $BASH_VERSION == 4.* ]] && shopt -s globstar
 [[ $BASH_VERSION == 4.* ]] && shopt -s autocd
 shopt -s xpg_echo
 
+#
+# Enable a shared history file for all shell sessions.
+#
+HISTCONTROL=ignoredups:erasedups
 HISTSIZE=100000
+HISTFILESIZE=$HISTSIZE
 shopt -s histappend
-PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
+saveHistory() {
+  history -a
+  history -c
+  history -r
+}
+precmd_functions+=(saveHistory)
+#PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
 
 # Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
 if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
@@ -170,9 +189,8 @@ fi
 
 # If not running interactively, return
 case $- in
-    *i*) ;;
-      *) return;;
+  *i*) ;;
+  *) return;;
 esac
-if [ -f "/google/devshell/bashrc.google" ]; then
-  source "/google/devshell/bashrc.google"
-fi
+
+sourceExists /google/devshell/bashrc.google

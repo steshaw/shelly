@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-# shellcheck source=.functions
-[[ -r ~/.functions ]] && source ~/.functions
+SHELLY_HOME=~/dev/steshaw/shelly
+
+init() {
+  local fns=$SHELLY_HOME/etc/functions.sh
+  # shellcheck source=etc/functions.sh
+  [[ -r $fns ]] && source $fns
+}
+init
+unset -f init
 
 Echo Executing ~/.profile
 
-unset PROMPT_COMMAND
+#unset PROMPT_COMMAND
 
 function prettyPath {
   Echo "$@" "{"
@@ -36,12 +43,16 @@ fi
 Echo "SHELL (after)  = ${SHELL}"
 
 #
-# Setup shelly path.
+# Put shelly packages and commands on PATH.
 #
-SHELLY_HOME=~/dev/steshaw/shelly
-shellyBin=${SHELLY_HOME}/bin
-source ${shellyBin}/ShellyPath
-prependPaths ${shellyBin}
+anon() {
+  local shellyBin=${SHELLY_HOME}/bin
+  # shellcheck source=bin/ShellyPath
+  source ${shellyBin}/ShellyPath
+  prependPaths ${shellyBin}
+}
+anon
+unset -f anon
 
 #
 # Homebrew
@@ -62,14 +73,6 @@ for file in ~/.profile.d/*; do
 done
 
 #
-# Explicitly call the .bashrc
-#
-# if running bash
-if [[ -n ${BASH_VERSION:-} ]]; then
-  sourceExists ~/.bashrc
-fi
-
-#
 # Add user's private bins to PATH.
 #
 prependPaths ~/.local/bin ~/bin
@@ -77,5 +80,13 @@ prependPaths ~/.local/bin ~/bin
 prettyPath "PATH (after) = "
 macos-sync-env PATH
 
+sourceExists $SHELLY_HOME/etc/bash-preexec.sh
 sourceExists ~/.profile.local
-sourceExists ~/.iterm2_shell_integration.bash
+
+#
+# Explicitly call the .bashrc
+#
+# if running bash
+if [[ -n ${BASH_VERSION:-} ]]; then
+  sourceExists ~/.bashrc
+fi
