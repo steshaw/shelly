@@ -63,6 +63,12 @@ elif [[ $command = 'files' ]]; then
   else
     dpkg -L "$@"
   fi
+elif [[ $command = 'which' ]]; then
+  if [[ $uname = 'Darwin' ]]; then
+    echo "Not implemented" >&2
+  else
+    dpkg --search "$@"
+  fi
 else
   Usage
 fi
