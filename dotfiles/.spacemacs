@@ -468,7 +468,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "thoth:test:thoth-tests")
+    ((intero-targets "hestia:lib" "thoth:lib" "thoth:test:thoth-tests")
+     (intero-targets "thoth:test:thoth-tests")
      (intero-targets "hestia:test:hestia-tests" "thoth:lib")
      (intero-targets "algolia-worker:lib")
      (intero-targets "enqueuer:lib" "hestia:lib" "thoth:lib")
