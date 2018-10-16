@@ -4,7 +4,6 @@ set -eu
 
 echo Bootstrapping shelly...
 
-# FIXME: Need to ensure myrepos and git on other platforms.
 hash git python || (
   echo "Please ensure that git and python are installed" >&2
   exit 1
