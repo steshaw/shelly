@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-SHELLY_HOME=~/dev/steshaw/shelly
+export SHELLY_DEV_DIR=~/dev
+SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
 init() {
   local fns=$SHELLY_HOME/etc/functions.sh
