@@ -17,6 +17,7 @@ fun Plugs()
   " Modes
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
+  Plug 'chr4/nginx.vim'
 
   " Misc.
   Plug 'ntpeters/vim-better-whitespace'
