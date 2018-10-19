@@ -20,8 +20,11 @@ if [[ $# -eq 0 ]]; then
   Usage
 fi
 
+# Try CLOUDSDK_CORE_ACCOUNT
 account=$DEVBOX_ACCOUNT
+# Consider CLOUDSDK_CORE_PROJECT
 project=$DEVBOX_PROJECT
+# Perhaps use CLOUDSDK_COMPUTE_REGION?
 # Perhaps use CLOUDSDK_COMPUTE_ZONE?
 zone=$DEVBOX_ZONE
 name=$DEVBOX_NAME
@@ -285,6 +288,13 @@ elif [[ $command == move-zone ]]; then
     compute instances move $name \
       --zone=$zone \
       --destination-zone="$destinationZone"
+
+elif [[ $command == run ]]; then
+
+  gcloud \
+    --account=$account \
+    --project=$project \
+    "$@"
 
 else
   Usage
