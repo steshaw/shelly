@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
-namespace=$1
-set -x
+if [[ $# -ne 1 ]]; then
+  usage: $(basename $0) namespace >&2
+  exit 2
+fi
+
+namespace=$1; shift
+
 kubectl config set-context $(kubectl config current-context) --namespace=$namespace
