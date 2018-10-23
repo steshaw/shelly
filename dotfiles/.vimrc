@@ -80,6 +80,10 @@ set smartindent
 set cindent
 set modelines=5
 
+if &fileformat == 'dos'
+  set nofixendofline
+endif
+
 " Break hard-links — may need to break hard-links when using Mercurial optimised
 " clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
