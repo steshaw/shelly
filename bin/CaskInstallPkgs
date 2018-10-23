@@ -8,9 +8,9 @@ set -eu
 brew tap caskroom/cask
 
 packages=$(
-  cat ~/.shelly/etc/cask.pkgs |
-  grep -v '^#' |
-  grep -v '^\s*$'
+  cat "$SHELLY_HOME"/etc/cask.pkgs |
+    grep -v '^#' |
+    grep -v '^\s*$'
 )
 
 for package in ${packages}; do
