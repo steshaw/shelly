@@ -20,21 +20,19 @@ if [[ $# -eq 0 ]]; then
   Usage
 fi
 
-# Try CLOUDSDK_CORE_ACCOUNT
-account=$DEVBOX_ACCOUNT
-# Consider CLOUDSDK_CORE_PROJECT
-project=$DEVBOX_PROJECT
-# Perhaps use CLOUDSDK_COMPUTE_REGION?
-# Perhaps use CLOUDSDK_COMPUTE_ZONE?
-zone=$DEVBOX_ZONE
+export CLOUDSDK_CORE_ACCOUNT=$DEVBOX_CORE_ACCOUNT
+export CLOUDSDK_CORE_PROJECT=$DEVBOX_CORE_PROJECT
+export CLOUDSDK_COMPUTE_REGION=$DEVBOX_COMPUTE_REGION
+export CLOUDSDK_COMPUTE_ZONE=$DEVBOX_COMPUTE_ZONE
+
 name=$DEVBOX_NAME
 
 disk=$name
 diskSize=40GB
 diskType=pd-ssd
 
-machineType=n1-standard-4
-machineType=n1-highcpu-8
+#machineType=n1-standard-4
+#machineType=n1-highcpu-8
 
 # 8vCPU 10GB RAM
 vCPU=6
@@ -66,130 +64,87 @@ command=$1; shift
 
 if [[ $command == run ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    "$@"
+  gcloud "$@"
 
 elif [[ $command == suspend || $command == hibernate ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    alpha compute instances suspend "$name" \
-      --zone=$zone
+  gcloud alpha compute instances suspend "$name"
 
 elif [[ $command == resume ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    alpha compute instances resume "$name" \
-      --zone=$zone
+  gcloud alpha compute instances resume "$name"
 
 elif [[ $command == ssh ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute ssh "$name" \
-      --zone=$zone \
-      "--command=$*"
+  gcloud compute ssh "$name" \
+    "--command=$*"
 
 elif [[ $command == mosh ]]; then
 
-  mosh $(devbox external-ip) "$@"
+  mosh "$(devbox external-ip)" "$@"
 
 elif [[ $command == tmux-control-mode ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute ssh "$name" \
-      --zone=$zone \
-      '--ssh-flag=-tt' \
-      '--command=source ~/.profile && tmux-cc-session'
+  gcloud compute ssh "$name" \
+    '--ssh-flag=-tt' \
+    '--command=source ~/.profile && tmux-cc-session'
 
 elif [[ $command == set-machine-type ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances set-machine-type "$name" \
-      --zone=$zone \
-      --machine-type=$machineType \
+  gcloud compute instances set-machine-type "$name" \
+    --machine-type=$machineType \
 
 elif [[ $command == create-fresh ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances create "$name" \
-      --zone=$zone \
-      --machine-type=$machineType \
-      --no-restart-on-failure \
-      --maintenance-policy=TERMINATE \
-      --preemptible \
-      --image-family=$imageFamily \
-      --image-project=$imageProject \
-      --boot-disk-device-name="$name" \
-      --boot-disk-size=$diskSize \
-      --boot-disk-type=$diskType \
-      --no-boot-disk-auto-delete \
-      --tags=$tags
+  gcloud compute instances create "$name" \
+    --machine-type=$machineType \
+    --no-restart-on-failure \
+    --maintenance-policy=TERMINATE \
+    --preemptible \
+    --image-family=$imageFamily \
+    --image-project=$imageProject \
+    --boot-disk-device-name="$name" \
+    --boot-disk-size=$diskSize \
+    --boot-disk-type=$diskType \
+    --no-boot-disk-auto-delete \
+    --tags=$tags
 
 elif [[ $command == create-snapshot ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute disks snapshot $disk \
-      --zone=$zone \
-      --snapshot-names=$snapshot \
+  gcloud compute disks snapshot "$disk" \
+    --snapshot-names="$snapshot" \
 
 elif [[ $command == create-disk-from-snapshot ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute disks create $disk --source-snapshot=$snapshot \
-      --size=$diskSize \
-      --type=$diskType \
-      --zone=$zone
+  gcloud compute disks create "$disk" \
+    --source-snapshot="$snapshot" \
+    --size=$diskSize \
+    --type=$diskType \
 
 elif [[ $command == create-from-disk ]]; then
 
-  # With help from https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
+  # With help from:
+  # https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances create "$name" \
-      --zone=$zone \
-      --machine-type=$machineType \
-      --no-restart-on-failure \
-      --maintenance-policy=TERMINATE \
-      --preemptible \
-      --disk="name=$disk,device-name=$disk,mode=rw,boot=yes,auto-delete=no" \
-      --tags=$tags
+  gcloud compute instances create "$name" \
+    --machine-type=$machineType \
+    --no-restart-on-failure \
+    --maintenance-policy=TERMINATE \
+    --preemptible \
+    --disk="name=$disk,device-name=$disk,mode=rw,boot=yes,auto-delete=no" \
+    --tags=$tags
 
 elif [[ $command == start || $command == stop ]]; then
 
   if [[ $# -eq 1 ]]; then
-    name=$1
+    name=$1; shift
   fi
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances "$command" "$name" \
-      --zone=$zone
+
+  gcloud compute instances "$command" "$name"
 
 elif [[ $command == status || $command == list ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances list
+  gcloud compute instances list
 
 elif [[ $command == create-from-snapshot ]]; then
 
@@ -201,75 +156,56 @@ elif [[ $command == create-from-snapshot ]]; then
   zone=$1; shift
   name=$1; shift
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute disks create "$name" --size=$diskSize \
-      --zone=$zone \
-      --source-snapshot=$snapshot \
-      --type=pd-ssd
+  gcloud compute disks create "$name" \
+    --size=$diskSize \
+    --source-snapshot="$snapshot" \
+    --type=pd-ssd
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances create "$name" \
-      --zone=$zone \
-      --machine-type=$machineType \
-      --no-restart-on-failure \
-      --maintenance-policy=TERMINATE \
-      --preemptible \
-      --min-cpu-platform=Automatic \
-      --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
-      --tags=$tags
+  gcloud compute instances create "$name" \
+    --machine-type=$machineType \
+    --no-restart-on-failure \
+    --maintenance-policy=TERMINATE \
+    --preemptible \
+    --min-cpu-platform=Automatic \
+    --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
+    --tags=$tags
 
 elif [[ $command == allow-web ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute firewall-rules create default-allow-http \
-      --network=default \
-      --action=ALLOW --rules=tcp:80 \
-      --source-ranges=0.0.0.0/0 \
-      --target-tags=http-server
+  gcloud compute firewall-rules create default-allow-http \
+    --network=default \
+    --action=ALLOW \
+    --rules=tcp:80 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=http-server
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute firewall-rules create default-allow-https \
-      --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 \
-      --target-tags=https-server
+  gcloud compute firewall-rules create default-allow-https \
+    --network=default \
+    --action=ALLOW \
+    --rules=tcp:443 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=https-server
 
 elif [[ $command == allow-dev-web ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute firewall-rules create allow-dev-web \
-      --description='Allow development "web" ports: 3000-3001, 7020, 8000-8001, 8080-8081' \
-      --allow tcp:3000-3001,tcp:7020,tcp:8000-8001,tcp:8080-8081 \
-      --source-ranges=0.0.0.0/0 \
-      --target-tags=dev
+  gcloud compute firewall-rules create allow-dev-web \
+    --description='Allow development "web" ports: 3000-3001, 7020, 8000-8001, 8080-8081' \
+    --allow tcp:3000-3001,tcp:7020,tcp:8000-8001,tcp:8080-8081 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=dev
 
 elif [[ $command == allow-mosh ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute firewall-rules create allow-mosh \
-      --description='Allow mosh UDP: 60000-61000' \
-      --allow udp:60000-61000 \
-      --source-ranges=0.0.0.0/0 \
-      --target-tags=dev
+  gcloud compute firewall-rules create allow-mosh \
+    --description='Allow mosh UDP: 60000-61000' \
+    --allow udp:60000-61000 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=dev
 
 elif [[ $command == external-ip ]]; then
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances describe \
-      --zone=australia-southeast1-a $name \
-      --format='value(networkInterfaces[0].accessConfigs[0].natIP)'
+  gcloud compute instances describe "$name" \
+    --format='value(networkInterfaces[0].accessConfigs[0].natIP)'
 
 elif [[ $command == move-zone ]]; then
 
@@ -282,19 +218,8 @@ elif [[ $command == move-zone ]]; then
   fi
   destinationZone=$1; shift
 
-  gcloud \
-    --account=$account \
-    --project=$project \
-    compute instances move $name \
-      --zone=$zone \
-      --destination-zone="$destinationZone"
-
-elif [[ $command == run ]]; then
-
-  gcloud \
-    --account=$account \
-    --project=$project \
-    "$@"
+  gcloud compute instances move "$name" \
+    --destination-zone="$destinationZone"
 
 else
   Usage
