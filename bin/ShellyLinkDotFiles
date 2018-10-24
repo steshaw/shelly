@@ -6,7 +6,7 @@ shellyBin=$(dirname "$0")
 PATH=${shellyBin}:${PATH}
 
 binDir=$(dirname "$0")
-fromDir=$(RealPath "${binDir}/../dotfiles")
+fromDir=$(realpath "${binDir}/../dotfiles")
 
 if [[ ! -f $fromDir/.bashrc ]]; then
   echo "Cannot find $fromDir/.bashrc"

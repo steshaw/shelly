@@ -4,8 +4,8 @@ set -eu
 
 echo Bootstrapping shelly...
 
-hash git python || (
-  echo "Please ensure that git and python are installed" >&2
+hash git || (
+  echo "Please ensure git is installed" >&2
   exit 1
 )
 
