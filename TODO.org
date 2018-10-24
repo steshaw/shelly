@@ -1,5 +1,4 @@
-
-- Auto install Brew? i.e. Homebrew/Linuxbrew.
+- Auto install ☕ Brew? i.e. Homebrew/Linuxbrew.
   - Or use the venerable [[https://nixos.org/nix/][Nix]]?
 
 - Bootstrap vim with `bin/vim-plug-install`?
