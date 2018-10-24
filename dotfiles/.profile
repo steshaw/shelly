@@ -81,7 +81,11 @@ prependPaths ~/.local/bin ~/bin
 prettyPath "PATH (after) = "
 macos-sync-env PATH
 
+# Initialise preexec/precmd functions.
+preexec_functions=()
+precmd_functions=()
 sourceExists $SHELLY_HOME/etc/bash-preexec.sh
+
 sourceExists ~/.profile.local
 
 #
