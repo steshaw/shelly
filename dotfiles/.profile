@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 export SHELLY_DEV_DIR=~/dev
-SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
+export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
-init() {
+loadFunctions() {
   local fns=$SHELLY_HOME/etc/functions.sh
   # shellcheck source=etc/functions.sh
   [[ -r $fns ]] && source $fns
 }
-init
-unset -f init
+loadFunctions
+unset -f loadFunctions
 
 Echo Executing ~/.profile
 

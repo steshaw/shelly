@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-# shellcheck source=/dev/null
-[[ -r ~/.functions ]] && source ~/.functions
+loadFunctions() {
+  local fns=$SHELLY_HOME/etc/functions.sh
+  # shellcheck source=etc/functions.sh
+  [[ -r $fns ]] && source "$fns"
+}
+loadFunctions
+unset -f loadFunctions
 
 Echo Executing ~/.bashrc
 
