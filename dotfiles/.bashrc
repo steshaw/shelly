@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ -n $SHELLY_HOME ]]; then
+  export SHELLY_DEV_DIR=~/dev
+  export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
+fi
+
 loadFunctions() {
   local fns=$SHELLY_HOME/etc/functions.sh
   # shellcheck source=etc/functions.sh
