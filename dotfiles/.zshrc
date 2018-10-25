@@ -84,6 +84,11 @@ if [[ $ZSH_THEME == avit ]]; then
   [[ $USER == 'root' ]] && CARETCOLOR='red' || CARETCOLOR='green'
   ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
 
+  function _user_host() {
+    me='%n@%m'
+    echo "%{$fg[cyan]%}$me%{$reset_color%}:"
+  }
+
   unset LSCOLORS
   unset LS_COLORS
 fi
