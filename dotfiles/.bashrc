@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ -n $SHELLY_HOME ]]; then
+if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_DEV_DIR=~/dev
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
