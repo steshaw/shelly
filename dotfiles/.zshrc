@@ -101,7 +101,7 @@ bindkey -M vicmd 'k' vi-up-line-or-history
 #
 local prompt_char="%(#:#:$)"
 local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
-PROMPT=$'\n$fg[green]╭─%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_prompt_info)\n$fg[green]╰─${exit_status}%{$reset_color%} '
+PROMPT=$'\n$fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ $(git_prompt_info)\n$fg[green]╰─${exit_status}%{$reset_color%} '
 
 sourceExists dnvm.sh
 
