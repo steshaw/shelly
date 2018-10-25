@@ -86,6 +86,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+# shellcheck source=etc/functions.sh
+source $SHELLY_HOME/etc/functions.sh
+
 sourceExists ~/.shrc
 
 setopt noclobber
@@ -96,9 +99,9 @@ bindkey -M vicmd 'k' vi-up-line-or-history
 #
 # multiline prompt
 #
-local prompt_char="%(#:#:➯)"
+local prompt_char="%(#:#:$)"
 local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
-PROMPT=$'\n%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_prompt_info)\n${exit_status}%{$reset_color%} '
+PROMPT=$'\n$fg[green]╭─%{$fg_bold[cyan]%}%n@%m$fg_bold[magenta]:$fg_bold[blue]%~ $(git_prompt_info)\n$fg[green]╰─${exit_status}%{$reset_color%} '
 
 sourceExists dnvm.sh
 
