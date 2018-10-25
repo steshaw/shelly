@@ -1,20 +1,29 @@
-#!/usr/bin/env zsh
+# vim:fileencoding=utf-8:ft=zsh:foldmethod=marker
 
-#set -eu
-
-echo Executing ~/.zshrc
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH="/home/steshaw/.oh-my-zsh"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME=${ZSH_THEME:-avit}
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -41,29 +50,48 @@ CASE_SENSITIVE="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   vi-mode
-  sbt scala
-  vi-mode
 )
 
-# User configuration
-
-#export PATH="/usr/local/heroku/bin:/Users/steshaw/.rbenv/shims:/usr/local/bin:/Users/steshaw/dev/steshaw/shelly/bin:/Users/steshaw/.shelly/env/0/stylish-haskell/bin:/Users/steshaw/.shelly/env/0/happy/bin:/Users/steshaw/.shelly/env/0/hakyll/bin:/Users/steshaw/.shelly/env/0/ghc-mod/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/steshaw/.rvm/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
+
+# User configuration {{{
+
+# Override avit theme {{{
+if [[ $ZSH_THEME == avit ]]; then
+  CARET='$'
+  CARET2='$◀'
+  PROMPT='
+%{$fg[$CARETCOLOR]╭─%}$(_user_host)${_current_dir} $(git_prompt_info) $(_ruby_version)
+%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} '
+  PROMPT2='%{$fg[$CARETCOLOR]%}${CARET2}%{$reset_color%} '
+  [[ $USER == 'root' ]] && CARETCOLOR='red' || CARETCOLOR='green'
+  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
+
+  unset LSCOLORS
+  unset LS_COLORS
+fi
+# }}}
+
+CDPATH=~/dev:~/dev/steshaw:~/dev/tlcsrc:~/dev/betterteamapp:.
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -79,30 +107,18 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-# shellcheck source=etc/functions.sh
-source $SHELLY_HOME/etc/functions.sh
-
-sourceExists ~/.shrc
-
-setopt noclobber
-
-bindkey -M vicmd 'j' vi-down-line-or-history
-bindkey -M vicmd 'k' vi-up-line-or-history
-
 #
-# multiline prompt
-#
-local prompt_char="%(#:#:$)"
-local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
-PROMPT=$'\n$fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ $(git_prompt_info)\n$fg[green]╰─${exit_status}%{$reset_color%} '
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-sourceExists dnvm.sh
+alias l='ls -lh'
+alias ll='l -a'
 
-export PATH
+# }}}
