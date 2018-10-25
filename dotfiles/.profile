@@ -3,13 +3,8 @@
 export SHELLY_DEV_DIR=~/dev
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
-loadFunctions() {
-  local fns=$SHELLY_HOME/etc/functions.sh
-  # shellcheck source=etc/functions.sh
-  [[ -r $fns ]] && source $fns
-}
-loadFunctions
-unset -f loadFunctions
+# shellcheck source=etc/functions.sh
+source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.profile
 
