@@ -94,6 +94,7 @@ if [[ $ZSH_THEME == avit ]]; then
 fi
 # }}}
 
+set -o noclobber
 CDPATH=~/dev:~/dev/steshaw:~/dev/tlcsrc:~/dev/betterteamapp:.
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -123,7 +124,14 @@ CDPATH=~/dev:~/dev/steshaw:~/dev/tlcsrc:~/dev/betterteamapp:.
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Switch the zsh default for 'l' and 'll' --- we want the shortest one for the
+# most common command!
 alias l='ls -lh'
-alias ll='l -a'
+alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
+
+# Make file ops safer.
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 
 # }}}
