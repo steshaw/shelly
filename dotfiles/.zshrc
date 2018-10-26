@@ -90,7 +90,7 @@ if [[ $ZSH_THEME == avit ]]; then
   CARET='$'
   CARET2='$◀'
   PROMPT='
-%{$fg[$CARETCOLOR]╭─%}$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
+%{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
 %{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} '
   PROMPT2='%{$fg[$CARETCOLOR]%}${CARET2}%{$reset_color%} '
   [[ $USER == 'root' ]] && CARETCOLOR='red' || CARETCOLOR='green'
