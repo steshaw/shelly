@@ -75,20 +75,26 @@ source $ZSH/oh-my-zsh.sh
 
 # Override avit theme {{{
 if [[ $ZSH_THEME == avit ]]; then
+  function _current_dir() {
+    local _max_pwd_length="65"
+    if [[ $(echo -n $PWD | wc -c) -gt ${_max_pwd_length} ]]; then
+      echo "%{$fg_bold[blue]%}%-2~ ... %3~%{$reset_color%}"
+    else
+      echo "%{$fg_bold[blue]%}%~%{$reset_color%}"
+    fi
+  }
+  function _user_host() {
+    me='%n@%m'
+    echo "%{$fg[cyan]%}$me%{$reset_color%}"
+  }
   CARET='$'
   CARET2='$◀'
   PROMPT='
-%{$fg[$CARETCOLOR]╭─%}$(_user_host)${_current_dir} $(git_prompt_info) $(_ruby_version)
+%{$fg[$CARETCOLOR]╭─%}$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
 %{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} '
   PROMPT2='%{$fg[$CARETCOLOR]%}${CARET2}%{$reset_color%} '
   [[ $USER == 'root' ]] && CARETCOLOR='red' || CARETCOLOR='green'
   ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
-
-  function _user_host() {
-    me='%n@%m'
-    echo "%{$fg[cyan]%}$me%{$reset_color%}:"
-  }
-
   unset LSCOLORS
   unset LS_COLORS
 fi
