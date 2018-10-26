@@ -39,6 +39,10 @@ has() {
   command -v "$command" >/dev/null
 }
 
+isZsh() {
+  [[ -n $ZSH_VERSION ]]
+}
+
 # Only echo when we have a tty. This is so that scp will work.
 Echo() {
   [[ -n $PS1 ]] && echo "$@"
