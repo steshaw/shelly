@@ -62,6 +62,16 @@ if has brew; then
 fi
 
 #
+# Initialise preexec/precmd functions.
+#
+# NOTE: This must come before sourcing ~/.profile.d/* because some of those will
+# use register preexec/precmd functions
+preexec_functions=()
+precmd_functions=()
+# TODO: Should we do this when we are zsh?
+sourceExists $SHELLY_HOME/etc/bash-preexec.sh
+
+#
 # Source ~/.profile.d/*
 #
 for file in ~/.profile.d/*; do
@@ -75,11 +85,6 @@ prependPaths ~/.local/bin ~/bin
 
 prettyPath "PATH (after) = "
 macos-sync-env PATH
-
-# Initialise preexec/precmd functions.
-preexec_functions=()
-precmd_functions=()
-sourceExists $SHELLY_HOME/etc/bash-preexec.sh
 
 sourceExists ~/.profile.local
 

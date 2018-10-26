@@ -1,3 +1,7 @@
 if has direnv; then
-  eval "$(direnv hook bash)"
+  if isZsh; then
+    eval "$(direnv hook zsh)"
+  else
+    eval "$(direnv hook bash)"
+  fi
 fi
