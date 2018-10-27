@@ -54,6 +54,7 @@ alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
 alias gaa='git add --all'
 alias gst='git status'
+alias gds='git diff --staged'
 
 alias path='echo $PATH | tr : "\n"'
 alias cdpath='echo $CDPATH | tr : "\n"'
