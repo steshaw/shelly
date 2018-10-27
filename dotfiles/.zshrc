@@ -103,6 +103,12 @@ fi
 set -o noclobber
 CDPATH=~/dev:~/dev/steshaw:~/dev/tlcsrc:~/dev/betterteamapp:.
 
+#
+# Show a mark similar to GitHub's no-newline icon.
+# See https://octicons.github.com/icon/no-newline/
+#
+export PROMPT_EOL_MARK='%S%B🚫↵ %b%s'
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
