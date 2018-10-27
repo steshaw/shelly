@@ -140,4 +140,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+alias cx='chmod +x'
+alias cw='chmod +w'
+
 # }}}
