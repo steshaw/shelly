@@ -36,16 +36,16 @@ alias vi='v'
 
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
-alias ls
+alias ls || true
 alias ls='ls --color -Fh'
 alias ls
-alias l
+alias l || true
 alias l='ls -l'
 alias l
-alias ll
+alias ll || true
 alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
 alias ll
-alias la
+alias la || true
 alias la='l -a'
 alias la
 
@@ -73,16 +73,16 @@ alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC
 alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
 # Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
-alias gaa
+alias gaa || true
 alias gaa='git add --all'
 alias gaa
-alias gst
+alias gst || true
 alias gst='git status'
 alias gst
-alias gd
+alias gd || true
 alias gd='git diff'
 alias gd
-alias gds
+alias gds || true
 alias gds='git diff --staged'
 alias gds
 
