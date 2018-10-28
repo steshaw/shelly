@@ -40,14 +40,18 @@ has() {
 }
 
 isBash() {
-  [[ -n $BASH_VERSION ]]
+  [[ -n ${BASH_VERSION-} ]]
 }
 
 isZsh() {
-  [[ -n $ZSH_VERSION ]]
+  [[ -n ${ZSH_VERSION-} ]]
+}
+
+hasTty() {
+  [[ -t 1 ]]
 }
 
 # Only echo when we have a tty. This is so that scp will work.
 Echo() {
-  [[ -n $PS1 ]] && echo "$@"
+  hasTty && echo "$@"
 }

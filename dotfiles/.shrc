@@ -32,22 +32,23 @@ set -o vi
 
 # Aliases
 
+function peekAlias {
+  alias=$1
+  if hasTty; then
+    alias "$alias" 2>/dev/null || echo "alias $alias does not exist"
+  fi
+}
+
 alias vi='v'
 
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
-alias ls || true
-alias ls='ls --color -Fh'
-alias ls
-alias l || true
-alias l='ls -l'
-alias l
-alias ll || true
-alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
-alias ll
-alias la || true
-alias la='l -a'
-alias la
+peekAlias ls; alias ls='ls --color -Fh'; peekAlias ls
+peekAlias l; alias l='ls -l'; peekAlias l
+peekAlias ll;
+  alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
+peekAlias ll;
+peekAlias la; alias la='l -a'; peekAlias la
 
 alias wi='type -ap'
 
@@ -73,18 +74,10 @@ alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC
 alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
 # Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
-alias gaa || true
-alias gaa='git add --all'
-alias gaa
-alias gst || true
-alias gst='git status'
-alias gst
-alias gd || true
-alias gd='git diff'
-alias gd
-alias gds || true
-alias gds='git diff --staged'
-alias gds
+peekAlias gaa; alias gaa='git add --all'; peekAlias gaa
+peekAlias gst; alias gst='git status'; peekAlias gst
+peekAlias gd; alias gd='git diff'; peekAlias gd
+peekAlias gds; alias gds='git diff --staged'; peekAlias gds
 
 alias path='echo $PATH | tr : "\n"'
 alias cdpath='echo $CDPATH | tr : "\n"'

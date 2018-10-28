@@ -11,9 +11,11 @@ Echo Executing ~/.profile
 #unset PROMPT_COMMAND
 
 function prettyPath {
-  Echo "$@" "{"
-  Echo "$PATH" | tr : '\n' | perl -pe 's/^/  /'
-  Echo "}"
+  if hasTty; then
+    echo "$@" "{"
+    echo "$PATH" | tr : '\n' | perl -pe 's/^/  /'
+    echo "}"
+  fi
 }
 
 prettyPath "PATH (before) = "
@@ -23,7 +25,7 @@ prettyPath "PATH (before) = "
 #
 if [[ -x /usr/libexec/path_helper ]]; then
   Echo "PATH (before path_helper) $PATH"
-  eval `/usr/libexec/path_helper -s`
+  eval "$(/usr/libexec/path_helper -s)"
   Echo "PATH (after  path_helper) $PATH"
 fi
 
@@ -31,9 +33,9 @@ fi
 # FIX ${SHELL}
 #
 Echo "SHELL (before) = ${SHELL}"
-if [[ -n ${BASH_VERSION:-} ]]; then
+if isBash; then
   SHELL="$(command -v bash)"
-elif [[ -n ${ZSH_VERSION:-} ]]; then
+elif isZsh; then
   SHELL="$(command -v zsh)"
 fi
 Echo "SHELL (after)  = ${SHELL}"
@@ -66,10 +68,12 @@ fi
 #
 # NOTE: This must come before sourcing ~/.profile.d/* because some of those will
 # use register preexec/precmd functions
+#
+# shellcheck disable=SC2034
 preexec_functions=()
+# shellcheck disable=SC2034
 precmd_functions=()
-# TODO: Should we do this when we are zsh?
-sourceExists $SHELLY_HOME/etc/bash-preexec.sh
+isBash && sourceExists $SHELLY_HOME/etc/bash-preexec.sh
 
 #
 # Source ~/.profile.d/*
@@ -89,9 +93,8 @@ macos-sync-env PATH
 sourceExists ~/.profile.local
 
 #
-# Explicitly call the .bashrc
+# Explicitly source `.bashrc`.
 #
-# if running bash
-if [[ -n ${BASH_VERSION:-} ]]; then
+if isBash && hasTty; then
   sourceExists ~/.bashrc
 fi
