@@ -181,7 +181,6 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
 fi
 
 sourceExists ~/.shrc
-CDPATH=$(IFS=':'; echo "${cdPaths[*]}")
 
 # Kubernetes
 if has kubectl; then

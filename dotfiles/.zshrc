@@ -100,14 +100,27 @@ if [[ $ZSH_THEME == avit ]]; then
 fi
 # }}}
 
-set -o noclobber
-CDPATH=~/dev:~/dev/steshaw:~/dev/tlcsrc:~/dev/betterteamapp:.
+# shellcheck source=etc/functions.sh
+source $SHELLY_HOME/etc/functions.sh
+
+sourceExists ~/.shrc
+
+setopt noclobber
+
+# Make up and down line-editing work like in Bash. i.e. after up/down, the
+# cursor is at the beginning of the line (not the end).
+bindkey -M vicmd 'j' vi-down-line-or-history
+bindkey -M vicmd 'k' vi-up-line-or-history
 
 #
 # Show a mark similar to GitHub's no-newline icon.
 # See https://octicons.github.com/icon/no-newline/
 #
 export PROMPT_EOL_MARK='%S%B🚫↵ %b%s'
+
+# zsh somehow/strangely seems to behave differently to bash when doing `git
+# diff`. This gives the old and preferred behaviour.
+export PAGER='less --quit-if-one-screen --no-init'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -136,17 +149,12 @@ export PROMPT_EOL_MARK='%S%B🚫↵ %b%s'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Switch the zsh default for 'l' and 'll' --- we want the shortest one for the
-# most common command!
-alias l='ls -lh'
-alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
-
-# Make file ops safer.
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
-alias cx='chmod +x'
-alias cw='chmod +w'
+function myMultilinePrompt() {
+  local prompt_char="%(#:#:$)"
+  local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
+  PROMPT=$"
+$fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ \$(git_prompt_info)
+$fg[green]╰─${exit_status}%{$reset_color%} "
+}
 
 # }}}

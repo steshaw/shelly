@@ -39,6 +39,10 @@ has() {
   command -v "$command" >/dev/null
 }
 
+isBash() {
+  [[ -n $BASH_VERSION ]]
+}
+
 isZsh() {
   [[ -n $ZSH_VERSION ]]
 }

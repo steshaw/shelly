@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ksh
+
+#
+# Should be suitable for bash and zsh.
+#
 
 Echo "Executing ~/.shrc"
 
@@ -19,6 +23,7 @@ setEditor() {
 unset EDITOR
 unset VISUAL
 setEditor nvim || setEditor vim
+[[ -n $VISUAL ]] && export EDITOR=$VISUAL
 
 # Friendly reminder on macOS that we're switching to neovim.
 [[ $(uname) == Darwin ]] && alias vim='echo Use nvim: -- nvim '
@@ -29,9 +34,20 @@ set -o vi
 
 alias vi='v'
 
+# This also ensures that we switch the "standard" oh-my-zsh ls aliases
+# as we want the shortest one for the most common command! i.e. l.
+alias ls
 alias ls='ls --color -Fh'
+alias ls
+alias l
 alias l='ls -l'
-alias ll='l -A'
+alias l
+alias ll
+alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
+alias ll
+alias la
+alias la='l -a'
+alias la
 
 alias wi='type -ap'
 
@@ -43,18 +59,32 @@ alias rm='rm -i'
 alias cx='chmod +x'
 alias cw='chmod +w'
 
-alias vbp='v ~/.profile'
-alias sbp='source ~/.profile'
-alias vbrc='v ~/.bashrc'
-alias sbrc='source ~/.bashrc'
+alias vp='v ~/.profile' # Vi Profile
+alias sp='source ~/.profile' # Source Profile
 
-alias szshrc="source ~/.zshrc"
-alias zshrc="\${VISUAL} ~/.zshrc"
+alias vbp=vp # Was: Vi Bash Profile
+alias sbp=sp # Was: Source Bash Profile
+
+alias vbrc='v ~/.bashrc' # Vi BashRC
+alias sbrc='source ~/.bashrc' # Source BashRC
+
+alias szrc="source ~/.zshrc" # Source ZshRC
+alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC
 alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
+# Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
+alias gaa
 alias gaa='git add --all'
+alias gaa
+alias gst
 alias gst='git status'
+alias gst
+alias gd
+alias gd='git diff'
+alias gd
+alias gds
 alias gds='git diff --staged'
+alias gds
 
 alias path='echo $PATH | tr : "\n"'
 alias cdpath='echo $CDPATH | tr : "\n"'
@@ -67,7 +97,9 @@ fi
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
-cdPaths=(
+# This cdpath array works out-of-box for zsh.
+# For bash, it's processed into CDPATH.
+cdpath=(
   .
   ~/dev
   ~/dev/steshaw
@@ -75,6 +107,10 @@ cdPaths=(
   ~/dev/betterteamapp
   ~/dev/betterteamapp/solo/workers
 )
+if isBash; then
+  CDPATH=$(IFS=':'; echo "${cdpath[*]}")
+  unset cdpath
+fi
 
 sourceExists ~/.travis/travis.sh # for travis gem
 sourceExists ~/.shrc.local
