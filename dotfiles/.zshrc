@@ -159,4 +159,7 @@ $fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ \$(git
 $fg[green]╰─${exit_status}%{$reset_color%} "
 }
 
+# FIXME: Seemingly have to source this from the .zshrc for it to work.
+sourceExists ~/.profile.d/haskell-stack
+
 # }}}
