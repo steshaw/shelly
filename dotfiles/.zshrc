@@ -161,5 +161,6 @@ $fg[green]╰─${exit_status}%{$reset_color%} "
 
 # FIXME: Seemingly have to source this from the .zshrc for it to work.
 sourceExists ~/.profile.d/haskell-stack
+sourceExists ~/.profile.d/google-cloud-sdk
 
 # }}}
