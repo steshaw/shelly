@@ -1,7 +1,9 @@
 if has direnv; then
   if isZsh; then
     eval "$(direnv hook zsh)"
-  else
+  elif isBash; then
     eval "$(direnv hook bash)"
+  else
+    Echo "Warning: direnv not configured for your shell"
   fi
 fi

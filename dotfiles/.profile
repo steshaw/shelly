@@ -8,8 +8,6 @@ source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.profile
 
-#unset PROMPT_COMMAND
-
 function prettyPath {
   if hasTty; then
     echo "$@" "{"
@@ -73,14 +71,23 @@ fi
 preexec_functions=()
 # shellcheck disable=SC2034
 precmd_functions=()
-isBash && sourceExists $SHELLY_HOME/etc/bash-preexec.sh
 
 #
 # Source ~/.profile.d/*
 #
+unnset PROMPT_COMMAND # In case of `source ~/.profile`.
 for file in ~/.profile.d/*; do
   sourceExists "${file}"
 done
+
+#
+# Set up bash-preexec.
+# See https://github.com/rcaloras/bash-preexec.
+#
+if isBash; then
+  unset __bp_imported # In case of `source ~/.profile`.
+  sourceExists $SHELLY_HOME/etc/bash-preexec.sh
+fi
 
 #
 # Add user's private bins to PATH.
