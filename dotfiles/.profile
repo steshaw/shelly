@@ -75,7 +75,7 @@ precmd_functions=()
 #
 # Source ~/.profile.d/*
 #
-unnset PROMPT_COMMAND # In case of `source ~/.profile`.
+unset PROMPT_COMMAND # In case of `source ~/.profile`.
 for file in ~/.profile.d/*; do
   sourceExists "${file}"
 done
