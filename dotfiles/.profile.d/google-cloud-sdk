@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+CLOUD_SDK_HOME=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+
 if isBash; then
-  sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-  sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+  false && sourceExists "${CLOUD_SDK_HOME}/path.bash.inc"
+  sourceExists "${CLOUD_SDK_HOME}/completion.bash.inc"
 elif isZsh; then
-  sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-  sourceExists '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+  false && sourceExists "${CLOUD_SDK_HOME}/path.zsh.inc"
+  sourceExists "${CLOUD_SDK_HOME}/completion.zsh.inc"
 else
   Echo 'Warning: no completion for google-cloud-sdk for your shell'
 fi
