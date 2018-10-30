@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+set -x
+
+case $(uname) in
+  Darwin)
+    sudo killall -HUP mDNSResponder
+    ;;
+  Linux)
+    sudo systemd-resolve --flush-caches
+    ;;
+  *)
+    echo "Warning: dns-flush for $(uname)"
+esac
