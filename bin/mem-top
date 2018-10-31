@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Adapted from https://superuser.com/a/1221281/319872
+
+set -euo pipefail
+
+ps -u $USER -o pmem,pid,maj_flt,min_flt,rss,vsz,comm --sort -rss |
+  numfmt --header --to=iec --field 3-4 |
+  numfmt --header --from-unit=1024 --to=iec --field 5-6 |
+  column -t |
+  head -15
