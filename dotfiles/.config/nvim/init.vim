@@ -94,3 +94,5 @@ autocmd FileType make setlocal noexpandtab
 inoremap jj <esc>
 inoremap jk <esc>
 inoremap kj <esc>
+
+nnoremap <Leader><space> :nohlsearch<Enter>
