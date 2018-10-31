@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+domain=$1
+
+certbot \
+  --config-dir ~/.certbot/conf \
+  --work-dir ~/.certbot/work \
+  --logs-dir ~/.certbot/logs \
+  certonly --manual --preferred-challenges dns -d "${domain}"
