@@ -90,7 +90,7 @@ if [[ $ZSH_THEME == avit ]]; then
     echo "%{$fg[cyan]%}$me%{$reset_color%}"
   }
   CARET='$'
-  CARET2='$◀'
+  CARET2='  ↪'
   PROMPT='
 %{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
 %{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f'
