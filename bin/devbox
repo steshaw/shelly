@@ -6,12 +6,13 @@ ${DEBUG:-}
 Usage() {
   cat <<EOF >&2
 usage: $(basename "$0") command [args]
-  run | ssh
+  new
+  up | down
+  ssh
+  in
+  run
+  status
   create-fresh | create-from-disk | create-from-snapshot
-  suspend | resume
-  list/status
-  start/up | stop/down
-  allow-web | allow-dev-web
 EOF
   exit 2
 }
@@ -28,15 +29,15 @@ export CLOUDSDK_COMPUTE_ZONE=$DEVBOX_COMPUTE_ZONE
 name=$DEVBOX_NAME
 
 disk=$name
-diskSize=40GB
+diskSize=100GB
 diskType=pd-ssd
 
 #machineType=n1-standard-4
 #machineType=n1-highcpu-8
 
 # 8vCPU 10GB RAM
-vCPU=6
-ramGB=10
+vCPU=8
+ramGB=12
 machineType="custom-${vCPU}-$(($ramGB * 1024))"
 
 imageProject=ubuntu-os-cloud
@@ -55,12 +56,50 @@ fi
 
 command=$1; shift
 
+allowWeb() {
+  echo "Creating default-allow-http..."
+  gcloud compute firewall-rules create default-allow-http \
+    --network=default \
+    --action=ALLOW \
+    --rules=tcp:80 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=http-server
+
+  echo "Creating default-allow-https..."
+  gcloud compute firewall-rules create default-allow-https \
+    --network=default \
+    --action=ALLOW \
+    --rules=tcp:443 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=https-server
+}
+
+allowDevWeb() {
+  echo "Creating allow-dev-web..."
+  gcloud compute firewall-rules create allow-dev-web \
+    --description='Allow dev ports' \
+    --allow tcp:3000-3001,tcp:7020,tcp:8000-8001,tcp:8080-8081 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=dev
+}
+
+allowMosh() {
+  echo "Creating allow-mosh..."
+  gcloud compute firewall-rules create allow-mosh \
+    --description='Allow mosh' \
+    --allow udp:60000-61000 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=dev
+}
+
 # aliases
 [[ $command == up ]] && command=start
 [[ $command == down ]] && command=stop
 [[ $command == dn ]] && command=stop
 [[ $command == connect ]] && command=tmux-control-mode
 [[ $command == in ]] && command=tmux-control-mode
+[[ $command == init ]] && command=create-fresh
+[[ $command == new ]] && command=create-fresh
 
 if [[ $command == run ]]; then
 
@@ -96,6 +135,7 @@ elif [[ $command == set-machine-type ]]; then
 
 elif [[ $command == create-fresh ]]; then
 
+  echo "Creating instance $name..."
   gcloud compute instances create "$name" \
     --machine-type=$machineType \
     --no-restart-on-failure \
@@ -108,6 +148,13 @@ elif [[ $command == create-fresh ]]; then
     --boot-disk-type=$diskType \
     --no-boot-disk-auto-delete \
     --tags=$tags
+
+  echo
+  allowWeb
+  echo
+  allowDevWeb
+  echo
+  allowMosh
 
 elif [[ $command == create-snapshot ]]; then
 
@@ -172,35 +219,15 @@ elif [[ $command == create-from-snapshot ]]; then
 
 elif [[ $command == allow-web ]]; then
 
-  gcloud compute firewall-rules create default-allow-http \
-    --network=default \
-    --action=ALLOW \
-    --rules=tcp:80 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=http-server
-
-  gcloud compute firewall-rules create default-allow-https \
-    --network=default \
-    --action=ALLOW \
-    --rules=tcp:443 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=https-server
+  allowWeb
 
 elif [[ $command == allow-dev-web ]]; then
 
-  gcloud compute firewall-rules create allow-dev-web \
-    --description='Allow development "web" ports: 3000-3001, 7020, 8000-8001, 8080-8081' \
-    --allow tcp:3000-3001,tcp:7020,tcp:8000-8001,tcp:8080-8081 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=dev
+  allowDevWeb
 
 elif [[ $command == allow-mosh ]]; then
 
-  gcloud compute firewall-rules create allow-mosh \
-    --description='Allow mosh UDP: 60000-61000' \
-    --allow udp:60000-61000 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=dev
+  allowMosh
 
 elif [[ $command == external-ip ]]; then
 
