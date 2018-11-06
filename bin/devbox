@@ -29,7 +29,7 @@ export CLOUDSDK_COMPUTE_ZONE=$DEVBOX_COMPUTE_ZONE
 name=$DEVBOX_NAME
 
 disk=$name
-diskSize=100GB
+diskSize=50GB
 diskType=pd-ssd
 
 #machineType=n1-standard-4
