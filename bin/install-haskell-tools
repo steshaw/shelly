@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $(uname) == Linux ]]; then
+  sudo apt-get -qqy install libtinfo-dev
+fi
+
+exec stack install --resolver='lts-12.17' \
+  apply-refact \
+  brittany \
+  hasktags \
+  hlint \
+  hoogle \
+  stylish-haskell \

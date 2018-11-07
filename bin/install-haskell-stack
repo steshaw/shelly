@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
-echo 'Installing Haskell Stack...'
-
-(curl -sSL https://get.haskellstack.org/ | sh) || stack upgrade
+if command -v stack >/dev/null; then
+  echo 'Using haskell-stack'
+else
+  echo 'Installing Haskell Stack...'
+  curl -sSL https://get.haskellstack.org/ | sh
+fi
