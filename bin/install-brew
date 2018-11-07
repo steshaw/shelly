@@ -19,7 +19,13 @@ case $osType in
     ;;
   Darwin)
     # Install Homebrew. See https://brew.sh/.
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # Don't reinstall Brew on macOS as it's not idempotent. In fact, if fails
+    # every second attempt.
+    if command -v brew >/dev/null; then
+      echo "Already installed!"
+    else
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
     ;;
   *)
     echo "$script: Unsupported OS $osType"
