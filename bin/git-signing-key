@@ -2,15 +2,27 @@
 
 set -euo pipefail
 
+script=$(basename "$0")
+
+Usage() {
+  echo "usage: $script export|import" >&2
+  exit 2
+}
+
+if [[ $# -ne 1 ]]; then
+  Usage
+fi
+
+command=$1; shift
+
 key=1D9A17DFD23DCB91
 
-if [[ $1 == export ]]; then
+if [[ $command == export ]]; then
   gpg --output git-gpg-key-pub.gpg --armor --export $key
   gpg --output git-gpg-key-sec.gpg --armor --export-secret-key $key
-elif [[ $1 == import ]]; then
+elif [[ $command == import ]]; then
   gpg --import git-gpg-key-pub.gpg
   gpg --allow-secret-key-import --import git-gpg-key-sec.gpg
 else
-  echo "usage: $(basename $0) import|export" >&2
-  exit 2
+  Usage
 fi

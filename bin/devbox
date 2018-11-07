@@ -101,8 +101,9 @@ allowMosh() {
 [[ $command == in ]] && command=tmux-control-mode
 [[ $command == init ]] && command=create-fresh
 [[ $command == new ]] && command=create-fresh
+[[ $command == run ]] && command=gcloud
 
-if [[ $command == run ]]; then
+if [[ $command == gcloud ]]; then
 
   gcloud "$@"
 
@@ -253,15 +254,32 @@ elif [[ $command == move-zone ]]; then
 
 elif [[ $command == upload-ssh-keys ]]; then
 
-  ip=$(gcloud compute instances describe "$DEVBOX_NAME" \
-         --format='value(networkInterfaces[0].networkIP)')
+  gcloud compute scp ~/.ssh/id_rsa ~/.ssh/id_rsa.pub "$DEVBOX_NAME":.ssh/
+
+elif [[ $command == upload-git-signing-key ]]; then
+
+  cd /tmp
+  git-signing-key export
+  keyFiles=(git-gpg-key-pub.gpg git-gpg-key-sec.gpg)
+  devbox scp "${keyFiles[@]}" "$DEVBOX_NAME":/tmp
+  devbox ssh "source ~/.profile && cd /tmp && git-signing-key import && rm ${keyFiles[*]}"
+  rm "${keyFiles[@]}"
+
+elif [[ $command == ip ]]; then
+  getIP() {
+    gcloud compute instances describe "$DEVBOX_NAME" \
+      --format='value(networkInterfaces[0].accessConfigs[0].natIP)'
+  }
+  ip=$(getIP)
   if [[ -z $ip ]]; then
     echo "$script: Cannot find IP of $DEVBOX_NAME. Is it up?"
     exit 1
   fi
-  set -x
-  gcloud compute scp ~/.ssh/id_rsa ~/.ssh/id_rsa.pub $DEVBOX_NAME:.ssh/
-  set +x
+  echo "$ip"
+
+elif [[ $command == scp ]]; then
+
+  gcloud compute scp "$@"
 
 else
   Usage
