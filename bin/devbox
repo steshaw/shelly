@@ -3,9 +3,11 @@
 set -euo pipefail
 ${DEBUG:-}
 
+script=$(basename $0)
+
 Usage() {
   cat <<EOF >&2
-usage: $(basename "$0") command [args]
+usage: ${script} command [args]
   new
   up | down
   ssh
@@ -35,8 +37,7 @@ diskType=pd-ssd
 #machineType=n1-standard-4
 #machineType=n1-highcpu-8
 
-# 8vCPU 10GB RAM
-vCPU=8
+vCPU=4
 ramGB=12
 machineType="custom-${vCPU}-$(($ramGB * 1024))"
 
@@ -149,12 +150,14 @@ elif [[ $command == create-fresh ]]; then
     --no-boot-disk-auto-delete \
     --tags=$tags
 
-  echo
-  allowWeb
-  echo
-  allowDevWeb
-  echo
-  allowMosh
+  avoidThis() {
+    echo
+    allowWeb
+    echo
+    allowDevWeb
+    echo
+    allowMosh
+  }
 
 elif [[ $command == create-snapshot ]]; then
 
@@ -247,6 +250,18 @@ elif [[ $command == move-zone ]]; then
 
   gcloud compute instances move "$name" \
     --destination-zone="$destinationZone"
+
+elif [[ $command == upload-ssh-keys ]]; then
+
+  ip=$(gcloud compute instances describe "$DEVBOX_NAME" \
+         --format='value(networkInterfaces[0].networkIP)')
+  if [[ -z $ip ]]; then
+    echo "$script: Cannot find IP of $DEVBOX_NAME. Is it up?"
+    exit 1
+  fi
+  set -x
+  gcloud compute scp ~/.ssh/id_rsa ~/.ssh/id_rsa.pub $DEVBOX_NAME:.ssh/
+  set +x
 
 else
   Usage
