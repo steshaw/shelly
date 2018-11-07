@@ -101,8 +101,8 @@ cdpath=(
   ~/dev
   ~/dev/steshaw
   ~/dev/tlcsrc
-  ~/dev/betterteamapp
-  ~/dev/betterteamapp/solo/workers
+  ~/dev/bt
+  ~/dev/bt/solo/workers
 )
 if isBash; then
   CDPATH=$(IFS=':'; echo "${cdpath[*]}")

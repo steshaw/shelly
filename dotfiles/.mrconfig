@@ -13,17 +13,20 @@ checkout =
   cd idris
   git remote add steshaw git@github.com:steshaw/idris
 
-[.emacs.d]
-checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
+[dev/steshaw/yesod-postgresql-example]
+checkout = git clone git@github.com:steshaw/yesod-postgresql-example.git
 
 [dev/steshaw/idris-chez]
 checkout =
   git clone git@github.com:melted/idris-chez.git
   cd idris-chez
-  git remote add steshaw git@github.com:steshaw/idris-chez idris-chez
+  git remote add steshaw git@github.com:steshaw/idris-chez
 
 [dev/steshaw/idris-elisp]
 checkout = git clone git@github.com:steshaw/idris-elisp
+
+[.emacs.d]
+checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
 
 [dev/tlcsrc/log]
 checkout = git clone git@gitlab.com:tlcsrc/log
@@ -38,7 +41,7 @@ checkout =
 checkout = git clone git@github.com:steshaw/bt-build-base.git
 
 [dev/bt/betterteam-craft]
-checkout = git clone git@github.com:betterteamapp/craft
+checkout = git clone git@github.com:betterteamapp/craft betterteam-craft
 
 [dev/bt/interspire-craft]
 checkout = git clone git@github.com:betterteamapp/interspire-craft

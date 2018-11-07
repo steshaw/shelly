@@ -13,7 +13,6 @@ if [[ ! -f $fromDir/.bashrc ]]; then
   exit 1
 fi
 
-set -x
 for file in ${fromDir}/.[a-zA-Z]*; do
   baseFile=$(basename "$file")
   fullPath=~/$baseFile

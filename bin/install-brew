@@ -5,6 +5,8 @@ set -euo pipefail
 script=$(basename "$0")
 osType=$(uname)
 
+echo 'Installing brew...'
+
 case $osType in
   Linux)
     # Install Linuxbrew. See https://linuxbrew.sh/.

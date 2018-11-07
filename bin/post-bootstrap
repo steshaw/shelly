@@ -6,8 +6,16 @@ shellyDir=$(dirname $(dirname "$0"))
 cd $shellyDir
 
 install-brew
+echo
 create-xterm-24bit
+echo
 install-haskell-stack
-install-neovim
-brew bundle
-mr checkout
+echo
+echo 'Installing brews ...'
+brew bundle --global
+echo
+install-python-neovim
+echo
+echo 'Doing `mr checkout` ...'
+# No idea why we need `--directory` here...
+mr --directory $HOME checkout

@@ -2,6 +2,8 @@ brew 'emacs'
 brew 'git'
 brew 'haskell-stack' if false # Broken in brew
 brew 'mr'
+brew 'neovim'
+brew 'python'
 brew 'ripgrep'
 brew 'rlwrap'
 brew 'tmux'

@@ -4,9 +4,10 @@ set -euo pipefail
 
 osType=$(uname)
 
+echo 'Installing python neovim package...'
+
 case $osType in
   Linux|Darwin)
-    brew install neovim python
     pip3 install --upgrade pip
     pip3 install neovim
     ;;

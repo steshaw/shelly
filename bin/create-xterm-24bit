@@ -8,6 +8,8 @@
 
 set -euo pipefail
 
+echo 'Creating xterm-24bit and xterm-24bits ...'
+
 file=/tmp/term-24bit.$$
 cat >$file <<!
 # Use colon separators.
