@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+version=$(lsb_release -cs)
+echo "deb http://apt.postgresql.org/pub/repos/apt/ ${version}-pgdg main" |
+  sudo tee -a /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc |
+  sudo apt-key add -
+sudo apt-get -y update
+sudo apt-get -y install postgresql-9.6

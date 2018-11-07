@@ -1,11 +1,14 @@
 brew 'emacs'
 brew 'git'
 brew 'haskell-stack' if false # Broken in brew
+brew 'hub'
+brew 'httpie'
 brew 'mr'
 brew 'neovim'
 brew 'python'
 brew 'ripgrep'
 brew 'rlwrap'
+brew 'shellcheck'
 brew 'tmux'
 brew 'zsh'
 
