@@ -1,41 +1,44 @@
 [DEFAULT]
 gc = git gc "$@"
 
-[dev/steshaw/steshaw.org]
-checkout = git clone --recursive git@github.com:steshaw/steshaw.org
-
 [dev/steshaw/shelly]
 checkout = git clone --depth 20 git@github.com:steshaw/shelly
 
+[.emacs.d]
+checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
+
+[.oh-my-zsh]
+checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+
+[dev/steshaw/steshaw.org]
+checkout = git clone --recursive git@github.com:steshaw/steshaw.org
+
 [dev/steshaw/idris]
 checkout =
-  git clone git@github.com:idris-lang/Idris-dev idris
-  cd idris
-  git remote add steshaw git@github.com:steshaw/idris
+	 git clone git@github.com:idris-lang/Idris-dev idris
+	 cd idris
+	 git remote add steshaw git@github.com:steshaw/idris
 
 [dev/steshaw/yesod-postgresql-example]
 checkout = git clone git@github.com:steshaw/yesod-postgresql-example.git
 
 [dev/steshaw/idris-chez]
 checkout =
-  git clone git@github.com:melted/idris-chez.git
-  cd idris-chez
-  git remote add steshaw git@github.com:steshaw/idris-chez
+	 git clone git@github.com:melted/idris-chez.git
+	 cd idris-chez
+	 git remote add steshaw git@github.com:steshaw/idris-chez
 
 [dev/steshaw/idris-elisp]
 checkout = git clone git@github.com:steshaw/idris-elisp
-
-[.emacs.d]
-checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
 
 [dev/tlcsrc/log]
 checkout = git clone git@gitlab.com:tlcsrc/log
 
 [dev/bt/solo]
 checkout =
-  git clone git@github.com:betterteamapp/solo
-  cd solo
-  git remote add bitbucket git@bitbucket.org:steshaw/betterteam-solo.git
+	 git clone git@github.com:betterteamapp/solo
+	 cd solo
+	 git remote add bitbucket git@bitbucket.org:steshaw/betterteam-solo.git
 
 [dev/bt/bt-build-base]
 checkout = git clone git@github.com:steshaw/bt-build-base.git
@@ -51,18 +54,18 @@ checkout = git clone git@github.com:betterteamapp/thesmbguide-craft
 
 [dev/bt/zendesk]
 checkout =
-  git clone git@github.com:steshaw/zendesk.git
-  cd zendesk
-  git remote add bt git@github.com:betterteamapp/zendesk.git
+	 git clone git@github.com:steshaw/zendesk.git
+	 cd zendesk
+	 git remote add bt git@github.com:betterteamapp/zendesk.git
 
 [dev/bt/datadog]
 checkout =
-  git clone git@github.com:iand675/datadog.git
-  cd datadog
-  git remote add steshaw git@github.com:steshaw/datadog.git
+	 git clone git@github.com:iand675/datadog.git
+	 cd datadog
+	 git remote add steshaw git@github.com:steshaw/datadog.git
 
 [dev/bt/dd-middleware]
 checkout =
-  git clone git@github.com:iand675/dd-middleware.git
-  cd dd-middleware
-  git remote add steshaw git@github.com:steshaw/dd-middleware.git
+	 git clone git@github.com:iand675/dd-middleware.git
+	 cd dd-middleware
+	 git remote add steshaw git@github.com:steshaw/dd-middleware.git
