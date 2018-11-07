@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+shellyDir=$(dirname $(dirname "$0"))
+cd $shellyDir
+
+install-brew
+create-xterm-24bit
+install-haskell-stack
+install-neovim
+brew bundle
+mr checkout

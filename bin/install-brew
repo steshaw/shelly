@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script=$(basename "$0")
+osType=$(uname)
+
+case $osType in
+  Linux)
+    # Install Linuxbrew. See https://linuxbrew.sh/.
+    if [[ ! -d /home/linuxbrew/.linuxbrew ]]; then
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    fi
+
+    # Linuxbrew dependencies.
+    sudo apt -y install build-essential
+    ;;
+  Darwin)
+    # Install Homebrew. See https://brew.sh/.
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ;;
+  *)
+    echo "$script: Unsupported OS $osType"
+    exit 1
+esac
