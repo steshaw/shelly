@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cat > ~/.stack/programs/x86_64-osx/ghc-8.2.2/lib/ghc-8.2.2/settings <<END
+[("GCC extra via C opts", " -fwrapv -fno-builtin"),
+ ("C compiler command", "gcc"),
+ ("C compiler flags", " -m64 -fno-stack-protector"),
+ ("C compiler link flags", " -m64 -fuse-ld=ld-wrapper-macos.sh"),
+ ("C compiler supports -no-pie", "YES"),
+ ("Haskell CPP command","gcc"),
+ ("Haskell CPP flags","-E -undef -traditional -Wno-invalid-pp-token -Wno-unicode -Wno-trigraphs"),
+ ("ld command", "ld"),
+ ("ld flags", " -arch x86_64"),
+ ("ld supports compact unwind", "YES"),
+ ("ld supports build-id", "NO"),
+ ("ld supports filelist", "YES"),
+ ("ld is GNU ld", "NO"),
+ ("ar command", "/usr/bin/ar"),
+ ("ar flags", "clqs"),
+ ("ar supports at file", "NO"),
+ ("touch command", "touch"),
+ ("dllwrap command", "/bin/false"),
+ ("windres command", "/bin/false"),
+ ("libtool command", "libtool"),
+ ("perl command", "/usr/bin/perl"),
+ ("cross compiling", "NO"),
+ ("target os", "OSDarwin"),
+ ("target arch", "ArchX86_64"),
+ ("target word size", "8"),
+ ("target has GNU nonexec stack", "False"),
+ ("target has .ident directive", "True"),
+ ("target has subsections via symbols", "True"),
+ ("target has RTS linker", "@HaskellHaveRTSLinker@"),
+ ("Unregisterised", "NO"),
+ ("LLVM llc command", "llc"),
+ ("LLVM opt command", "opt")
+ ]
+END
