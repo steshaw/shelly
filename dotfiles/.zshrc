@@ -109,10 +109,20 @@ sourceExists ~/.shrc
 
 setopt noclobber
 
+# Wait only 100ms for another character when processing multi-character key
+# bindings.
+KEYTIMEOUT=1 # 100 milliseconds
+
 # Make up and down line-editing work like in Bash. i.e. after up/down, the
 # cursor is at the beginning of the line (not the end).
 bindkey -M vicmd 'j' vi-down-line-or-history
 bindkey -M vicmd 'k' vi-up-line-or-history
+
+# Allow 'jj', 'kk, 'jk', and 'kj' sequences to enter command mode.
+bindkey jj vi-cmd-mode
+bindkey kk vi-cmd-mode
+bindkey jk vi-cmd-mode
+bindkey kj vi-cmd-mode
 
 #
 # Show a mark similar to GitHub's no-newline icon.

@@ -1,3 +1,8 @@
-TAB: complete
 set editing-mode vi
-set keymap vi-command
+
+TAB: complete
+
+"jj": "\e"
+"kk": "\e"
+"jk": "\e"
+"kj": "\e"

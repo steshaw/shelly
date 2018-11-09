@@ -92,6 +92,7 @@ autocmd FileType make setlocal noexpandtab
 
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
 inoremap jj <esc>
+inoremap kk <esc>
 inoremap jk <esc>
 inoremap kj <esc>
 
