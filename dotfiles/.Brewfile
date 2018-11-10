@@ -10,6 +10,7 @@ brew 'ripgrep'
 brew 'rlwrap'
 brew 'shellcheck'
 brew 'tmux'
+brew 'vim'
 brew 'zsh'
 
 if OS.mac?
