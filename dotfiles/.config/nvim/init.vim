@@ -97,3 +97,5 @@ inoremap jk <esc>
 inoremap kj <esc>
 
 nnoremap <Leader><space> :nohlsearch<Enter>
+
+let g:org_agenda_files=['~/dev/tlcsrc/log/log.org']
