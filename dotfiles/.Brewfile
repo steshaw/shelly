@@ -1,5 +1,15 @@
+def s(cmd)
+  raise "Calling command failed with status #{$?}. Command was `#{cmd}`" unless system cmd
+end
+
 brew 'agda'
-brew 'coq'
+if OS.mac?
+  brew 'coq'
+else
+  # coq is broken in Linuxbrew atm.
+  puts "Installing coq ..."
+  s 'sudo apt-get -qqy install coq'
+end
 brew 'elm'
 brew 'emacs'
 brew 'git'
