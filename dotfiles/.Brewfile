@@ -15,7 +15,7 @@ brew 'neovim'
 brew 'nim'
 brew 'ocaml'
 brew 'peco'
-brew 'pinentry-mac'
+brew 'pinentry-mac' if OS.mac?
 brew 'python'
 brew 'purescript'
 brew 'ripgrep'
