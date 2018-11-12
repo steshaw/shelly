@@ -27,7 +27,8 @@ fun Plugs()
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/syntastic'
   Plug 'tpope/vim-surround'
-  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
 endfun
 
