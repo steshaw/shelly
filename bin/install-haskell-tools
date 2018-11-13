@@ -10,6 +10,7 @@ exec stack install --resolver='lts-12.17' \
   apply-refact \
   brittany \
   hasktags \
+  hdevtools \
   hlint \
   hoogle \
   stylish-haskell \

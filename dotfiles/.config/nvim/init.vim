@@ -18,6 +18,8 @@ fun Plugs()
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
   Plug 'chr4/nginx.vim'
+  Plug 'w0rp/ale'
+"  Plug 'scrooloose/syntastic'
 
   " Misc.
   Plug 'ntpeters/vim-better-whitespace'
@@ -25,7 +27,6 @@ fun Plugs()
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'scrooloose/syntastic'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
