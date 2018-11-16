@@ -169,6 +169,12 @@ $fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ \$(git
 $fg[green]╰─${exit_status}%{$reset_color%} "
 }
 
+# Set up bash completion.
+# This bash completion set up is in ~/.zprofile too but this is required here
+# for the times we are in bash and type `zsh` rather than `zsh --login`.
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
 # FIXME: Seemingly have to source this from the .zshrc for it to work.
 sourceExists ~/.profile.d/haskell-stack
 sourceExists ~/.profile.d/google-cloud-sdk
