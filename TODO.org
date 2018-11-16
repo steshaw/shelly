@@ -1,5 +1,3 @@
-- Bootstrap vim with `bin/vim-plug-install`?
-
 - Install bash-completion package?
 
 - Seems needed for intero/stack:

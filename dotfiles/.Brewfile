@@ -41,6 +41,9 @@ brew 'vim'
 brew 'watchman'
 brew 'zsh'
 
+# Install vim plugins.
+s 'vim-plug-install'
+
 if OS.mac?
   brew 'bash'
   brew 'bash-completion@2'
