@@ -69,3 +69,9 @@ checkout =
 	 git clone git@github.com:iand675/dd-middleware.git
 	 cd dd-middleware
 	 git remote add steshaw git@github.com:steshaw/dd-middleware.git
+
+[dev/bt/mandrill]
+checkout =
+	 git clone git@github.com:adinapoli/mandrill.git
+	 cd mandrill
+	 git remote add steshaw git@github.com:steshaw/mandrill.git
