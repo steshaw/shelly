@@ -2,8 +2,9 @@
 
 set -euo pipefail
 
-shellyDir=$(dirname $(dirname "$0"))
-cd $shellyDir
+binDir=$(dirname "$0")
+shellyDir=$(dirname "${binDir}")
+cd "$shellyDir"
 
 install-brew
 echo
@@ -16,6 +17,6 @@ brew bundle --global
 echo
 install-python-neovim
 echo
-echo 'Doing `mr checkout` ...'
-# No idea why we need `--directory` here...
-mr --directory $HOME checkout
+echo 'Doing myrepos checkout ...'
+# No idea _why_ we need `--directory` here...
+mr --directory "$HOME" checkout
