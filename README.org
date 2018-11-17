@@ -3,14 +3,16 @@
 My [[dotfiles][dotfiles]] and [[bin][shell commands]] (and a simple package
 system that I haven't used much lately).
 
-** Bootstrapping on a new machine:
+** Installation
+
+I bootstrap on a new machine like this:
 
 #+begin_src bash session
   $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
-After that, you can run [[bin/post-bootstrap][~post-bootstrap~]] which installs Homebrew/Linuxbrew,
-bundle brews [[dotfiles/.Brewfile][a bunch of packages]], and checks out myrepos.
+After that, I tend to run [[bin/post-bootstrap][post-bootstrap]] which installs [[https://brew.sh/][Homebrew]]/[[https://linuxbrew.sh/][Linuxbrew]],
+bundle brews [[dotfiles/.Brewfile][a bunch of packages]], and checks out repos via [[https://myrepos.branchable.com/][myrepos]].
 
 #+begin_src bash session
   $ post-bootstrap
