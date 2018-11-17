@@ -54,6 +54,7 @@ brew 'node' if OS.mac?
 brew 'ocaml' if OS.mac?
 brew 'peco'
 brew 'pandoc'
+brew 'pijul'
 brew 'pinentry-mac' if OS.mac?
 brew 'postgresql' if OS.mac?
 brew 'purescript' if OS.mac?
