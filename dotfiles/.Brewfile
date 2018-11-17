@@ -92,6 +92,10 @@ brew 'tidy-html5'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
+if true
+  brew 'vala'
+  brew 'gtk+3'
+end
 brew 'vim'
 brew 'watchman'
 
