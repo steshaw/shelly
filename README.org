@@ -1,6 +1,7 @@
 * Shelly
 
-My [[dotfiles][dotfiles]] and [[bin][shell commands]].
+My [[dotfiles][dotfiles]] and [[bin][shell commands]] (and a simple package
+system that I haven't used much lately).
 
 ** Bootstrapping on a new machine:
 
@@ -8,9 +9,9 @@ My [[dotfiles][dotfiles]] and [[bin][shell commands]].
   $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
-The bootstrap script no longer automatically executes [[=InstallPkgs=][bin/InstallPkgs]] (for
-installing [[http://https://brew.sh/][Brews]], [[https://caskroom.github.io/][Casks]] and [[https://atom.io/][Atom]] plugins). Just do the following if you want that:
+After that, you can run [[bin/post-bootstrap][~post-bootstrap~]] which installs Homebrew/Linuxbrew,
+bundle brews [[dotfiles/.Brewfile][a bunch of packages]], and checks out myrepos.
 
 #+begin_src bash session
-  $ InstallPkgs
+  $ post-bootstrap
 #+end_src
