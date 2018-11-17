@@ -47,6 +47,7 @@ brew 'imagemagick' if false
 brew 'jq'
 brew 'mariadb' if false
 brew 'mr'
+brew 'neofetch'
 brew 'neovim'
 brew 'nim' if OS.mac?
 brew 'node' if OS.mac?
