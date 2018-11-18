@@ -63,7 +63,7 @@ brew 'qt' if false
 brew 'rbenv' if false # Preferring asdf (when it works).
 
 # rcm from Thoughbot.
-if true
+if false
   tap 'thoughtbot/formulae'
   brew 'rcm'
 end
@@ -73,6 +73,7 @@ brew 'redis' if OS.mac?
 brew 'ripgrep'
 brew 'rlwrap'
 brew 'ruby-build' if false
+brew 'rust' if OS.mac?
 brew 'sbt' if false
 brew 'scala' if OS.mac?
 brew 'scalariform' if false
@@ -80,7 +81,7 @@ brew 'shellcheck'
 brew 'sphinx-doc' if OS.mac?
 
 # the_searchers -- preferring ripgrep for now.
-if true
+if false
   brew 'ack' # beyondgrep.com — written in Perl 5.
   brew 'sift'
   brew 'the_silver_searcher' # aka ag.
@@ -93,10 +94,13 @@ brew 'tidy-html5'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
-if true
+
+# vala
+if false
   brew 'vala'
   brew 'gtk+3'
 end
+
 brew 'vim'
 brew 'watchman'
 
