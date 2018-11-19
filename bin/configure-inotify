@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+os=$(uname)
+
+if [[ ${os} == Linux ]]; then
+  cat >/tmp/60-steshaw.conf <<-EOF
+		fs.inotify.max_user_watches = 16384
+EOF
+  sudo cp /tmp/60-steshaw.conf /etc/sysctl.d/
+else
+  echo "Unsupported OS ${os}" >&2
+  exit 1
+fi
