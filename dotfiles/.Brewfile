@@ -4,11 +4,15 @@ def s(cmd)
   raise "Calling command failed with status #{$?}. Command was `#{cmd}`" unless system cmd
 end
 
-brew 'agda' if OS.mac?
+def laptop?
+ OS.mac?
+end
+
+brew 'agda' if laptop?
 brew 'asdf' if false
 
 # coq
-if OS.mac?
+if laptop?
   brew 'coq'
 else
   # Don't need coq on Linux for now.
@@ -28,36 +32,36 @@ end
 
 brew 'coreutils'
 brew 'ctags' # exuberant ctags
-brew 'elm' if OS.mac?
+brew 'elm' if laptop?
 brew 'emacs'
 brew 'findutils' if false
 brew 'fswatch' if false # Using Facebook's watchman currently.
-brew 'ghc' if OS.mac?
+brew 'ghc' if laptop?
 brew 'git'
 brew 'gist'
 brew 'gpg2'
 brew 'graphviz' if false
-brew 'haskell-stack' if OS.mac? # Broken in Linuxbrew.
+brew 'haskell-stack' if laptop? # Broken in Linuxbrew.
 brew 'heroku-toolbelt' if false
 brew 'htop'
 brew 'httpie'
 brew 'hub'
-brew 'idris' if OS.mac?
+brew 'idris' if laptop?
 brew 'imagemagick' if false
 brew 'jq'
 brew 'mariadb' if false
 brew 'mr'
 brew 'neofetch'
 brew 'neovim'
-brew 'nim' if OS.mac?
-brew 'node' if OS.mac?
-brew 'ocaml' if OS.mac?
+brew 'nim' if laptop?
+brew 'node' if laptop?
+brew 'ocaml' if laptop?
 brew 'peco'
 brew 'pandoc'
-brew 'pijul'
+brew 'pijul' if laptop?
 brew 'pinentry-mac' if OS.mac?
-brew 'postgresql' if OS.mac?
-brew 'purescript' if OS.mac?
+brew 'postgresql' if laptop?
+brew 'purescript' if laptop?
 brew 'python'
 brew 'qt' if false
 brew 'rbenv' if false # Preferring asdf (when it works).
@@ -69,16 +73,16 @@ if false
 end
 
 brew 'reattach-to-user-namespace' if false
-brew 'redis' if OS.mac?
+brew 'redis' if laptop?
 brew 'ripgrep'
 brew 'rlwrap'
 brew 'ruby-build' if false
-brew 'rust' if OS.mac?
+brew 'rust' if laptop?
 brew 'sbt' if false
-brew 'scala' if OS.mac?
+brew 'scala' if laptop?
 brew 'scalariform' if false
 brew 'shellcheck'
-brew 'sphinx-doc' if OS.mac?
+brew 'sphinx-doc' if laptop?
 
 # the_searchers -- preferring ripgrep for now.
 if false
@@ -105,7 +109,7 @@ brew 'vim'
 brew 'watchman'
 
 # weechat
-if true
+if false
   # Weechat needs aspell and curl to be installed first.
   brew 'aspell'
   brew 'curl'
