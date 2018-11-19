@@ -129,8 +129,18 @@ bash_prompt() {
   local DC="${EMB}" # pwd colour
   local SC="${M}" # separator colour
   local GC="${Y}" # git prompt colour
-  local PROMPT_LINE_1="${UPC}╭─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
-  local PROMPT_LINE_2="${UPC}╰─${UP}${NONE} "
+
+  # Avoid some arrow characters when running under Google Cloud Shell.
+  if [[ -n "$DEVSHELL_IP_ADDRESS" ]]; then
+    local TOP_LEFT='┌'
+    local BOT_LEFT='└'
+  else
+    local TOP_LEFT='╭'
+    local BOT_LEFT='╰'
+  fi
+
+  local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
+  local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${NONE} "
   local iterm2Mark="\[$(iterm2_prompt_mark)\]"
 
   GIT_PS1_1="${TITLEBAR}\n${PROMPT_LINE_1}"
