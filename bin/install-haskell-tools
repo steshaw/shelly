@@ -11,6 +11,7 @@ exec stack install --resolver='lts-12.17' \
   brittany \
   hasktags \
   hdevtools \
+  hindent \
   hlint \
   hoogle \
   stylish-haskell \
