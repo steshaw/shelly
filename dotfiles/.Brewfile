@@ -117,7 +117,7 @@ if false
 end
 
 brew 'wget'
-brew 'youtube-dl'
+brew 'youtube-dl' if laptop?
 brew 'zsh'
 
 #############################################
