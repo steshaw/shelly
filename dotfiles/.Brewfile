@@ -56,6 +56,7 @@ brew 'neovim'
 brew 'nim' if laptop?
 brew 'node' if laptop?
 brew 'ocaml' if laptop?
+brew 'opam' if laptop?
 brew 'peco'
 brew 'pandoc'
 brew 'pijul' if laptop?
