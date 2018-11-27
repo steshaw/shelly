@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+_install() {
+  local miniCondaBin=/usr/local/miniconda3/bin
+  if [[ -d $miniCondaBin ]]; then
+    export PATH=/usr/local/miniconda3/bin:"$PATH"
+  fi
+}
+_install
+unset -f _install

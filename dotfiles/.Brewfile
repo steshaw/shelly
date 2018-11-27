@@ -134,6 +134,7 @@ if OS.mac?
   cask 'atom' if false
   cask 'caffeine'
   cask 'calibre'
+  cask 'miniconda'
   cask 'docker'
   cask 'dropbox'
   # emacs-mac
