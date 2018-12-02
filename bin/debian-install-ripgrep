@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd /tmp
+
+version=0.10.0
+debFile=ripgrep_${version}_amd64.deb
+
+curl -LO \
+  https://github.com/BurntSushi/ripgrep/releases/download/${version}/${debFile}
+sudo dpkg -i ${debFile}
+rm ${debFile}
