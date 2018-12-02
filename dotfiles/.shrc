@@ -74,6 +74,8 @@ alias szrc="source ~/.zshrc" # Source ZshRC
 alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC
 alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
+alias sghci='stack exec -- ghci'
+
 alias pj='pijul'
 
 # Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
