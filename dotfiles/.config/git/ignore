@@ -5,6 +5,7 @@
 *.hi
 *.swp
 *.log
+*.out
 *.bup
 
 *~
