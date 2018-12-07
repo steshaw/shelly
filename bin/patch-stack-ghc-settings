@@ -2,9 +2,14 @@
 
 set -euo pipefail
 
-if [[ -w ~/.stack/programs/x86_64-osx/ghc-8.4.4/lib/ghc-8.4.4/settings ]]; then
-  perl -i -pe 's/^ \("C compiler link flags", " "\),$/ ("C compiler link flags", "-fuse-ld=ld-wrapper-macos.sh"),/' \
-    ~/.stack/programs/x86_64-osx/ghc-8.4.4/lib/ghc-8.4.4/settings
+ghc844=~/.stack/programs/x86_64-osx/ghc-8.4.4/lib/ghc-8.4.4/settings
+if [[ -w ${ghc844} ]]; then
+  perl -i \
+    -pe 's/^ \("C compiler link flags", " "\),$/ ("C compiler link flags", "-fuse-ld=ld-wrapper-macos.sh"),/' \
+    ${ghc844}
+  perl -i \
+    -pe 's/^ \("C compiler supports -no-pie", "YES"\),/ ("C compiler supports -no-pie", "NO"),/' \
+    ${ghc844}
 fi
 
 if [[ -w ~/.stack/programs/x86_64-osx/ghc-8.2.2/lib/ghc-8.2.2/settings ]]; then
