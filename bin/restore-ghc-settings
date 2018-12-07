@@ -2,7 +2,13 @@
 
 set -euo pipefail
 
-cat > ~/.stack/programs/x86_64-osx/ghc-8.2.2/lib/ghc-8.2.2/settings <<END
+if [[ -w ~/.stack/programs/x86_64-osx/ghc-8.4.4/lib/ghc-8.4.4/settings ]]; then
+  perl -i -pe 's/^ \("C compiler link flags", " "\),$/ ("C compiler link flags", "-fuse-ld=ld-wrapper-macos.sh"),/' \
+    ~/.stack/programs/x86_64-osx/ghc-8.4.4/lib/ghc-8.4.4/settings
+fi
+
+if [[ -w ~/.stack/programs/x86_64-osx/ghc-8.2.2/lib/ghc-8.2.2/settings ]]; then
+  cat > ~/.stack/programs/x86_64-osx/ghc-8.2.2/lib/ghc-8.2.2/settings <<END
 [("GCC extra via C opts", " -fwrapv -fno-builtin"),
  ("C compiler command", "gcc"),
  ("C compiler flags", " -m64 -fno-stack-protector"),
@@ -37,3 +43,4 @@ cat > ~/.stack/programs/x86_64-osx/ghc-8.2.2/lib/ghc-8.2.2/settings <<END
  ("LLVM opt command", "opt")
  ]
 END
+fi
