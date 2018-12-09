@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Converts UUIDs as "shown" by Data.UUID to strings.
+# This will them allow reformat with brittany/hindent (otherwise its not valid
+# Haskell).
+#
+
+set -euo pipefail
+
+perl \
+  -i \
+  -pe 's/\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/"\1"/g' \
+  "$@"
