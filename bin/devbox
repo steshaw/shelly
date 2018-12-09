@@ -35,7 +35,7 @@ diskSize=50GB
 diskType=pd-ssd
 
 vCPU=6
-ramGB=10
+ramGB=12
 machineType="custom-${vCPU}-$(($ramGB * 1024))"
 
 imageProject=ubuntu-os-cloud
