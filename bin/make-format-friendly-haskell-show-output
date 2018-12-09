@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 #
-# Converts UUIDs as "shown" by Data.UUID to strings.
-# This will them allow reformat with brittany/hindent (otherwise its not valid
-# Haskell).
+# Converts:
+#   - UUIDs as "shown" by Data.UUID to String.
+#   - Dates as "shown" by Time.Clock.UTCTime to String.
+#
+# This will allow them to be reformatted with brittany/hindent (otherwise its
+# not valid Haskell).
 #
 
 set -euo pipefail
 
 perl \
   -i \
-  -pe 's/\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/"\1"/g' \
+  -p \
+  -e 's/([^"])([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})([^"])/\1"\2"\3/g;' \
+  -e 's/([^"])(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d\.\d+ UTC)([^"])/\1"\2"\3/g;' \
   "$@"
