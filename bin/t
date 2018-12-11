@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+os=$(uname)
+
+case $os in
+  Darwin)
+    /usr/bin/time -l "$@"
+    ;;
+  Linux)
+    /usr/bin/time -v "$@"
+    ;;
+  *)
+    echo "Warning: no t for $os"
+esac
