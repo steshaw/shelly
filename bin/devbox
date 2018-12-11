@@ -31,11 +31,19 @@ export CLOUDSDK_COMPUTE_ZONE=$DEVBOX_COMPUTE_ZONE
 name=$DEVBOX_NAME
 
 disk=$name
-diskSize=50GB
+diskSize=${DEVBOX_DISK_SIZE:-50GB}
 diskType=pd-ssd
 
-vCPU=6
-ramGB=12
+vCPU=${DEVBOX_CPU:-6}
+ramGB=${DEVBOX_RAM:-10}
+
+if false; then
+  echo "diskSize=[[$diskSize]]"
+  echo "vCPU=[[$vCPU]]"
+  echo "ramGB=[[$ramGB]]"
+  exit
+fi
+
 machineType="custom-${vCPU}-$(($ramGB * 1024))"
 
 imageProject=ubuntu-os-cloud
