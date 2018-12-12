@@ -190,7 +190,8 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-sourceExists ~/.shrc
+# shellcheck source=etc/shrc
+source $SHELLY_HOME/etc/shrc
 
 # Kubernetes
 if has kubectl; then
