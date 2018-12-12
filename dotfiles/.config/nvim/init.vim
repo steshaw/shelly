@@ -19,6 +19,7 @@ fun Plugs()
   Plug 'ledger/vim-ledger'
   Plug 'chr4/nginx.vim'
   Plug 'w0rp/ale'
+  Plug 'LnL7/vim-nix'
 "  Plug 'scrooloose/syntastic'
 
   " Misc.
