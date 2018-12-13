@@ -12,7 +12,7 @@ setEditor() {
   if has "$editor"; then
     export VISUAL
     VISUAL=$(command -v "$editor")
-    Echo "VISUAL = $VISUAL"
+    Echo "VISUAL=$VISUAL"
     return 0
   else
     Echo "We don't have $editor"
@@ -30,9 +30,11 @@ set -o vi
 # Aliases
 
 function peekAlias {
-  alias=$1
-  if hasTty; then
-    alias "$alias" 2>/dev/null || echo "alias $alias does not exist"
+  if [[ $SHELLY_NOISY != false ]]; then
+    alias=$1
+    if hasTty; then
+      alias "$alias" 2>/dev/null || echo "alias $alias does not exist"
+    fi
   fi
 }
 
@@ -110,5 +112,12 @@ if isBash; then
   CDPATH=$(IFS=':'; echo "${cdpath[*]}")
   unset cdpath
 fi
+
+#
+# Source etc/shrc.d/*
+#
+for file in $SHELLY_HOME/etc/shrc.d/*; do
+  sourceExists "${file}"
+done
 
 sourceExists ~/.travis/travis.sh # for travis gem

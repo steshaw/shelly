@@ -1,5 +1,5 @@
 if has docker-machine; then
-  eval "$(docker-machine env)"
+  eval "$(docker-machine env 2>/dev/null)"
 fi
 
 sourceExists /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion

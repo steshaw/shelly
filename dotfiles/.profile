@@ -3,20 +3,22 @@
 export SHELLY_DEV_DIR=~/dev
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
+SHELLY_NOISY=${SHELLY_NOISY:-false}
+
 # shellcheck source=etc/functions.sh
 source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.profile
 
 function prettyPath {
-  if hasTty; then
+  if [[ $SHELLY_NOISY != false ]] && hasTty; then
     echo "$@" "{"
     echo "$PATH" | tr : '\n' | perl -pe 's/^/  /'
     echo "}"
   fi
 }
 
-prettyPath "PATH (before) = "
+prettyPath "PATH (before) ="
 
 #
 # On Mac, this is required.
@@ -94,7 +96,7 @@ fi
 #
 prependPaths ~/.local/bin ~/bin
 
-prettyPath "PATH (after) = "
+prettyPath "PATH (after) ="
 macos-sync-env PATH
 
 sourceExists ~/.profile.local

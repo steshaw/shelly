@@ -53,5 +53,7 @@ hasTty() {
 
 # Only echo when we have a tty. This is so that scp will work.
 Echo() {
-  hasTty && echo "$@"
+  if [[ $SHELLY_NOISY != false ]]; then
+    hasTty && echo "$@"
+  fi
 }
