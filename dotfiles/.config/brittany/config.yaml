@@ -25,12 +25,12 @@ conf_obfuscate: false
 conf_roundtrip_exactprint_only: false
 conf_version: 1
 conf_layout:
-  lconfig_reformatModulePreamble: false
+  lconfig_reformatModulePreamble: true
   lconfig_altChooser:
     tag: AltChooserBoundedSearch
     contents: 3
   lconfig_allowSingleLineExportList: true
-  lconfig_importColumn: 60
+  lconfig_importColumn: 0
   lconfig_hangingTypeSignature: false
   lconfig_importAsColumn: 0
   lconfig_alignmentLimit: 30
@@ -41,4 +41,6 @@ conf_layout:
   lconfig_indentPolicy: IndentPolicyFree
   lconfig_indentWhereSpecial: true
   lconfig_columnAlignMode:
-    tag: ColumnAlignModeDisabled
+    tag: ColumnAlignModeMajority
+    contents: 0.7
+#    tag: ColumnAlignModeDisabled
