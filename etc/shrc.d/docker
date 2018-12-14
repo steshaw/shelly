@@ -2,6 +2,17 @@ if has docker-machine; then
   eval "$(docker-machine env 2>/dev/null)"
 fi
 
-sourceExists /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion
-sourceExists /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion
-sourceExists /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion
+_main() {
+  if isZsh || isBash; then
+    isZsh && shell=zsh
+    isBash && shell=bash
+
+    dockerEtc=/Applications/Docker.app/Contents/Resources/etc/
+
+    sourceExists "${dockerEtc}/docker.${shell}-completion"
+    sourceExists "${dockerEtc}/docker-machine.${shell}-completion"
+    sourceExists "${dockerEtc}/docker-compose.${shell}-completion"
+  fi
+}
+_main
+unset -f _main
