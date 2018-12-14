@@ -1,0 +1,2 @@
+isBash && sourceExists ~/.iterm2_shell_integration.bash
+isZsh && sourceExists ~/.iterm2_shell_integration.zsh
