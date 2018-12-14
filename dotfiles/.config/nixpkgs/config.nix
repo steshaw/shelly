@@ -1,4 +1,5 @@
 {
+/*
   packageOverrides = super: let self = super.pkgs; in {
     myHaskellEnv = self.haskell.packages.ghc802.ghcWithPackages
       (haskellPackages: with haskellPackages; [
@@ -8,4 +9,5 @@
         cabal-install alex happy hasktags haskintex
       ]);
   };
+*/
 }
