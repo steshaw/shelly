@@ -80,6 +80,9 @@ alias sghci='stack exec -- ghci'
 
 alias pj='pijul'
 
+alias k8s='kubectl'
+alias kube='kubectl'
+
 # Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
 peekAlias gc; gc='git commit -v'; peekAlias gc
 peekAlias gaa; alias gaa='git add --all'; peekAlias gaa
