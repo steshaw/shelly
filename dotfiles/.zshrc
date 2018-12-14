@@ -93,7 +93,8 @@ if [[ $ZSH_THEME == avit ]]; then
   CARET2='  ↪'
   PROMPT='
 %{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
-%{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f'
+%{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f%{$(iterm2_prompt_end)%}'
+#%{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f'
   PROMPT2='%{$fg[$CARETCOLOR]%}${CARET2}%{$reset_color%} '
   [[ $USER == 'root' ]] && CARETCOLOR='red' || CARETCOLOR='green'
   ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
@@ -178,5 +179,8 @@ autoload -U +X bashcompinit && bashcompinit
 # FIXME: Seemingly have to source this from the .zshrc for it to work.
 sourceExists ~/.profile.d/haskell-stack
 sourceExists ~/.profile.d/google-cloud-sdk
+
+# shellcheck source=etc/shrc
+source $SHELLY_HOME/etc/shrc
 
 # }}}
