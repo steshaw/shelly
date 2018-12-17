@@ -29,7 +29,7 @@ homeFromBin() {
   command=$1
   bin=$(command -v "$command")
   if [ -n "$bin" ]; then
-    bin=$(RealPath "$bin")
+    bin=$(realpath "$bin")
     dirname "$(dirname "$bin")"
   fi
 }
