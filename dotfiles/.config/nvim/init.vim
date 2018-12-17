@@ -15,12 +15,13 @@ fun Plugs()
   Plug 'tpope/vim-speeddating' " dependency
 
   " Modes
+  Plug 'LnL7/vim-nix'
+  Plug 'chr4/nginx.vim'
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
-  Plug 'chr4/nginx.vim'
-  Plug 'w0rp/ale'
-  Plug 'LnL7/vim-nix'
 "  Plug 'scrooloose/syntastic'
+  Plug 'w0rp/ale'
+  Plug 'ziglang/zig.vim'
 
   " Misc.
   Plug 'ntpeters/vim-better-whitespace'
