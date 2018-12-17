@@ -1,23 +1,27 @@
 #!/usr/bin/env bash
 
 if [[ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]]; then
-  CLOUD_SDK_HOME=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+  CLOUDSDK_HOME=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
 elif [[ -d /usr/lib/google-cloud-sdk ]]; then
-  CLOUD_SDK_HOME=/usr/lib/google-cloud-sdk
+  CLOUDSDK_HOME=/usr/lib/google-cloud-sdk
+elif [[ -d /snap/google-cloud-sdk/current/ ]]; then
+  CLOUDSDK_HOME=/snap/google-cloud-sdk/current
 else
   return
 fi
 
+Echo CLOUDSDK_HOME=$CLOUDSDK_HOME
+
 if isBash; then
-  false && sourceExists "${CLOUD_SDK_HOME}/path.bash.inc"
-  sourceExists "${CLOUD_SDK_HOME}/completion.bash.inc"
+  sourceExists "${CLOUDSDK_HOME}/path.bash.inc"
+  sourceExists "${CLOUDSDK_HOME}/completion.bash.inc"
 elif isZsh; then
-  false && sourceExists "${CLOUD_SDK_HOME}/path.zsh.inc"
-  if [[ -r "${CLOUD_SDK_HOME}/completion.zsh.inc" ]]; then
-    sourceExists "${CLOUD_SDK_HOME}/completion.zsh.inc"
+  sourceExists "${CLOUDSDK_HOME}/path.zsh.inc"
+  if [[ -r "${CLOUDSDK_HOME}/completion.zsh.inc" ]]; then
+    sourceExists "${CLOUDSDK_HOME}/completion.zsh.inc"
   else
     # Try to use bash completion script.
-    sourceExists "${CLOUD_SDK_HOME}/completion.bash.inc"
+    sourceExists "${CLOUDSDK_HOME}/completion.bash.inc"
   fi
 else
   Echo 'Warning: no completion for google-cloud-sdk for your shell'
