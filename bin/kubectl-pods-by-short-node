@@ -3,6 +3,7 @@
 set -euo pipefail
 
 kubectl get pods \
+    "$@" \
     -o='custom-columns=Node:.spec.nodeName,Name:.metadata.name' \
     --sort-by='{.spec.nodeName}' \
     --no-headers |
