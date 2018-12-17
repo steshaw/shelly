@@ -2,11 +2,13 @@
 
 set -euo pipefail
 
+script=$(basename "$0")
 if [[ $# -ne 1 ]]; then
-  usage: $(basename $0) namespace >&2
+  echo "usage: $script namespace" >&2
   exit 2
 fi
 
 namespace=$1; shift
 
-kubectl config set-context $(kubectl config current-context) --namespace=$namespace
+kubectl config set-context "$(kubectl config current-context)" \
+  --namespace="$namespace"
