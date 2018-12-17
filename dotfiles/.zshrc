@@ -91,6 +91,15 @@ if [[ $ZSH_THEME == avit ]]; then
   }
   CARET='$'
   CARET2='  ↪'
+
+  # Define dummy iterm prompt functions if not available.
+  if ! whence -f iterm2_prompt_mark >/dev/null; then
+    iterm2_prompt_mark() {
+    }
+    iterm2_prompt_end() {
+    }
+  fi
+
   PROMPT='
 %{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
 %{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f%{$(iterm2_prompt_end)%}'
