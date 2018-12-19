@@ -5,6 +5,6 @@ set -euo pipefail
 kubectl get pods \
     "$@" \
     -o='custom-columns=Node:.spec.nodeName,Name:.metadata.name' \
-    --sort-by='{.spec.nodeName}' \
+    --sort-by='.spec.nodeName' \
     --no-headers |
   perl -ane '@n = split(/-/, $F[0]); print "$n[$#n]  $F[1]\n"'
