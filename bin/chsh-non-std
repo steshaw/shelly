@@ -3,20 +3,21 @@
 # Switch login shell back to bash.
 #
 
-set -eu
+set -euo pipefail
 
+script=$(basename "$0")
 if [[ $# -ne 1 ]]; then
   cat <<! 1>&2
-usage: $(basename $0) shell
+usage: ${script} shell
 
-  shell - e.g. bash or zsh  
+  shell - e.g. bash or zsh
 !
   exit 2
 fi
 
 shell=$1
 
-shell="$(which $shell)"
+shell=$(command -v "$shell")
 if ! grep -Fxq "${shell}" /etc/shells; then
   echo "${shell}" | sudo tee -a /etc/shells
 fi
