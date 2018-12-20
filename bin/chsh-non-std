@@ -21,4 +21,4 @@ shell=$(command -v "$shell")
 if ! grep -Fxq "${shell}" /etc/shells; then
   echo "${shell}" | sudo tee -a /etc/shells
 fi
-chsh -s "${shell}"
+sudo chsh -s "${shell}" "$USER"
