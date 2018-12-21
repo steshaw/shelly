@@ -8,13 +8,3 @@ templates:
     copyright: (c) 2018, Steven Shaw
     github-username: steshaw
     category: Example
-
-ghc-options:
-  "$locals": -optP-Wno-nonportable-include-path
-#  "hestia": -optP-Wno-nonportable-include-path
-
-extra-include-dirs:
-- /usr/local/opt/openssl/include
-
-extra-lib-dirs:
-- /usr/local/opt/openssl/lib
