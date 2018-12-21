@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(stack path --global-pkg-db)"
+find -- *.conf | perl -pe 's/\.conf$//'
