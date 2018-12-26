@@ -105,6 +105,7 @@ alias ocaml='rlwrap ocaml'
 # For bash, it's processed into CDPATH.
 cdpath=(
   .
+  ~
   ~/dev
   ~/dev/steshaw
   ~/dev/tlcsrc
