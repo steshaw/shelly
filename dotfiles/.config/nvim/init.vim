@@ -20,6 +20,7 @@ fun Plugs()
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
 "  Plug 'scrooloose/syntastic'
+  Plug 'vmchale/ipkg-vim'
   Plug 'w0rp/ale'
   Plug 'ziglang/zig.vim'
 
