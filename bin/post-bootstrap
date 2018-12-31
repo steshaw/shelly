@@ -7,6 +7,7 @@ shellyDir=$(dirname "${binDir}")
 cd "$shellyDir"
 
 install-brew
+source ~/.profile.d/000-linuxbrew
 echo
 create-xterm-24bit
 echo
