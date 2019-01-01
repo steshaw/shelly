@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+uri=gs://nixos-cloud-images/nixos-image-18.09.1228.a4c4cbb613c-x86_64-linux.raw.tar.gz
+name=nixos-18-09-1228-a4c4cbb613c
+
+gcloud compute images create ${name} --family nixos --source-uri ${uri}
