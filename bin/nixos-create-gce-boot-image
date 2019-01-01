@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mkdir -p .tmp
+BUCKET_NAME=morning-mist-images \
+  BOTO_CONFIG=/dev/null \
+  TMPDIR=$PWD/.tmp \
+    ~/dev/NixOS/nixpkgs/nixos/maintainers/scripts/gce/create-gce.sh
