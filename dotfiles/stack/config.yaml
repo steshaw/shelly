@@ -8,3 +8,5 @@ templates:
     copyright: (c) 2018, Steven Shaw
     github-username: steshaw
     category: Example
+
+allow-newer: true
