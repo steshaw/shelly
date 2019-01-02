@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ "$(uname)" = 'Darwin' ]]; then
+if [[ "$(uname)" = 'Darwin' ]] && /usr/libexec/java_home 2>/dev/null; then
   JAVA_HOME=$(/usr/libexec/java_home)
   export JAVA_HOME
   macos-sync-env JAVA_HOME
