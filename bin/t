@@ -6,7 +6,11 @@ os=$(uname)
 
 case $os in
   Darwin)
-    /usr/bin/time -l "$@"
+    if command -v gtime >/dev/null; then
+      gtime -v "$@"
+    else
+      /usr/bin/time -l "$@"
+    fi
     ;;
   Linux)
     /usr/bin/time -v "$@"
