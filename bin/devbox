@@ -3,7 +3,7 @@
 set -euo pipefail
 ${DEBUG:-}
 
-script=$(basename $0)
+script=$(basename "$0")
 
 Usage() {
   cat <<EOF >&2
@@ -37,17 +37,27 @@ diskType=pd-ssd
 vCPU=${DEVBOX_CPU:-6}
 ramGB=${DEVBOX_RAM:-10}
 
+machineType="custom-${vCPU}-$((ramGB * 1024))"
+
+if true; then
+  image=nixos-18-09-1228-a4c4cbb613c
+  imageArgs="--image=${image}"
+else
+  imageProject=ubuntu-os-cloud
+  imageFamily=ubuntu-1804-lts
+  imageArgs="
+    --image-family=$imageFamily
+    --image-project=$imageProject"
+fi
+
 if false; then
   echo "diskSize=[[$diskSize]]"
   echo "vCPU=[[$vCPU]]"
   echo "ramGB=[[$ramGB]]"
+  echo "machineType=[[$machineType]]"
+  echo "imageArgs=[[$imageArgs]]"
   exit
 fi
-
-machineType="custom-${vCPU}-$(($ramGB * 1024))"
-
-imageProject=ubuntu-os-cloud
-imageFamily=ubuntu-1804-lts
 
 tags='dev,http-server,https-server'
 
@@ -148,8 +158,7 @@ elif [[ $command == create-fresh ]]; then
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
     --preemptible \
-    --image-family=$imageFamily \
-    --image-project=$imageProject \
+    "${imageArgs}" \
     --boot-disk-device-name="$name" \
     --boot-disk-size=$diskSize \
     --boot-disk-type=$diskType \
