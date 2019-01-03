@@ -1,11 +1,11 @@
 if [[ $OSTYPE == linux* ]]; then
   export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$(uname -n).sock
-  echo SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+  Echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK"
   ssh-add -l >/dev/null 2>/dev/null
   if [[ $? -ge 2 ]]; then
-    echo "Starting ssh-agent"
+    Echo 'Starting ssh-agent'
     ssh-agent -a "$SSH_AUTH_SOCK"
   else
-    echo "ssh-agent already started"
+    Echo 'ssh-agent already started'
   fi
 fi
