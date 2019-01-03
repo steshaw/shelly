@@ -25,7 +25,7 @@ unset VISUAL
 setEditor nvim || setEditor vim
 [[ -n $VISUAL ]] && export EDITOR=$VISUAL
 
-set -o vi
+set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 
 # Aliases
 
