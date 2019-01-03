@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-#
-# Delegate to gpg2 or gpg.
-#
-
 set -euo pipefail
 
-if command -v gpg2 >/dev/null; then
-  exec gpg2 "$@"
-else
-  exec gpg "$@"
-fi
+os=$(uname)
+script=$(basename "$0")
+
+case $os in
+  Darwin)
+    gpg "$@"
+    ;;
+  Linux)
+    gpg "$@"
+    ;;
+  *)
+    echo "Warning: no $script for $os"
+esac
