@@ -19,5 +19,4 @@ echo
 install-python-neovim
 echo
 echo 'Doing myrepos checkout ...'
-# No idea _why_ we need `--directory` here...
 mr --directory "$HOME" checkout
