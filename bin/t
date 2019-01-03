@@ -13,7 +13,7 @@ case $os in
     fi
     ;;
   Linux)
-    /usr/bin/time -v "$@"
+    command time -v "$@"
     ;;
   *)
     echo "Warning: no t for $os"
