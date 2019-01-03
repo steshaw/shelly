@@ -24,7 +24,7 @@ LD_LIBRARY_PATH=$SHELLY_ORIGINAL_LD_LIBRARY_PATH
 DYLD_LIBRARY_PATH=$SHELLY_ORIGINAL_DYLD_LIBRARY_PATH
 
 if [[ -d "$SHELLY_ENV" ]]; then
-  for dir in $(/bin/ls ${SHELLY_ENV}/); do
+  for dir in $(command ls ${SHELLY_ENV}/); do
     dir=${SHELLY_ENV}/$dir
     if [[ -d "$dir/" ]]; then
       binDir=$dir/bin
