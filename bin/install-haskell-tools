@@ -6,7 +6,7 @@ if [[ $(uname) == Linux ]]; then
   sudo apt-get -qqy install libtinfo-dev
 fi
 
-exec stack install --resolver='lts-12.22' \
+exec stack install --resolver='lts-12.26' \
   apply-refact \
   brittany \
   hasktags \
