@@ -30,8 +30,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     agda
+   '(agda
      auto-completion
      better-defaults
      coq
@@ -74,7 +73,6 @@ values."
      typescript
      version-control
      vimscript
-     vim-powerline
      yaml
      )
    ;; List of additional packages that will be installed without being
@@ -158,7 +156,9 @@ values."
 ;;   dotspacemacs-themes '(zen-and-art
 ;;                         twilight)
    dotspacemacs-themes '(molokai
-                         fogus)
+                         fogus
+                         spacemacs-dark
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -343,6 +343,8 @@ you should place your code here."
 
   ; Seems you need an explicit 'server-start' on the `develop` branch.
   (server-start)
+
+  (setq powerline-default-separator 'arrow)
 
   ; Do case-sensitive searching.
 ;  (setq case-fold-search nil)
