@@ -60,7 +60,9 @@ let maplocalleader = "\\"
 
 call Plug()
 
-let g:syntastic_sh_shellcheck_args="-x"
+let g:syntastic_sh_shellcheck_args = "-x"
+
+let g:airline_powerline_fonts = 1
 
 " Don't reset the cursor style.
 " i.e. keep blinking underline from iTerm2 configuration.
