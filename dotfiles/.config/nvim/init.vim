@@ -26,15 +26,16 @@ fun Plugs()
   Plug 'ziglang/zig.vim'
 
   " Misc.
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'whatyouhide/vim-lengthmatters'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'kien/ctrlp.vim'
-  Plug 'scrooloose/nerdtree'
+  Plug 'ntpeters/vim-better-whitespace'
   Plug 'scrooloose/nerdcommenter'
+  Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'airblade/vim-gitgutter'
+  Plug 'whatyouhide/vim-lengthmatters'
 endfun
 
 fun Plug()
