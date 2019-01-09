@@ -10,6 +10,12 @@ source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.profile
 
+if isZsh; then
+  # Set up bash completion.
+  autoload -U +X compinit && compinit
+  autoload -U +X bashcompinit && bashcompinit
+fi
+
 function prettyPath {
   if [[ $SHELLY_NOISY != false ]] && hasTty; then
     echo "$@" "{"
