@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+isGitRepo() {
+  git rev-parse --git-dir >/dev/null 2>&1
+}
+
+script=$(basename "$0")
+if ! isGitRepo; then
+  echo "${script}: not a git directory." 1>&2
+  exit 2
+fi
+
+if ! git symbolic-ref HEAD >/dev/null 2>&1; then
+  echo "${script}: not on branch" 1>&2
+  exit 1
+fi
+
+lbranch=$(git symbolic-ref --short HEAD)
+echo "lbranch = ${lbranch}"
+
+if git config "branch.${lbranch}.remote" >/dev/null; then
+  echo Has remote tracking branch.
+
+  LOCAL_BRANCH=$(git name-rev --name-only HEAD)
+  TRACKING_BRANCH=$(git config "branch.$LOCAL_BRANCH.merge")
+  TRACKING_REMOTE=$(git config "branch.$LOCAL_BRANCH.remote")
+  REMOTE_URL=$(git config "remote.$TRACKING_REMOTE.url")
+
+  echo "LOCAL_BRANCH=$LOCAL_BRANCH"
+  echo "TRACKING_BRANCH=$TRACKING_BRANCH"
+  echo "TRACKING_REMOTE=$TRACKING_REMOTE"
+  echo "REMOTE_URL=$REMOTE_URL"
+
+  # if local branch is already tracking an upstream.
+  remote=$(git config branch."${lbranch}".remote)
+  echo "remote = ${remote}"
+  rbranchO=$(git config branch."${lbranch}".merge)
+  echo "rbranchO = ${rbranchO}"
+  rbranch=${rbranchO/refs\/heads\//}
+  echo "rbranch = ${rbranch}"
+
+  # shellcheck disable=SC2016
+  echo 'Using: git rev-list --reverse "${lbranch} --not --remotes'
+  for rev in $(git rev-list --reverse "${lbranch}" --not --remotes); do
+    echo git push "${remote}" "${rev}:${rbranch}"
+  done
+else
+  fromBranch=origin/master
+  fromBranch=close-jobs-for-expired-trials # FIXME: Remove. Parameterise?
+  from=$(git merge-base $fromBranch "${lbranch}")
+  echo "from = [[$from]]"
+
+  # Create origin/${lbranch} in the local repository and set that as the
+  # upstream of branch.
+  echo git push -u origin "${from}:refs/heads/${lbranch}"
+
+  # shellcheck disable=SC2016
+  echo 'Using: git rev-list --reverse "${from}..${lbranch}'
+  for rev in $(git rev-list --reverse "${from}..${lbranch}"); do
+    echo git push origin "$rev:${lbranch}"
+  done
+fi
