@@ -7,7 +7,7 @@ _main() {
     isZsh && shell=zsh
     isBash && shell=bash
 
-    dockerEtc=/Applications/Docker.app/Contents/Resources/etc/
+    dockerEtc=/Applications/Docker.app/Contents/Resources/etc
 
     sourceExists "${dockerEtc}/docker.${shell}-completion"
     sourceExists "${dockerEtc}/docker-machine.${shell}-completion"
