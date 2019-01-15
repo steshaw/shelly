@@ -2,6 +2,7 @@
 /build-plan-cache/
 /global/
 /indices/
+/loaded-snapshot-cache/
 /precompiled/
 /programs/
 /setup-exe-cache/
