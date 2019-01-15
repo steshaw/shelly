@@ -1,5 +1,12 @@
 # vim:fileencoding=utf-8:ft=zsh:foldmethod=marker
 
+if [[ -z $SHELLY_HOME ]]; then
+  export SHELLY_DEV_DIR=~/dev
+  export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
+fi
+
+source $SHELLY_HOME/etc/functions.sh
+
 Echo "Executing ~/.zshrc"
 
 # If you come from bash you might have to change your $PATH.
@@ -100,8 +107,12 @@ if [[ $ZSH_THEME == avit ]]; then
     }
   fi
 
+  function _shell() {
+    echo "%{$fg[green]%}zsh%{$reset_color%}"
+  }
+
   PROMPT='
-%{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(git_prompt_info) $(_ruby_version)
+%{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(_shell) $(git_prompt_info) $(_ruby_version)
 %{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f%{$(iterm2_prompt_end)%}'
 #%{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f'
   PROMPT2='%{$fg[$CARETCOLOR]%}${CARET2}%{$reset_color%} '
@@ -172,7 +183,7 @@ export PAGER='less --quit-if-one-screen --no-init'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 function myMultilinePrompt() {
-  local prompt_char="%(#:#:$)"
+  local prompt_char="z%(#:#:$)"
   local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
   PROMPT=$"
 $fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ \$(git_prompt_info)

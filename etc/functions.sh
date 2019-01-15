@@ -51,9 +51,15 @@ hasTty() {
   [[ -t 1 ]]
 }
 
+shellyIsNoisy() {
+  [[ $SHELLY_NOISY == true || $SHELLY_NOISY == 1 ]]
+}
+
+shellyShouldEcho() {
+  shellyIsNoisy && hasTty
+}
+
 # Only echo when we have a tty. This is so that scp will work.
 Echo() {
-  if [[ $SHELLY_NOISY != false ]]; then
-    hasTty && echo "$@"
-  fi
+  shellyShouldEcho && echo "$@"
 }

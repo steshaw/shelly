@@ -30,11 +30,9 @@ set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 # Aliases
 
 function peekAlias {
-  if [[ $SHELLY_NOISY != false ]]; then
+  if shellyShouldEcho; then
     alias=$1
-    if hasTty; then
-      alias "$alias" 2>/dev/null || echo "alias $alias does not exist"
-    fi
+    alias "$alias" 2>/dev/null || echo "alias $alias does not exist"
   fi
 }
 

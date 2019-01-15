@@ -1,6 +1,9 @@
-#!/usr/bin/env zsh
+export SHELLY_DEV_DIR=~/dev
+export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
-echo "Executing ~/.zprofile"
+source $SHELLY_HOME/etc/functions.sh
 
-echo "Delegating to ~/.profile"
+Echo "Executing ~/.zprofile"
+
+Echo "Delegating to ~/.profile"
 source ~/.profile

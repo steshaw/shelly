@@ -3,8 +3,6 @@
 export SHELLY_DEV_DIR=~/dev
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
-SHELLY_NOISY=${SHELLY_NOISY:-false}
-
 # shellcheck source=etc/functions.sh
 source $SHELLY_HOME/etc/functions.sh
 
@@ -17,7 +15,7 @@ if isZsh; then
 fi
 
 function prettyPath {
-  if [[ $SHELLY_NOISY != false ]] && hasTty; then
+  if shellyIsNoisy && hasTty; then
     echo "$@" "{"
     echo "$PATH" | tr : '\n' | perl -pe 's/^/  /'
     echo "}"

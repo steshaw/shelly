@@ -1,11 +1,9 @@
-#!/usr/bin/env bash
-
 if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_DEV_DIR=~/dev
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
 
-# shellcheck source=etc/functions.sh
+# shellcheck source=../etc/functions.sh
 source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.bashrc
@@ -22,12 +20,11 @@ if has brew; then
     sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
   elif [[ $BASH_VERSION == 3.* ]]; then
     base="$(brew --prefix)/Cellar/bash-completion/1.3_3/etc"
+    # shellcheck disable=SC2034
     BASH_COMPLETION="$base/bash_completion"
+    # shellcheck disable=SC2034
     BASH_COMPLETION_DIR="$base/bash_completion.d"
-#    set -x
-#    sourceExists "$base/etc/bash_completion"
     sourceExists "$base/profile.d/bash_completion.sh"
-#    set +x
   else
     # Make a best effort to find the appropriate bash-completion files.
 
@@ -35,7 +32,6 @@ if has brew; then
     sourceExists "$(brew --prefix)/etc/bash_completion"
     # For bash-completion@2.
     sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
-    # complete -D -o bashdefault -o default
   fi
 else
   sourceExists /etc/profile.d/bash_completion.sh
@@ -80,6 +76,7 @@ bash_prompt() {
   local EMK="\[\033[1;30m\]"
   # shellcheck disable=SC2034
   local EMR="\[\033[1;31m\]"
+  # shellcheck disable=SC2034
   local EMG="\[\033[1;32m\]"
   # shellcheck disable=SC2034
   local EMY="\[\033[1;33m\]"
@@ -110,25 +107,20 @@ bash_prompt() {
   local BGW="\[\033[47m\]"
 
   if [[ $(id -u) -eq "0" ]]; then
-    local UPC=${R}        # user's color
-    local UP='\#'         # user's prompt
+    local UPC=${R}        # user prompt colour
+    local UP='\#'         # user prompt
   else
-    local UPC=${G}        # user's color
-    local UP='➯'          # user's prompt
-    local UP='➮'          # user's prompt
-    local UP='➭'          # user's prompt
-    local UP='➩'          # user's prompt
-    local UP='➪'          # user's prompt
-    local UP='→'          # user's prompt
-    local UP='→'          # user's prompt
-    local UP='➝'          # users' prompt
-    local UP='\$'         # user's prompt
+    local UPC=${G}        # user prompt colour
+    local UP='\$'         # user prompt
   fi
 
-  local UC="${C}" # user@host colour
-  local DC="${EMB}" # pwd colour
-  local SC="${M}" # separator colour
-  local GC="${Y}" # git prompt colour
+  local user_host_colour="${C}"
+  local shell_colour="${UPC}"
+  local pwd_colour="${EMB}"
+  local separator_colour="${M}"
+  local git_prompt_colour="${Y}"
+  local nix_colour="${M}"
+  local reset_colour="${NONE}"
 
   # Avoid some arrow characters when running under Google Cloud Shell.
   if [[ -n "$DEVSHELL_IP_ADDRESS" ]]; then
@@ -139,18 +131,29 @@ bash_prompt() {
     local BOT_LEFT='╰'
   fi
 
-  local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${UC}\${debian_chroot:+(${debian_chroot:-})}\u@\h${SC}:${DC}\w"
-  local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${NONE} "
+  local shell="${shell_colour}bash${reset_colour}"
+  local nix="${IN_NIX_SHELL:+ ${nix_colour}${IN_NIX_SHELL}${reset_colour}}"
+  local user_host_pwd="\
+${user_host_colour}\${debian_chroot:+(${debian_chroot:-})}\u@\h\
+${separator_colour}:\
+${pwd_colour}\w$reset_colour"
+  local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${user_host_pwd} ${shell}${nix}"
+  local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${reset_colour} "
   local iterm2Mark="\[$(iterm2_prompt_mark)\]"
 
   GIT_PS1_1="${TITLEBAR}\n${PROMPT_LINE_1}"
   GIT_PS1_2="\n${iterm2Mark}${PROMPT_LINE_2}"
-  GIT_PS1_3=" ${GC}[%s${GC}]"
+  GIT_PS1_3=" ${git_prompt_colour}[%s${git_prompt_colour}]"
 
+  # shellcheck disable=SC2034
   GIT_PS1_SHOWDIRTYSTATE=true
+  # shellcheck disable=SC2034
   GIT_PS1_SHOWSTASHSTATE=true
+  # shellcheck disable=SC2034
   GIT_PS1_SHOWUNTRACKEDFILES=true
+  # shellcheck disable=SC2034
   GIT_PS1_SHOWUPSTREAM='auto'
+  # shellcheck disable=SC2034
   GIT_PS1_SHOWCOLORHINTS=true
 
   setGitPrompt() {
@@ -190,11 +193,12 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-# shellcheck source=etc/shrc
+# shellcheck source=../etc/shrc
 source $SHELLY_HOME/etc/shrc
 
 # Kubernetes
 if has kubectl; then
+  # shellcheck source=/dev/null
   source <(kubectl completion bash)
 fi
 
