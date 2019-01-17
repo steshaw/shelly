@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# HT: https://nmattia.com/posts/2018-03-21-nix-reproducible-setup-linux-macos.html
+#
+
+set -euo pipefail
+
+exec nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ hscolour pretty-show $* ])"
