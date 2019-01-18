@@ -10,6 +10,9 @@ checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
 [.oh-my-zsh]
 checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
 
+[.oh-my-zsh/custom/plugins/zsh-completions]
+checkout = git clone https://github.com/zsh-users/zsh-completions
+
 [dev/steshaw/steshaw.org]
 checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 

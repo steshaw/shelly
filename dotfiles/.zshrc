@@ -77,6 +77,7 @@ plugins=(
   git
   github
   vi-mode
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
