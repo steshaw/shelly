@@ -13,6 +13,7 @@ sourceExists() {
   for path_ in "$@"; do
     if [[ -e ${path_} ]];then
       Echo "Sourcing $path_"
+      # shellcheck disable=SC1090
       source "${path_}"
     fi
   done
