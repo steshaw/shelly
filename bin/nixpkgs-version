@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+version() {
+  modern=false
+  if [[ $modern == true ]]; then
+    nix eval --raw nixpkgs.lib.version
+  else
+    nix-instantiate --eval --attr 'version' '<nixpkgs/lib>' | jq --raw-output
+  fi
+}
+
+v=$(version)
+echo "$v"
