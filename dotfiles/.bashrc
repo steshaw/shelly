@@ -1,3 +1,10 @@
+if [[ ! -t 0 ]]; then
+  return
+fi
+if [[ $IN_NIX_SHELL == pure ]]; then
+  return
+fi
+
 if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_DEV_DIR=~/dev
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
