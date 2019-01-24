@@ -6,13 +6,44 @@
 #
 self: super:
 with builtins; rec {
+/*
+  # Trying to get equivalence to compile...
+  haskellPackages = super.haskellPackages.extend (self: super_: {
+    equivalence = super_.equivalence.overrideDerivation (attrs: {
+      doCheck = false;
+      src = super.fetchgit {
+        url = "https://github.com/pa-ba/equivalence";
+        sha256 = "1dr78i7dsydbi7gxr4864an907xydvmybyya5f5lbgdbv2cy1g7i";
+        rev = "b194d4c4b3edd86d786139fdce99a4d19b9e4b57";
+      };
+    });
+  });
+*/
   userPackages = super.userPackages or {} // {
 
     # Packages
+#    Agda = super.haskellPackages.Agda; # Agda is currently broken in nixpkgs
+#    because of equivalence.
     inherit (self)
       cabal2nix
-      git
       direnv
+      gist
+      git # Better to use Homebrew git? Better macOS Keychain (i.e. UseKeychain).
+      htop
+      jq
+      mr
+      neofetch
+      neovim
+      ripgrep
+      rlwrap
+      shellcheck
+      stack
+      tmux
+      tree
+      vim
+      watchman
+      youtube-dl
+      zsh
       ;
 
     # Default packages.
