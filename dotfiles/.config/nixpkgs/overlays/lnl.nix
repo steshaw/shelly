@@ -29,7 +29,9 @@ with builtins; rec {
       direnv
       gist
       git # Better to use Homebrew git? Better macOS Keychain (i.e. UseKeychain).
+      gnupg22
       htop
+      httpie
       jq
       mr
       neofetch
@@ -40,7 +42,7 @@ with builtins; rec {
       stack
       tmux
       tree
-      vim
+#      vim # TODO: Prefer Homebrew vim for now as it has Python2 built in.
       watchman
       youtube-dl
       zsh
