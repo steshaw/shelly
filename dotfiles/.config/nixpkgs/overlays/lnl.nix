@@ -24,6 +24,14 @@ with builtins; rec {
     # Packages
 #    Agda = super.haskellPackages.Agda; # Agda is currently broken in nixpkgs
 #    because of equivalence.
+    # XXX: Should I call this `my_vim` instead?
+    vim = (super.vim_configurable.override {
+      guiSupport = "no";
+      darwinSupport = super.stdenv.isDarwin;
+      python = super.python3;
+    }).overrideAttrs (prevAttrs: {
+      name = "my-vim-${prevAttrs.version}";
+    });
     inherit (self)
       cabal2nix
       direnv
@@ -42,7 +50,6 @@ with builtins; rec {
       stack
       tmux
       tree
-#      vim # TODO: Prefer Homebrew vim for now as it has Python2 built in.
       watchman
       youtube-dl
       zsh
