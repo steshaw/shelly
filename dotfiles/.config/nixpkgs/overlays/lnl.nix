@@ -33,6 +33,7 @@ with builtins; rec {
       name = "my-vim-${prevAttrs.version}";
     });
     inherit (self)
+      bashInteractive_5
       cabal2nix
       direnv
       gist
