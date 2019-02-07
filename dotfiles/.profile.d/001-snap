@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 if [[ -d /snap/bin ]]; then
-  export PATH="/snap/bin:$PATH"
+  export PATH="$PATH:/snap/bin"
 fi
