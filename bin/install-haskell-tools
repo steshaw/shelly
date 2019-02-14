@@ -6,12 +6,14 @@ if [[ $(uname) == Linux ]]; then
   sudo apt-get -qqy install libtinfo-dev
 fi
 
-exec stack install --resolver='lts-12.26' \
+stack install --resolver='lts-13.7' \
   apply-refact \
-  brittany \
   hasktags \
-  hdevtools \
   hindent \
   hlint \
   hoogle \
   stylish-haskell \
+
+stack install --resolver='lts-12.26' \
+  brittany \
+  hdevtools \
