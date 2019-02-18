@@ -30,6 +30,7 @@ if OS.mac?
   brew 'bash-completion@2'
 end
 
+brew 'bat'
 brew 'coreutils'
 brew 'ctags' # exuberant ctags
 brew 'elm' if laptop?
@@ -80,7 +81,7 @@ brew 'rlwrap'
 brew 'ruby-build' if false
 brew 'rust' if laptop?
 brew 'sbt' if false
-brew 'scala' if laptop?
+brew 'scala' if false
 brew 'scalariform' if false
 brew 'shellcheck'
 brew 'sphinx-doc' if laptop?
@@ -153,7 +154,7 @@ if OS.mac?
   cask 'iina' if false
   cask 'intellij-idea-ce' if false
   cask 'iterm2'
-  cask 'java'
+  cask 'java' if false
   cask 'karabiner-elements' if false
   cask 'keybase'
   cask 'key-codes' if false
