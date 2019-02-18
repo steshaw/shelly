@@ -681,7 +681,9 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets)
+    ((intero-targets "auto-close-jobs:lib")
+     (intero-targets "hermes:lib")
+     (intero-targets)
      (intero-targets "auto-close-jobs:lib" "auto-close-jobs:exe:auto-close-jobs")
      (intero-targets "algolia-worker:lib" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "algolia-worker:lib" "thoth:lib")
