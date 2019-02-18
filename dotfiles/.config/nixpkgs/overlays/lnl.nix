@@ -34,6 +34,7 @@ with builtins; rec {
     });
     inherit (self)
       bashInteractive_5
+      bat
       cabal2nix
       direnv
       gist
