@@ -53,7 +53,7 @@ brew 'jq'
 brew 'mariadb' if false
 brew 'mr'
 brew 'neofetch'
-brew 'neovim'
+brew 'neovim' if false
 brew 'nim' if laptop?
 brew 'node' if laptop?
 brew 'ocaml' if laptop?

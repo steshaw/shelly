@@ -45,7 +45,7 @@ with builtins; rec {
       jq
       mr
       neofetch
-      neovim
+#      neovim
       ripgrep
       rlwrap
       shellcheck
