@@ -331,6 +331,16 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+
+  ; UTF-8
+  (set-language-environment 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -344,13 +354,6 @@ you should place your code here."
   ; Seems you need an explicit 'server-start' on the `develop` branch.
   (server-start)
 
-  ; UTF-8
-  (set-language-environment 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (setq locale-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  (set-selection-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8)
 
   (setq powerline-default-separator 'arrow)
 
@@ -681,7 +684,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "auto-close-jobs:exe:auto-close-jobs")
+    ((intero-targets "marx:lib")
+     (intero-targets "auto-close-jobs:exe:auto-close-jobs")
      (intero-targets "hermes:test:hermes-test")
      (intero-targets "thoth:exe:fixtures")
      (intero-targets "auto-close-jobs:lib")
