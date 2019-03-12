@@ -47,7 +47,7 @@ checkout =
 checkout = git clone git@github.com:steshaw/bt-build-base.git
 
 [dev/bt/betterteam-craft]
-checkout = git clone git@github.com:betterteamapp/craft betterteam-craft
+checkout = git clone git@github.com:betterteamapp/betterteam-craft
 
 [dev/bt/interspire-craft]
 checkout = git clone git@github.com:betterteamapp/interspire-craft
