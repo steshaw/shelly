@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: $(basename $0) image" >&2
+  exit 2
+fi
+
+image=$1; shift
+
+docker inspect --format='{{index .RepoDigests 0}}' "${image}"
