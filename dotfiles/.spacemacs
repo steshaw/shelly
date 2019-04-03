@@ -684,7 +684,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "marx:lib")
+    ((intero-targets "resume-converter:lib")
+     (intero-targets "marx:lib")
      (intero-targets "auto-close-jobs:exe:auto-close-jobs")
      (intero-targets "hermes:test:hermes-test")
      (intero-targets "thoth:exe:fixtures")
