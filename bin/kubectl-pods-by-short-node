@@ -4,6 +4,7 @@ set -euo pipefail
 
 kubectl get pods \
     "$@" \
+    --field-selector=status.phase=Running \
     -o='custom-columns=Node:.spec.nodeName,Name:.metadata.name' \
     --sort-by='.spec.nodeName' \
     --no-headers |
