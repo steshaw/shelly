@@ -17,6 +17,7 @@ fun Plugs()
   " Modes
   Plug 'LnL7/vim-nix'
   Plug 'chr4/nginx.vim'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
 "  Plug 'scrooloose/syntastic'
