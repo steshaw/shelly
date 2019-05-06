@@ -20,6 +20,7 @@ fun Plugs()
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
+  Plug 'rust-lang/rust.vim'
 "  Plug 'scrooloose/syntastic'
   Plug 'vmchale/dhall-vim'
   Plug 'vmchale/ipkg-vim'
