@@ -203,12 +203,6 @@ fi
 # shellcheck source=../etc/shrc
 source $SHELLY_HOME/etc/shrc
 
-# Kubernetes
-if has kubectl; then
-  # shellcheck source=/dev/null
-  source <(kubectl completion bash)
-fi
-
 if has hub; then
   alias git=hub
 fi
