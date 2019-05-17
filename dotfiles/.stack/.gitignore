@@ -1,13 +1,14 @@
-/build-plan/
 /build-plan-cache/
+/build-plan/
 /compiler-tools/
+/global-project/
 /global/
 /indices/
 /loaded-snapshot-cache/
 /precompiled/
 /programs/
+/script/
 /setup-exe-cache/
 /setup-exe-src/
 /snapshots/
 /templates/
-/global-project/
