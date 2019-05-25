@@ -1,0 +1,4 @@
+if has gulp; then
+  isBash && eval "$(gulp --completion=bash)"
+  isZsh && eval "$(gulp --completion=zsh)"
+fi
