@@ -1,0 +1,6 @@
+{
+	"autoAdd": false,
+	"issueFormat": "github",
+	"emojiFormat": "emoji",
+	"signedCommit": true
+}
