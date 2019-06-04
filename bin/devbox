@@ -39,7 +39,7 @@ ramGB=${DEVBOX_RAM:-10}
 
 machineType="custom-${vCPU}-$((ramGB * 1024))"
 
-if true; then
+if false; then
   image=nixos-18-09-1228-a4c4cbb613c
   imageArgs="--image=${image}"
 else
@@ -49,6 +49,7 @@ else
     --image-family=$imageFamily
     --image-project=$imageProject"
 fi
+imageArgs=${DEVBOX_IMAGE_ARGS:-${imageArgs}}
 
 if false; then
   echo "diskSize=[[$diskSize]]"
@@ -148,17 +149,18 @@ elif [[ $command == tmux-control-mode ]]; then
 elif [[ $command == set-machine-type ]]; then
 
   gcloud compute instances set-machine-type "$name" \
-    --machine-type=$machineType \
+    --machine-type="$machineType" \
 
 elif [[ $command == create-fresh ]]; then
 
   echo "Creating instance $name..."
+  # shellcheck disable=SC2086
   gcloud compute instances create "$name" \
     --machine-type=$machineType \
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
     --preemptible \
-    "${imageArgs}" \
+    ${imageArgs} \
     --boot-disk-device-name="$name" \
     --boot-disk-size=$diskSize \
     --boot-disk-type=$diskType \
