@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
 if [ -n "$ZSH_VERSION" ]; then
-  source ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+  test -r /Users/steshaw/.opam/opam-init/init.zsh &&
+    . /Users/steshaw/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 else
-  source ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+  test -r /Users/steshaw/.opam/opam-init/init.sh &&
+    . /Users/steshaw/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 fi
