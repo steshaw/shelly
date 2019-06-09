@@ -64,3 +64,16 @@ shellyShouldEcho() {
 Echo() {
   shellyShouldEcho && echo "$@"
 }
+
+thisFile() {
+  local source abs
+  if isZsh; then
+    # shellcheck disable=SC2154
+    source=$(echo "$funcfiletrace" | cut -d: -f1)
+    abs=$source:A
+  else
+    source=$(caller | cut -d' ' -f2)
+    abs=$(realpath "${source}")
+  fi
+  echo "$abs"
+}
