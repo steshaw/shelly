@@ -39,24 +39,34 @@ ramGB=${DEVBOX_RAM:-10}
 
 machineType="custom-${vCPU}-$((ramGB * 1024))"
 
-if false; then
-  image=nixos-18-09-1228-a4c4cbb613c
-  imageArgs="--image=${image}"
-else
-  imageProject=ubuntu-os-cloud
-  imageFamily=ubuntu-1804-lts
-  imageArgs="
-    --image-family=$imageFamily
-    --image-project=$imageProject"
-fi
-imageArgs=${DEVBOX_IMAGE_ARGS:-${imageArgs}}
+declare -a imageArgs
 
-if false; then
+if [[ -n $DEVBOX_IMAGE_ARGS ]]; then
+  imageArgs=("${DEVBOX_IMAGE_ARGS[@]}")
+else
+  useNix=false
+  if $useNix; then
+    image=nixos-18-09-1228-a4c4cbb613c
+    imageArgs=(
+      "--image=${image}"
+    )
+  else
+    imageProject=ubuntu-os-cloud
+    imageFamily=ubuntu-1804-lts
+    imageArgs=(
+      "--image-family=$imageFamily"
+      "--image-project=$imageProject"
+    )
+  fi
+fi
+
+debug_and_exit=false
+if $debug_and_exit; then
   echo "diskSize=[[$diskSize]]"
   echo "vCPU=[[$vCPU]]"
   echo "ramGB=[[$ramGB]]"
   echo "machineType=[[$machineType]]"
-  echo "imageArgs=[[$imageArgs]]"
+  echo "imageArgs=[[${imageArgs[*]}]]"
   exit
 fi
 
@@ -96,6 +106,15 @@ allowDevWeb() {
   gcloud compute firewall-rules create allow-dev-web \
     --description='Allow dev ports' \
     --allow tcp:3000-3001,tcp:7020,tcp:8000-8001,tcp:8080-8081 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=dev
+}
+
+allowNX() {
+  echo "Creating allow-nx..."
+  gcloud compute firewall-rules create allow-nx \
+    --description='Allow NX port' \
+    --allow tcp:4000 \
     --source-ranges=0.0.0.0/0 \
     --target-tags=dev
 }
@@ -144,7 +163,7 @@ elif [[ $command == tmux-control-mode ]]; then
 
   gcloud compute ssh "$name" \
     '--ssh-flag=-tt' \
-    '--command=source ~/.profile && tmux-cc-session'
+    '--command=tmux -CC new-session -AD -s main'
 
 elif [[ $command == set-machine-type ]]; then
 
@@ -154,15 +173,14 @@ elif [[ $command == set-machine-type ]]; then
 elif [[ $command == create-fresh ]]; then
 
   echo "Creating instance $name..."
-  # shellcheck disable=SC2086
   gcloud compute instances create "$name" \
-    --machine-type=$machineType \
+    "--machine-type=$machineType" \
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
     --preemptible \
-    ${imageArgs} \
+    "${imageArgs[@]}" \
     --boot-disk-device-name="$name" \
-    --boot-disk-size=$diskSize \
+    --boot-disk-size="$diskSize" \
     --boot-disk-type=$diskType \
     --no-boot-disk-auto-delete \
     --tags=$tags
@@ -185,8 +203,8 @@ elif [[ $command == create-disk-from-snapshot ]]; then
 
   gcloud compute disks create "$disk" \
     --source-snapshot="$snapshot" \
-    --size=$diskSize \
-    --type=$diskType \
+    --size="$diskSize" \
+    --type="$diskType" \
 
 elif [[ $command == create-from-disk ]]; then
 
@@ -194,7 +212,7 @@ elif [[ $command == create-from-disk ]]; then
   # https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
   gcloud compute instances create "$name" \
-    --machine-type=$machineType \
+    --machine-type="$machineType" \
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
     --preemptible \
@@ -248,6 +266,10 @@ elif [[ $command == allow-dev-web ]]; then
 elif [[ $command == allow-mosh ]]; then
 
   allowMosh
+
+elif [[ $command == allow-nx ]]; then
+
+  allowNX
 
 elif [[ $command == external-ip ]]; then
 
