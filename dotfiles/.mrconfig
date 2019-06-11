@@ -16,65 +16,17 @@ checkout = git clone https://github.com/zsh-users/zsh-completions
 [dev/steshaw/steshaw.org]
 checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 
-[dev/steshaw/idris]
-checkout =
-	 git clone git@github.com:idris-lang/Idris-dev idris
-	 cd idris
-	 git remote add steshaw git@github.com:steshaw/idris
+[dev/steshaw/log]
+checkout = git clone git@github.com:steshaw/log
 
-[dev/steshaw/yesod-postgresql-example]
-checkout = git clone git@github.com:steshaw/yesod-postgresql-example.git
+[dev/bt/bt-app]
+checkout = git clone git@github.com:betterteamapp/solo
 
-[dev/steshaw/idris-chez]
-checkout =
-	 git clone git@github.com:melted/idris-chez.git
-	 cd idris-chez
-	 git remote add steshaw git@github.com:steshaw/idris-chez
-
-[dev/steshaw/idris-elisp]
-checkout = git clone git@github.com:steshaw/idris-elisp
-
-[dev/tlcsrc/log]
-checkout = git clone git@gitlab.com:tlcsrc/log
-
-[dev/bt/solo]
-checkout =
-	 git clone git@github.com:betterteamapp/solo
-	 cd solo
-	 git remote add bitbucket git@bitbucket.org:steshaw/betterteam-solo.git
-
-[dev/bt/bt-build-base]
-checkout = git clone git@github.com:steshaw/bt-build-base.git
-
-[dev/bt/betterteam-craft]
-checkout = git clone git@github.com:betterteamapp/betterteam-craft
+[dev/bt/bt-craft]
+checkout = git clone git@github.com:betterteamapp/bt-craft
 
 [dev/bt/interspire-craft]
 checkout = git clone git@github.com:betterteamapp/interspire-craft
 
-[dev/bt/thesmbguide-craft]
-checkout = git clone git@github.com:betterteamapp/thesmbguide-craft
-
-[dev/bt/zendesk]
-checkout =
-	 git clone git@github.com:steshaw/zendesk.git
-	 cd zendesk
-	 git remote add bt git@github.com:betterteamapp/zendesk.git
-
-[dev/bt/datadog]
-checkout =
-	 git clone git@github.com:iand675/datadog.git
-	 cd datadog
-	 git remote add steshaw git@github.com:steshaw/datadog.git
-
-[dev/bt/dd-middleware]
-checkout =
-	 git clone git@github.com:iand675/dd-middleware.git
-	 cd dd-middleware
-	 git remote add steshaw git@github.com:steshaw/dd-middleware.git
-
-[dev/bt/mandrill]
-checkout =
-	 git clone git@github.com:adinapoli/mandrill.git
-	 cd mandrill
-	 git remote add steshaw git@github.com:steshaw/mandrill.git
+[dev/bt/smb-craft]
+checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
