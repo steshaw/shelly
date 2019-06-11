@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+tmp_dir=~/.local/tmp
+mkdir $tmp_dir
+cd $tmp_dir
+curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+local_bin=~/.local/bin
+mkdir -p $local_bin
+unzip ngrok-stable-linux-amd64.zip -d $local_bin
