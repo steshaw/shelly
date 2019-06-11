@@ -38,8 +38,9 @@ brew 'emacs'
 brew 'findutils' if false
 brew 'fswatch' if false # Using Facebook's watchman currently.
 brew 'ghc' if laptop?
-brew 'git'
 brew 'gist'
+brew 'git'
+brew 'gitmoji'
 brew 'gpg2'
 brew 'graphviz' if false
 brew 'haskell-stack' if laptop? # Broken in Linuxbrew.
@@ -119,6 +120,7 @@ if false
 end
 
 brew 'wget'
+brew 'yarn'
 brew 'youtube-dl' if laptop?
 brew 'zsh'
 
