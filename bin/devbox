@@ -173,12 +173,11 @@ elif [[ $command == set-machine-type ]]; then
 elif [[ $command == create-fresh ]]; then
 
   echo "Creating instance $name..."
+  # shellcheck disable=SC2086
   gcloud compute instances create "$name" \
     "--machine-type=$machineType" \
-    --no-restart-on-failure \
-    --maintenance-policy=TERMINATE \
-    --preemptible \
     "${imageArgs[@]}" \
+    $DEVBOX_CREATE_ARGS \
     --boot-disk-device-name="$name" \
     --boot-disk-size="$diskSize" \
     --boot-disk-type=$diskType \
@@ -211,14 +210,11 @@ elif [[ $command == create-from-disk ]]; then
   # With help from:
   # https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
-#    --maintenance-policy=TERMINATE \
-#    --preemptible \
-
   echo "Creating new instance $name from disk $disk ..."
+  # shellcheck disable=SC2086
   gcloud compute instances create "$name" \
     --machine-type="$machineType" \
-    --no-restart-on-failure \
-    --min-cpu-platform='Intel Skylake' \
+    $DEVBOX_CREATE_ARGS \
     --disk="name=$disk,device-name=$disk,mode=rw,boot=yes,auto-delete=no" \
     --labels=env=development \
     --tags=$tags
@@ -238,11 +234,10 @@ elif [[ $command == status || $command == list ]]; then
 elif [[ $command == create-from-snapshot ]]; then
 
   if [[ $# -ne 2 ]]; then
-    echo "usage: devbox create-from-snapshot zone name"
+    echo "usage: devbox create-from-snapshot name"
     exit 2
   fi
 
-  zone=$1; shift
   name=$1; shift
 
   gcloud compute disks create "$name" \
@@ -250,12 +245,10 @@ elif [[ $command == create-from-snapshot ]]; then
     --source-snapshot="$snapshot" \
     --type=pd-ssd
 
+  # shellcheck disable=SC2086
   gcloud compute instances create "$name" \
     --machine-type="$machineType" \
-    --no-restart-on-failure \
-    --maintenance-policy=TERMINATE \
-    --preemptible \
-    --min-cpu-platform=Automatic \
+    $DEVBOX_CREATE_ARGS \
     --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
     --tags=$tags
 
