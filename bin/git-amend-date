@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+date=$1
+
+GIT_AUTHOR_DATE="${date}"
+GIT_COMMITTER_DATE="${date}" git commit \
+  --date="${GIT_AUTHOR_DATE}" \
+  --amend \
+  --no-edit

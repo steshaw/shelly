@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+set -x
+
+export CLOUDSDK_CORE_DISABLE_PROMPTS=1
+instance=$1; shift
+
+#gcloud compute instances detach-disk $instance --disk=$instance
+gcloud compute instances delete "$instance" --keep-disks=all
+gcloud compute instances create "$instance" \
+  --machine-type=custom-4-24576 \
+  --no-restart-on-failure \
+  --disk=name="$instance,device-name=$instance,mode=rw,boot=yes,auto-delete=no" \
+  --labels=env=development \
+  --tags=dev,http-server,https-server

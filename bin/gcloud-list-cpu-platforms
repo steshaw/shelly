@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# config, csv, default, diff, disable, flattened, get, json, list, multi, none, object, table, text, value, yaml
+gcloud compute zones describe "$CLOUDSDK_COMPUTE_ZONE" \
+  --format="config(availableCpuPlatforms)"
