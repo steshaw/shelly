@@ -52,7 +52,7 @@ with builtins; rec {
 #      neovim
 #      ripgrep
       rlwrap
-      shellcheck
+#      shellcheck
       stack
       tmux
       tree
