@@ -5,10 +5,12 @@
 /global/
 /indices/
 /loaded-snapshot-cache/
+/pantry/
 /precompiled/
 /programs/
 /script/
 /setup-exe-cache/
 /setup-exe-src/
 /snapshots/
+/stack.sqlite3*
 /templates/
