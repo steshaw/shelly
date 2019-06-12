@@ -30,7 +30,7 @@ export CLOUDSDK_COMPUTE_ZONE=$DEVBOX_COMPUTE_ZONE
 
 name=$DEVBOX_NAME
 
-disk=$name
+disk=${DEVBOX_DISK_NAME:-$name}
 diskSize=${DEVBOX_DISK_SIZE:-50GB}
 diskType=pd-ssd
 
@@ -41,7 +41,7 @@ machineType="custom-${vCPU}-$((ramGB * 1024))"
 
 declare -a imageArgs
 
-if [[ -n $DEVBOX_IMAGE_ARGS ]]; then
+if [[ -n "${DEVBOX_IMAGE_ARGS:-}" ]]; then
   imageArgs=("${DEVBOX_IMAGE_ARGS[@]}")
 else
   useNix=false
@@ -211,12 +211,16 @@ elif [[ $command == create-from-disk ]]; then
   # With help from:
   # https://digitalronin.github.io/2015/11/28/a-development-environment-in-the-cloud.html
 
+#    --maintenance-policy=TERMINATE \
+#    --preemptible \
+
+  echo "Creating new instance $name from disk $disk ..."
   gcloud compute instances create "$name" \
     --machine-type="$machineType" \
     --no-restart-on-failure \
-    --maintenance-policy=TERMINATE \
-    --preemptible \
+    --min-cpu-platform='Intel Skylake' \
     --disk="name=$disk,device-name=$disk,mode=rw,boot=yes,auto-delete=no" \
+    --labels=env=development \
     --tags=$tags
 
 elif [[ $command == start || $command == stop ]]; then
@@ -242,12 +246,12 @@ elif [[ $command == create-from-snapshot ]]; then
   name=$1; shift
 
   gcloud compute disks create "$name" \
-    --size=$diskSize \
+    --size="$diskSize" \
     --source-snapshot="$snapshot" \
     --type=pd-ssd
 
   gcloud compute instances create "$name" \
-    --machine-type=$machineType \
+    --machine-type="$machineType" \
     --no-restart-on-failure \
     --maintenance-policy=TERMINATE \
     --preemptible \
