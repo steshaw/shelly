@@ -38,6 +38,7 @@ fun Plugs()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'whatyouhide/vim-lengthmatters'
+  Plug 'rhlobo/vim-super-retab'
 endfun
 
 fun Plug()
