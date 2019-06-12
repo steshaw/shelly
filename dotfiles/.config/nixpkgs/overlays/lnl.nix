@@ -50,7 +50,7 @@ with builtins; rec {
       mr
       neofetch
 #      neovim
-      ripgrep
+#      ripgrep
       rlwrap
       shellcheck
       stack
@@ -90,7 +90,8 @@ with builtins; rec {
       nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
       IFS=- read -r _ newGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       ${self.diffutils}/bin/diff --color -u --label "generation $oldGen" $oldVersions \
-        --label "generation $newGen" ~/.nix-profile/package_versions
+        --label "generation $newGen" ~/.nix-profile/package_versions \
+        || true
     '';
 
     packageVersions =
