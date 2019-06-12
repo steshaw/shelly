@@ -129,14 +129,14 @@ allowMosh() {
 }
 
 # aliases
-[[ $command == up ]] && command=start
-[[ $command == down ]] && command=stop
 [[ $command == dn ]] && command=stop
-[[ $command == connect ]] && command=tmux-control-mode
+[[ $command == down ]] && command=stop
 [[ $command == in ]] && command=tmux-control-mode
 [[ $command == init ]] && command=create-fresh
 [[ $command == new ]] && command=create-fresh
 [[ $command == run ]] && command=gcloud
+[[ $command == snapshot ]] && command=create-snapshot
+[[ $command == up ]] && command=start
 
 if [[ $command == gcloud ]]; then
 
@@ -195,11 +195,13 @@ elif [[ $command == create-fresh ]]; then
 
 elif [[ $command == create-snapshot ]]; then
 
+  snapshot=$1; shift
   gcloud compute disks snapshot "$disk" \
     --snapshot-names="$snapshot" \
 
 elif [[ $command == create-disk-from-snapshot ]]; then
 
+  snapshot=$1; shift
   gcloud compute disks create "$disk" \
     --source-snapshot="$snapshot" \
     --size="$diskSize" \
@@ -233,20 +235,22 @@ elif [[ $command == status || $command == list ]]; then
 
 elif [[ $command == create-from-snapshot ]]; then
 
-  if [[ $# -ne 2 ]]; then
-    echo "usage: devbox create-from-snapshot name"
+  if [[ $# -ne 1 ]]; then
+    echo "usage: devbox create-from-snapshot snapshot-name"
     exit 2
   fi
 
-  name=$1; shift
+  snapshot=$1; shift
 
-  gcloud compute disks create "$name" \
+  echo "Creating new disk $name from snapshot $snapshot ..."
+  echo gcloud compute disks create "$name" \
     --size="$diskSize" \
     --source-snapshot="$snapshot" \
     --type=pd-ssd
 
+  echo "Creating new box $name ..."
   # shellcheck disable=SC2086
-  gcloud compute instances create "$name" \
+  echo gcloud compute instances create "$name" \
     --machine-type="$machineType" \
     $DEVBOX_CREATE_ARGS \
     --disk="name=$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
