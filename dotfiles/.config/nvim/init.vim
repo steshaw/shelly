@@ -20,6 +20,7 @@ fun Plugs()
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
+  Plug 'nelsyeung/twig.vim'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/syntastic'
   Plug 'vmchale/dhall-vim'
@@ -39,6 +40,24 @@ fun Plugs()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'whatyouhide/vim-lengthmatters'
   Plug 'rhlobo/vim-super-retab'
+
+  "
+  " Install neosnippet {
+  "
+  " See https://github.com/Shougo/neosnippet.vim#vim-plug
+  "
+	if has('nvim')
+		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	else
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+	endif
+	let g:deoplete#enable_at_startup = 1
+
+	Plug 'Shougo/neosnippet.vim'
+	Plug 'Shougo/neosnippet-snippets'
+  " }
 endfun
 
 fun Plug()
