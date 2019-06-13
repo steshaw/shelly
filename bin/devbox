@@ -142,6 +142,10 @@ if [[ $command == gcloud ]]; then
 
   gcloud "$@"
 
+elif [[ $command == config ]]; then
+
+  env | rg DEVBOX_
+
 elif [[ $command == suspend || $command == hibernate ]]; then
 
   gcloud alpha compute instances suspend "$name"
