@@ -199,8 +199,9 @@ elif [[ $command == create-fresh ]]; then
 
 elif [[ $command == create-snapshot ]]; then
 
-  snapshot=$1; shift
+  snapshot=${DEVBOX_NAME}-$(timestamp)
   gcloud compute disks snapshot "$disk" \
+    --zone="$DEVBOX_COMPUTE_ZONE" \
     --snapshot-names="$snapshot" \
 
 elif [[ $command == create-disk-from-snapshot ]]; then
