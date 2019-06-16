@@ -53,7 +53,7 @@ with builtins; rec {
 #      ripgrep
       rlwrap
 #      shellcheck
-      stack
+#      stack
       tmux
       tree
       watchman
