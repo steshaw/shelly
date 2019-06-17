@@ -220,11 +220,25 @@ elif [[ $command == create-from-disk ]]; then
   echo "Creating new instance $name from disk $disk ..."
   # shellcheck disable=SC2086
   gcloud compute instances create "$name" \
-    --machine-type="$machineType" \
+    --machine-type="${machineType}" \
     $DEVBOX_CREATE_ARGS \
     --disk="name=$disk,device-name=$disk,mode=rw,boot=yes,auto-delete=no" \
     --labels=env=development \
     --tags=$tags
+
+elif [[ $command == recreate ]]; then
+
+  echo "Recreating instance $name ..."
+  gcloud compute instances delete "$name" --keep-disks=all
+  # shellcheck disable=SC2086
+  gcloud compute instances create "$name" \
+    --zone="$DEVBOX_COMPUTE_ZONE" \
+    --machine-type="${machineType}" \
+      $DEVBOX_CREATE_ARGS \
+    --no-restart-on-failure \
+    --disk=name="$name,device-name=$name,mode=rw,boot=yes,auto-delete=no" \
+    --labels=env=development \
+    --tags=dev,http-server,https-server
 
 elif [[ $command == start || $command == stop ]]; then
 
