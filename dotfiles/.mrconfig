@@ -20,7 +20,7 @@ checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 checkout = git clone git@github.com:steshaw/log
 
 [dev/bt/bt-app]
-checkout = git clone git@github.com:betterteamapp/solo
+checkout = git clone git@github.com:betterteamapp/solo bt-app
 
 [dev/bt/bt-craft]
 checkout = git clone git@github.com:betterteamapp/bt-craft
