@@ -335,6 +335,18 @@ elif [[ $command == ip ]]; then
   fi
   echo "$ip"
 
+elif [[ $command == reassign-ip ]]; then
+
+  ip=$(gcloud --format='value(address)' compute addresses list \
+      --filter="(name=${name})")
+
+  gcloud compute instances delete-access-config "${name}" \
+    --access-config-name=external-nat
+
+  gcloud compute instances add-access-config "${name}" \
+    --access-config-name=external-nat \
+    --address="${ip}"
+
 elif [[ $command == scp ]]; then
 
   gcloud compute scp "$@"
