@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+version=v2.13.1
+tarball=helm-${version}-linux-amd64.tar.gz
+curl --silent https://get.helm.sh/${tarball} |
+  tar -C ~/.local/bin/ -xvz -f - --strip-components=1 linux-amd64/helm
