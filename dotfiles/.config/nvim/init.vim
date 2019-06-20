@@ -28,6 +28,10 @@ fun Plugs()
   Plug 'w0rp/ale'
   Plug 'ziglang/zig.vim'
 
+  " TypeScript
+  Plug 'Quramy/tsuquyomi'
+  Plug 'leafgarland/typescript-vim'
+
   " Misc.
   Plug 'airblade/vim-gitgutter'
   Plug 'editorconfig/editorconfig-vim'
