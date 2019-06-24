@@ -37,6 +37,7 @@ brew 'elm' if laptop?
 brew 'emacs'
 brew 'findutils' if false
 brew 'fswatch' if false # Using Facebook's watchman currently.
+brew 'fzf'
 brew 'ghc' if laptop?
 brew 'gist'
 brew 'git'
