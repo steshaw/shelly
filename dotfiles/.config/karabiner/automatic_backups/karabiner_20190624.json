@@ -11,64 +11,9 @@
                     "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
-                    "basic.to_if_held_down_threshold_milliseconds": 500,
-                    "mouse_motion_to_scroll.speed": 100
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
-                "rules": [
-                    {
-                        "description": "Toggle caps_lock by pressing left_shift + right_shift at the same time",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "left_shift"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "right_shift"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    }
-                ]
+                "rules": []
             },
             "devices": [],
             "fn_function_keys": [
@@ -170,9 +115,6 @@
                 }
             ],
             "name": "Default profile",
-            "parameters": {
-                "delay_milliseconds_before_open_device": 1000
-            },
             "selected": true,
             "simple_modifications": [
                 {
@@ -188,13 +130,12 @@
                         "key_code": "escape"
                     },
                     "to": {
-                        "key_code": "mission_control"
+                        "key_code": "caps_lock"
                     }
                 }
             ],
             "virtual_hid_keyboard": {
-                "country_code": 0,
-                "mouse_key_xy_scale": 100
+                "country_code": 0
             }
         }
     ]
