@@ -178,4 +178,17 @@ if OS.mac?
   cask 'zotero'
 end
 
+# asdf dependencies
+brew 'coreutils'
+brew 'automake'
+brew 'autoconf'
+brew 'openssl'
+brew 'libyaml'
+brew 'readline'
+brew 'libxslt'
+brew 'libtool'
+brew 'unixodbc'
+brew 'unzip'
+brew 'curl'
+
 # vim: filetype=ruby
