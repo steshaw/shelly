@@ -6,7 +6,9 @@ os=$(uname)
 
 if [[ ${os} == Linux ]]; then
   cat >/tmp/60-steshaw.conf <<-EOF
-		fs.inotify.max_user_watches = 16384
+		fs.inotify.max_user_instances = 256
+		fs.inotify.max_queued_events = 32768
+		fs.inotify.max_user_watches = 65536
 EOF
   sudo cp /tmp/60-steshaw.conf /etc/sysctl.d/
 else
