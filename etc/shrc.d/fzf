@@ -1,0 +1,6 @@
+# vim: set filetype=bash
+
+if has brew; then
+  isBash && sourceExists ~/.fzf.bash
+  isZsh && sourceExists ~/.fzf.zsh
+fi
