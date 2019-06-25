@@ -1,5 +1,10 @@
+# vim: set filetype=bash
+
 if [[ -d ~/.asdf ]]; then
-  sourceExists $(brew --prefix)/opt/asdf/asdf.sh
+  if has brew; then
+    sourceExists $(brew --prefix)/opt/asdf/asdf.sh
+  fi
+
   sourceExists $HOME/.asdf/asdf.sh
   sourceExists $HOME/.asdf/completions/asdf.bash
 fi
