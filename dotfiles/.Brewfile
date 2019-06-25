@@ -35,6 +35,7 @@ brew 'coreutils'
 brew 'ctags' # exuberant ctags
 brew 'elm' if laptop?
 brew 'emacs'
+brew 'fd'
 brew 'findutils' if false
 brew 'fswatch' if false # Using Facebook's watchman currently.
 brew 'fzf'
