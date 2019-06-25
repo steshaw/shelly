@@ -165,9 +165,13 @@ elif [[ $command == mosh ]]; then
 
 elif [[ $command == tmux-control-mode ]]; then
 
-  gcloud compute ssh "$name" \
-    '--ssh-flag=-tt' \
+  options=(
+    '--ssh-flag=-t'
     '--command=tmux -CC new-session -AD -s main'
+  )
+
+  gcloud compute ssh "$name" "${options[@]}"
+
 
 elif [[ $command == set-machine-type ]]; then
 
