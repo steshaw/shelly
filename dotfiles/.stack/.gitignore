@@ -7,4 +7,6 @@
 /setup-exe-src/
 /snapshots/
 /stack.sqlite3
+/stack.sqlite3-shm
+/stack.sqlite3-wal
 /stack.sqlite3.pantry-write-lock
