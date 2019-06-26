@@ -1752,7 +1752,7 @@
                         "key_code": "escape"
                     },
                     "to": {
-                        "key_code": "caps_lock"
+                        "key_code": "mission_control"
                     }
                 }
             ],
