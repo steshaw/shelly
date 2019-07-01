@@ -84,7 +84,8 @@ fun Plug()
   call plug#end()
 endfun
 
-let maplocalleader = "\\"
+" let mapleader = ','
+" let maplocalleader = '\'
 
 call Plug()
 
