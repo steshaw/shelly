@@ -27,6 +27,7 @@ fun Plugs()
   Plug 'vmchale/ipkg-vim'
   Plug 'w0rp/ale'
   Plug 'ziglang/zig.vim'
+  Plug 'purescript-contrib/purescript-vim'
 
   " TypeScript
   Plug 'Quramy/tsuquyomi'
