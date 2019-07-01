@@ -30,3 +30,6 @@ checkout = git clone git@github.com:betterteamapp/interspire-craft
 
 [dev/bt/smb-craft]
 checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
+
+[dev/bt/zarla]
+checkout = git clone git@github.com:betterteamapp/zarla
