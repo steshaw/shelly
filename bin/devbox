@@ -131,12 +131,14 @@ allowMosh() {
 # aliases
 [[ $command == dn ]] && command=stop
 [[ $command == down ]] && command=stop
+[[ $command == shutdown ]] && command=stop
 [[ $command == in ]] && command=tmux-control-mode
 [[ $command == init ]] && command=create-fresh
 [[ $command == new ]] && command=create-fresh
 [[ $command == run ]] && command=gcloud
 [[ $command == snapshot ]] && command=create-snapshot
 [[ $command == up ]] && command=start
+[[ $command == boot ]] && command=start
 
 if [[ $command == gcloud ]]; then
 
@@ -170,7 +172,9 @@ elif [[ $command == tmux-control-mode ]]; then
     '--command=tmux -CC new-session -AD -s main'
   )
 
+  set -x
   gcloud compute ssh "$name" "${options[@]}"
+  set +x
 
 
 elif [[ $command == set-machine-type ]]; then
