@@ -28,6 +28,7 @@ fun Plugs()
   Plug 'w0rp/ale'
   Plug 'ziglang/zig.vim'
   Plug 'purescript-contrib/purescript-vim'
+  Plug 'ollykel/v-vim'
 
   " TypeScript
   Plug 'Quramy/tsuquyomi'
@@ -51,17 +52,17 @@ fun Plugs()
   "
   " See https://github.com/Shougo/neosnippet.vim#vim-plug
   "
-	if has('nvim')
-		Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	else
-		Plug 'Shougo/deoplete.nvim'
-		Plug 'roxma/nvim-yarp'
-		Plug 'roxma/vim-hug-neovim-rpc'
-	endif
-	let g:deoplete#enable_at_startup = 1
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
+  let g:deoplete#enable_at_startup = 1
 
-	Plug 'Shougo/neosnippet.vim'
-	Plug 'Shougo/neosnippet-snippets'
+  Plug 'Shougo/neosnippet.vim'
+  Plug 'Shougo/neosnippet-snippets'
   " }
 endfun
 
@@ -107,7 +108,7 @@ endif
 
 set showmatch
 set background=dark
-set tabstop=2
+set tabstop=20
 set shiftwidth=2
 set softtabstop=2
 set textwidth=80
@@ -126,6 +127,7 @@ endif
 set backupcopy=auto,breakhardlink ",breaksymlink
 
 autocmd FileType make setlocal noexpandtab
+"autocmd BufNewFile,BufRead *.v set filetype=go
 
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
 inoremap jj <esc>
