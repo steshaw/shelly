@@ -82,7 +82,7 @@ brew 'redis' if laptop?
 brew 'ripgrep'
 brew 'rlwrap'
 brew 'ruby-build' if false
-brew 'rust' if laptop?
+brew 'rust' if false # Favour rustup.
 brew 'sbt' if false
 brew 'scala' if false
 brew 'scalariform' if false
