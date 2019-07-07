@@ -78,7 +78,6 @@ if false
 end
 
 brew 'reattach-to-user-namespace' if false
-brew 'redis' if laptop?
 brew 'ripgrep'
 brew 'rlwrap'
 brew 'ruby-build' if false
