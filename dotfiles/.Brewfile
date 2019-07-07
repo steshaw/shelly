@@ -65,7 +65,6 @@ brew 'peco'
 brew 'pandoc'
 brew 'pijul' if laptop?
 brew 'pinentry-mac' if OS.mac?
-brew 'postgresql' if laptop?
 brew 'purescript' if laptop?
 brew 'python'
 brew 'qt' if false
