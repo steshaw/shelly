@@ -157,14 +157,14 @@ if OS.mac?
   cask 'intellij-idea-ce' if false
   cask 'iterm2'
   cask 'java' if false
-  cask 'karabiner-elements' if false
+  cask 'karabiner-elements'
   cask 'keybase'
   cask 'key-codes' if false
   cask 'kindle'
   cask 'kitty' if false
   cask 'launchbar' if false
   cask 'mactex' if false
-  cask 'nomachine' if false
+  cask 'nomachine'
   cask 'parallels' if false
   cask 'proximity' if false
   cask 'psequel'
@@ -172,7 +172,7 @@ if OS.mac?
   cask 'sequel-pro' if false
   cask 'skype'
   cask 'spectacle'
-  cask 'virtualbox' if false
+  cask 'virtualbox'
   cask 'visual-studio-code'
   cask 'yed' if false
   cask 'zotero'
