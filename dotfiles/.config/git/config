@@ -17,8 +17,9 @@
   remotes = remote -v
   s = status --short --branch
   slog = log --oneline --decorate
-  slog1 = log --pretty='%Cred%h %Cgreen%ai %Cred%ae %Creset%s'
-  slog2 = log --pretty='%Cred%H %Cgreen%ai %Cred%ae %Creset%s'
+  slogp = log --pretty='%Cred%h %Cgreen%ai %Cred%ae %Creset%s'
+  slogpv = log --pretty='%Cred%H %Cgreen%ai %Cred%ae %Creset%s'
+  slogI = log --pretty='%Cred%h %Cgreen%aI %Cred%ae %Creset%s'
   llog = log --date=local
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
