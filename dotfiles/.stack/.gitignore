@@ -1,3 +1,5 @@
+# Probably for Stack 2.*
+
 /.stack-work/
 /compiler-tools/
 /global-project/.stack-work/
@@ -10,3 +12,10 @@
 /stack.sqlite3-shm
 /stack.sqlite3-wal
 /stack.sqlite3.pantry-write-lock
+
+# Probably for Stack 1.*
+/build-plan-cache/
+/build-plan/
+/indices/
+/loaded-snapshot-cache/
+/precompiled/
