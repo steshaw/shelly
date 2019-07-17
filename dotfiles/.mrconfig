@@ -20,16 +20,22 @@ checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 checkout = git clone git@github.com:steshaw/log
 
 [dev/bt/bt-app]
-checkout = git clone git@github.com:betterteamapp/solo bt-app
+checkout = git clone 'git@github.com:betterteamapp/solo.git' 'bt-app'
 
 [dev/bt/bt-craft]
-checkout = git clone git@github.com:betterteamapp/bt-craft
+checkout = git clone 'git@github.com:betterteamapp/betterteam-craft.git' 'bt-craft'
 
 [dev/bt/interspire-craft]
-checkout = git clone git@github.com:betterteamapp/interspire-craft
+checkout = git clone 'git@github.com:betterteamapp/interspire-craft' 'interspire-craft'
 
 [dev/bt/smb-craft]
-checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
+checkout = git clone 'git@github.com:betterteamapp/thesmbguide-craft' 'smb-craft'
 
 [dev/bt/zarla]
 checkout = git clone git@github.com:betterteamapp/zarla
+
+[dev/bt/zarla-craft]
+checkout = git clone 'git@github.com:betterteamapp/zarla-craft.git' 'zarla-craft'
+
+[dev/bt/10xfactory-craft]
+checkout = git clone 'git@github.com:interspire2017/10xfactory-craft.git' '10xfactory-craft'
