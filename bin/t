@@ -13,7 +13,7 @@ case $os in
     fi
     ;;
   Linux)
-    command time -v "$@"
+    $(type -P time) -v sleep 10
     ;;
   *)
     echo "Warning: no t for $os"
