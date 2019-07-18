@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sudo netstat --tcp --udp --listening --program --numeric
