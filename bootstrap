@@ -9,7 +9,7 @@ hash git || (
   exit 1
 )
 
-export SHELLY_DEV_DIR=~/dev
+export SHELLY_DEV_DIR=~/Code
 SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
 if [[ ! -d $SHELLY_HOME ]]; then
