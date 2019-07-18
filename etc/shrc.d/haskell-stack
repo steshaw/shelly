@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+Echo '{ shrc.d/haskell-stack {'
 if has stack; then
   eval "$(stack --bash-completion-script stack)"
 fi
+Echo '} shrc.d/haskell-stack }'
