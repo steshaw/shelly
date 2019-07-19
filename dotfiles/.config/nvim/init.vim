@@ -98,13 +98,18 @@ let g:airline_powerline_fonts = 1
 " i.e. keep blinking underline from iTerm2 configuration.
 set guicursor=
 
-colorscheme molokai
-" Override ErrorMsg color as molokai has a poor one!
-autocmd FileType * highlight ErrorMsg
-  \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
-if has("gui_running")
-  colorscheme koehler
-endif
+" Set molokai if we can.
+try
+  colorscheme molokai
+  " Override ErrorMsg color as molokai has a poor one!
+  autocmd FileType * highlight ErrorMsg
+    \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
+  if has("gui_running")
+    colorscheme koehler
+  endif
+catch
+  silent! colorscheme elflord
+endtry
 
 set showmatch
 set background=dark
