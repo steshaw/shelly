@@ -3,7 +3,7 @@
 export SHELLY_DEV_DIR=~/Code
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
-# shellcheck source=etc/functions.sh
+# shellcheck disable=SC1090
 source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.profile
@@ -49,7 +49,7 @@ Echo "SHELL (after)  = ${SHELL}"
 #
 anon() {
   local shellyBin=${SHELLY_HOME}/bin
-  # shellcheck source=bin/ShellyPath
+  # shellcheck disable=SC1090
   source ${shellyBin}/ShellyPath
   prependPaths ${shellyBin}
 }
