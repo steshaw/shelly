@@ -1,2 +1,4 @@
-isBash && sourceExists ~/.iterm2_shell_integration.bash
-isZsh && sourceExists ~/.iterm2_shell_integration.zsh
+if [[ $(uname) == Darwin ]]; then
+  isBash && sourceExists ~/.iterm2_shell_integration.bash
+  isZsh && sourceExists ~/.iterm2_shell_integration.zsh
+fi
