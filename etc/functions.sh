@@ -2,7 +2,14 @@
 
 prependPaths() {
   for path_ in "$@"; do
-    if [[ -d ${path_} ]]; then
+    Echo "Prepending ${path_}"
+    PATH=${path_}:${PATH}
+  done
+}
+
+prependPathsExists() {
+  for path_ in "$@"; do
+    if [[ -r "$path_" ]]; then
       Echo "Prepending ${path_}"
       PATH=${path_}:${PATH}
     fi
@@ -19,7 +26,7 @@ sourceExists() {
   done
 }
 
-firstDirectory() {
+firstDirectoryExists() {
   for dir in "$@"; do
     [[ -d ${dir} ]] && echo "${dir}"
   done
