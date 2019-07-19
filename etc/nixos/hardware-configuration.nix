@@ -8,17 +8,28 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ahci" ];
-  boot.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/827143d1-e83c-4c77-99bd-a6ede1408008";
-      fsType = "btrfs";
+    { device = "rpool/root/nixos";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "rpool/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/3A0A-58F1";
+      fsType = "vfat";
     };
 
   swapDevices = [ ];
 
-  nix.maxJobs = 1;
-  services.virtualboxGuest.enable = true;
+  nix.maxJobs = lib.mkDefault 16;
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
