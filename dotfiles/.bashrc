@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ ! -t 0 ]]; then
   return
 fi
@@ -10,7 +12,7 @@ if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
 
-# shellcheck source=../etc/functions.sh
+# shellcheck disable=SC1090
 source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.bashrc
@@ -203,7 +205,7 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-# shellcheck source=../etc/shrc
+# shellcheck disable=SC1090
 source $SHELLY_HOME/etc/shrc
 
 if has hub; then
