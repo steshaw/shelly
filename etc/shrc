@@ -74,8 +74,8 @@ alias szrc="source ~/.zshrc" # Source ZshRC.
 alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC.
 alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 
-alias ssrc="source $SHELLY_HOME/etc/shrc" # Source ShellRC.
-alias vsrc="\${VISUAL} $SHELLY_HOME/etc/shrc" # Vi ShellRC.
+alias ssrc="source \${SHELLY_HOME}/etc/shrc" # Source ShellRC.
+alias vsrc="\${VISUAL} \${SHELLY_HOME}/etc/shrc" # Vi ShellRC.
 
 alias vo="vim ~/.config/nixpkgs/overlays/steshaw.nix" # Vi Overlay.
 
