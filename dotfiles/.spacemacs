@@ -368,7 +368,7 @@ you should place your code here."
 
 ;  (spacemacs/toggle-fill-column-indicator-on)
   (spacemacs/toggle-highlight-long-lines-globally-on)
-  (setq magit-repository-directories '("~/dev/steshaw/" "~/dev/"))
+  (setq magit-repository-directories '("~/Code/steshaw/" "~/Code/"))
 
   ;; Use Spacemacs as the $GIT_EDITOR.
   ;; See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bsource-control/git#global-git-commit-mode

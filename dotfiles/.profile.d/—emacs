@@ -1,4 +1,4 @@
-#prependPaths /Applications/Emacs.app/Contents/MacOS/bin
-#prependPaths /Applications/Aquamacs.app/Contents/MacOS/bin
+#!/usr/bin/env bash
 
-# ex: filetype=sh tabstop=20 shiftwidth=2 expandtab
+prependPathsExists /Applications/Emacs.app/Contents/MacOS/bin
+prependPathsExists /Applications/Aquamacs.app/Contents/MacOS/bin

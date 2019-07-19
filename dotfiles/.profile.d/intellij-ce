@@ -1,1 +1,1 @@
-prependPaths ~/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS
+prependPathsExists ~/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS

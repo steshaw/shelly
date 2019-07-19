@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:ft=zsh:foldmethod=marker
 
 if [[ -z $SHELLY_HOME ]]; then
-  export SHELLY_DEV_DIR=~/dev
+  export SHELLY_DEV_DIR=~/Code
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
 

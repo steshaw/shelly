@@ -6,7 +6,7 @@ if [[ $IN_NIX_SHELL == pure ]]; then
 fi
 
 if [[ -z $SHELLY_HOME ]]; then
-  export SHELLY_DEV_DIR=~/dev
+  export SHELLY_DEV_DIR=~/Code
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
 
@@ -146,7 +146,10 @@ ${separator_colour}:\
 ${pwd_colour}\w$reset_colour"
   local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${user_host_pwd} ${shell}${nix}"
   local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${reset_colour} "
-  local iterm2Mark="\[$(iterm2_prompt_mark)\]"
+  local iterm2Mark=""
+  if [[ $(uname) == Darwin ]]; then
+    iterm2Mark="\[$(iterm2_prompt_mark)\]"
+  fi
 
   GIT_PS1_1="${TITLEBAR}\n${PROMPT_LINE_1}"
   GIT_PS1_2="\n${iterm2Mark}${PROMPT_LINE_2}"

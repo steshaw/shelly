@@ -61,18 +61,23 @@ alias vb='v ~/.Brewfile'
 alias bbg='brew bundle --global'
 alias bb='brew bundle'
 
-alias vp='v ~/.profile' # Vi Profile
-alias sp='source ~/.profile' # Source Profile
+alias vp='v ~/.profile' # Vi Profile.
+alias sp='source ~/.profile' # Source Profile.
 
-alias vbp=vp # Was: Vi Bash Profile
-alias sbp=sp # Was: Source Bash Profile
+alias vbp=vp # Was: Vi Bash Profile.
+alias sbp=sp # Was: Source Bash Profile.
 
-alias vbrc='v ~/.bashrc' # Vi BashRC
-alias sbrc='source ~/.bashrc' # Source BashRC
+alias vbrc='v ~/.bashrc' # Vi BashRC.
+alias sbrc='source ~/.bashrc' # Source BashRC.
 
-alias szrc="source ~/.zshrc" # Source ZshRC
-alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC
+alias szrc="source ~/.zshrc" # Source ZshRC.
+alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC.
 alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
+
+alias ssrc="source $SHELLY_HOME/etc/shrc" # Source ShellRC.
+alias vsrc="\${VISUAL} $SHELLY_HOME/etc/shrc" # Vi ShellRC.
+
+alias vo="vim ~/.config/nixpkgs/overlays/steshaw.nix" # Vi Overlay.
 
 alias sghci='stack exec -- ghci'
 
@@ -104,11 +109,11 @@ alias ocaml='rlwrap ocaml'
 cdpath=(
   .
   ~
-  ~/dev
-  ~/dev/steshaw
-  ~/dev/tlcsrc
-  ~/dev/bt
-  ~/dev/bt/solo/workers
+  ~/Code
+  ~/Code/steshaw
+  ~/Code/tlcsrc
+  ~/Code/bt
+  ~/Code/bt/solo/workers
 )
 if isBash; then
   CDPATH=$(IFS=':'; echo "${cdpath[*]}")
