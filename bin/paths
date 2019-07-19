@@ -8,9 +8,13 @@ function printPath {
 
 echo PATH:
 echo "$PATH" | printPath
-echo
-echo LD_LIBRARY_PATH:
-echo "$LD_LIBRARY_PATH" | printPath
-echo
-echo DYLD_LIBRARY_PATH:
-echo "$DYLD_LIBRARY_PATH" | printPath
+if [[ ${LD_LIBRARY_PATH:-unset} != unset ]]; then
+  echo
+  echo LD_LIBRARY_PATH:
+  echo "$LD_LIBRARY_PATH" | printPath
+fi
+if [[ ${DYLD_LIBRARY_PATH:-unset} != unset ]]; then
+  echo
+  echo DYLD_LIBRARY_PATH:
+  echo "$DYLD_LIBRARY_PATH" | printPath
+fi
