@@ -65,6 +65,7 @@ with builtins; rec {
       hledger
       htop
       httpie
+      hub # Defined in overlay/hub.nix
       jq
       mr
       neofetch
