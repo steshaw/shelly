@@ -71,14 +71,14 @@ bash_prompt() {
   # shellcheck disable=SC2034
   local G="\[\033[0;32m\]"  # green
   # shellcheck disable=SC2034
-  local Y="\[\033[0;33m\]"  # yellow
+  local Y="\[\033[0;33m\]"  # yellow (brown)
   # shellcheck disable=SC2034
   local B="\[\033[0;34m\]"  # blue
   # shellcheck disable=SC2034
   local M="\[\033[0;35m\]"  # magenta
   local C="\[\033[0;36m\]"  # cyan
   # shellcheck disable=SC2034
-  local W="\[\033[0;37m\]"  # white
+  local W="\[\033[1;37m\]"  # white
 
   # emphasized (bolded) colors
   # shellcheck disable=SC2034
@@ -127,7 +127,7 @@ bash_prompt() {
   local shell_colour="${UPC}"
   local pwd_colour="${EMB}"
   local separator_colour="${M}"
-  local git_prompt_colour="${Y}"
+  local git_prompt_colour="${EMC}"
   local nix_colour="${M}"
   local reset_colour="${NONE}"
 
@@ -140,13 +140,22 @@ bash_prompt() {
     local BOT_LEFT='╰'
   fi
 
+  in_direnv() {
+    if [[ -n $DIRENV_DIR ]]; then
+      echo -n -e " \e;\e[1;33mdirenv\e[m" # Bright yellow.
+    else
+      echo -n -e ""
+    fi
+  }
+
   local shell="${shell_colour}bash${reset_colour}"
   local nix="${IN_NIX_SHELL:+ ${nix_colour}${IN_NIX_SHELL}${reset_colour}}"
+  local direnv='$(in_direnv)\e[m'
   local user_host_pwd="\
 ${user_host_colour}\${debian_chroot:+(${debian_chroot:-})}\u@\h\
 ${separator_colour}:\
 ${pwd_colour}\w$reset_colour"
-  local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${user_host_pwd} ${shell}${nix}"
+  local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${user_host_pwd} ${shell}${nix}${direnv}"
   local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${reset_colour} "
   local iterm2Mark=""
   if [[ $(uname) == Darwin ]]; then

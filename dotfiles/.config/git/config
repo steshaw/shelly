@@ -18,6 +18,7 @@
   s = status --short --branch
   slog = log --oneline --decorate
   slogv  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#1BDEE4)%ae %Creset%s'"
+  slogv  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%ae %Creset%s'"
   slogvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%ae %Creset%s'"
   slogvI = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%ae %Creset%s'"
   llog = log --date=local
