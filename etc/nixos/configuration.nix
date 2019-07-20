@@ -13,7 +13,7 @@
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
   networking.firewall.allowedTCPPorts = [ 80 ];
-  systemd.extraConfig = "DefaultLimitNOFILE=65536";
+  systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 
 /*
   services.postgresql = {
