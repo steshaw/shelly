@@ -10,3 +10,6 @@ templates:
     category: Example
 
 allow-newer: true
+
+nix:
+  enable: false
