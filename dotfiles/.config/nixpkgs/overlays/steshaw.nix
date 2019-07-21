@@ -18,11 +18,7 @@
 #
 self: super:
 with builtins; rec {
-
   userPackages = super.userPackages or {} // super.recurseIntoAttrs {
-#  userPackages = super.userPackages or {} // {
-
-#    Agda = super.haskellPackages.Agda; # Agda is broken.
 
     #
     # Kind of like build-essential.
@@ -76,12 +72,19 @@ with builtins; rec {
       stack
       tmux
       tree
+      unzip
       watchman
       youtube-dl
       zsh
     ;
 
-    # XXX: Do I need to call this `my_vim` instead?
+    Agda = super.haskellPackages.Agda;
+
+    # Haskell tools.
+    brittany = super.haskellPackages.brittany;
+    hindent = super.haskellPackages.hindent;
+    hlint = super.haskellPackages.hlint;
+
     vim = (super.vim_configurable.override {
       guiSupport = "no";
       darwinSupport = super.stdenv.isDarwin;
@@ -101,6 +104,13 @@ with builtins; rec {
     ;
 
     #
+    # Helpful for KDE.
+    #
+
+    # https://github.com/KSmanis/kwin-move-window-to-center
+    # but let's have xmonad+KDE.
+
+    #
     # Default packages.
     #
     # WARNING: Do not remove!
@@ -115,10 +125,17 @@ with builtins; rec {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${super.stdenv.shell}
       if ! command -v nix-env &>/dev/null; then
-          echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
-          PATH=${self.nix}/bin:$PATH
+        echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
+        PATH=${self.nix}/bin:$PATH
       fi
-      exec nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+      nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+
+      #
+      # Fun and silly commit messages.
+      #
+      # FIXME: Mutation, hah!
+      #
+      yarn --silent global add gitmoji-cli
     '';
 
     #
