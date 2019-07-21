@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+overlay_dir=~/.config/nixpkgs/overlays
+default_overlay=steshaw.nix
+
+if [[ $# -gt 1 ]]; then
+  echo "usage $0: [overlay]" >&2
+  exit 2
+fi
+
+getOverlay() {
+  if [[ $# -eq 0 ]]; then
+    echo ${default_overlay}
+  else
+    echo "${1%.nix}.nix"
+  fi
+}
+
+overlay=$(getOverlay "$@")
+v "${overlay_dir}/${overlay}"

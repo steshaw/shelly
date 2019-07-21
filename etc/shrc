@@ -77,7 +77,7 @@ alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
 alias ssrc="source \${SHELLY_HOME}/etc/shrc" # Source ShellRC.
 alias vsrc="\${VISUAL} \${SHELLY_HOME}/etc/shrc" # Vi ShellRC.
 
-alias vo="vim ~/.config/nixpkgs/overlays/steshaw.nix" # Vi Overlay.
+alias vo="edit-overlay"
 
 alias sghci='stack exec -- ghci'
 
