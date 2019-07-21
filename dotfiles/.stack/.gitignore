@@ -12,6 +12,7 @@
 /stack.sqlite3-shm
 /stack.sqlite3-wal
 /stack.sqlite3.pantry-write-lock
+/templates/
 
 # Probably for Stack 1.*
 /build-plan-cache/
