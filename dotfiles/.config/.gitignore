@@ -59,6 +59,9 @@
 /spectaclerc
 /QtProject.conf
 /katevirc
+/kioclientrc
+/kwalletrc
+
 
 # App config.
 /RescueTime.com/
