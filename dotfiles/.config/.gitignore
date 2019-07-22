@@ -58,3 +58,7 @@
 /systemsettingsrc
 /spectaclerc
 /QtProject.conf
+/katevirc
+
+# App config.
+/RescueTime.com/
