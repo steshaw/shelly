@@ -15,21 +15,6 @@
   networking.firewall.allowedTCPPorts = [ 80 ];
   systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 
-/*
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_11;
-    enableTCPIP = true;
-    authentication = pkgs.lib.mkOverride 10 ''
-      local all all trust
-      host all all ::1/128 trust
-    '';
-    initialScript = pkgs.writeText "backend-initScript" ''
-      create role steshaw with login password 'password';
-    '';
-  };
-*/
-
   # Use the systemd-boot EFI boot loader.
   boot.supportedFilesystems = [ "zfs" ];
   services.zfs.autoScrub.enable = true;
@@ -61,6 +46,9 @@
      git
      vim
      wget
+
+     # X11 packages
+     xorg.xmodmap
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -72,6 +60,23 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_11;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      create role steshaw with login password 'password';
+    '';
+  };
+
+  services.redis.enable = true;
+  services.rabbitmq.enable = true;
+    #services.amqp.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
