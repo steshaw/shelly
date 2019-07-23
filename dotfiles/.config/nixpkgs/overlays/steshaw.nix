@@ -23,15 +23,13 @@ with builtins; rec {
     #
     # Kind of like build-essential.
     #
-    # For example needed to build some NPM packages.
-    #
-    # FIXME: Cannot `yarn global add gitmoji` because kexec doesn't build.
-    #
+/*
     inherit (self)
       gcc
       gnumake
       python
     ;
+*/
 
     #
     # Hmmm
