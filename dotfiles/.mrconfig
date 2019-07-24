@@ -20,10 +20,10 @@ checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 checkout = git clone git@github.com:steshaw/log
 
 [Code/bt/bt-app]
-checkout = git clone 'git@github.com:betterteamapp/solo.git' 'bt-app'
+checkout = git clone 'git@github.com:betterteamapp/solo' 'bt-app'
 
 [Code/bt/bt-craft]
-checkout = git clone 'git@github.com:betterteamapp/betterteam-craft.git' 'bt-craft'
+checkout = git clone 'git@github.com:betterteamapp/bt-craft' 'bt-craft'
 
 [Code/bt/interspire-craft]
 checkout = git clone 'git@github.com:betterteamapp/interspire-craft' 'interspire-craft'
@@ -36,3 +36,9 @@ checkout = git clone 'git@github.com:betterteamapp/zarla-craft.git' 'zarla-craft
 
 [Code/bt/10xfactory-craft]
 checkout = git clone 'git@github.com:interspire2017/10xfactory-craft.git' '10xfactory-craft'
+
+[Code/bt/zarla]
+checkout = git clone 'git@github.com:betterteamapp/zarla' 'zarla'
+
+[Code/NixOS/nixpkgs]
+checkout = git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
