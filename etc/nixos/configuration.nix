@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+  nix.useSandbox = true;
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
   networking.firewall.allowedTCPPorts = [ 80 ];

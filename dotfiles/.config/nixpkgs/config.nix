@@ -1,5 +1,6 @@
 {
   allowUnfree = true;
+  nix.useSandbox = true;
 
   #
   # Provide packages from Nix User Repository.
