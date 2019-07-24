@@ -31,9 +31,6 @@ with builtins; rec {
     ;
 */
 
-    #
-    # Hmmm
-    #
     yarn = (super.yarn.override {
       nodejs = super.nodejs-10_x;
     });
@@ -47,7 +44,7 @@ with builtins; rec {
     inherit (self)
       bashInteractive_5
       bat
-      bind # for dig
+      bind # for dig. XXX: Any smaller package?
       cabal2nix
       direnv
       emacs
@@ -63,11 +60,10 @@ with builtins; rec {
       jq
       mr
       neofetch
-#      neovim # Deferring to Vim for now.
+      pandoc
       ripgrep
       rlwrap
       shellcheck
-      stack
       tmux
       tree
       unzip
@@ -76,13 +72,7 @@ with builtins; rec {
       zsh
     ;
 
-    Agda = super.haskellPackages.Agda;
-
-    # Haskell tools.
-    brittany = super.haskellPackages.brittany;
-    hindent = super.haskellPackages.hindent;
-    hlint = super.haskellPackages.hlint;
-
+    neovim = super.neovim; # Deferring to Vim for now.
     vim = (super.vim_configurable.override {
       guiSupport = "no";
       darwinSupport = super.stdenv.isDarwin;
@@ -93,17 +83,43 @@ with builtins; rec {
 
     tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
 
+    Agda = super.haskellPackages.Agda;
+
     #
-    # GUI apps and fonts.
+    # Google Cloud Platform.
+    #
+    inherit (self)
+      google-cloud-sdk
+
+      docker-credential-gcr
+      kubectl
+    ;
+
+    #
+    # Haskell tools.
+    #
+    ghc865 = super.haskell.compiler.ghc865;
+    stack = super.haskellPackages.stack;
+
+    brittany = super.haskellPackages.brittany;
+    hindent = super.haskellPackages.hindent;
+    hlint = super.haskellPackages.hlint;
+
+    #
+    # X apps and fonts.
     #
     inherit (self)
       fira-code
       source-code-pro
     ;
+    xrandr = super.xorg.xrandr;
 
     #
     # Helpful for KDE.
     #
+    inherit (self)
+      gwenview # image viewer
+    ;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
