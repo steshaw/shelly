@@ -85,6 +85,8 @@ with builtins; rec {
 
     Agda = super.haskellPackages.Agda;
 
+    busybox = super.lib.setPrio 20 super.busybox;
+
     #
     # Google Cloud Platform.
     #
