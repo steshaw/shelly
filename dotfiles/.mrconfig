@@ -1,9 +1,6 @@
 [DEFAULT]
 gc = git gc "$@"
 
-[Code/steshaw/shelly]
-checkout = git clone --depth 20 git@github.com:steshaw/shelly
-
 [.emacs.d]
 checkout = git clone --depth 1 https://github.com/syl20bnr/spacemacs .emacs.d
 
@@ -13,32 +10,39 @@ checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh
 [.oh-my-zsh/custom/plugins/zsh-completions]
 checkout = git clone https://github.com/zsh-users/zsh-completions
 
-[Code/steshaw/steshaw.org]
-checkout = git clone --recursive git@github.com:steshaw/steshaw.org
+[Code/NixOS/nixpkgs]
+checkout =
+  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
+  mr upstream
+upstream =
+  git remote add upstream git@github.com:NixOS/nixpkgs.git
+
+[Code/bt/10xfactory-craft]
+checkout = git clone git@github.com:interspire2017/10xfactory-craft.git 10xfactory-craft
+
+[Code/bt/bt-app]
+checkout = git clone git@github.com:betterteamapp/solo bt-app
+
+[Code/bt/bt-craft]
+checkout = git clone git@github.com:betterteamapp/bt-craft bt-craft
+
+[Code/bt/interspire-craft]
+checkout = git clone git@github.com:betterteamapp/interspire-craft interspire-craft
+
+[Code/bt/smb-craft]
+checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
+
+[Code/bt/zarla]
+checkout = git clone git@github.com:betterteamapp/zarla zarla
+
+[Code/bt/zarla-craft]
+checkout = git clone git@github.com:betterteamapp/zarla-craft.git zarla-craft
 
 [Code/steshaw/log]
 checkout = git clone git@github.com:steshaw/log
 
-[Code/bt/bt-app]
-checkout = git clone 'git@github.com:betterteamapp/solo' 'bt-app'
+[Code/steshaw/shelly]
+checkout = git clone --depth 20 git@github.com:steshaw/shelly
 
-[Code/bt/bt-craft]
-checkout = git clone 'git@github.com:betterteamapp/bt-craft' 'bt-craft'
-
-[Code/bt/interspire-craft]
-checkout = git clone 'git@github.com:betterteamapp/interspire-craft' 'interspire-craft'
-
-[Code/bt/smb-craft]
-checkout = git clone 'git@github.com:betterteamapp/thesmbguide-craft' 'smb-craft'
-
-[Code/bt/zarla-craft]
-checkout = git clone 'git@github.com:betterteamapp/zarla-craft.git' 'zarla-craft'
-
-[Code/bt/10xfactory-craft]
-checkout = git clone 'git@github.com:interspire2017/10xfactory-craft.git' '10xfactory-craft'
-
-[Code/bt/zarla]
-checkout = git clone 'git@github.com:betterteamapp/zarla' 'zarla'
-
-[Code/NixOS/nixpkgs]
-checkout = git clone 'git@github.com:steshaw/nixpkgs.git' 'nixpkgs'
+[Code/steshaw/steshaw.org]
+checkout = git clone --recursive git@github.com:steshaw/steshaw.org
