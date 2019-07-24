@@ -17,10 +17,10 @@
   remotes = remote -v
   s = status --short --branch
   slog = log --oneline --decorate
-  slogv  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#1BDEE4)%ae %Creset%s'"
-  slogv  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%ae %Creset%s'"
-  slogvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%ae %Creset%s'"
-  slogvI = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%ae %Creset%s'"
+  slogv   = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#1BDEE4)%ae %Creset%s'"
+  slogvI  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%ae %Creset%s'"
+  slogvv  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%ae %Creset%s'"
+  slogvvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%ae %Creset%s'"
   llog = log --date=local
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
