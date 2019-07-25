@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ ${1:-} == --all ]]; then
+  all=1
+else
+  all=0
+  name=${1}
+fi
+shift
+
+registry=${2:-gcr.io}
+limitN=${3:-10}
+
+project=$(gcp-core-project)
+token="$(gcloud auth print-access-token)"
+auth="Authorization: Bearer ${token}"
+url="https://${registry}/v2"
+
+if [[ $all == 1 ]]; then
+  gcr-list-repositories | \
+    xargs -I @REPO@ \
+      curl -sS --header "$auth" "${url}/@REPO@/tags/list?n=${limitN}" | \
+      jq -r -M '.["name"] + ":" + .["tags"][]' | cut -d/ -f 2
+else
+  curl -sS --header "$auth" "${url}/${project}/${name}/tags/list?n=${limitN}" | \
+    jq -r -M '.["name"] + ":" + .["tags"][]' | cut -d/ -f 2
+fi

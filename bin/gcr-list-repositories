@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+registry=${1:-gcr.io}
+token="$(gcloud auth print-access-token)"
+auth="Authorization: Bearer ${token}"
+url="https://${registry}/v2"
+
+curl -sS --header "$auth" "${url}/_catalog" |
+    jq -r '.["repositories"][]' |
+    cut -d/ -f2

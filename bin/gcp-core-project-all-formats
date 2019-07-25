@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+formats=(
+  config
+  'csv(core.project)'
+  default
+  'diff(core.project)'
+  disable
+  flattened
+  'get(core.project)'
+  json
+  list
+  multi
+  none
+  object
+  'table(core)'
+  text
+  'value(core.project)'
+  yaml
+)
+
+for format in "${formats[@]}"; do
+  echo ==========================================================
+  echo "format=$format"
+  echo
+  gcloud config list project --format="$format"
+  echo
+  echo "flatten=core + format=$format"
+  echo
+  gcloud config list project --flatten=core --format="$format"
+  echo
+  echo
+done
