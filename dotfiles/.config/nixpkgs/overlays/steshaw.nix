@@ -47,6 +47,7 @@ with builtins; rec {
       bind # for dig. XXX: Any smaller package?
       cabal2nix
       direnv
+      dos2unix
       emacs
       fd
       fzf
@@ -85,8 +86,6 @@ with builtins; rec {
 
     Agda = super.haskellPackages.Agda;
 
-    busybox = super.lib.setPrio 20 super.busybox;
-
     #
     # Google Cloud Platform.
     #
@@ -107,18 +106,22 @@ with builtins; rec {
     hindent = super.haskellPackages.hindent;
     hlint = super.haskellPackages.hlint;
 
-    #
-    # X apps and fonts.
-    #
+    # --------------------------------------------------------------------------
+    # X related
+    # --------------------------------------------------------------------------
+
+    # Fonts.
     inherit (self)
       fira-code
       source-code-pro
     ;
-    xrandr = super.xorg.xrandr;
 
-    #
-    # Helpful for KDE.
-    #
+    randr = super.xorg.xrandr;
+    inherit (self)
+      nomachine-client
+    ;
+
+    # KDE.
     inherit (self)
       gwenview # image viewer
     ;
