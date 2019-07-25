@@ -59,6 +59,7 @@ with builtins; rec {
       httpie
       hub # Defined in overlay/hub.nix
       jq
+      killall
       mr
       neofetch
       pandoc
