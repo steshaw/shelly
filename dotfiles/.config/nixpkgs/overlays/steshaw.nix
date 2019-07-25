@@ -127,6 +127,12 @@ with builtins; rec {
       gwenview # image viewer
     ;
 
+    # Would like to remote in from laptop...
+    inherit (self)
+      teamviewer # failed
+      x11vnc
+    ;
+
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
 

@@ -59,7 +59,10 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    forwardX11 = true;
+  };
 
   services.postgresql = {
     enable = true;
@@ -80,6 +83,12 @@
 
   services.teamviewer.enable = true;
 
+  services.xrdp.enable = true;
+#  services.xrdp.defaultWindowManager = "${config.services.xserver.displayManager.session.script} plasma5+none";
+#  services.xrdp.defaultWindowManager = "${pkgs.xfce4-12.xfce4-session}/bin/xfce4-session";
+#  services.xrdp.defaultWindowManager = "xterm";
+  services.xrdp.defaultWindowManager = "xfce4-session";
+
   # Open ports in the firewall.
   #
   # No need to specify 22 here when the openssh service is enabled.
@@ -88,6 +97,7 @@
   networking.firewall.allowedTCPPorts = [
     80 433 # HTTP ports
     5900 # VNC
+    3389 # RDP
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -123,7 +133,6 @@
 
 #    displayManager.lightdm.enable = true;
   };
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.steshaw = {
