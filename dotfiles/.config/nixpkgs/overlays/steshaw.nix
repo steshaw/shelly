@@ -131,6 +131,7 @@ with builtins; rec {
     inherit (self)
       teamviewer # failed
       x11vnc
+      tigervnc
     ;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
