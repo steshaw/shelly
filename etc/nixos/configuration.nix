@@ -13,7 +13,6 @@
   nix.useSandbox = true;
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 ];
   systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 
   # Use the systemd-boot EFI boot loader.
@@ -77,10 +76,19 @@
 
   services.redis.enable = true;
   services.rabbitmq.enable = true;
-    #services.amqp.enable = true;
+#  services.amqp.enable = true;
+
+  services.teamviewer.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  #
+  # No need to specify 22 here when the openssh service is enabled.
+  # https://nixos.org/nixos/manual/index.html#sec-firewall
+  #
+  networking.firewall.allowedTCPPorts = [
+    80 433 # HTTP ports
+    5900 # VNC
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
