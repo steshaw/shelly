@@ -2,11 +2,13 @@
 
 set -euo pipefail
 
+package=$1
+
 current=$(git rev-parse --abbrev-ref HEAD)
 
 git checkout --quiet "${current}^"
-before=$(nix path-info -S -f . linkchecker | tee /dev/tty | awk '{print $2}')
+before=$(nix path-info -S -f . "$package" | tee /dev/tty | awk '{print $2}')
 git checkout --quiet "${current}"
-after=$(nix path-info -S -f . linkchecker | tee /dev/tty | awk '{print $2}')
+after=$(nix path-info -S -f . "$package" | tee /dev/tty | awk '{print $2}')
 
 echo "closure difference = $((after - before))"
