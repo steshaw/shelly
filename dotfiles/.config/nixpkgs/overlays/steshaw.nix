@@ -165,6 +165,7 @@ with builtins; rec {
     inherit (self)
       gwenview # image viewer
     ;
+    spectacle = kdeApplications.spectacle;
 
     # Would like to remote in from laptop...
     inherit (self)
