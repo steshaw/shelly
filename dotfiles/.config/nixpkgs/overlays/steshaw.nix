@@ -39,10 +39,27 @@ with builtins; rec {
     ;
 
     #
-    # My favourite command line apps.
+    # CLIs.
     #
     inherit (self)
+      # Shells.
       bashInteractive_5
+      fish
+      zsh
+
+      # VCS system.
+      bazaar
+      darcs
+      git
+      mercurial
+      pijul
+
+      # Security related.
+      gnupg22
+      gopass
+      pass
+
+      # Commands.
       bat
       bind # for dig. XXX: Any smaller package?
       cabal2nix
@@ -52,8 +69,6 @@ with builtins; rec {
       fd
       fzf
       gist
-      git
-      gnupg22
       hledger
       htop
       httpie
@@ -66,16 +81,20 @@ with builtins; rec {
       ripgrep
       rlwrap
       shellcheck
-      tmux
       tree
       unzip
       watchman
       youtube-dl
-      zsh
     ;
 
-    neovim = super.neovim; # Deferring to Vim for now.
-    vim = (super.vim_configurable.override {
+    # Tmux.
+    tmux = super.tmux;
+    tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
+
+    # Editors
+    # Vim for us.
+    neovim = super.neovim;
+    vim_ = (super.vim_configurable.override {
       guiSupport = "no";
       darwinSupport = super.stdenv.isDarwin;
       python = super.python3;
@@ -83,7 +102,6 @@ with builtins; rec {
       name = "my-vim-${prevAttrs.version}";
     });
 
-    tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
 
     Agda = super.haskellPackages.Agda;
 
