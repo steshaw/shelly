@@ -8,4 +8,6 @@ if [[ $# -ne 1 ]]; then
   exit 2
 fi
 
-v $(command -v $1)
+command=$(type -p "$1")
+
+"${SHELLY_HOME}"/bin/v "${command}"
