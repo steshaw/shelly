@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+nix-shell -p nix-review --run 'nix-review wip'
