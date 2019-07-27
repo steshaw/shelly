@@ -93,13 +93,28 @@ with builtins; rec {
       name = "my-vim-${prevAttrs.version}";
     });
 
-    # A few dependently typed PLs.
+    #
+    # Programming Languages.
+    #
+    inherit (self)
+      ocaml
+      rustup
+    ;
+
+    # Dependently typed PLs.
     agda = super.haskellPackages.Agda;
     inherit (self)
       ats
       coq
       idris
     ;
+
+    # Haskell.
+    ghc865 = super.haskell.compiler.ghc865;
+    stack = super.haskellPackages.stack;
+    brittany = super.haskellPackages.brittany;
+    hindent = super.haskellPackages.hindent;
+    hlint = super.haskellPackages.hlint;
 
     #
     # Google Cloud Platform.
@@ -110,16 +125,6 @@ with builtins; rec {
       docker-credential-gcr
       kubectl
     ;
-
-    #
-    # Haskell tools.
-    #
-    ghc865 = super.haskell.compiler.ghc865;
-    stack = super.haskellPackages.stack;
-
-    brittany = super.haskellPackages.brittany;
-    hindent = super.haskellPackages.hindent;
-    hlint = super.haskellPackages.hlint;
 
     # Yarn for gitmoji-cli.
     nodejs = super.nodejs;
