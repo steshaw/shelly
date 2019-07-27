@@ -117,10 +117,13 @@ with builtins; rec {
       source-code-pro
     ;
 
-    randr = super.xorg.xrandr;
     inherit (self)
-      nomachine-client
+      xsel
     ;
+    inherit (self.xorg)
+      xev
+    ;
+    randr = super.xorg.xrandr;
 
     # KDE.
     inherit (self)
@@ -129,9 +132,10 @@ with builtins; rec {
 
     # Would like to remote in from laptop...
     inherit (self)
+      nomachine-client
       teamviewer # failed
-      x11vnc
       tigervnc
+      x11vnc
     ;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
