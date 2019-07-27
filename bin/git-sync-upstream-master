@@ -6,5 +6,5 @@ if [[ $(git branch --show-current) != master ]]; then
   git checkout master
 fi
 git fetch upstream
-git merge --ff-only
+git merge --ff-only upstream/master
 git push origin master
