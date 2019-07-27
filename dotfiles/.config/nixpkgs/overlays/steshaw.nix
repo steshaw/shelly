@@ -23,19 +23,10 @@ with builtins; rec {
     #
     # Kind of like build-essential.
     #
-/*
     inherit (self)
       gcc
       gnumake
       python
-    ;
-*/
-
-    yarn = (super.yarn.override {
-      nodejs = super.nodejs-10_x;
-    });
-    inherit (self)
-      nodejs-10_x
     ;
 
     #
@@ -102,8 +93,13 @@ with builtins; rec {
       name = "my-vim-${prevAttrs.version}";
     });
 
-
-    Agda = super.haskellPackages.Agda;
+    # A few dependently typed PLs.
+    agda = super.haskellPackages.Agda;
+    inherit (self)
+      ats
+      coq
+      idris
+    ;
 
     #
     # Google Cloud Platform.
@@ -124,6 +120,15 @@ with builtins; rec {
     brittany = super.haskellPackages.brittany;
     hindent = super.haskellPackages.hindent;
     hlint = super.haskellPackages.hlint;
+
+    # Yarn for gitmoji-cli.
+    nodejs = super.nodejs;
+    yarn = super.yarn;
+/*
+    yarn_ = (self.yarn.override {
+      nodejs = super.nodejs;
+    });
+*/
 
     # --------------------------------------------------------------------------
     # X related
