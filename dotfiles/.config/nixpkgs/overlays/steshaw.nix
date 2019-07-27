@@ -21,11 +21,19 @@ with builtins; rec {
   userPackages = super.userPackages or {} // super.recurseIntoAttrs {
 
     #
-    # Kind of like build-essential.
+    # Nix.
+    #
+    inherit (self)
+      nix-prefetch-scripts
+    ;
+
+    #
+    # Something like build-essential.
     #
     inherit (self)
       gcc
       gnumake
+      pkgconfig
       python
     ;
 
