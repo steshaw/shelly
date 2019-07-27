@@ -64,6 +64,7 @@
     forwardX11 = true;
   };
 
+  # For development...
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_11;
@@ -76,11 +77,11 @@
       create role steshaw with login password 'password';
     '';
   };
-
   services.redis.enable = true;
   services.rabbitmq.enable = true;
 #  services.amqp.enable = true;
 
+  services.keybase.enable = true;
   services.teamviewer.enable = true;
 
   services.xrdp.enable = true;
