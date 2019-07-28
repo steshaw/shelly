@@ -61,7 +61,7 @@ unset -f anon
 #
 # Some other configuration rely on brew being in the PATH, so it must be early.
 #
-prependPaths /usr/local/bin /usr/local/sbin
+prependPathsExists /usr/local/bin /usr/local/sbin
 if has brew; then
   export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
   macos-sync-env PKG_CONFIG_PATH
