@@ -34,7 +34,9 @@ fun Plugs()
   Plug 'Quramy/tsuquyomi'
   Plug 'leafgarland/typescript-vim'
 
-  " Misc.
+  "
+  " Miscellaneous.
+  "
   Plug 'airblade/vim-gitgutter'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'kien/ctrlp.vim'
@@ -46,6 +48,9 @@ fun Plugs()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'whatyouhide/vim-lengthmatters'
   Plug 'rhlobo/vim-super-retab'
+
+  " Turn off search highlighting when done.
+  Plug 'romainl/vim-cool'
 
   "
   " Install neosnippet {
@@ -123,6 +128,7 @@ set smarttab
 set smartindent
 set cindent
 set modelines=5
+set hlsearch! " Hightlight searchs.
 
 if &fileformat == 'dos'
   set nofixendofline
