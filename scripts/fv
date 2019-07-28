@@ -10,4 +10,4 @@ fi
 
 command=$(type -p "$1")
 
-"${SHELLY_HOME}"/bin/v "${command}"
+"${SHELLY_HOME}"/scripts/v "${command}"
