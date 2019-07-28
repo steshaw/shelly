@@ -48,7 +48,7 @@ Echo "SHELL (after)  = ${SHELL}"
 # Put shelly packages and commands on PATH.
 #
 anon() {
-  local shellyBin=${SHELLY_HOME}/bin
+  local shellyBin=${SHELLY_HOME}/scripts
   # shellcheck disable=SC1090
   source ${shellyBin}/ShellyPath
   prependPaths ${shellyBin}

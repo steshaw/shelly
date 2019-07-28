@@ -22,5 +22,5 @@ if [[ ! -d $SHELLY_HOME ]]; then
   chmod 700 $SHELLY_HOME/dotfiles/.gnupg
 fi
 
-PATH=${SHELLY_HOME}/bin:${PATH}
+PATH=${SHELLY_HOME}/scripts:${PATH}
 ShellyLinkDotFiles
