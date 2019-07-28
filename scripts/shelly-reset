@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#
+# Usage: `source shelly-reset`.
+#
+
+#set -euo pipefail
+
+unset SHELLY_HOME
+unset SHELLY_DEV_DIR
+unset SHELLY_ENV
+
+export DYLD_LIBRARY_PATH="${SHELLY_ORIGINAL_DYLD_LIBRARY_PATH}"
+unset SHELLY_ORIGINAL_DYLD_LIBRARY_PATH
+
+PATH="${SHELLY_ORIGINAL_PATH}"
+unset SHELLY_ORIGINAL_PATH
+
+export LD_LIBRARY_PATH="${SHELLY_ORIGINAL_LD_LIBRARY_PATH}"
+unset SHELLY_ORIGINAL_LD_LIBRARY_PATH

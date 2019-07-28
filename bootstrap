@@ -4,8 +4,13 @@ set -euo pipefail
 
 echo Bootstrapping shelly...
 
+if [[ -n ${SHELLY_HOME+unset} ]]; then
+  echo "bootrap: SHELLY_HOME already defined" >&2
+  exit 1
+fi
+
 hash git || (
-  echo "Please ensure git is installed" >&2
+  echo "bootrap: Please ensure git is installed" >&2
   exit 1
 )
 
@@ -22,5 +27,6 @@ if [[ ! -d $SHELLY_HOME ]]; then
   chmod 700 $SHELLY_HOME/dotfiles/.gnupg
 fi
 
-PATH=${SHELLY_HOME}/scripts:${PATH}
-ShellyLinkDotFiles
+$SHELLY_HOME/scripts/shelly-link-dotfiles
+
+echo -e "\nSource .profile or start a new shell to get started."
