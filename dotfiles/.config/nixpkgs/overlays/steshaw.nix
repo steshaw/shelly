@@ -17,6 +17,9 @@
 #   https://nixos.wiki/wiki/FAQ#Why_not_use_nix-env_-i_foo.3F
 #
 self: super:
+let
+  notDarwin = pkg: if super.stdenv.isDarwin then super.zsh else pkg;
+in
 with builtins; rec {
   userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
 
@@ -114,23 +117,19 @@ with builtins; rec {
     ;
 
     # Dependently typed PLs.
-    agda = notDarwin super.haskellPackages.Agda;
-
-    nopackage = bash; # For want of a better empty package.
-    notDarwin = pkg: if super.stdenv.isDarwin then nopackage else pkg;
-
-    ats2 = notDarwin ats2;
-    idris1 = notDarwin idris;
+    agda = notDarwin self.haskellPackages.Agda;
+    ats2 = notDarwin self.ats2;
+    idris1 = notDarwin self.idris;
     inherit (self)
       coq
     ;
 
     # Haskell.
-    ghc865 = super.haskell.compiler.ghc865;
-    stack = notDarwin super.haskellPackages.stack;
-    brittany = super.haskellPackages.brittany;
-    hindent = notDarwin super.haskellPackages.hindent;
-    hlint = notDarwin super.haskellPackages.hlint;
+    ghc865 = self.haskell.compiler.ghc865;
+    stack = notDarwin self.haskellPackages.stack;
+    brittany = self.haskellPackages.brittany;
+    hindent = notDarwin self.haskellPackages.hindent;
+    hlint = notDarwin self.haskellPackages.hlint;
 
     #
     # Google Cloud Platform.
@@ -143,8 +142,8 @@ with builtins; rec {
     ;
 
     # Yarn for gitmoji-cli.
-    nodejs = super.nodejs;
-    yarn = super.yarn;
+    nodejs = self.nodejs;
+    yarn = self.yarn;
 /*
     yarn_ = (self.yarn.override {
       nodejs = super.nodejs;
@@ -170,14 +169,14 @@ with builtins; rec {
     randr = super.xorg.xrandr;
 
     # KDE.
-    gwenview = notDarwin gwenview; # image viewer
-    spectacle = notDarwin kdeApplications.spectacle;
+    gwenview = notDarwin self.gwenview; # image viewer
+    spectacle = notDarwin self.kdeApplications.spectacle;
 
     # Would like to remote in from laptop...
-    nomachine-client = notDarwin nomachine-client;
-    teamviewer = notDarwin teamviewer;
-    tigervnc = notDarwin tigervnc;
-    x11vnc = notDarwin x11vnc;
+    nomachine-client = notDarwin self.nomachine-client;
+    teamviewer = notDarwin self.teamviewer;
+    tigervnc = notDarwin self.tigervnc;
+    x11vnc = notDarwin self.x11vnc;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
