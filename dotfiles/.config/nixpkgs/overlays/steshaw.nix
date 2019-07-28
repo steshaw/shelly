@@ -67,7 +67,6 @@ with builtins; rec {
       cabal2nix
       direnv
       dos2unix
-      emacs
       fd
       fzf
       gist
@@ -90,20 +89,23 @@ with builtins; rec {
     ;
 
     # Tmux.
-    tmux = super.tmux;
+    tmux = self.tmux;
     tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
 
-    neovim = super.neovim;
-
+    #
     # Editors
-    # Vim for us.
+    #
+    emacs = self.emacs;
+    neovim = self.neovim;
+
+    # Vim with Python3 for vim-orgmode support.
     vim_ =
-      if super.stdenv.isDarwin
-      then super.vim
-      else ((super.vim_configurable.override {
+      if true # Disable vim for now. It doesn't compile on Darwin anyhow.
+      then self.zsh # For want of an "empty" package.
+      else ((self.vim_configurable.override {
       guiSupport = "no";
       darwinSupport = super.stdenv.isDarwin;
-      python = super.python3;
+      python = self.python3;
     }).overrideAttrs (prevAttrs: {
       name = "my-vim-${prevAttrs.version}";
     }));
@@ -146,7 +148,7 @@ with builtins; rec {
     yarn = self.yarn;
 /*
     yarn_ = (self.yarn.override {
-      nodejs = super.nodejs;
+      nodejs = self.nodejs;
     });
 */
 
@@ -166,7 +168,7 @@ with builtins; rec {
     inherit (self.xorg)
       xev
     ;
-    randr = super.xorg.xrandr;
+    randr = self.xorg.xrandr;
 
     # KDE.
     gwenview = notDarwin self.gwenview; # image viewer
