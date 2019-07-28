@@ -14,6 +14,7 @@
   who = blame
   tags = tag -l
   branches = branch -a
+  tracking = branch -vv
   remotes = remote -v
   s = status --short --branch
   slog = log --oneline --decorate
