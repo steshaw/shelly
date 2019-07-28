@@ -1,15 +1,9 @@
-/Code/
-/Hyper/
 /Thunar/
 /configstore
 /dconf/
-/gcloud
 /gtk-3.0/
 /htop
 /hub
-/inkscape/
-/libreoffice/
-/linkchecker/
 /pulse/
 /user-dirs.dirs
 /user-dirs.locale
@@ -62,19 +56,31 @@
 /kioclientrc
 /kwalletrc
 
-
+#
 # App config.
+#
+/Code/
+/Hyper/
 /RescueTime.com/
-/gwenviewrc
+/Slack/
 /composer/
+/freerdp/
+/gcloud/
+/gwenviewrc
+/inkscape/
+/libreoffice/
+/linkchecker/
 /psysh_history
 /teamviewer/
-/freerdp/
 
-# More appended to end!
-/mimeapps.list
-/filetypesrc
-
-# XXX: Ignore Keybase files for now
+#
+# Ignore Keybase files.
+#
 /autostart/keybase_autostart.desktop
 /keybase/
+
+#
+# Other.
+#
+/mimeapps.list
+/filetypesrc

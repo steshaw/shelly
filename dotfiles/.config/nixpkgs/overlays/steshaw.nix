@@ -179,6 +179,7 @@ with builtins; rec {
     teamviewer = notDarwin self.teamviewer;
     tigervnc = notDarwin self.tigervnc;
     x11vnc = notDarwin self.x11vnc;
+    slack-dark = if true then zsh else notDarwin self.slack-dark; # Slack disabled — use Firefox.
 
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
