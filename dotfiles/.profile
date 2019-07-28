@@ -98,7 +98,8 @@ fi
 #
 # Add user's private bins to PATH.
 #
-prependPaths ~/.local/bin ~/bin
+prependPaths ~/.local/bin
+prependPathsExists ~/bin
 
 prettyPath "PATH (after) ="
 macos-sync-env PATH
