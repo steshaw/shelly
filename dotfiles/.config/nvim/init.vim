@@ -12,7 +12,7 @@ fun Plugs()
 
   " Org mode.
   Plug 'jceb/vim-orgmode'
-  Plug 'tpope/vim-speeddating' " dependency
+  Plug 'tpope/vim-speeddating' " Required dependency.
 
   " Modes
   Plug 'LnL7/vim-nix'
@@ -66,6 +66,7 @@ fun Plugs()
   " }
 endfun
 
+" Ensure plug is installed.
 fun Plug()
   " Install vim-plug if we don't already have it
   if empty(glob('~/.vim/autoload/plug.vim'))
