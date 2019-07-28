@@ -150,3 +150,34 @@ inoremap kj <esc>
 nnoremap <Leader><space> :nohlsearch<Enter>
 
 let g:org_agenda_files=['~/dev/tlcsrc/log/log.org']
+
+"
+" Org mode configuration.
+"
+let g:org_heading_shade_leading_stars = 0
+let g:org_indent = 1
+let g:org_todo_keywords = ['TODO', 'BLOCKED', 'DOING', '|', 'DONE']
+let g:org_todo_keyword_faces =
+      \[
+      \   ['TODO',
+      \     [':foreground Yellow'
+      \     ]
+      \   ],
+      \   ['BLOCKED',
+      \     [':foreground Red'
+      \     ,':weight bold'
+      \     ,':slant italic'
+      \     ,':decoration reverse,NONE'
+      \     ]
+      \   ],
+      \   ['DOING',
+      \     [':foreground Yellow'
+      \     ,':weight bold'
+      \     ,':slant italic'
+      \     ]
+      \   ],
+      \   ['DONE',
+      \     [':foreground Green'
+      \     ]
+      \   ]
+      \ ]
