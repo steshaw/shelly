@@ -18,7 +18,7 @@
 #
 self: super:
 with builtins; rec {
-  userPackages = super.userPackages or {} // super.recurseIntoAttrs {
+  userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
 
     #
     # Nix.
@@ -40,9 +40,9 @@ with builtins; rec {
     #
     # CLIs.
     #
+    bash = super.bashInteractive_5;
     inherit (self)
       # Shells.
-      bashInteractive_5
       fish
       zsh
 
@@ -90,16 +90,20 @@ with builtins; rec {
     tmux = super.tmux;
     tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
 
+    neovim = super.neovim;
+
     # Editors
     # Vim for us.
-    neovim = super.neovim;
-    vim_ = (super.vim_configurable.override {
+    vim_ =
+      if super.stdenv.isDarwin
+      then super.vim
+      else ((super.vim_configurable.override {
       guiSupport = "no";
       darwinSupport = super.stdenv.isDarwin;
       python = super.python3;
     }).overrideAttrs (prevAttrs: {
       name = "my-vim-${prevAttrs.version}";
-    });
+    }));
 
     #
     # Programming Languages.
@@ -110,19 +114,23 @@ with builtins; rec {
     ;
 
     # Dependently typed PLs.
-    agda = super.haskellPackages.Agda;
+    agda = notDarwin super.haskellPackages.Agda;
+
+    nopackage = bash; # For want of a better empty package.
+    notDarwin = pkg: if super.stdenv.isDarwin then nopackage else pkg;
+
+    ats2 = notDarwin ats2;
+    idris1 = notDarwin idris;
     inherit (self)
-      ats
       coq
-      idris
     ;
 
     # Haskell.
     ghc865 = super.haskell.compiler.ghc865;
-    stack = super.haskellPackages.stack;
+    stack = notDarwin super.haskellPackages.stack;
     brittany = super.haskellPackages.brittany;
-    hindent = super.haskellPackages.hindent;
-    hlint = super.haskellPackages.hlint;
+    hindent = notDarwin super.haskellPackages.hindent;
+    hlint = notDarwin super.haskellPackages.hlint;
 
     #
     # Google Cloud Platform.
@@ -162,18 +170,14 @@ with builtins; rec {
     randr = super.xorg.xrandr;
 
     # KDE.
-    inherit (self)
-      gwenview # image viewer
-    ;
-    spectacle = kdeApplications.spectacle;
+    gwenview = notDarwin gwenview; # image viewer
+    spectacle = notDarwin kdeApplications.spectacle;
 
     # Would like to remote in from laptop...
-    inherit (self)
-      nomachine-client
-      teamviewer # failed
-      tigervnc
-      x11vnc
-    ;
+    nomachine-client = notDarwin nomachine-client;
+    teamviewer = notDarwin teamviewer;
+    tigervnc = notDarwin tigervnc;
+    x11vnc = notDarwin x11vnc;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
