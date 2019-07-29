@@ -18,7 +18,8 @@
 #
 self: super:
 let
-  notDarwin = pkg: if super.stdenv.isDarwin then super.zsh else pkg;
+  emptyPkg = self.zsh;
+  notDarwin = pkg: if super.stdenv.isDarwin then emptyPkg else pkg;
 in
 with builtins; rec {
   userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
@@ -41,7 +42,7 @@ with builtins; rec {
     ;
 
     #
-    # CLIs.
+    # Command line tools.
     #
     bash = super.bashInteractive_5;
     inherit (self)
@@ -101,7 +102,7 @@ with builtins; rec {
     # Vim with Python3 for vim-orgmode support.
     vim_ =
       if true # Disable vim for now. It doesn't compile on Darwin anyhow.
-      then self.zsh # For want of an "empty" package.
+      then emptyPkg
       else ((self.vim_configurable.override {
       guiSupport = "no";
       darwinSupport = super.stdenv.isDarwin;
@@ -179,7 +180,7 @@ with builtins; rec {
     teamviewer = notDarwin self.teamviewer;
     tigervnc = notDarwin self.tigervnc;
     x11vnc = notDarwin self.x11vnc;
-    slack-dark = if true then zsh else notDarwin self.slack-dark; # Slack disabled — use Firefox.
+    slack-dark = if true then emptyPkg else notDarwin self.slack-dark; # Slack disabled — use Firefox.
 
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
