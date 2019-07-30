@@ -128,9 +128,10 @@
     desktopManager.plasma5.enable = true;
 
     # Enable the Gnome desktop environment.
-#    displayManager.gdm.enable = true;
-#    displayManager.gdm.wayland = false;
-#    desktopManager.gnome3.enable = true;
+#     displayManager.gdm.enable = true;
+#     displayManager.gdm.wayland = false;
+#     desktopManager.gnome3.enable = true;
+#     desktopManager.gnome3.enable = true;
 
 #    displayManager.lightdm.enable = true;
   };
