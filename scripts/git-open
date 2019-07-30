@@ -7,7 +7,7 @@ if [[ $# -ne 0 ]]; then
   exit 2
 fi
 
-url=$(git remote get-url origin)
+url=$(git remote get-url --push origin)
 
 case $url in
   http*)
