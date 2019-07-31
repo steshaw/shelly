@@ -54,6 +54,7 @@ with builtins; rec {
       bazaar
       darcs
       git
+      gti # Humourous wrapper for git.
       mercurial
       pijul
 
