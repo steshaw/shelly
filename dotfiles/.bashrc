@@ -206,8 +206,11 @@ saveHistory() {
   history -c
   history -r
 }
-precmd_functions+=(saveHistory)
-#PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
+if false; then
+  precmd_functions+=(saveHistory)
+  # The "old" way of doing precmd_functions:
+  #PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
+fi
 
 # Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
 if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
