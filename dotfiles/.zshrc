@@ -78,6 +78,7 @@ plugins=(
   github
   vi-mode
   zsh-completions
+  kube-ps1
 )
 
 source $ZSH/oh-my-zsh.sh
