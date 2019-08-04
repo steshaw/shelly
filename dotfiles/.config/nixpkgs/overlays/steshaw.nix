@@ -173,10 +173,10 @@ with builtins; rec {
 
     # Haskell.
     ghc865 = self.haskell.compiler.ghc865;
-    stack = self.haskellPackages.stack;
-    brittany = self.haskellPackages.brittany;
-    hindent = self.haskellPackages.hindent;
-    hlint = self.haskellPackages.hlint;
+    stack = notDarwin self.haskellPackages.stack; # No binary package.
+    brittany = notDarwin self.haskellPackages.brittany; # No binary package.
+    hindent = notDarwin self.haskellPackages.hindent; # No binary package.
+    hlint = notDarwin self.haskellPackages.hlint; # No binary package.
 
     #
     # Google Cloud Platform.
