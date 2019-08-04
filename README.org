@@ -11,9 +11,17 @@ I bootstrap on a new machine like this:
   $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
-After that, I tend to run [[bin/post-bootstrap][post-bootstrap]] which installs [[https://brew.sh/][Homebrew]]/[[https://linuxbrew.sh/][Linuxbrew]],
-bundle brews [[dotfiles/.Brewfile][a bunch of packages]], and checks out repos via [[https://myrepos.branchable.com/][myrepos]].
+After that, I tend to run start a new shell to ensure all shell dotfiles are
+installed correctly and run [[scripts/post-bootstrap][post-bootstrap]]:
 
 #+begin_src bash session
   $ post-bootstrap
 #+end_src
+
+This installs either:
+
+- A Nix overlay.
+- [[https://brew.sh/][Homebrew]]/[[https://linuxbrew.sh/][Linuxbrew]]
+  and all packages from [[dotfiles/.Brewfile][~/.Brewfile]].
+
+Then clones all my git repositories via [[https://myrepos.branchable.com/][myrepos]].
