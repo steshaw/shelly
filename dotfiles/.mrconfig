@@ -44,20 +44,20 @@ checkout =
   cd Idris2
   git remote add upstream git@github.com:edwinb/Idris2.git
 
-[Code/steshaw/NixOS/nix]
+[Code/steshaw/log]
+checkout = git clone git@github.com:steshaw/log
+
+[Code/steshaw/nix]
 checkout =
   git clone 'git@github.com:steshaw/nix.git' 'nix'
   cd nix
   git remote add upstream git@github.com:NixOS/nix.git
 
-[Code/steshaw/NixOS/nixpkgs]
+[Code/steshaw/nixpkgs]
 checkout =
   git clone git@github.com:steshaw/nixpkgs.git nixpkgs
   cd nixpkgs
   git remote add upstream git@github.com:NixOS/nixpkgs.git
-
-[Code/steshaw/log]
-checkout = git clone git@github.com:steshaw/log
 
 [Code/steshaw/shelly]
 checkout = git clone --depth 20 git@github.com:steshaw/shelly
