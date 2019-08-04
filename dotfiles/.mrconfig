@@ -32,6 +32,20 @@ checkout = git clone git@github.com:betterteamapp/zarla zarla
 [Code/bt/zarla-craft]
 checkout = git clone git@github.com:betterteamapp/zarla-craft.git zarla-craft
 
+[Code/steshaw/Idris1]
+checkout =
+  git clone 'git@github.com:steshaw/Idris1' 'idris1'
+  mr add-upstream
+add-upstream
+  git remote add upstream git@github.com:idris-lang/Idris-dev.git
+
+[Code/steshaw/Idris2]
+checkout =
+  git clone 'git@github.com:steshaw/Idris2' 'Idris2'
+  mr add-upstream
+add-upstream
+  git remote add upstream git@github.com:edwinb/Idris2.git
+
 [Code/steshaw/NixOS/nix]
 checkout =
   git clone 'git@github.com:steshaw/nix.git' 'nix'
@@ -42,8 +56,8 @@ upstream =
 [Code/steshaw/NixOS/nixpkgs]
 checkout =
   git clone git@github.com:steshaw/nixpkgs.git nixpkgs
-  mr upstream
-upstream =
+  mr add-upstream
+add-upstream =
   git remote add upstream git@github.com:NixOS/nixpkgs.git
 
 [Code/steshaw/log]
