@@ -20,9 +20,50 @@ self: super:
 let
   emptyPkg = self.zsh;
   notDarwin = pkg: if super.stdenv.isDarwin then emptyPkg else pkg;
-in
+  desktopPkgs = if self.stdenv.isDarwin then {} else rec {
+    # --------------------------------------------------------------------------
+    # X.org
+    # --------------------------------------------------------------------------
+
+    # Fonts
+    inherit (self)
+      fira-code
+      source-code-pro
+    ;
+
+    inherit (self)
+      xsel
+    ;
+    inherit (self.xorg)
+      xev
+    ;
+    randr = self.xorg.xrandr;
+
+    # Apps
+    inherit (self)
+      rescuetime
+
+      # Remote desktops. None work or work well.
+      nomachine-client # no nomachine-server :-(.
+      teamviewer
+      tigervnc
+      x11vnc
+    ;
+
+    enableSlack = false; # Desktop Slack disabled — use Firefox tab.
+    slack-dark = if enableSlack then slack-dark else emptyPkg;
+
+    # https://github.com/KSmanis/kwin-move-window-to-center
+    # but let's have xmonad+KDE.
+
+    # KDE
+    inherit (self)
+      gwenview # Image viewer.
+      spectacle # Screenshot taker.
+    ;
+}; in
 with builtins; rec {
-  userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
+  userPackages = super.userPackages or {} // desktopPkgs // super.recurseIntoAttrs rec {
 
     #
     # Nix.
@@ -121,19 +162,19 @@ with builtins; rec {
     ;
 
     # Dependently typed PLs.
-    agda = notDarwin self.haskellPackages.Agda;
-    ats2 = notDarwin self.ats2;
-    idris1 = notDarwin self.idris;
+    agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
+    ats2 = notDarwin self.ats2; # Broken on macOS.
+    idris1 = notDarwin self.idris; # Broken on macOS.
     inherit (self)
       coq
     ;
 
     # Haskell.
     ghc865 = self.haskell.compiler.ghc865;
-    stack = notDarwin self.haskellPackages.stack;
+    stack = self.haskellPackages.stack;
     brittany = self.haskellPackages.brittany;
-    hindent = notDarwin self.haskellPackages.hindent;
-    hlint = notDarwin self.haskellPackages.hlint;
+    hindent = self.haskellPackages.hindent;
+    hlint = self.haskellPackages.hlint;
 
     #
     # Google Cloud Platform.
@@ -146,45 +187,10 @@ with builtins; rec {
     ;
 
     # Yarn for gitmoji-cli.
-    nodejs = self.nodejs;
-    yarn = self.yarn;
-/*
-    yarn_ = (self.yarn.override {
-      nodejs = self.nodejs;
-    });
-*/
-
-    # --------------------------------------------------------------------------
-    # X related
-    # --------------------------------------------------------------------------
-
-    # Fonts.
     inherit (self)
-      fira-code
-      source-code-pro
+      nodejs
+      yarn
     ;
-
-    inherit (self)
-      xsel
-    ;
-    inherit (self.xorg)
-      xev
-    ;
-    randr = self.xorg.xrandr;
-
-    # KDE.
-    gwenview = notDarwin self.gwenview; # image viewer
-    spectacle = notDarwin self.kdeApplications.spectacle;
-
-    # Would like to remote in from laptop...
-    nomachine-client = notDarwin self.nomachine-client;
-    teamviewer = notDarwin self.teamviewer;
-    tigervnc = notDarwin self.tigervnc;
-    x11vnc = notDarwin self.x11vnc;
-    slack-dark = if true then emptyPkg else notDarwin self.slack-dark; # Slack disabled — use Firefox.
-
-    # https://github.com/KSmanis/kwin-move-window-to-center
-    # but let's have xmonad+KDE.
 
     #
     # Default packages.
