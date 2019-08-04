@@ -18,8 +18,9 @@
 #
 self: super:
 let
-  emptyPkg = self.zsh;
-  notDarwin = pkg: if super.stdenv.isDarwin then emptyPkg else pkg;
+  shell = self.bashInteractive_5;
+  emptyPkg = shell;
+  notDarwin = pkg: if self.stdenv.isDarwin then emptyPkg else pkg;
   desktopPkgs = if self.stdenv.isDarwin then {} else rec {
     # --------------------------------------------------------------------------
     # X.org
@@ -51,6 +52,7 @@ let
     ;
 
     enableSlack = false; # Desktop Slack disabled — use Firefox tab.
+    emptyPkg = xev; # Hmm
     slack-dark = if enableSlack then slack-dark else emptyPkg;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
@@ -85,7 +87,7 @@ with builtins; rec {
     #
     # Command line tools.
     #
-    bash = super.bashInteractive_5;
+    bash = self.bashInteractive_5;
     inherit (self)
       # Shells.
       fish
@@ -129,7 +131,7 @@ with builtins; rec {
       watchman
       youtube-dl
     ;
-    gopass = notDarwin gopass;
+    gopass = notDarwin self.ripgrep;
 
     # Tmux.
     tmux = self.tmux;
@@ -147,7 +149,7 @@ with builtins; rec {
       then emptyPkg
       else ((self.vim_configurable.override {
       guiSupport = "no";
-      darwinSupport = super.stdenv.isDarwin;
+      darwinSupport = self.stdenv.isDarwin;
       python = self.python3;
     }).overrideAttrs (prevAttrs: {
       name = "my-vim-${prevAttrs.version}";
