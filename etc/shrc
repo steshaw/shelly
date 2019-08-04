@@ -90,6 +90,7 @@ alias clear='clear -x'
 
 # Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
 peekAlias gc; alias gc='git commit -v'; peekAlias gc
+peekAlias ga; alias ga='git add'; peekAlias ga
 peekAlias gaa; alias gaa='git add --all'; peekAlias gaa
 peekAlias gst; alias gst='git status'; peekAlias gst
 peekAlias gd; alias gd='git diff'; peekAlias gd
