@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
-uname=$(uname)
+script=$(basename "$0")
 
 Usage() {
   cat >&2 <<!
-usage: $(basename "$0") info|search|install|remove|refresh|upgrade|installed|files
+usage: ${script} info|search|install|remove|upgrade|installed|files
 !
   exit 2
 }
@@ -15,51 +15,120 @@ usage: $(basename "$0") info|search|install|remove|refresh|upgrade|installed|fil
 
 command=$1; shift
 
+# Aliases.
+[[ $command == show ]] && command=info
+[[ $command == refresh ]] && command=update
+
+uname=$(uname)
+
+function is_nix() {
+  [[ -f /etc/NIXOS || -f ~/.nix-profile ]]
+}
+
 if [[ $command = 'info' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew info "$@"
+  elif is_nix; then
+    if [[ $# != 1 ]]; then
+      echo "usage: ${script} info PKG" >&2
+      exit 2
+    fi
+    pkg=$1
+    nix-env --query --available --attr "${pkg}" --description --json \
+      | jq '."'"${pkg}"'".meta | {
+          name,
+          description,
+          homepage,
+          license
+        }'
   else
     apt-cache show "$@"
   fi
 elif [[ $command = 'search' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew search "$@"
+  elif is_nix; then
+    nix search "$@"
   else
     apt-cache search "$@"
   fi
 elif [[ $command = 'install' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew install "$@"
+  elif is_nix; then
+    nix-env --install --attr "$@"
   else
     sudo apt-get install "$@"
   fi
 elif [[ $command = 'remove' || $command = "uninstall" ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew uninstall "$@"
+  elif is_nix; then
+    nix-env -e "$@"
   else
     sudo apt-get autoremove "$@"
   fi
-elif [[ $command = 'refresh' || $command = 'update' ]]; then
+elif [[ $command = 'update' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew update "$@"
+  elif is_nix; then
+    if [[ $# != 1 && ${1:-} != system && ${1:-} != user ]]; then
+      echo "usage: ${script} update [system|user]" >&2
+      exit 2
+    fi
+    if [[ $1 == system ]]; then
+      sudo nix-channel --update
+    elif [[ $1 == user ]]; then
+      nix-channel --update
+    else
+      echo "panic: the impossible happened!" >&2
+      exit 1
+    fi
   else
     sudo apt-get update "$@"
   fi
 elif [[ $command = 'upgrade' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew upgrade "$@"
+  elif is_nix; then
+    if [[ $# != 1 && ${1:-} != system && ${1:-} != user ]]; then
+      echo "usage: ${script} upgrade [system|user]" >&2
+      exit 2
+    fi
+    if [[ $1 == system ]]; then
+      sudo nixos-rebuild switch --upgrade
+    elif [[ $1 == user ]]; then
+      nix-rebuild
+    else
+      echo "panic: the impossible happened!" >&2
+      exit 1
+    fi
   else
     sudo apt-get upgrade "$@"
   fi
 elif [[ $command = 'installed' || $command = 'list' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     brew list -1
+  elif is_nix; then
+    nix-env --query --installed "$@"
   else
     dpkg --get-selections
   fi
 elif [[ $command = 'files' ]]; then
   if [[ $uname = 'Darwin' ]]; then
     echo "Not implemented" >&2
+    exit 1
+  elif is_nix; then
+    if [[ $# != 1 ]]; then
+      echo "usage: ${script} files PKG" >&2
+      exit 2
+    fi
+    pkg=$1
+    dir="$(
+      nix-env --query --installed "${pkg}" "${pkg}" --out-path \
+      | awk '{print $2}'
+    )"
+    tree "${dir}"
   else
     dpkg -L "$@"
   fi
