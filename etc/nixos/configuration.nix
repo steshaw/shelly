@@ -104,6 +104,10 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  networking.extraHosts = ''
+    35.188.144.201 smb.test
+  '';
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
