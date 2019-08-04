@@ -9,7 +9,7 @@ if false; then
   cd "$shellyDir"
 fi
 
-if [[ -f ~/.nix-channels ]]; then
+if [[ -f /etc/NIXOS || -f ~/.nix-channels ]]; then
   # Install steshaw.nix userPackages overlay.
   echo 'Installing userPackages overlay ...'
   nix-env -f '<nixpkgs>' -r -iA userPackages
@@ -30,9 +30,12 @@ echo 'Upgrading Haskell Stack ...'
 # 'n' for no sudo
 stack upgrade <<< "n"
 
-if [[ $(uname) == Darwin ]]; then
-  echo
-  create-xterm-24bit
+# Thinking that this isn't required any longer.
+if false; then
+  if [[ $(uname) == Darwin ]]; then
+    echo
+    create-xterm-24bit
+  fi
 fi
 
 echo
