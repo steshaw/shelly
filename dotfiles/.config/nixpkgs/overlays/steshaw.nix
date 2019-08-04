@@ -37,7 +37,7 @@ let
     inherit (self.xorg)
       xev
     ;
-    randr = self.xorg.xrandr;
+    xrandr = self.xorg.xrandr;
 
     # Apps
     inherit (self)
@@ -101,7 +101,6 @@ with builtins; rec {
 
       # Security related.
       gnupg22
-      gopass
       pass
 
       # Commands.
@@ -130,6 +129,7 @@ with builtins; rec {
       watchman
       youtube-dl
     ;
+    gopass = notDarwin gopass;
 
     # Tmux.
     tmux = self.tmux;
