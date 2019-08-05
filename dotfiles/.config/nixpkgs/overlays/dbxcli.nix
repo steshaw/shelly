@@ -1,15 +1,18 @@
-# https://github.com/github/hub/archive/v2.12.2.tar.gz
+#
+# FIXME: This is broken because it installs hub binary which clashes with
+# github/hub.
+#
 self: super:
 with builtins;
 with super;
 rec {
-  hub = buildGoModule rec {
-    name = "hub-${version}";
-    version = "2.12.2";
+  dbxcli = buildGoModule rec {
+    name = "dbxcli-${version}";
+    version = "3.0.0";
 
     src = fetchFromGitHub {
-      owner = "github";
-      repo = "hub";
+      owner = "dropbox";
+      repo = "dbxcli";
       rev = "v${version}";
       sha256 = "0sxfmjg26s86m5xa9nbj8287kg12kygxw6gggahal6v7zjhwcvaz";
     };
@@ -19,9 +22,9 @@ rec {
     subPackages = [ "." ];
 
     meta = with lib; {
-      description = "A command-line tool that makes git easier to use with GitHub";
-      homepage = https://hub.github.com/;
-      license = licenses.mit;
+      description = "A command line client for Dropbox built using the Go SDK";
+      homepage = https://github.com/dropbox/dbxcli;
+      license = licenses.asl20;
       maintainers = with maintainers; [ steshaw ];
       platforms = platforms.linux ++ platforms.darwin;
     };

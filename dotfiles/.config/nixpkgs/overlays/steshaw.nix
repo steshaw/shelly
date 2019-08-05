@@ -42,6 +42,7 @@ let
 
     # Apps
     inherit (self)
+      dropbox
       rescuetime
 
       # Remote desktops. None work or work well.
@@ -109,6 +110,7 @@ with builtins; rec {
       bat
       bind # for dig. XXX: Any smaller package?
       cabal2nix
+#      dbxcli # Defined in overlay/dbxcli.nix
       direnv
       dos2unix
       fd
