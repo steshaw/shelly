@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# HT: https://nmattia.com/posts/2018-03-21-nix-reproducible-setup-linux-macos.html
+#
+
+set -euo pipefail
+
+script=$(basename "$0")
+if [[ ${1:-} == '--help' ]]; then
+  echo "usage $script: [--ghci] [packages]" >&2
+  exit
+elif [[ ${1:-} == '--ghci' ]]; then
+  command="--run ghci"
+  shift
+else
+  command=''
+fi
+
+exec nix-shell -p "haskellPackages.ghcWithPackages
+  (pkgs: with pkgs; [ hscolour show-prettyprint $* ])" $command
