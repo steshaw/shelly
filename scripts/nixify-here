@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+nix-env -f https://github.com/kalbasit/nur-packages/archive/master.tar.gz -iA nixify
+nixify .
+nix-env -e nixify
