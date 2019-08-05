@@ -2,9 +2,13 @@
 
 set -euo pipefail
 
-if [[ $(git branch --show-current) != master ]]; then
-  git checkout master
+if git remotes show upstream 2>/dev/null; then
+  if [[ $(git branch --show-current) != master ]]; then
+    git checkout master
+  fi
+  git fetch upstream
+  git merge --ff-only upstream/master
+  git push origin master
+else
+  echo 'No upstream remote'
 fi
-git fetch upstream
-git merge --ff-only upstream/master
-git push origin master
