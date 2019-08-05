@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-if git remotes show upstream 2>/dev/null; then
+if git remotes show upstream >/dev/null 2>/dev/null; then
   if [[ $(git branch --show-current) != master ]]; then
     git checkout master
   fi
