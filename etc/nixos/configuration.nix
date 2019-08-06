@@ -105,7 +105,7 @@
   # networking.firewall.enable = false;
 
   networking.extraHosts = ''
-    35.188.144.201 smb.test
+    35.190.87.138 smb.test
   '';
 
   # Enable CUPS to print documents.
