@@ -15,7 +15,7 @@ case $url in
     o "$url"
     ;;
   git@* | gist.*)
-    url=http://$(echo "$url" | perl -pe 's/gis?t@//; s-:-/-; s/\.git$//;')
+    url=https://$(echo "$url" | perl -pe 's/gis?t@//; s-:-/-; s/\.git$//;')
     echo "Opening $url ..."
     o "$url"
     ;;
