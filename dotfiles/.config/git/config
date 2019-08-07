@@ -33,6 +33,8 @@
   ff = pull --ff-only
   pick = cherry-pick
   pf = push --force-with-lease
+  aa = add --all
+  ap = add --patch
 
 [credential]
   helper = cache --timeout 36000
