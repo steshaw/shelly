@@ -2,11 +2,13 @@
 
 set -euo pipefail
 
-if [ -x "$(which gnome-open 2>&-)" ]; then
+if [[ -x "$(type -p gnome-open 2>&-)" ]]; then
   command=gnome-open
-elif [ -x "$(which xdg-open 2>&-)" ]; then
+elif [[ -x "$(type -p firefox 2>&-)" ]]; then
+  command=firefox
+elif [[ -x "$(type -p xdg-open 2>&-)" ]]; then
   command=xdg-open
-elif [ -x "$(which open 2>&-)" ]; then
+elif [[ -x "$(type -p open 2>&-)" ]]; then
   command=open
 else
   alias o=echo
