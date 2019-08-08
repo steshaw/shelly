@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+tmp_file="$(mktemp)"
+trap 'rm -f "$tmp_file"' EXIT
+
+cp .git/index "$tmp_file"
+export GIT_INDEX_FILE=$tmp_file
+git add --all
+git write-tree
