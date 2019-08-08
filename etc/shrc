@@ -37,6 +37,7 @@ function peekAlias {
 }
 
 alias vi='v'
+alias vim='v'
 
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
