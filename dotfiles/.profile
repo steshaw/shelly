@@ -87,15 +87,6 @@ for file in ~/.profile.d/*; do
 done
 
 #
-# Set up bash-preexec.
-# See https://github.com/rcaloras/bash-preexec.
-#
-if isBash; then
-  unset __bp_imported # In case of `source ~/.profile`.
-  sourceExists $SHELLY_HOME/etc/bash-preexec.sh
-fi
-
-#
 # Add user's private bins to PATH.
 #
 prependPaths ~/.local/bin
