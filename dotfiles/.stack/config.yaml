@@ -9,9 +9,9 @@ templates:
     github-username: steshaw
     category: Example
 
-allow-newer: true
+#allow-newer: true
 
-system-ghc: true
-
-nix:
-  enable: false
+#system-ghc: true
+#
+#nix:
+#  enable: false
