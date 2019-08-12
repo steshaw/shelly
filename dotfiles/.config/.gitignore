@@ -87,3 +87,7 @@
 #
 /mimeapps.list
 /filetypesrc
+bluedevilglobalrc
+containers/
+pavucontrol-qt/
+pavucontrol.ini
