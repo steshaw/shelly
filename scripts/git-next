@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+set -x
+
+#
+# https://stackoverflow.com/a/23172256/482382
+#
+#BRANCH=`git show-ref | grep $(git show-ref -s -- HEAD) | sed 's|.*/\(.*\)|\1|' | grep -v HEAD | sort | uniq`
+#HASH=`git rev-parse $BRANCH`
+#PREV=`git rev-list --topo-order HEAD..$HASH | tail -1`
+#git checkout $PREV
+
+#
+# https://stackoverflow.com/a/14200660/482382
+#
+towards=$1
+hash=$(git rev-list --topo-order HEAD.."${towards}" | tail -1)
+git checkout "${hash}"
