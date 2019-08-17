@@ -92,3 +92,6 @@ containers/
 pavucontrol-qt/
 pavucontrol.ini
 /systemmonitorrc
+/emaildefaults
+/knotifyrc
+/touchpadrc
