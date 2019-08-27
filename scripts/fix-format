@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Changes leading tabs to 2 spaces and removes trailing whitespace.
+#
+
+set -euo pipefail
+
+perl -i -ple 's/^(\t+)/" "x(2 * length($1))/e; s/\s+$//; ' "$@"
