@@ -11,7 +11,7 @@ templates:
 
 #allow-newer: true
 
-#system-ghc: true
-#
-#nix:
-#  enable: false
+system-ghc: true
+
+nix:
+  enable: false
