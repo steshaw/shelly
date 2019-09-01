@@ -4,10 +4,10 @@ fun Plugs()
   " Colour schemes.
   Plug 'captbaritone/molokai'
   if 0
-    Plug 'crusoexia/vim-monokai'
-    Plug 'joshdick/onedark.vim'
     Plug 'chriskempson/base16-vim'
+    Plug 'crusoexia/vim-monokai'
     Plug 'flazz/vim-colorschemes'
+    Plug 'joshdick/onedark.vim'
   endif
 
   " Org mode.
@@ -21,14 +21,15 @@ fun Plugs()
   Plug 'idris-hackers/idris-vim'
   Plug 'ledger/vim-ledger'
   Plug 'nelsyeung/twig.vim'
+  Plug 'ollykel/v-vim'
+  Plug 'purescript-contrib/purescript-vim'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/syntastic'
   Plug 'vmchale/dhall-vim'
   Plug 'vmchale/ipkg-vim'
   Plug 'w0rp/ale'
   Plug 'ziglang/zig.vim'
-  Plug 'purescript-contrib/purescript-vim'
-  Plug 'ollykel/v-vim'
+  Plug '~/Code/steshaw/vim-timedot'
 
   " TypeScript
   Plug 'Quramy/tsuquyomi'
@@ -41,13 +42,14 @@ fun Plugs()
   Plug 'editorconfig/editorconfig-vim'
   Plug 'kien/ctrlp.vim'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'rhlobo/vim-super-retab'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-scripts/SyntaxRange'
   Plug 'whatyouhide/vim-lengthmatters'
-  Plug 'rhlobo/vim-super-retab'
 
   " Turn off search highlighting when done.
   Plug 'romainl/vim-cool'
