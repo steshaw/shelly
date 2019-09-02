@@ -18,8 +18,7 @@
 #
 self: super:
 let
-  shell = self.bashInteractive_5;
-  emptyPkg = shell;
+  emptyPkg = null;
   notDarwin = pkg: if self.stdenv.isDarwin then emptyPkg else pkg;
   desktopPkgs = if self.stdenv.isDarwin then {} else rec {
     # --------------------------------------------------------------------------
@@ -52,8 +51,9 @@ let
       x11vnc
     ;
 
+    foo = null;
+
     enableSlack = false; # Desktop Slack disabled — use Firefox tab.
-    emptyPkg = xev; # Hmm
     slack-dark = if enableSlack then slack-dark else emptyPkg;
 
     # https://github.com/KSmanis/kwin-move-window-to-center
@@ -78,8 +78,8 @@ with builtins; rec {
     #
     # Something like build-essential.
     #
+    gcc = notDarwin self.gcc;
     inherit (self)
-      gcc
       gnumake
       pkgconfig
       python
@@ -175,7 +175,7 @@ with builtins; rec {
 
     # Haskell.
     ghc865 = self.haskell.compiler.ghc865;
-    stack = notDarwin self.haskellPackages.stack; # No binary package.
+    stack = self.stack;
     brittany = notDarwin self.haskellPackages.brittany; # No binary package.
     hindent = notDarwin self.haskellPackages.hindent; # No binary package.
     hlint = notDarwin self.haskellPackages.hlint; # No binary package.
