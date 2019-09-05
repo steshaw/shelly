@@ -8,10 +8,3 @@ templates:
     copyright: (c) 2019, Steven Shaw
     github-username: steshaw
     category: Example
-
-#allow-newer: true
-
-system-ghc: true
-
-nix:
-  enable: false
