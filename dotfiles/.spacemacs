@@ -332,8 +332,19 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  ;;
+  ;; Local ELPA.
+  ;;
+  ;; See https://github.com/d12frosted/elpa-mirror/blob/master/README.org#usage-with-spacemacs
+  ;;
+  (setq configuration-layer-elpa-archives
+    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
+      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
+      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
 
-  ; UTF-8
+  ;;
+  ;; UTF-8
+  ;;
   (set-language-environment 'utf-8)
   (set-terminal-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
@@ -353,7 +364,6 @@ you should place your code here."
 
   ; Seems you need an explicit 'server-start' on the `develop` branch.
   (server-start)
-
 
   (setq powerline-default-separator 'arrow)
 
