@@ -63,7 +63,7 @@ brew 'ocaml' if laptop?
 brew 'opam' if laptop?
 brew 'peco'
 brew 'pandoc'
-brew 'pijul' if laptop?
+brew 'pijul' if false && laptop?
 brew 'pinentry-mac' if OS.mac?
 brew 'purescript' if laptop?
 brew 'python'
@@ -172,7 +172,7 @@ if OS.mac?
   cask 'sequel-pro' if false
   cask 'skype'
   cask 'spectacle'
-  cask 'virtualbox'
+  cask 'virtualbox' if false
   cask 'visual-studio-code'
   cask 'yed' if false
   cask 'zotero'
