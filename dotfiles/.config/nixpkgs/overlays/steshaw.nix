@@ -168,7 +168,7 @@ with builtins; rec {
     # Dependently typed PLs.
     agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
     ats2 = notDarwin self.ats2; # Broken on macOS.
-    idris1 = notDarwin self.idris; # Broken on macOS.
+    idris1 = self.idris;
     inherit (self)
       coq
     ;
