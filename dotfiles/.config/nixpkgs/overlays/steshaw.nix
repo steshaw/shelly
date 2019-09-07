@@ -143,6 +143,7 @@ with builtins; rec {
     # Editors
     #
     emacs = self.emacs;
+    ispell = self.ispell;
     neovim = self.neovim;
 
     # Vim with Python3 for vim-orgmode support.
