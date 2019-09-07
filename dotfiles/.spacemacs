@@ -151,20 +151,30 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
+
+   ;; Default themes.
 ;;   dotspacemacs-themes '(spacemacs-dark
 ;;                         spacemacs-light)
-;;   dotspacemacs-themes '(zen-and-art
-;;                         twilight)
-   dotspacemacs-themes '(molokai
-                         fogus
-                         spacemacs-dark
+
+   ;; Favourite themes.
+   ;; molokai seems broken :(.
+   dotspacemacs-themes '(
+                         kaolin-dark
+                         kaolin-ocean
+                         kaolin-aurora
+                         kaolin-galaxy
+                         kaolin-temple
+                         majapahit-dark
+                         omtose-darker
+                         kaolin-valley-light
                          )
+
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+   dotspacemacs-default-font '("Fira Code"
+                               :size 22
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
