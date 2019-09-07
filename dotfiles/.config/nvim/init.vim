@@ -1,6 +1,6 @@
 set nocompatible
 
-fun Plugs()
+fun! Plugs()
   " Colour schemes.
   Plug 'captbaritone/molokai'
   if 0
@@ -13,13 +13,19 @@ fun Plugs()
   " Org mode.
   Plug 'jceb/vim-orgmode'
   Plug 'tpope/vim-speeddating' " Required dependency.
+  " SyntaxRange allows timedot in src blocks.
+  " See .config/nvim/after/syntax/org.vim
+  Plug 'vim-scripts/SyntaxRange'
+
+  " Ledger.
+  Plug 'ledger/vim-ledger'
+  Plug '~/Code/steshaw/vim-timedot'
 
   " Modes
   Plug 'LnL7/vim-nix'
   Plug 'chr4/nginx.vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'idris-hackers/idris-vim'
-  Plug 'ledger/vim-ledger'
   Plug 'nelsyeung/twig.vim'
   Plug 'ollykel/v-vim'
   Plug 'purescript-contrib/purescript-vim'
@@ -27,9 +33,8 @@ fun Plugs()
   Plug 'scrooloose/syntastic'
   Plug 'vmchale/dhall-vim'
   Plug 'vmchale/ipkg-vim'
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
   Plug 'ziglang/zig.vim'
-  Plug '~/Code/steshaw/vim-timedot'
 
   " TypeScript
   Plug 'Quramy/tsuquyomi'
@@ -49,7 +54,6 @@ fun Plugs()
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'vim-scripts/SyntaxRange'
   Plug 'whatyouhide/vim-lengthmatters'
 
   " Turn off search highlighting when done.
@@ -75,7 +79,7 @@ fun Plugs()
 endfun
 
 " Ensure plug is installed.
-fun Plug()
+fun! Plug()
   " Install vim-plug if we don't already have it
   if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -101,13 +105,19 @@ call Plug()
 
 let g:syntastic_sh_shellcheck_args = "-x"
 
+" vim-airline
 let g:airline_powerline_fonts = 1
+
+" ALE
+let g:airline#extensions#ale#enabled = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Don't reset the cursor style.
 " i.e. keep blinking underline from iTerm2 configuration.
 set guicursor=
 
-" Set molokai if we can.
+" Set preferred theme if possible.
 try
   colorscheme molokai
   " Override ErrorMsg color as molokai has a poor one!
@@ -117,6 +127,7 @@ try
     colorscheme koehler
   endif
 catch
+  " Fallback theme.
   silent! colorscheme elflord
 endtry
 
