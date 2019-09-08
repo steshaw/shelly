@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
 function printPath {
-  tr : '\n'
+  tr : '\n' | perl -pe 's/^/  /'
 }
 
 echo PATH:
 echo "$PATH" | printPath
+if [[ ${NIX_PATH:-unset} != unset ]]; then
+  echo
+  echo NIX_PATH:
+  echo "$NIX_PATH" | printPath
+fi
 if [[ ${LD_LIBRARY_PATH:-unset} != unset ]]; then
   echo
   echo LD_LIBRARY_PATH:
