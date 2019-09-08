@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -ne 2 ]]; then
+  echo "usage: $0 hash dir"
+  exit 2
+fi
+
+gist=$1
+dir=$2
+
+if false; then
+  root=${SHELLY_DEV_DIR}/${USER}
+  cd "$root"
+fi
+
+git clone "git@gist.github.com:${gist}.git" "${dir}"
