@@ -162,7 +162,9 @@ with builtins; rec {
     # Programming Languages.
     #
     inherit (self)
+      gnum4 # for opam's sake.
       ocaml
+      opam
       rustup
     ;
 
