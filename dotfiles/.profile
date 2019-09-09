@@ -97,6 +97,18 @@ macos-sync-env PATH
 
 sourceExists ~/.profile.local
 
+# Ensure xterm-24bit exists.
+if hasTty && [[ ! -r ~/.terminfo/x/xterm-24bit ]]; then
+  xterm-24bit-create
+fi
+
+# Use 24bit terminal for tmux.
+if false; then # may not be necessary if tmux.conf works.
+  if hasTty && [[ $TERM == screen ]]; then
+    TERM=xterm-24bit
+  fi
+fi
+
 #
 # Explicitly source `.bashrc`.
 #
