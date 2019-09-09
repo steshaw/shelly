@@ -162,13 +162,12 @@ values."
    ;; Favourite themes.
    ;; molokai seems broken :(.
    dotspacemacs-themes '(
-                         kaolin-dark
-                         kaolin-ocean
-                         kaolin-aurora
-                         kaolin-galaxy
-                         kaolin-temple
+                         spacemacs-dark
                          majapahit-dark
+
+                         molokai
                          omtose-darker
+                         kaolin-aurora
                          kaolin-valley-light
                          )
 
