@@ -8,3 +8,6 @@ templates:
     copyright: (c) 2019, Steven Shaw
     github-username: steshaw
     category: Example
+
+nix:
+  enable: true
