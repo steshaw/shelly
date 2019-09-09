@@ -136,7 +136,7 @@ set background=dark
 set tabstop=20
 set shiftwidth=2
 set softtabstop=2
-set textwidth=80
+set textwidth=72
 set expandtab
 set smarttab
 set smartindent
