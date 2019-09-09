@@ -29,26 +29,17 @@ set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 
 # Aliases
 
-function peekAlias {
-  if shellyShouldEcho; then
-    alias=$1
-    alias "$alias" 2>/dev/null || echo "alias $alias does not exist"
-  fi
-}
-
 alias vi='v'
 alias vim='v'
 
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
-peekAlias ls; alias ls='ls --color -Fh'; peekAlias ls
-peekAlias l; alias l='ls -l'; peekAlias l
-peekAlias ll;
-  alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
-peekAlias ll;
-peekAlias la; alias la='l -a'; peekAlias la
+alias ls='ls --color -Fh'
+alias l='ls -l'
+alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
+alias la='l -a'
 
-alias wi='type -ap'
+alias wi='type -ap' # Where Is.
 
 # Make file ops safer.
 alias cp='cp -i'
@@ -65,8 +56,8 @@ alias bb='brew bundle'
 alias vp='v ~/.profile' # Vi Profile.
 alias sp='source ~/.profile' # Source Profile.
 
-alias vbp=vp # Was: Vi Bash Profile.
-alias sbp=sp # Was: Source Bash Profile.
+alias vbp=vp # Vi Bash Profile. No longer have ~/.bash_profile.
+alias sbp=sp # Source Bash Profile. No longer have ~/.bash_profile.
 
 alias vbrc='v ~/.bashrc' # Vi BashRC.
 alias sbrc='source ~/.bashrc' # Source BashRC.
@@ -90,12 +81,14 @@ alias kube='kubectl'
 alias clear='clear -x'
 
 # Some here are my commonly used ones from oh-my-zsh git plugin for use in bash.
-peekAlias gc; alias gc='git commit -v'; peekAlias gc
-peekAlias ga; alias ga='git add'; peekAlias ga
-peekAlias gaa; alias gaa='git add --all'; peekAlias gaa
-peekAlias gst; alias gst='git status'; peekAlias gst
-peekAlias gd; alias gd='git diff'; peekAlias gd
-peekAlias gds; alias gds='git diff --staged'; peekAlias gds
+alias gc='git commit -v'
+alias ga='git add'
+alias gaa='git add --all'
+alias gst='git status'
+alias gd='git diff'
+alias gds='git diff --staged'
+
+alias grh='git reset HEAD'
 
 alias path='echo $PATH | tr : "\n"'
 alias cdpath='echo $CDPATH | tr : "\n"'
