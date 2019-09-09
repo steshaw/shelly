@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Delete all untracked and ignored files and directories.
+
+set -euo pipefail
+
+exec git clean -dx --force "$@"
