@@ -33,31 +33,31 @@ checkout = git clone git@github.com:betterteamapp/zarla zarla
 checkout = git clone git@github.com:betterteamapp/zarla-craft.git zarla-craft
 
 [Code/steshaw/Idris1]
-checkout =
-  git clone git@github.com:steshaw/Idris1 Idris1
-  cd Idris1
-  git remote add upstream git@github.com:idris-lang/Idris-dev.git
+checkout = 
+	 git clone git@github.com:steshaw/Idris1 Idris1
+	 cd Idris1
+	 git remote add upstream git@github.com:idris-lang/Idris-dev.git
 
 [Code/steshaw/Idris2]
-checkout =
-  git clone git@github.com:steshaw/Idris2 Idris2
-  cd Idris2
-  git remote add upstream git@github.com:edwinb/Idris2.git
+checkout = 
+	 git clone git@github.com:steshaw/Idris2 Idris2
+	 cd Idris2
+	 git remote add upstream git@github.com:edwinb/Idris2.git
 
 [Code/steshaw/log]
 checkout = git clone git@github.com:steshaw/log
 
 [Code/steshaw/nix]
-checkout =
-  git clone git@github.com:steshaw/nix.git nix
-  cd nix
-  git remote add upstream git@github.com:NixOS/nix.git
+checkout = 
+	 git clone git@github.com:steshaw/nix.git nix
+	 cd nix
+	 git remote add upstream git@github.com:NixOS/nix.git
 
 [Code/steshaw/nixpkgs]
-checkout =
-  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
-  cd nixpkgs
-  git remote add upstream git@github.com:NixOS/nixpkgs.git
+checkout = 
+	 git clone git@github.com:steshaw/nixpkgs.git nixpkgs
+	 cd nixpkgs
+	 git remote add upstream git@github.com:NixOS/nixpkgs.git
 
 [Code/steshaw/shelly]
 checkout = git clone --depth 20 git@github.com:steshaw/shelly
@@ -67,3 +67,9 @@ checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 
 [Code/steshaw/vim-timedot]
 checkout = git clone git@github.com:steshaw/vim-timedot.git vim-timedot
+
+[Code/steshaw/language-swift-quote]
+checkout = git clone 'git@github.com:steshaw/language-swift-quote' 'language-swift-quote'
+
+[Code/steshaw/haskell-zendesk]
+checkout = git clone 'git@github.com:steshaw/haskell-zendesk.git' 'haskell-zendesk'
