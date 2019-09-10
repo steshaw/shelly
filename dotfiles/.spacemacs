@@ -56,7 +56,7 @@ values."
      osx
      ;php ; The php layer seems broken at the moment.
      python
-     ruby
+     (ruby :variables ruby-enable-enh-ruby-mode t)
      rust
      (shell :variables
             shell-default-height 30
