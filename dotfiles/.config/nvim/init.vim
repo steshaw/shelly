@@ -110,8 +110,10 @@ let g:airline_powerline_fonts = 1
 
 " ALE
 let g:airline#extensions#ale#enabled = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
 " Don't reset the cursor style.
 " i.e. keep blinking underline from iTerm2 configuration.
