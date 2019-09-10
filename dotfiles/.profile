@@ -98,7 +98,7 @@ macos-sync-env PATH
 sourceExists ~/.profile.local
 
 # Ensure xterm-24bit exists.
-if hasTty && [[ ! -r ~/.terminfo/x/xterm-24bit ]]; then
+if hasTty && [[ -z $(ls ~/.terminfo/*/xterm-24bit 2>/dev/null) ]]; then
   xterm-24bit-create
 fi
 
