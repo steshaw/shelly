@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+git fsck --unreachable |
+  grep '^unreachable commit' | cut -d' '  -f3 |
+  xargs git log --merges --no-walk --grep=WIP
