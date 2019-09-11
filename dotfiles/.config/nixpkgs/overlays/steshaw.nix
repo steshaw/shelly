@@ -35,9 +35,11 @@ let
       xsel
     ;
     inherit (self.xorg)
+      mkfontdir
+      mkfontscale
       xev
+      xrandr
     ;
-    xrandr = self.xorg.xrandr;
 
     # Apps
     inherit (self)
@@ -45,13 +47,11 @@ let
       rescuetime
 
       # Remote desktops. None work or work well.
-      nomachine-client # no nomachine-server :-(.
-      teamviewer
-      tigervnc
-      x11vnc
+#      nomachine-client # no nomachine-server :-(.
+#      teamviewer
+#      tigervnc
+#      x11vnc
     ;
-
-    foo = null;
 
     enableSlack = false; # Desktop Slack disabled — use Firefox tab.
     slack-dark = if enableSlack then slack-dark else emptyPkg;
