@@ -1,5 +1,5 @@
 function! myspacevim#before() abort
-  echom "Inside myspacevim#before"
+"  echom "Inside myspacevim#before"
   set rtp+=~/Code/steshaw/vim-timedot
 endfunction
 
