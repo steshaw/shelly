@@ -1,0 +1,59 @@
+[options]
+  colorscheme = "SpaceVim"
+  colorscheme_bg = 'dark'
+  enable_guicolors = true
+
+  # statusline
+  buffer_index_type = 4
+  enable_statusline_mode = false
+  statusline_inactive_separator = 'bar'
+  statusline_separator = 'arrow'
+
+  enable_tabline_filetype_icon = false # False for nerd fonts.
+
+  bootstrap_before = "myspacevim#before"
+  bootstrap_after =  "myspacevim#after"
+
+[[layers]]
+  name = 'colorscheme'
+
+[[layers]]
+  name = "autocomplete"
+  auto-completion-return-key-behavior = "complete"
+  auto-completion-tab-key-behavior = "smart" # "cycle" # "smart"
+
+[[layers]]
+  name = "shell"
+  default_position = "bottom"
+  default_height = 30
+
+[[custom_plugins]]
+  name = "lilydjwg/colorizer"
+  merged = false
+
+[[custom_plugins]]
+  name = "LnL7/vim-nix"
+  merged = false
+
+# ---------------------------------------------------------------------
+# Org mode {
+# ---------------------------------------------------------------------
+
+[[custom_plugins]]
+  name = 'jceb/vim-orgmode'
+  merged = false
+
+[[custom_plugins]]
+  name = 'tpope/vim-speeddating' # Required dependency of vim-orgmode.
+  merged = false
+
+#[[custom_plugins]]
+#  name = 'steshaw/vim-timedot'
+#  merged = false
+
+# SyntaxRange allows timedot in src blocks.
+# See .config/nvim/after/syntax/org.vim
+[[custom_plugins]]
+  name = 'vim-scripts/SyntaxRange'
+
+# } --------------------------------------------------------------------
