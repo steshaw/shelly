@@ -103,10 +103,8 @@ if hasTty && [[ -z $(ls ~/.terminfo/*/xterm-24bit 2>/dev/null) ]]; then
 fi
 
 # Use 24bit terminal for tmux.
-if false; then # may not be necessary if tmux.conf works.
-  if hasTty && [[ $TERM == screen ]]; then
-    TERM=xterm-24bit
-  fi
+if hasTty && [[ $TERM == screen ]]; then
+  TERM=xterm-24bit
 fi
 
 #
