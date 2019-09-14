@@ -180,10 +180,15 @@ with builtins; rec {
 
     # Haskell.
     ghc865 = self.haskell.compiler.ghc865;
-    stack = self.stack;
-    brittany = notDarwin self.haskellPackages.brittany; # No binary package.
-    hindent = notDarwin self.haskellPackages.hindent; # No binary package.
-    hlint = notDarwin self.haskellPackages.hlint; # No binary package.
+    inherit (self)
+      cabal-install
+      stack
+    ;
+    brittany = self.haskell.lib.justStaticExecutables  self.haskellPackages.brittany;
+    ghcid = self.haskell.lib.justStaticExecutables self.haskellPackages.ghcid;
+    hindent = self.haskell.lib.justStaticExecutables  self.haskellPackages.hindent;
+    hlint = self.haskell.lib.justStaticExecutables self.haskellPackages.hlint;
+    pointfree = self.haskell.lib.justStaticExecutables self.haskellPackages.pointfree;
 
     #
     # Google Cloud Platform.
