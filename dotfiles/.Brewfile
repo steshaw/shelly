@@ -86,6 +86,7 @@ brew 'scala' if false
 brew 'scalariform' if false
 brew 'shellcheck'
 brew 'sphinx-doc' if laptop?
+brew 'terminal-notifier'
 
 # the_searchers -- preferring ripgrep for now.
 if false
