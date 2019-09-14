@@ -62,6 +62,7 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      shell-scripts
+     slack
      sml
      spell-checking
 ;     (spell-checking
