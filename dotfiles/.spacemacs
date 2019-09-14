@@ -37,6 +37,12 @@ values."
      docker
      elm
      emacs-lisp
+     (erc :variables
+          erc-server-list
+          '(("irc.freenode.net"
+             :port "6697"
+             :ssl t
+             :nick "steshaw")))
      finance ;; ledger
      git
      github
