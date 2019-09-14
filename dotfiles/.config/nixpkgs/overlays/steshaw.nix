@@ -125,12 +125,14 @@ with builtins; rec {
       mr
       neofetch
       pandoc
+      peco
       ripgrep
       rlwrap
       shellcheck
       tree
       unzip
       watchman
+      wget
       youtube-dl
     ;
     gopass = notDarwin self.ripgrep;
