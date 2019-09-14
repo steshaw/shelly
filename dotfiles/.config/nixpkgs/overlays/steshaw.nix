@@ -171,7 +171,7 @@ with builtins; rec {
     # Dependently typed PLs.
     agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
     ats2 = notDarwin self.ats2; # Broken on macOS.
-    idris1 = self.idris;
+    idris1 = if false then self.idris else null; # Idris 1.3.2 dependencies conflict with bt-app.
     inherit (self)
       coq
     ;
