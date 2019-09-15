@@ -184,9 +184,9 @@ with builtins; rec {
       cabal-install
       stack
     ;
-    brittany = self.haskell.lib.justStaticExecutables  self.haskellPackages.brittany;
+    brittany = self.haskell.lib.justStaticExecutables self.haskellPackages.brittany;
     ghcid = self.haskell.lib.justStaticExecutables self.haskellPackages.ghcid;
-    hindent = self.haskell.lib.justStaticExecutables  self.haskellPackages.hindent;
+    hindent = self.haskell.lib.justStaticExecutables self.haskellPackages.hindent;
     hlint = self.haskell.lib.justStaticExecutables self.haskellPackages.hlint;
     pointfree = self.haskell.lib.justStaticExecutables self.haskellPackages.pointfree;
 
