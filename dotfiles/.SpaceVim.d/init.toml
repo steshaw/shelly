@@ -1,6 +1,6 @@
 [options]
-  # Dark themes: onedark jellybeans hybrid desert evening SpaceVim.
-  colorscheme = "molokai"
+  # Dark themes: molokai jellybeans hybrid desert evening SpaceVim.
+  colorscheme = "jellybeans"
   colorscheme_bg = 'dark'
   enable_guicolors = true
 
