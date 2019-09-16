@@ -8,7 +8,7 @@ if git remotes show upstream >/dev/null 2>/dev/null; then
   fi
   git fetch upstream
   git merge --ff-only upstream/master
-  git push --force-with-lease origin master
+  git push origin master
 else
   echo 'No upstream remote'
 fi
