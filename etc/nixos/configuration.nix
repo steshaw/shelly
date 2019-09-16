@@ -99,6 +99,7 @@
     80 433 # HTTP ports
     5900 # VNC
     3389 # RDP
+    3000 3001 8000 8080 # Typical dev ports.
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
