@@ -26,6 +26,12 @@ checkout = git clone git@github.com:betterteamapp/interspire-craft interspire-cr
 [Code/betterteamapp/smb-craft]
 checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
 
+[Code/betterteamapp/zendesk]
+checkout =
+  git clone git@github.com:betterteamapp/zendesk zendesk
+  cd zendesk
+  git remote upstream git@github.com:steshaw/haskell-zendesk.git
+
 [Code/steshaw/Idris1]
 checkout = 
 	 git clone git@github.com:steshaw/Idris1 Idris1
