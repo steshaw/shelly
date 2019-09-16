@@ -1,6 +1,9 @@
 #
-# FIXME: This is broken because it installs hub binary which clashes with
-# github/hub.
+# Dropbox CLI.
+#
+# https://github.com/dropbox/dbxcli
+#
+# FIXME: Clashes with installation of hub binary from github/hub.
 #
 self: super:
 with builtins;

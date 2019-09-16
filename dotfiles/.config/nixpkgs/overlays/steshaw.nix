@@ -183,12 +183,14 @@ with builtins; rec {
     inherit (self)
       cabal-install
       stack
+
+      brittany # From haskell overlay.
+      ghcid # From haskell overlay.
+      hindent # From haskell overlay.
+      hlint # From haskell overlay.
+      ormolu # From haskell + omolu overlay.
+      pointfree # From haskell overlay.
     ;
-    brittany = self.haskell.lib.justStaticExecutables self.haskellPackages.brittany;
-    ghcid = self.haskell.lib.justStaticExecutables self.haskellPackages.ghcid;
-    hindent = self.haskell.lib.justStaticExecutables self.haskellPackages.hindent;
-    hlint = self.haskell.lib.justStaticExecutables self.haskellPackages.hlint;
-    pointfree = self.haskell.lib.justStaticExecutables self.haskellPackages.pointfree;
 
     #
     # Google Cloud Platform.
