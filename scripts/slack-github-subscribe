@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo=$1
+
+echo "/github subscribe ${repo} issues, pulls, deployments, statuses, public, commits, releases, comments, branches, reviews"
