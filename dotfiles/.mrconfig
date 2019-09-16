@@ -14,8 +14,8 @@ checkout = git clone https://github.com/zsh-users/zsh-completions
 [Code/betterteamapp/10x-craft]
 checkout = git clone git@github.com:interspire2017/10xfactory-craft.git 10x-craft
 
-[Code/betterteamapp/bt-app]
-checkout = git clone git@github.com:betterteamapp/solo bt-app
+[Code/betterteamapp/app]
+checkout = git clone git@github.com:betterteamapp/solo app
 
 [Code/betterteamapp/bt-craft]
 checkout = git clone git@github.com:betterteamapp/bt-craft bt-craft
