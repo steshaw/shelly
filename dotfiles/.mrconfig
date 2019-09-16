@@ -26,12 +26,6 @@ checkout = git clone git@github.com:betterteamapp/interspire-craft interspire-cr
 [Code/betterteamapp/smb-craft]
 checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
 
-[Code/betterteamapp/zarla]
-checkout = git clone git@github.com:betterteamapp/zarla zarla
-
-[Code/betterteamapp/zarla-craft]
-checkout = git clone git@github.com:betterteamapp/zarla-craft.git zarla-craft
-
 [Code/steshaw/Idris1]
 checkout = 
 	 git clone git@github.com:steshaw/Idris1 Idris1
