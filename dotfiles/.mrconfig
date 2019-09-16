@@ -11,25 +11,25 @@ checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh
 [.oh-my-zsh/custom/plugins/zsh-completions]
 checkout = git clone https://github.com/zsh-users/zsh-completions
 
-[Code/bt/10x-craft]
+[Code/betterteamapp/10x-craft]
 checkout = git clone git@github.com:interspire2017/10xfactory-craft.git 10x-craft
 
-[Code/bt/bt-app]
+[Code/betterteamapp/bt-app]
 checkout = git clone git@github.com:betterteamapp/solo bt-app
 
-[Code/bt/bt-craft]
+[Code/betterteamapp/bt-craft]
 checkout = git clone git@github.com:betterteamapp/bt-craft bt-craft
 
-[Code/bt/interspire-craft]
+[Code/betterteamapp/interspire-craft]
 checkout = git clone git@github.com:betterteamapp/interspire-craft interspire-craft
 
-[Code/bt/smb-craft]
+[Code/betterteamapp/smb-craft]
 checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
 
-[Code/bt/zarla]
+[Code/betterteamapp/zarla]
 checkout = git clone git@github.com:betterteamapp/zarla zarla
 
-[Code/bt/zarla-craft]
+[Code/betterteamapp/zarla-craft]
 checkout = git clone git@github.com:betterteamapp/zarla-craft.git zarla-craft
 
 [Code/steshaw/Idris1]
