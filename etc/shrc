@@ -107,9 +107,6 @@ cdpath=(
   .
   ~/Code
   ~/Code/steshaw
-  ~/Code/tlcsrc
-  ~/Code/bt
-  ~/Code/bt/solo/workers
 )
 if isBash; then
   CDPATH=$(IFS=':'; echo "${cdpath[*]}")
