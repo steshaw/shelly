@@ -179,7 +179,7 @@ if OS.mac?
   cask 'miniconda' if false
   cask 'ngrok'
   cask 'nomachine'
-  cask 'overdrive-media-console'
+  cask 'overdrive-media-console' if false # OverDrive no longer support AudiBook downloads :(.
   cask 'parallels' if false
   cask 'proximity' if false
   cask 'psequel'
