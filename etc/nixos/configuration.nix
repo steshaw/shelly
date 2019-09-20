@@ -99,7 +99,11 @@
     80 433 # HTTP ports
     5900 # VNC
     3389 # RDP
-    3000 3001 8000 8080 # Typical dev ports.
+    6568 7070 # AnyDesk
+  ];
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 3000; to = 3010; } # Dev ports.
+    { from = 8000; to = 8081; } # Dev ports.
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
