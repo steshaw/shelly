@@ -36,6 +36,10 @@
   name = "LnL7/vim-nix"
   merged = false
 
+[[custom_plugins]]
+  name = 'idris-hackers/idris-vim'
+  merged = false
+
 # ---------------------------------------------------------------------
 # Org mode {
 # ---------------------------------------------------------------------
