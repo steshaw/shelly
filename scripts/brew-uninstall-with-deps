@@ -2,14 +2,14 @@
 
 set -euo pipefail
 
-pkg=$1
-
-echo Uninstalling $pkg ...
-brew uninstall $pkg
-deps=$(join <(brew leaves) <(brew deps $pkg))
-if [[ -z $deps ]]; then
-  echo No dependencies
-else
-  echo Uninstalling dependencies $deps ...
-  brew uninstall $deps
-fi
+for pkg in "$@"; do
+  echo Uninstalling $pkg ...
+  brew uninstall $pkg
+  deps=$(join <(brew leaves) <(brew deps $pkg))
+  if [[ -z $deps ]]; then
+    echo No dependencies
+  else
+    echo Uninstalling dependencies $deps ...
+    brew uninstall $deps
+  fi
+done
