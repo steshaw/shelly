@@ -16,12 +16,17 @@ prependPathsExists() {
   done
 }
 
+shellySource() {
+  file=$1
+  Echo "Sourcing $file"
+  # shellcheck disable=SC1090
+  source "${file}"
+}
+
 sourceExists() {
-  for path_ in "$@"; do
-    if [[ -e ${path_} ]];then
-      Echo "Sourcing $path_"
-      # shellcheck disable=SC1090
-      source "${path_}"
+  for file in "$@"; do
+    if [[ -e ${file} ]];then
+      shellySource "$file"
     fi
   done
 }

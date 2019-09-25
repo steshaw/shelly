@@ -32,32 +32,42 @@ sourceExists ~/.iterm2_shell_integration.bash
 #
 # bash-completions + git-prompt.
 #
-if has brew; then
-  if [[ $BASH_VERSION == 4.* ]]; then
-    # requires `brew install bash-completion@2`.
-    sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
-  elif [[ $BASH_VERSION == 3.* ]]; then
-    base="$(brew --prefix)/Cellar/bash-completion/1.3_3/etc"
-    # shellcheck disable=SC2034
-    BASH_COMPLETION="$base/bash_completion"
-    # shellcheck disable=SC2034
-    BASH_COMPLETION_DIR="$base/bash_completion.d"
-    sourceExists "$base/profile.d/bash_completion.sh"
-  else
-    # Make a best effort to find the appropriate bash-completion files.
 
-    # if using bash-completion version 1.
-    sourceExists "$(brew --prefix)/etc/bash_completion"
-    # For bash-completion@2.
-    sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
+function tryBrewBashCompletion {
+  if has brew; then
+    if [[ $BASH_VERSION == 4.* ]]; then
+      # requires `brew install bash-completion@2`.
+      sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
+    elif [[ $BASH_VERSION == 3.* ]]; then
+      base="$(brew --prefix)/Cellar/bash-completion/1.3_3/etc"
+      # shellcheck disable=SC2034
+      BASH_COMPLETION="$base/bash_completion"
+      # shellcheck disable=SC2034
+      BASH_COMPLETION_DIR="$base/bash_completion.d"
+      sourceExists "$base/profile.d/bash_completion.sh"
+    else
+      # Make a best effort to find the appropriate bash-completion files.
+
+      # if using bash-completion version 1.
+      sourceExists "$(brew --prefix)/etc/bash_completion"
+      # For bash-completion@2.
+      sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
+    fi
   fi
-else
-  sourceExists /etc/profile.d/bash_completion.sh
-  sourceExists /etc/bash_completion.d/git-prompt.sh
-  sourceExists /usr/share/git/git-prompt.sh # Works on MSYS2 when bash-completion is installed
-  sourceExists /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh
-  sourceExists ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
-fi
+}
+
+function trySource {
+  file=$1
+  [[ -r $file ]] && shellySource "$file"
+}
+
+trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
+  trySource /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh ||
+  trySource /etc/profile.d/bash_completion.sh ||
+  trySource /etc/bash_completion.d/git-prompt.sh ||
+  # Try MSYS2 location when bash-completion is installed.
+  trySource /usr/share/git/git-prompt.sh ||
+  tryBrewBashCompletion
 
 bash_prompt() {
   [[ -z $PS1 ]] && return
