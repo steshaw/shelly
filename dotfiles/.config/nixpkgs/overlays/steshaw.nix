@@ -122,6 +122,7 @@ with builtins; rec {
       hub # Defined in overlay/hub.nix
       jq
       killall
+      lab
       mr
       neofetch
       pandoc
