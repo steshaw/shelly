@@ -61,13 +61,21 @@ function trySource {
   [[ -r $file ]] && shellySource "$file"
 }
 
-trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
-  trySource /nix/var/nix/profiles/default/etc/profile.d/bash_completion.sh ||
+#if [[ -e ~/.nix-profile/etc/bash_completion.d ]]; then
+#  BASH_COMPLETION_COMPAT_DIR=~/.nix-profile/etc/bash_completion.d
+#fi
+
+# bash-completion
+trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
+#  trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/profile.d/bash_completion.sh ||
+  tryBrewBashCompletion
+
+# git-prompt
+trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/bash_completion.d/git-prompt.sh ||
   # Try MSYS2 location when bash-completion is installed.
-  trySource /usr/share/git/git-prompt.sh ||
-  tryBrewBashCompletion
+  trySource /usr/share/git/git-prompt.sh
 
 bash_prompt() {
   [[ -z $PS1 ]] && return
