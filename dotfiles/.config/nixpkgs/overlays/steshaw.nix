@@ -122,6 +122,7 @@ with builtins; rec {
       hub # Defined in overlay/hub.nix
       jq
       killall
+      lastpass-cli
       mr
       neofetch
       pandoc
