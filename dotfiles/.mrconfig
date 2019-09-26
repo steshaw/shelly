@@ -44,8 +44,8 @@ checkout =
 	 cd Idris2
 	 git remote add upstream git@github.com:edwinb/Idris2.git
 
-[Code/steshaw/log]
-checkout = git clone git@github.com:steshaw/log
+[Code/steshaw/notes]
+checkout = git clone git@github.com:steshaw/notes
 
 [Code/steshaw/nix]
 checkout = 
