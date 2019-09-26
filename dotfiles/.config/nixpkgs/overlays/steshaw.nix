@@ -130,6 +130,7 @@ with builtins; rec {
       ripgrep
       rlwrap
       shellcheck
+      speedtest-cli
       tree
       unzip
       watchman
