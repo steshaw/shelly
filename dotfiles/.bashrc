@@ -30,7 +30,7 @@ sourceExists /etc/skel/.bashrc
 sourceExists ~/.iterm2_shell_integration.bash
 
 #
-# bash-completions + git-prompt.
+# bash-completion
 #
 
 function tryBrewBashCompletion {
@@ -61,21 +61,26 @@ function trySource {
   [[ -r $file ]] && shellySource "$file"
 }
 
-#if [[ -e ~/.nix-profile/etc/bash_completion.d ]]; then
-#  BASH_COMPLETION_COMPAT_DIR=~/.nix-profile/etc/bash_completion.d
-#fi
+if [[ -e ~/.nix-profile/etc/bash_completion.d ]]; then
+  BASH_COMPLETION_COMPAT_DIR=~/.nix-profile/etc/bash_completion.d
+fi
 
-# bash-completion
 trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
 #  trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/profile.d/bash_completion.sh ||
   tryBrewBashCompletion
 
+#
 # git-prompt
+#
 trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/bash_completion.d/git-prompt.sh ||
   # Try MSYS2 location when bash-completion is installed.
   trySource /usr/share/git/git-prompt.sh
+
+#
+# Bash prompt.
+#
 
 bash_prompt() {
   [[ -z $PS1 ]] && return
