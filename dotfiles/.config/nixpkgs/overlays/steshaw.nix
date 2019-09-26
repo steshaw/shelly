@@ -122,7 +122,6 @@ with builtins; rec {
       hub # Defined in overlay/hub.nix
       jq
       killall
-      lab
       mr
       neofetch
       pandoc
@@ -138,6 +137,7 @@ with builtins; rec {
       youtube-dl
     ;
     gopass = notDarwin self.ripgrep;
+    lab = self.gitAndTools.lab;
 
     # Tmux.
     tmux = self.tmux;
