@@ -94,6 +94,8 @@ with builtins; rec {
       fish
       zsh
 
+      bash-completion
+
       # VCS system.
       bazaar
       darcs
