@@ -90,6 +90,7 @@ brew 'sbt' if false
 brew 'scala' if false
 brew 'scalariform' if false
 brew 'shellcheck' if !nix
+brew 'speedtest-cli' if !nix
 brew 'sphinx-doc' if false
 brew 'terminal-notifier'
 
