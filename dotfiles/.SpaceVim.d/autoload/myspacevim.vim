@@ -6,6 +6,7 @@ endfunction
 function! myspacevim#after() abort
   echom "Inside myspacevim#after"
   call myspacevim#fixTimedotOld()
+  set mouse=
 endfunction
 
 function! myspacevim#fixTimedotOld() abort
