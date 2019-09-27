@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+initBrew() {
+  local dir=$1
+  local brew=$dir/bin/brew
+  if [[ -x $brew ]]; then
+    # shellcheck disable=SC2046
+    eval $($brew shellenv)
+    return 0
+  else
+    return 1
+  fi
+}
+
+initBrew /home/linuxbrew/.linuxbrew ||
+  initBrew ~/.linuxbrew ||
+  initBrew /usr/local
+
+unset initBrew
