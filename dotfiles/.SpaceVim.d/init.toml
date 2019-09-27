@@ -12,6 +12,8 @@
 
   enable_tabline_filetype_icon = false # False for nerd fonts.
 
+  project_rooter_automatically = 0
+
   bootstrap_before = "myspacevim#before"
   bootstrap_after =  "myspacevim#after"
 
