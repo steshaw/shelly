@@ -112,6 +112,7 @@ with builtins; rec {
       bat
       bind # for dig. XXX: Any smaller package?
       cabal2nix
+      coreutils
 #      dbxcli # Defined in overlay/dbxcli.nix
       direnv
       dos2unix

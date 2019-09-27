@@ -36,7 +36,7 @@ if OS.mac?
 end
 
 brew 'bat' if !nix
-brew 'coreutils'
+brew 'coreutils' if !nix
 brew 'ctags' if !nix # exuberant ctags
 brew 'elm' if false
 brew 'emacs' if !nix
