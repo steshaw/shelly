@@ -33,50 +33,30 @@ sourceExists ~/.iterm2_shell_integration.bash
 # bash-completion
 #
 
-function tryBrewBashCompletion {
-  if has brew; then
-    if [[ $BASH_VERSION == 4.* ]]; then
-      # requires `brew install bash-completion@2`.
-      sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
-    elif [[ $BASH_VERSION == 3.* ]]; then
-      base="$(brew --prefix)/Cellar/bash-completion/1.3_3/etc"
-      # shellcheck disable=SC2034
-      BASH_COMPLETION="$base/bash_completion"
-      # shellcheck disable=SC2034
-      BASH_COMPLETION_DIR="$base/bash_completion.d"
-      sourceExists "$base/profile.d/bash_completion.sh"
-    else
-      # Make a best effort to find the appropriate bash-completion files.
-
-      # if using bash-completion version 1.
-      sourceExists "$(brew --prefix)/etc/bash_completion"
-      # For bash-completion@2.
-      sourceExists "$(brew --prefix)/share/bash-completion/bash_completion"
-    fi
-  fi
-}
-
-function trySource {
+trySource () {
   file=$1
   [[ -r $file ]] && shellySource "$file"
 }
 
-if [[ -e ~/.nix-profile/etc/bash_completion.d ]]; then
-  BASH_COMPLETION_COMPAT_DIR=~/.nix-profile/etc/bash_completion.d
+dir=~/.nix-profile/etc/bash_completion.d
+if [[ -e ${dir} ]]; then
+  Echo "Setting BASH_COMPLETION_COMPAT_DIR=${dir}"
+  # shellcheck disable=SC2034
+  BASH_COMPLETION_COMPAT_DIR=${dir}
 fi
+unset dir
 
 trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
-#  trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/profile.d/bash_completion.sh ||
-  tryBrewBashCompletion
+  trySource "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 #
 # git-prompt
 #
 trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/bash_completion.d/git-prompt.sh ||
-  # Try MSYS2 location when bash-completion is installed.
-  trySource /usr/share/git/git-prompt.sh
+  trySource /usr/share/git/git-prompt.sh || # MSYS2
+  trySource "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
 
 #
 # Bash prompt.
@@ -182,6 +162,7 @@ bash_prompt() {
 
   local shell="${shell_colour}bash${reset_colour}"
   local nix="${IN_NIX_SHELL:+ ${nix_colour}${IN_NIX_SHELL}${reset_colour}}"
+  # shellcheck disable=SC2016
   local direnv='$(in_direnv)\e[m'
   local user_host_pwd="\
 ${user_host_colour}\${debian_chroot:+(${debian_chroot:-})}\u@\h\
