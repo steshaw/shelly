@@ -1,0 +1,8 @@
+if has brew; then
+  coreutilsBase="$(brew --prefix)/opt/coreutils/libexec"
+
+  if [[ -d $coreutilsBase ]]; then
+    PATH="$coreutilsBase/gnubin:$PATH"
+    MANPATH="$coreutilsBase/gnuman:$MANPATH"
+  fi
+fi
