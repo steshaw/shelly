@@ -1,5 +1,5 @@
 if has brew; then
-  coreutilsBase="$(brew --prefix)/opt/coreutils/libexec"
+  coreutilsBase="${HOMEBREW_PREFIX}/opt/coreutils/libexec"
 
   if [[ -d $coreutilsBase ]]; then
     PATH="$coreutilsBase/gnubin:$PATH"

@@ -48,7 +48,7 @@ unset dir
 
 trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
   trySource /etc/profile.d/bash_completion.sh ||
-  trySource "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+  trySource "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
 #
 # git-prompt
@@ -56,7 +56,7 @@ trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
 trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/bash_completion.d/git-prompt.sh ||
   trySource /usr/share/git/git-prompt.sh || # MSYS2
-  trySource "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+  trySource "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-prompt.sh"
 
 #
 # Bash prompt.
