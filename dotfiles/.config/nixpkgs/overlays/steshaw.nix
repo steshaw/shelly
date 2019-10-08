@@ -85,6 +85,12 @@ with builtins; rec {
       python
     ;
 
+
+    inherit (self)
+      alacritty
+      kitty
+    ;
+
     #
     # Command line tools.
     #
