@@ -73,6 +73,7 @@ with builtins; rec {
     #
     inherit (self)
       nix-prefetch-scripts
+      nox
     ;
 
     #
@@ -85,14 +86,16 @@ with builtins; rec {
       python
     ;
 
-
+    #
+    # Terminals.
+    #
     inherit (self)
       alacritty
       kitty
     ;
 
     #
-    # Command line tools.
+    # Command line utilities.
     #
     bash = self.bashInteractive_5;
     inherit (self)
@@ -119,6 +122,7 @@ with builtins; rec {
       bind # for dig. XXX: Any smaller package?
       cabal2nix
       coreutils
+      curl
 #      dbxcli # Defined in overlay/dbxcli.nix
       direnv
       dos2unix
@@ -132,7 +136,9 @@ with builtins; rec {
       jq
       killall
       lastpass-cli
+      mosh
       mr
+      mtr
       neofetch
       pandoc
       peco
