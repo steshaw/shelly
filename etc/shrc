@@ -41,7 +41,9 @@ if ls --color >/dev/null 2>&1; then
 else
   # macOS/Darwin/BSD ls.
   export CLICOLOR=
-  export LSCOLORS='ExGxFxdxCxDxDxhbadExEx'
+  eval "$(dircolors)"
+  LSCOLORS=$(gnu2bsd-colors)
+  export LSCOLORS
   alias ls='ls -F'
 fi
 
