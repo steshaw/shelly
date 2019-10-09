@@ -34,8 +34,17 @@ alias vim='v'
 
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
-alias ls='ls --color -Fh'
-alias l='ls -l'
+
+if ls --help 2>&1 | grep -q -- --color; then
+  # GNU ls.
+  alias ls='ls --color=auto -F'
+else
+  # macOS/Darwin/BSD ls.
+  export CLICOLOR=
+  alias ls='ls -F'
+fi
+
+alias l='ls -lh'
 alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
 alias la='l -a'
 
