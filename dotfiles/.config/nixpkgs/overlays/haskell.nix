@@ -4,5 +4,5 @@ self: super: {
   hindent = self.haskell.lib.enableSeparateBinOutput self.haskellPackages.hindent;
   hlint = self.haskell.lib.enableSeparateBinOutput self.haskellPackages.hlint;
   pointfree = self.haskell.lib.enableSeparateBinOutput self.haskellPackages.pointfree;
-  ormolu = self.haskell.lib.enableSeparateBinOutput self.haskellPackages.ormolu;
+#  ormolu = self.haskell.lib.enableSeparateBinOutput self.haskellPackages.ormolu;
 }

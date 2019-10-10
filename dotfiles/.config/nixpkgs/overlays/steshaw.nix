@@ -200,7 +200,7 @@ with builtins; rec {
       ghcid # From haskell overlay.
       hindent # From haskell overlay.
       hlint # From haskell overlay.
-      ormolu # From haskell + omolu overlay.
+#      ormolu # From haskell + omolu overlay.
       pointfree # From haskell overlay.
     ;
 
