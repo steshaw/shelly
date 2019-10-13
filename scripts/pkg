@@ -19,16 +19,16 @@ command=$1; shift
 [[ $command == show ]] && command=info
 [[ $command == refresh ]] && command=update
 
-uname=$(uname)
-
 function is_nix() {
-  [[ -f /etc/NIXOS || -f ~/.nix-profile ]]
+  [[ -n $NIX_PROFILES ]] && echo Yes is Nix
+}
+
+function has_brew() {
+  [[ -n $HOMEBREW_PREFIX ]] && echo Yes has Brew
 }
 
 if [[ $command = 'info' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    brew info "$@"
-  elif is_nix; then
+  if is_nix; then
     if [[ $# != 1 ]]; then
       echo "usage: ${script} info PKG" >&2
       exit 2
@@ -41,19 +41,21 @@ if [[ $command = 'info' ]]; then
           homepage,
           license
         }'
+  elif has_brew; then
+    brew info "$@"
   else
     apt-cache show "$@"
   fi
 elif [[ $command = 'search' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    brew search "$@"
-  elif is_nix; then
+  if is_nix; then
     nix search "$@"
+  elif has_brew; then
+    brew search "$@"
   else
     apt-cache search "$@"
   fi
 elif [[ $command = 'install' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
+  if has_brew; then
     brew install "$@"
   elif is_nix; then
     nix-env --install --attr "$@"
@@ -61,17 +63,15 @@ elif [[ $command = 'install' ]]; then
     sudo apt-get install "$@"
   fi
 elif [[ $command = 'remove' || $command = "uninstall" ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    brew uninstall "$@"
-  elif is_nix; then
+  if is_nix; then
     nix-env -e "$@"
+  elif has_brew; then
+    brew uninstall "$@"
   else
     sudo apt-get autoremove "$@"
   fi
 elif [[ $command = 'update' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    brew update "$@"
-  elif is_nix; then
+  if is_nix; then
     if [[ $# != 1 && ${1:-} != system && ${1:-} != user ]]; then
       echo "usage: ${script} update [system|user]" >&2
       exit 2
@@ -84,13 +84,13 @@ elif [[ $command = 'update' ]]; then
       echo "panic: the impossible happened!" >&2
       exit 1
     fi
+  elif has_brew; then
+    brew update "$@"
   else
     sudo apt-get update "$@"
   fi
 elif [[ $command = 'upgrade' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    brew upgrade "$@"
-  elif is_nix; then
+  if is_nix; then
     if [[ $# != 1 && ${1:-} != system && ${1:-} != user ]]; then
       echo "usage: ${script} upgrade [system|user]" >&2
       exit 2
@@ -103,22 +103,21 @@ elif [[ $command = 'upgrade' ]]; then
       echo "panic: the impossible happened!" >&2
       exit 1
     fi
+  elif has_brew; then
+    brew upgrade "$@"
   else
     sudo apt-get upgrade "$@"
   fi
 elif [[ $command = 'installed' || $command = 'list' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    brew list -1
-  elif is_nix; then
+  if is_nix; then
     nix-env --query --installed "$@"
+  elif has_brew; then
+    brew list -1
   else
     dpkg --get-selections
   fi
 elif [[ $command = 'files' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    echo "Not implemented" >&2
-    exit 1
-  elif is_nix; then
+  if is_nix; then
     if [[ $# != 1 ]]; then
       echo "usage: ${script} files PKG" >&2
       exit 2
@@ -129,12 +128,17 @@ elif [[ $command = 'files' ]]; then
       | awk '{print $2}'
     )"
     tree "${dir}"
+  elif has_brew; then
+    echo "Not implemented" >&2
+    exit 1
   else
     dpkg -L "$@"
   fi
 elif [[ $command = 'which' ]]; then
-  if [[ $uname = 'Darwin' ]]; then
-    echo "Not implemented" >&2
+  if is_nix; then
+    echo "Not implemented for Nix" >&2
+  elif has_brew; then
+    echo "Not implemented for Homebrew" >&2
   else
     dpkg --search "$@"
   fi
