@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Rename given files with modification date.
+#
+# e.g. foo.txt -> 2019-10-01-013534-foo.txt
+#
+
+set -euo pipefail
+
+for file in "$@"; do
+  mod_epoch=$(stat --format=%Y ${file})
+  prefix=$(date "--date=@${mod_epoch}" --utc +%Y-%m-%d-%H%M%S)
+  mv -i "${file}" "${prefix}-${file}"
+done
