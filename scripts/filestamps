@@ -8,7 +8,7 @@
 set -euo pipefail
 
 for file in "$@"; do
-  mod_epoch=$(stat --format=%Y ${file})
+  mod_epoch=$(stat --format=%Y "${file}")
   prefix=$(date "--date=@${mod_epoch}" --utc +%Y-%m-%d-%H%M%S)
   mv -i "${file}" "${prefix}-${file}"
 done
