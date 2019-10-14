@@ -3,14 +3,25 @@
 set -euo pipefail
 ${DEBUG:-}
 
-input_file=$1
-output_file=$(basename ${input_file} .pdf).compressed.pdf
+default_resolution=133
 
-gs -sDEVICE=pdfwrite \
-  -dCompatibilityLevel=1.4 \
-  -dPDFSETTINGS=/screen \
-  -dNOPAUSE \
-  -dQUIET \
-  -dBATCH \
-  -sOutputFile="${output_file}" \
-  "${input_file}"
+usage() {
+  script=$(basename "$0")
+  cat <<! >&2
+usage: $script input-file [resolution]
+
+resolution    e.g. 72 or 150 (default ${default_resolution})
+!
+  exit 2
+}
+
+[[ $# -eq 0 || $# -gt 2 ]] && usage
+
+input_file=$1
+resolution=${2:-${default_resolution}}
+
+output_file=$(basename "${input_file}" .pdf).compressed.pdf
+
+shrinkpdf "${input_file}" "${output_file}" "${resolution}"
+
+ls -lh "${input_file}" "${output_file}"
