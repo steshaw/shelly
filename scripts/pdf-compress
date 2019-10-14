@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+${DEBUG:-}
+
+input_file=$1
+output_file=$(basename ${input_file} .pdf).compressed.pdf
+
+gs -sDEVICE=pdfwrite \
+  -dCompatibilityLevel=1.4 \
+  -dPDFSETTINGS=/screen \
+  -dNOPAUSE \
+  -dQUIET \
+  -dBATCH \
+  -sOutputFile="${output_file}" \
+  "${input_file}"
