@@ -22,8 +22,13 @@
 
 [[layers]]
   name = "autocomplete"
-  auto-completion-return-key-behavior = "complete"
-  auto-completion-tab-key-behavior = "smart" # "cycle" # "smart"
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart" # "cycle"
+  [options]
+    autocomplete_method = "coc"
+
+[[layers]]
+  name = "lsp"
 
 [[layers]]
   name = "shell"
