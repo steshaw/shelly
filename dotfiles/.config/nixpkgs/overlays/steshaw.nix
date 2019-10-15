@@ -136,6 +136,7 @@ with builtins; rec {
       jq
       killall
       lastpass-cli
+      lsd
       mosh
       mr
       mtr
