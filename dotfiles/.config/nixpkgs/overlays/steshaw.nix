@@ -115,6 +115,7 @@ with builtins; rec {
 
       # Security related.
       gnupg22
+      gopass
       pass
 
       # Commands.
@@ -153,7 +154,6 @@ with builtins; rec {
       wget
       youtube-dl
     ;
-    gopass = notDarwin self.ripgrep;
     lab = self.gitAndTools.lab;
 
     # Tmux.
