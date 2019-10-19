@@ -117,6 +117,7 @@ with builtins; rec {
       gnupg22
       gopass
       pass
+      pinentry
 
       # Commands.
       bat
