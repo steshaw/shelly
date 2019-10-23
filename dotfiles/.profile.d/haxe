@@ -4,6 +4,5 @@ if has brew; then
   HAXE_STD_PATH="${HOMEBREW_PREFIX}/lib/haxe/std"
   if [[ -d ${HAXE_STD_PATH} ]]; then
     export HAXE_STD_PATH
-    macos-sync-env HAXE_STD_PATH
   fi
 fi

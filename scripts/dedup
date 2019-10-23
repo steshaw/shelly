@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+awk '{
+  sub(sprintf("%c$", 10), "");
+  if (A[$0]) {
+  } else {
+    A[$0] = 1;
+    printf("%s\n", $0);
+  }
+}'

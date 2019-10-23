@@ -2,11 +2,23 @@
 
 export SHELLY_DEV_DIR=~/Code
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
+# shellcheck disable=SC2034
+SHELLY_NOISY=0 # Set to 1 for crude debugging.
 
 # shellcheck disable=SC1090
 source $SHELLY_HOME/etc/functions.sh
 
 Echo Executing ~/.profile
+
+prettyPath() {
+  if shellyIsNoisy && isInteractive; then
+    echo "$@" "{"
+    $SHELLY_HOME/scripts/ppath | perl -pe 's/^/  /'
+    echo "}"
+  fi
+}
+
+prettyPath ".profile PATH top"
 
 if isZsh; then
   # Set up bash completion.
@@ -14,64 +26,27 @@ if isZsh; then
   autoload -U +X bashcompinit && bashcompinit
 fi
 
-function prettyPath {
-  if shellyIsNoisy && hasTty; then
+prependPaths ${SHELLY_HOME}/scripts
+
+prettyPaths() {
+  if shellyIsNoisy && isInteractive; then
     echo "$@" "{"
-    echo "$PATH" | tr : '\n' | perl -pe 's/^/  /'
+    paths | perl -pe 's/^/  /'
     echo "}"
   fi
 }
 
-prettyPath "PATH (before) ="
-
 #
-# On Mac, this is required.
+# Shelly packages — if any.
 #
-if [[ -x /usr/libexec/path_helper ]]; then
-  Echo "PATH (before path_helper) $PATH"
-  eval "$(/usr/libexec/path_helper -s)"
-  Echo "PATH (after  path_helper) $PATH"
-fi
-
-#
-# FIX ${SHELL}
-#
-Echo "SHELL (before) = ${SHELL}"
-if isBash; then
-  SHELL="$(command -v bash)"
-elif isZsh; then
-  SHELL="$(command -v zsh)"
-fi
-Echo "SHELL (after)  = ${SHELL}"
-
-#
-# Put shelly packages and commands on PATH.
-#
-anon() {
-  local shellyBin=${SHELLY_HOME}/scripts
-  # shellcheck disable=SC1090
-  source ${shellyBin}/ShellyPath
-  prependPaths ${shellyBin}
-}
-anon
-unset -f anon
-
-#
-# Homebrew
-#
-# Some other configuration rely on brew being in the PATH, so it must be early.
-#
-prependPathsExists /usr/local/bin /usr/local/sbin
-if has brew; then
-  export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-  macos-sync-env PKG_CONFIG_PATH
-fi
+# shellcheck disable=SC1090
+source ${SHELLY_HOME}/etc/shelly-pkgs-env.sh
 
 #
 # Initialise preexec/precmd functions.
 #
-# NOTE: This must come before sourcing ~/.profile.d/* because some of those will
-# use register preexec/precmd functions
+# NOTE: This must come before sourcing ~/.profile.d/* because some of
+# those will use register preexec/precmd functions.
 #
 # shellcheck disable=SC2034
 preexec_functions=()
@@ -92,24 +67,33 @@ done
 prependPaths ~/.local/bin
 prependPathsExists ~/bin
 
-prettyPath "PATH (after) ="
-macos-sync-env PATH
+prettyPaths ".profile: After .profile.d/* and private bins"
 
 sourceExists ~/.profile.local
 
 # Ensure xterm-24bit exists.
-if hasTty && [[ -z $(ls ~/.terminfo/*/xterm-24bit 2>/dev/null) ]]; then
+if isInteractive && [[ -z $(ls ~/.terminfo/*/xterm-24bit 2>/dev/null) ]]; then
   xterm-24bit-create
 fi
 
-# Use 24bit terminal for tmux.
-if hasTty && [[ $TERM == screen ]]; then
+# Use 24bit terminal for tmux. A hack that works?
+if isInteractive && [[ $TERM == screen ]]; then
   TERM=xterm-24bit
 fi
 
 #
 # Explicitly source `.bashrc`.
 #
-if isBash && hasTty; then
+if isBash && isInteractive; then
   sourceExists ~/.bashrc
 fi
+
+prettyPaths ".profile: After .bashrc"
+
+# Dedup PATH.
+PATH=$(ppath | dedup | paste -d: -s -)
+
+prettyPaths ".profile: After dedup"
+
+# Sync environment variables with macOS GUI programs.
+macos-sync-env -a

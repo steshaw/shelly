@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pretty_print() {
+  tr : '\n'
+}
+
+if [[ $# -eq 1 ]]; then
+  echo "${!1}" | pretty_print
+elif [[ $# -eq 0 ]]; then
+  echo "${PATH}" | pretty_print
+else
+  echo "usage: path [env-var]" >&2
+  exit 2
+fi

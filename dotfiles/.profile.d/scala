@@ -3,5 +3,4 @@
 SCALA_HOME="$(homeFromBin scala)"
 if [[ -n $SCALA_HOME ]]; then
   export SCALA_HOME
-  macos-sync-env SCALA_HOME
 fi

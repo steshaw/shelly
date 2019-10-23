@@ -60,7 +60,7 @@ isZsh() {
   [[ -n ${ZSH_VERSION-} ]]
 }
 
-hasTty() {
+isInteractive() {
   [[ -t 1 ]]
 }
 
@@ -69,7 +69,7 @@ shellyIsNoisy() {
 }
 
 shellyShouldEcho() {
-  shellyIsNoisy && hasTty
+  shellyIsNoisy && isInteractive
 }
 
 # Only echo when we have a tty. This is so that scp will work.

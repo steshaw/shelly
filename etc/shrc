@@ -104,7 +104,7 @@ alias gpf='git push --force-with-lease'
 alias grh='git reset HEAD'
 alias gst='git status'
 
-alias path='echo $PATH | tr : "\n"'
+alias path='ppath'
 alias cdpath='echo $CDPATH | tr : "\n"'
 
 if [[ "$(uname)" != 'Darwin' ]]; then

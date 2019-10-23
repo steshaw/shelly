@@ -1,1 +1,7 @@
+#!/bin/bash
+
+prettyPaths '000-nix: before'
+
 sourceExists ~/.nix-profile/etc/profile.d/nix.sh
+
+prettyPaths '000-nix: after'

@@ -8,6 +8,11 @@ function printPath {
 
 echo PATH:
 echo "$PATH" | printPath
+if [[ ${MANPATH:-unset} != unset ]]; then
+  echo
+  echo MANPATH:
+  echo "$MANPATH" | printPath
+fi
 if [[ ${NIX_PATH:-unset} != unset ]]; then
   echo
   echo NIX_PATH:

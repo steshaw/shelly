@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+prettyPaths '010-homebrew: before'
 
 initBrew() {
   local dir=$1
@@ -6,6 +8,29 @@ initBrew() {
   if [[ -x $brew ]]; then
     # shellcheck disable=SC2046
     eval $($brew shellenv)
+
+    #
+    # Fix MANPATH if necessary. The directory /usr/local/share/man is
+    # searched by default on macOS. If we set MANPATH here then the
+    # usual directories are not searched. Most man pages are discovered
+    # automatically by mapping from the binary located in PATH to the
+    # man page. e.g. If gti is in the PATH at
+    #
+    #   ~/.nix-profile/bin/gti
+    #
+    # Then the man page is automatically found in
+    #
+    #   ~/.nix-profile/share/man
+    #
+    # For more information see `man man.conf` and /etc/man.conf.
+    #
+    if [[ $MANPATH == /usr/local/share/man ]]; then
+      unset MANPATH
+    fi
+
+    # Homebrew doesn't seem to set the PKG_CONFIG_PATH so do so.
+    export PKG_CONFIG_PATH="${HOMEBREW_PREFIX}/pkgconfig"
+
     return 0
   else
     return 1
@@ -17,3 +42,5 @@ initBrew /home/linuxbrew/.linuxbrew ||
   initBrew /usr/local
 
 unset initBrew
+
+prettyPaths '010-homebrew: after'

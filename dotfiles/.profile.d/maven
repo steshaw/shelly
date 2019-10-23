@@ -4,5 +4,4 @@ if [[ -d "$(homeFromBin mvn)" ]]; then
   M2_HOME="$(homeFromBin mvn)"
   export M2_HOME
   export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
-  macos-sync-env M2_HOME
 fi
