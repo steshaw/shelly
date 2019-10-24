@@ -91,7 +91,7 @@ fi
 prettyPaths ".profile: After .bashrc"
 
 # Dedup PATH.
-PATH=$(ppath | dedup | paste -d: -s -)
+PATH=$(dedup-path PATH)
 
 prettyPaths ".profile: After dedup"
 

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Operates on an environment variable:
+#
+#   $ dedup-path PATH
+#
+#   $ PATH=$(dedup-path PATH)
+#
+# Operates on the stdin. e.g.
+#
+#  $ echo "${my_path}" | dedup-path
+#
+
+set -euo pipefail
+${DEBUG:-}
+
+do_dedup() {
+  tr : '\n' | dedup | paste -s -d: -
+}
+
+if [[ $# -eq 1 ]]; then
+  var=$1
+  echo "${!var}" | do_dedup
+else
+  do_dedup
+fi
