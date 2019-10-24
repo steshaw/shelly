@@ -11,7 +11,7 @@ source $SHELLY_HOME/etc/functions.sh
 Echo Executing ~/.profile
 
 prettyPath() {
-  if shellyIsNoisy && isInteractive; then
+  if shellyShouldEcho; then
     echo "$@" "{"
     $SHELLY_HOME/scripts/ppath | perl -pe 's/^/  /'
     echo "}"
@@ -29,7 +29,7 @@ fi
 prependPaths ${SHELLY_HOME}/scripts
 
 prettyPaths() {
-  if shellyIsNoisy && isInteractive; then
+  if shellyShouldEcho; then
     echo "$@" "{"
     paths | perl -pe 's/^/  /'
     echo "}"
