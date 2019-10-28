@@ -4,7 +4,12 @@
 
 { config, pkgs, ... }:
 
-{
+let
+  debsGroups = [
+#    "networkmanager"
+    "wheel"
+  ];
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -170,10 +175,14 @@
   users.users.debbie = {
     isNormalUser = true;
     home = "/home/debbie";
+    description = "Debbie Shaw";
+    extraGroups = debsGroups;
+  };
+  users.users.deborah = {
+    isNormalUser = true;
+    home = "/home/deborah";
     description = "Deborah Shaw";
-    extraGroups = [
-#      "networkmanager"
-    ];
+    extraGroups = debsGroups;
   };
 
   security.sudo.wheelNeedsPassword = false;
