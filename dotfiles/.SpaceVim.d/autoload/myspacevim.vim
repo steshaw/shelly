@@ -7,6 +7,7 @@ function! myspacevim#after() abort
   echom "Inside myspacevim#after"
   call myspacevim#fixTimedotOld()
   set mouse=
+  autocmd BufNewFile,BufRead .spacemacs set filetype=lisp
 endfunction
 
 function! myspacevim#fixTimedotOld() abort
