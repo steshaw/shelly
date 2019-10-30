@@ -182,8 +182,9 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code"
-                               :size 22
+   ;; :powerline-offset 2 ???
+   dotspacemacs-default-font '("FuraCode Nerd Font"
+                               :size 32
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -356,10 +357,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;
   ;; See https://github.com/d12frosted/elpa-mirror/blob/master/README.org#usage-with-spacemacs
   ;;
-  (setq configuration-layer-elpa-archives
-    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
-      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
-      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
+;  (setq configuration-layer-elpa-archives
+;    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
+;      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
+;      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
+
+  ;; mode-line (aka powerline).
+;  (setq dotspacemacs-mode-line-theme 'all-the-icons)
 
   ;;
   ;; UTF-8
@@ -714,7 +718,8 @@ static char *gnus-pointer[] = {
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
    (quote
-    ((intero-targets "segment-api:test:tests")
+    ((intero-targets "hestia:lib" "hestia:test:hestia-tests" "resume-converter:lib")
+     (intero-targets "segment-api:test:tests")
      (intero-targets "algolia-worker:lib" "thoth:lib" "thoth:test:thoth-tests")
      (intero-targets "algolia-worker:lib" "thoth:lib")
      (intero-targets "hestia:lib" "hestia:test:hestia-tests" "rosetta:lib" "thoth:lib" "thoth:test:thoth-tests")
