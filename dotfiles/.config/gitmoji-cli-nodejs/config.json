@@ -2,5 +2,6 @@
 	"autoAdd": false,
 	"issueFormat": "github",
 	"emojiFormat": "emoji",
-	"signedCommit": true
+	"signedCommit": true,
+	"scopePrompt": false
 }
