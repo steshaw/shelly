@@ -27,7 +27,11 @@ let
 
     # Fonts
     inherit (self)
-      fira-code
+      # Installing FiraCode from nerd-fonts (aka "FuraCode Nera Font") manually
+      # for now as there's an issue with the nerdfonts package.
+      # https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.0.0
+#      nerdfonts
+#      fira-code
       source-code-pro
     ;
 
