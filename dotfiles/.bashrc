@@ -46,14 +46,11 @@ if [[ -e ${dir} ]]; then
 fi
 unset dir
 
-# Setting BASH_COMPLETION_USER_DIR is required on macOS to have
-# Bash completions work with Nix.
-completion_dir=~/.nix-profile/share/bash-completion
-if [[ -d ${completion_dir} ]]; then
-  # shellcheck disable=SC2034
-  BASH_COMPLETION_USER_DIR=$completion_dir
+# Enable bash-completions when not on NixOS.
+# This requires setting XDG_DATA_DIRS.
+if [[ ! -f /etc/NIXOS ]]; then
+  export XDG_DATA_DIRS=~/.nix-profile/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
 fi
-unset completion_dir
 
 trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
   trySource /etc/profile.d/bash_completion.sh ||
