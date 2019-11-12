@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+# Synchronise environment variables on macOS.
+# Installs LaunchAgent if necessary.
+#
+
+set -euo pipefail
+
+install_agent() {
+  agent=~/Library/LaunchAgents/environment-sync.plist
+  if [[ ! -r $agent ]]; then
+    cat <<! >$agent
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>environment-sync</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>bash</string>
+    <string>--login</string>
+    <string>-c</string>
+    <string>macos-environment-sync</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
+!
+    launchctl unload $agent
+    launchctl load $agent
+  fi
+}
+
+sync_environment() {
+  set -x
+  exec >/tmp/macos-environment-sync.stdout
+  exec 2>/tmp/macos-environment-sync.stderr
+
+  set_env_var() {
+    cmd="launchctl setenv ${var} \"${!var}\""
+    bash -c "$cmd"
+  }
+
+  # Find environment variables to sync.
+  env_vars() {
+    env | grep '^[A-Z]' | grep -v PS1 | grep -v ITERM | cut -d= -f1
+  }
+
+  # Synchronise "all" environment variables
+  for var in $(env_vars); do
+    echo "env-var = [[$var]]" >&2
+    set_env_var "$var"
+  done
+  set +x
+}
+
+if [[ $# -eq 1 && $1 == '--install' ]]; then
+  install_agent
+elif [[ $# -eq 0 ]]; then
+  sync_environment
+else
+  script=$(basename "$0")
+  echo "usage: $script [--install]" >&2
+  exit 2
+fi
