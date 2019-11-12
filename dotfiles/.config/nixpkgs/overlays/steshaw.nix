@@ -110,6 +110,7 @@ with builtins; rec {
       zsh
 
       bash-completion
+      nix-bash-completions
 
       # VCS system.
       bazaar
