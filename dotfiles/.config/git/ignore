@@ -1,5 +1,6 @@
 .steshaw/
 .tmp/
+.local/
 .local/tmp/
 .local/var/tmp/
 tmp/
