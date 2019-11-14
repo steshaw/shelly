@@ -118,7 +118,6 @@ with builtins; rec {
       git
       gti # Humourous wrapper for git.
       mercurial
-      pijul
 
       # Security related.
       gnupg22
@@ -162,6 +161,7 @@ with builtins; rec {
       wget
       youtube-dl
     ;
+    pijul = if false then pijul else {};
     lab = self.gitAndTools.lab;
 
     # Tmux.
