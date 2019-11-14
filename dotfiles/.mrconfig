@@ -11,27 +11,6 @@ checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh
 [.oh-my-zsh/custom/plugins/zsh-completions]
 checkout = git clone https://github.com/zsh-users/zsh-completions
 
-[Code/betterteamapp/10x-craft]
-checkout = git clone git@github.com:interspire2017/10xfactory-craft.git 10x-craft
-
-[Code/betterteamapp/app]
-checkout = git clone git@github.com:betterteamapp/solo app
-
-[Code/betterteamapp/bt-craft]
-checkout = git clone git@github.com:betterteamapp/bt-craft bt-craft
-
-[Code/betterteamapp/interspire-craft]
-checkout = git clone git@github.com:betterteamapp/interspire-craft interspire-craft
-
-[Code/betterteamapp/smb-craft]
-checkout = git clone git@github.com:betterteamapp/thesmbguide-craft smb-craft
-
-[Code/betterteamapp/zendesk]
-checkout =
-  git clone git@github.com:betterteamapp/zendesk zendesk
-  cd zendesk
-  git remote upstream git@github.com:steshaw/haskell-zendesk.git
-
 [Code/steshaw/Idris1]
 checkout = 
 	 git clone git@github.com:steshaw/Idris1 Idris1
