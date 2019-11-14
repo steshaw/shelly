@@ -18,9 +18,9 @@
 #
 self: super:
 let
-  emptyPkg = null;
+  emptyPkg = {};
   notDarwin = pkg: if self.stdenv.isDarwin then emptyPkg else pkg;
-  desktopPkgs = if self.stdenv.isDarwin then {} else rec {
+  xpkgs = notDarwin rec {
     # --------------------------------------------------------------------------
     # X.org
     # --------------------------------------------------------------------------
@@ -70,7 +70,7 @@ let
     ;
 }; in
 with builtins; rec {
-  userPackages = super.userPackages or {} // desktopPkgs // super.recurseIntoAttrs rec {
+  userPackages = super.userPackages or {} // xpkgs // super.recurseIntoAttrs rec {
 
     #
     # Nix.
