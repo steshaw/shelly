@@ -102,4 +102,4 @@ export WILMA=wilma
 export BETTY=betty
 
 # To synchronise environment variables with macOS GUI programs.
-macos-environment-sync --install
+[[ $(uname) == 'Darwin' ]] && macos-environment-sync --install
