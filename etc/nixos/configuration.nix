@@ -117,6 +117,7 @@ in {
   # networking.firewall.enable = false;
 
   networking.extraHosts = ''
+    192.168.0.3 nice
   '';
 
   # Enable CUPS to print documents.
