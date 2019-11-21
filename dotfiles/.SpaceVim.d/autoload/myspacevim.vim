@@ -8,6 +8,8 @@ function! myspacevim#after() abort
   call myspacevim#fixTimedotOld()
   set mouse=
   autocmd BufNewFile,BufRead .spacemacs set filetype=lisp
+
+  let g:org_agenda_files = ['~/Code/notes/work/*.org']
 endfunction
 
 function! myspacevim#fixTimedotOld() abort
