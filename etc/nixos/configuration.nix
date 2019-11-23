@@ -101,19 +101,20 @@ in {
   # No need to specify 22 here when the openssh service is enabled.
   # https://nixos.org/nixos/manual/index.html#sec-firewall
   #
-  networking.firewall.allowedTCPPorts = [
-    80 433 # HTTP ports
-    5900 # VNC
-    3389 # RDP
-    6568 7070 # AnyDesk
-  ];
-  networking.firewall.allowedTCPPortRanges = [
-    { from = 3000; to = 3010; } # Dev ports.
-    { from = 8000; to = 8081; } # Dev ports.
-  ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    allowPing = true;
+    allowedTCPPorts = [
+      80 433 # HTTP ports
+      5900 # VNC
+      3389 # RDP
+      6568 7070 # AnyDesk
+    ];
+    allowedTCPPortRanges = [
+      { from = 3000; to = 3010; } # Dev ports.
+      { from = 8000; to = 8081; } # Dev ports.
+    ];
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
