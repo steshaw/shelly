@@ -29,7 +29,6 @@ in {
 
   networking.hostName = "verona";
   networking.hostId = "df28ea3c";
-#  networking.wireless.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -115,10 +114,6 @@ in {
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  networking.extraHosts = ''
-    192.168.0.3 nice
-  '';
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
