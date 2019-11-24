@@ -135,6 +135,7 @@ with builtins; rec {
       direnv
       dos2unix
       fd
+      file
       fzf
       gist
       hledger
