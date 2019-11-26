@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+git rev-list --all | parallel git ls-tree -r --long "{}" 2>/dev/null | sort --key 3 | uniq | sort --key 4 --numeric-sort --reverse | head -60
