@@ -2,4 +2,13 @@
 
 set -euo pipefail
 
-git rev-list --all | parallel git ls-tree -r --long "{}" 2>/dev/null | sort --key 3 | uniq | sort --key 4 --numeric-sort --reverse | head -60
+#
+# See https://stackoverflow.com/a/42544963/482382
+#
+
+git rev-list --objects --all \
+  | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+  | sed -n 's/^blob //p' \
+  | sort --numeric-sort --key=2 \
+  | cut -c 1-12,41- \
+  | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
