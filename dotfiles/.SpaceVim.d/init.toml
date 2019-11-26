@@ -27,8 +27,8 @@
   [options]
     autocomplete_method = "coc"
 
-[[layers]]
-  name = "lsp"
+#[[layers]]
+#  name = "lsp"
 
 [[layers]]
   name = "shell"
