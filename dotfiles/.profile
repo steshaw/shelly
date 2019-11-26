@@ -95,11 +95,5 @@ PATH=$(dedup-path PATH)
 
 prettyPaths ".profile: After dedup"
 
-export XXX=xxx
-export FRED=fred
-export BARNEY=barney
-export WILMA=wilma
-export BETTY=betty
-
 # To synchronise environment variables with macOS GUI programs.
 [[ $(uname) == 'Darwin' ]] && macos-environment-sync --install
