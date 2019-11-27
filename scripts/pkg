@@ -20,7 +20,7 @@ command=$1; shift
 [[ $command == refresh ]] && command=update
 
 function is_nix() {
-  [[ -n $NIX_PROFILES ]] && echo Yes is Nix
+  [[ -n $NIX_PROFILES ]]
 }
 
 function has_brew() {
