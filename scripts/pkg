@@ -55,10 +55,10 @@ elif [[ $command = 'search' ]]; then
     apt-cache search "$@"
   fi
 elif [[ $command = 'install' ]]; then
-  if has_brew; then
-    brew install "$@"
-  elif is_nix; then
+  if is_nix; then
     nix-env --install --attr "$@"
+  elif has_brew; then
+    brew install "$@"
   else
     sudo apt-get install "$@"
   fi
