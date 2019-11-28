@@ -20,32 +20,32 @@
 [[layers]]
   name = 'colorscheme'
 
-[[layers]]
-  name = "autocomplete"
-  auto_completion_return_key_behavior = "complete"
-  auto_completion_tab_key_behavior = "smart" # "cycle"
-  [options]
-    autocomplete_method = "coc"
+#[[layers]]
+#  name = "autocomplete"
+#  auto_completion_return_key_behavior = "complete"
+#  auto_completion_tab_key_behavior = "smart" # "cycle"
+#  [options]
+#    autocomplete_method = "coc"
 
 #[[layers]]
 #  name = "lsp"
 
-[[layers]]
-  name = "shell"
-  default_position = "bottom"
-  default_height = 30
+#[[layers]]
+#  name = "shell"
+#  default_position = "bottom"
+#  default_height = 30
 
-[[custom_plugins]]
-  name = "lilydjwg/colorizer"
-  merged = false
+#[[custom_plugins]]
+#  name = "lilydjwg/colorizer"
+#  merged = false
 
 [[custom_plugins]]
   name = "LnL7/vim-nix"
   merged = false
 
-[[custom_plugins]]
-  name = 'idris-hackers/idris-vim'
-  merged = false
+#[[custom_plugins]]
+#  name = 'idris-hackers/idris-vim'
+#  merged = false
 
 # ---------------------------------------------------------------------
 # Org mode {
@@ -59,13 +59,13 @@
   name = 'tpope/vim-speeddating' # Required dependency of vim-orgmode.
   merged = false
 
-#[[custom_plugins]]
-#  name = 'steshaw/vim-timedot'
-#  merged = false
-
-# SyntaxRange allows timedot in src blocks.
-# See .config/nvim/after/syntax/org.vim
 [[custom_plugins]]
-  name = 'vim-scripts/SyntaxRange'
+  name = 'steshaw/vim-timedot'
+  merged = false
+
+## SyntaxRange allows timedot in src blocks.
+## See .config/nvim/after/syntax/org.vim
+#[[custom_plugins]]
+#  name = 'vim-scripts/SyntaxRange'
 
 # } --------------------------------------------------------------------

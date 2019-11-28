@@ -10,6 +10,7 @@ function! myspacevim#after() abort
   autocmd BufNewFile,BufRead .spacemacs set filetype=lisp
 
   let g:org_agenda_files = ['~/Code/notes/work/*.org']
+  set shiftwidth=2
 endfunction
 
 function! myspacevim#fixTimedotOld() abort
