@@ -4,12 +4,7 @@
 
 { config, pkgs, ... }:
 
-let
-  debsGroups = [
-#    "networkmanager"
-    "wheel"
-  ];
-in {
+{
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -163,6 +158,11 @@ in {
 #    displayManager.lightdm.enable = true;
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts-emoji
+    font-awesome_5
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.steshaw = {
     isNormalUser = true;
@@ -178,14 +178,8 @@ in {
   users.users.debbie = {
     isNormalUser = true;
     home = "/home/debbie";
-    description = "Debbie Shaw";
-    extraGroups = debsGroups;
-  };
-  users.users.deborah = {
-    isNormalUser = true;
-    home = "/home/deborah";
     description = "Deborah Shaw";
-    extraGroups = debsGroups;
+    extraGroups = [];
   };
 
   security.sudo.wheelNeedsPassword = false;
