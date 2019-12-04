@@ -153,6 +153,7 @@ with builtins; rec {
       neofetch
       pandoc
       peco
+      pup
       ripgrep
       rlwrap
       shellcheck
