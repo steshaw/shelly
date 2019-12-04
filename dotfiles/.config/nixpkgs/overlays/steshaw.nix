@@ -166,7 +166,7 @@ with builtins; rec {
     ;
     pijul = if false then pijul else {};
     lab = self.gitAndTools.lab;
-    gitmoji = self.nodePackages.gitmoji-cli;
+    gitmoji = notDarwin self.nodePackages.gitmoji-cli;
 
     # Tmux.
     tmux = self.tmux;
