@@ -242,6 +242,7 @@ with builtins; rec {
       nix # Don't enable this on multi-user.
       cacert;
 
+/*
     #
     # nix-rebuild script.
     #
@@ -253,6 +254,7 @@ with builtins; rec {
       fi
       nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
     '';
+*/
 
     #
     # FIXME: Fix below which provides a diff but breaks with use of `super.recurseIntoAttrs` above.

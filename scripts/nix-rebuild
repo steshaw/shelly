@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/e1456b291c53ab34f475c36092df07d6ddcb60ab.tar.gz
+
+nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+exit
+
+#
+# FIXME: Fix below which provides a diff but breaks with use of `super.recurseIntoAttrs` above.
+#        The `super.recurseIntoAttrs` allows you to find userPackages when doing `nix search`.
+
+set -e
+IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
+oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
+nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+IFS=- read -r _ newGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
+${self.diffutils}/bin/diff --color -u --label "generation $oldGen" $oldVersions \
+  --label "generation $newGen" ~/.nix-profile/package_versions \
+  || true
