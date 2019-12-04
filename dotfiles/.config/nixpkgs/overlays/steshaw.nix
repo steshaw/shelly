@@ -166,6 +166,7 @@ with builtins; rec {
     ;
     pijul = if false then pijul else {};
     lab = self.gitAndTools.lab;
+    gitmoji = self.nodePackages.gitmoji-cli;
 
     # Tmux.
     tmux = self.tmux;
@@ -232,12 +233,6 @@ with builtins; rec {
       kubectl
     ;
 
-    # Yarn for gitmoji-cli.
-    inherit (self)
-      nodejs
-      yarn
-    ;
-
     #
     # Default packages.
     #
@@ -257,13 +252,6 @@ with builtins; rec {
         PATH=${self.nix}/bin:$PATH
       fi
       nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
-
-      #
-      # Fun and silly commit messages.
-      #
-      # FIXME: Mutation, hah!
-      #
-      yarn --silent global add gitmoji-cli
     '';
 
     #
