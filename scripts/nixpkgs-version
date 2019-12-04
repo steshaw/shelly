@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-nix eval --raw nixpkgs.lib.version
+nix eval --raw -f '<nixpkgs>' lib.version
 echo
