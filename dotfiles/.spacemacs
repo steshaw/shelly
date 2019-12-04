@@ -54,6 +54,7 @@ values."
      html
      idris
      javascript
+     latex
      markdown
      nim
      nixos
@@ -357,10 +358,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;
   ;; See https://github.com/d12frosted/elpa-mirror/blob/master/README.org#usage-with-spacemacs
   ;;
-  (setq configuration-layer-elpa-archives
-    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
-      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
-      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
+;  (setq configuration-layer-elpa-archives
+;    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
+;      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
+;      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
 
   ;; mode-line (aka powerline).
 ;  (setq dotspacemacs-mode-line-theme 'all-the-icons)
