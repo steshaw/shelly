@@ -7,6 +7,7 @@ SHELLY_NOISY=0 # Set to 1 for crude debugging.
 
 # shellcheck disable=SC1090
 source $SHELLY_HOME/etc/functions.sh
+shelly_determine_os
 
 Echo Executing ~/.profile
 
@@ -95,5 +96,5 @@ PATH=$(dedup-path PATH)
 
 prettyPaths ".profile: After dedup"
 
-# To synchronise environment variables with macOS GUI programs.
-[[ $(uname) == 'Darwin' ]] && macos-environment-sync --install
+# Synchronise environment variables with macOS GUI programs.
+[[ ${SHELLY_OS} == 'darwin' ]] && macos-environment-sync --install

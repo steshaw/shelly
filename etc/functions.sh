@@ -89,3 +89,12 @@ thisFile() {
   fi
   echo "$abs"
 }
+
+shelly_determine_os() {
+  # shellcheck disable=SC2034
+  if [[ ${OSTYPE} == darwin* ]]; then
+    SHELLY_OS='darwin'
+  else
+    SHELLY_OS=${OSTYPE}
+  fi
+}

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if [[ "$(uname)" = 'Darwin' ]] && /usr/libexec/java_home 2>/dev/null; then
+if [[ ${SHELLY_OS} = 'darwin' ]] && /usr/libexec/java_home 2>/dev/null; then
   JAVA_HOME=$(/usr/libexec/java_home)
   export JAVA_HOME
 
   SwitchJDK() {
     if [[ $# -ne 1 ]]; then
-      echo "usage: SwitchJDK 1.7|1.8" >&2
+      echo "usage: SwitchJDK 11|12" >&2
     else
       JAVA_HOME=$(/usr/libexec/java_home -v "$1")
       export JAVA_HOME

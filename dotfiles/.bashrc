@@ -177,7 +177,7 @@ ${pwd_colour}\w$reset_colour"
   local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${user_host_pwd} ${shell}${nix}${direnv}"
   local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${reset_colour} "
   local iterm2Mark=""
-  if [[ $(uname) == Darwin ]]; then
+  if [[ ${SHELLY_OS} == 'darwin' ]]; then
     iterm2Mark="\[$(iterm2_prompt_mark)\]"
   fi
 
@@ -197,7 +197,7 @@ ${pwd_colour}\w$reset_colour"
   GIT_PS1_SHOWCOLORHINTS=true
 
   setGitPrompt() {
-    if [[ ${OSTYPE} = msys ]]; then
+    if [[ ${SHELLY_OS} == 'msys' ]]; then
       # FIXME: Set a simpler prompt for MSYS2 as the regular one doesn't work.
       __git_ps1 "\n\u@\h:\w" \\n"\\\$ "
     else

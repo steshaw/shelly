@@ -53,7 +53,7 @@ alias l='ls -lh'
 alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
 alias la='l -a'
 
-alias wi='type -ap' # Where Is.
+alias wi='type -ap' # Where are all matching commands on PATH.
 
 # Make file ops safer.
 alias cp='cp -i'
@@ -109,7 +109,7 @@ alias grh='git reset HEAD'
 alias path='ppath'
 alias cdpath='echo $CDPATH | tr : "\n"'
 
-if [[ "$(uname)" != 'Darwin' ]]; then
+if [[ ${SHELLY_OS} != 'darwin' ]]; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
 fi
