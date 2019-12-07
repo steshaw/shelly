@@ -5,6 +5,59 @@ export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 # shellcheck disable=SC2034
 SHELLY_NOISY=0 # Set to 1 for crude debugging.
 
+profile_startup=1
+profile_startup_type='incremental'
+
+if [[ ${profile_startup} -eq 1 ]]; then
+
+  timestamp=$(/bin/date +%Y%m%d-%H%M%S)
+  log="/tmp/login.${profile_startup_type}.${USER}.${timestamp}.log"
+  unset timestamp
+
+  if [[ ${profile_startup_type} == 'timestamp' ]]; then
+    # Adapted from https://stackoverflow.com/a/5015179/482382
+    echo "Previous PS4 = [[$PS4]]"
+    original_PS4="$PS4"
+    PS4='+ $EPOCHREALTIME\011 '
+    timestamp=$(/bin/date +%Y%m%d-%H%M%S)
+    exec 3>&2 # Save stderr as fd 3.
+    exec 2>"${log}" # Redirect stderr.
+    set -x
+  fi
+
+  if [[ ${profile_startup_type} == 'incremental' ]]; then
+    ts=~/.nix-profile/bin/ts
+    if [[ -x ${ts} ]]; then
+      exec 3>&1 # Save stdout.
+      exec 4>&2 # Save stderr.
+      exec &> >(${ts} -i '%.s' >"${log}")
+      unset ts
+      set -x
+    fi
+  fi
+
+  if [[ ${profile_startup_type} == 'xtracefd' ]]; then
+    ts=~/.nix-profile/bin/ts
+    if [[ -x ${ts} ]]; then
+      #
+      # HT https://mdjnewman.me/2017/10/debugging-slow-bash-startup-files/
+      #
+      # Open file descriptor 3 such that anything written to /dev/fd/3
+      # is piped through ts and then to a log.
+      #
+      exec 3> >(${ts} -i '%.s' >"$log")
+
+      #
+      # https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+      #
+      export BASH_XTRACEFD=3
+      set -x
+    fi
+  fi
+
+  unset log
+fi
+
 # shellcheck disable=SC1090
 source $SHELLY_HOME/etc/functions.sh
 shelly_determine_os
@@ -98,3 +151,29 @@ prettyPaths ".profile: After dedup"
 
 # Synchronise environment variables with macOS GUI programs.
 [[ ${SHELLY_OS} == 'darwin' ]] && macos-environment-sync --install
+
+if [[ ${profile_startup} -eq 1 ]]; then
+  unset profile_startup
+  if [[ ${profile_startup_type} == 'timestamp' ]]; then
+    set +x
+    exec 2>&3 # Restore fd 2 as stderr.
+    exec 3>&- # Close fd 3.
+    PS4=${original_PS4}
+    unset original_PS4
+  elif [[
+      ${profile_startup_type} == 'simple' ||
+      ${profile_startup_type} == 'incremental'
+  ]]; then
+    set +x
+    exec 1>&3 # Restore fd 1 as stdout.
+    exec 3>&- # Close fd 3.
+    exec 2>&4 # Restore fd 2 as stderr.
+    exec 4>&- # Close fd 4.
+  elif [[ ${profile_startup_type} == 'xtracefd' ]]; then
+    unset BASH_XTRACEFD
+    set +x
+  else
+    set +x
+  fi
+  unset profile_startup_type
+fi
