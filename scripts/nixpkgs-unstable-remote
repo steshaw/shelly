@@ -4,5 +4,5 @@ set -euo pipefail
 
 exec git ls-remote --heads \
     https://github.com/NixOS/nixpkgs-channels \
-    nixpkgs-19.09-darwin |
+    nixpkgs-unstable |
   cut -f1
