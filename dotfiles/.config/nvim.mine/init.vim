@@ -218,10 +218,14 @@ nnoremap <A-l> <C-w>l
 " COC
 " ======================================================================
 
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " Remap for do action format
 nnoremap <leader> F :call CocAction('format')<CR>
 
-" Use K for show documentation in preview window
+" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
