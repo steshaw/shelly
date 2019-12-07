@@ -2,7 +2,19 @@
 
 set -euo pipefail
 
-NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/e1456b291c53ab34f475c36092df07d6ddcb60ab.tar.gz
+# This newer revision doesn't have darwin binaries yet.
+# This revision was discovered via `nixpkgs-unstable-remote`.
+revision=cc6cf0a96a627e678ffc996a8f9d1416200d6c81
+
+# Attemping newer revision hinted by `nixpkgs-find-good-commit`. Might
+# work soon.
+revision=8465cae85c316aa07890a73496357f93d5ef9e37
+
+# Current revision.
+revision=e1456b291c53ab34f475c36092df07d6ddcb60ab
+
+base_url=https://github.com/nixos/nixpkgs/archive
+NIX_PATH=nixpkgs=${base_url}/${revision}.tar.gz
 export NIX_PATH
 
 nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
