@@ -10,7 +10,7 @@ profile_startup_type='incremental'
 
 if [[ ${profile_startup} -eq 1 ]]; then
 
-  timestamp=$(/bin/date +%Y%m%d-%H%M%S)
+  timestamp=$(date +%Y%m%d-%H%M%S)
   log="/tmp/login.${profile_startup_type}.${USER}.${timestamp}.log"
   unset timestamp
 
