@@ -5,7 +5,6 @@
 # opening a new tab in iTerm).
 [[ -n ${HOMEBREW_PREFIX} ]] && return
 
-echo HOMEBREW_PREFIX=${HOMEBREW_PREFIX}
 prettyPaths '010-homebrew: before'
 
 initBrew() {
@@ -49,5 +48,4 @@ initBrew /home/linuxbrew/.linuxbrew ||
 
 unset initBrew
 
-echo HOMEBREW_PREFIX=${HOMEBREW_PREFIX}
 prettyPaths '010-homebrew: after'
