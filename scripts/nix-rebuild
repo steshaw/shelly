@@ -3,8 +3,10 @@
 set -euo pipefail
 
 NIX_PATH=nixpkgs=https://github.com/nixos/nixpkgs/archive/e1456b291c53ab34f475c36092df07d6ddcb60ab.tar.gz
+export NIX_PATH
 
 nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+
 exit
 
 #
