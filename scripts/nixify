@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mkdir -p .config/direnv
+
+use_nix_url=https://raw.githubusercontent.com/steshaw/nur-packages/25dbef99cd3c123d23b20d5d47e9b9ebe0a29167/pkgs/nixify/envrc
+
+delete_last_two() {
+  sed '$d' | sed '$d'
+}
+
+if [[ ! -r .config/direnv/use_nix ]]; then
+  curl -sSL ${use_nix_url} | delete_last_two >.config/direnv/use_nix
+  echo Created .config/direnv/use_nix
+else
+  echo Warning: .config/direnv/use_nix already exists
+fi
+
+mkdir -p .config/nix
+
+if [[ ! -r .config/nix/pkgs.nix && ! -r .config/nix/shell.nix ]]; then
+  timestamp=$(date -u +%Y%m%d-%H%M%S)
+  rev=$(git ls-remote https://github.com/NixOS/nixpkgs-channels nixpkgs-unstable | cut -f1)
+  cat <<! >.config/nix/pkgs.nix
+#
+# See https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs.
+#
+import (
+  builtins.fetchGit {
+    # Descriptive name to make the store path easier to identify.
+    name = "nixpkgs-${timestamp}";
+    url = https://github.com/nixos/nixpkgs/;
+    # \`git ls-remote https://github.com/NixOS/nixpkgs-channels nixpkgs-unstable\`
+    rev = "${rev}";
+  }
+)
+!
+  echo Created .config/nix/pkgs.nix
+  cat <<! >.config/nix/shell.nix
+let
+  pinnedPkgs = import ./pkgs.nix {};
+in { pkgs ? pinnedPkgs }:
+with pkgs; mkShell {
+  buildInputs = [
+    # Put packages here.
+  ];
+  shellHook = ''
+  '';
+}
+!
+  echo Created .config/nix/shell.nix
+else
+  echo Warning: either of .config/nix/shell.nix or.config/nix/pkgs.nix already exist
+fi
+
+cat <<! >>.envrc
+
+source .config/direnv/use_nix
+use_nix -s .config/nix/shell.nix -w .config/nix/pkgs.nix
+!
+echo Appended use_nix to .envrc
