@@ -21,7 +21,7 @@
   name = 'colorscheme'
 
 [[layers]]
-  name = 'rust'
+  name = 'lang#rust'
 
 [[layers]]
   name = "autocomplete"
