@@ -57,9 +57,6 @@ let
 #      x11vnc
     ;
 
-    enableSlack = false; # Desktop Slack disabled — use Firefox tab.
-    slack-dark = if enableSlack then slack-dark else emptyPkg;
-
     # https://github.com/KSmanis/kwin-move-window-to-center
     # but let's have xmonad+KDE.
 
@@ -85,11 +82,12 @@ with builtins; rec {
     #
     # Something like build-essential.
     #
-    gcc = notDarwin self.gcc;
     inherit (self)
       gnumake
       pkgconfig
+      gcc
       python
+      python3
     ;
 
     #
@@ -106,24 +104,24 @@ with builtins; rec {
     bash = self.bashInteractive_5;
     inherit (self)
       # Shells.
-      fish
-      zsh
+#      fish
+#      zsh
 
       bash-completion
       nix-bash-completions
 
       # VCS system.
-      bazaar
-      darcs
+#      bazaar
+#      darcs
       git
       gti # Humourous wrapper for git.
-      mercurial
+#      mercurial
 
       # Security related.
       gnupg22
-      gopass
-      pass
-      pinentry
+#      gopass
+#      pass
+#      pinentry
 
       # Commands.
       bat
@@ -133,7 +131,7 @@ with builtins; rec {
       curl
 #      dbxcli # Defined in overlay/dbxcli.nix
       direnv
-      dos2unix
+#      dos2unix
       eternal-terminal
       fd
       file
@@ -145,10 +143,9 @@ with builtins; rec {
       hub # Defined in overlay/hub.nix
       jq
       killall
-      lastpass-cli
+#      lastpass-cli
       lsd
       moreutils # ts and more
-      mosh
       mr
       mtr
       neofetch
@@ -165,9 +162,9 @@ with builtins; rec {
       wget
       youtube-dl
     ;
-    pijul = if false then pijul else {};
     lab = self.gitAndTools.lab;
-    gitmoji = notDarwin self.nodePackages.gitmoji-cli;
+    gitmoji = self.nodePackages.gitmoji-cli;
+    node = self.nodejs; # Required for gitmoji.
 
     # Tmux.
     tmux = self.tmux;
@@ -181,34 +178,34 @@ with builtins; rec {
     neovim = self.neovim;
 
     # Vim with Python3 for vim-orgmode support.
-    vim_ =
-      if true # Disable vim for now. It doesn't compile on Darwin anyhow.
+    disableVim = true;
+    vim_ = (
+      let
+        disableVim = true; # Using neovim.
+      in
+      if disableVim
       then emptyPkg
       else ((self.vim_configurable.override {
-      guiSupport = "no";
-      darwinSupport = self.stdenv.isDarwin;
-      python = self.python3;
-    }).overrideAttrs (prevAttrs: {
-      name = "my-vim-${prevAttrs.version}";
-    }));
+        guiSupport = "no";
+        darwinSupport = self.stdenv.isDarwin;
+        python = self.python3;
+      }).overrideAttrs (prevAttrs: {
+        name = "my-vim-${prevAttrs.version}";
+      }))
+    );
 
     #
     # Programming Languages.
     #
     inherit (self)
-      gnum4 # for opam's sake.
-      ocaml
-      opam
+#      coq
       rustup
+#      idris
     ;
 
-    # Dependently typed PLs.
-    agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
-    ats2 = notDarwin self.ats2; # Broken on macOS.
-    idris1 = if false then self.idris else null; # Idris 1.3.2 dependencies conflict with bt-app.
-    inherit (self)
-      coq
-    ;
+#    agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
+#    ats2 = notDarwin self.ats2; # Broken on macOS.
+#    idris1 = if false then self.idris else null;
 
     # Haskell.
     ghc865 = self.haskell.compiler.ghc865;
@@ -216,23 +213,31 @@ with builtins; rec {
       cabal-install
       stack
 
+/*
       brittany # From haskell overlay.
       ghcid # From haskell overlay.
       hindent # From haskell overlay.
       hlint # From haskell overlay.
       ormolu # From haskell + omolu overlay.
       pointfree # From haskell overlay.
+*/
     ;
 
     #
-    # Google Cloud Platform.
+    # Google Cloud SDK.
     #
+    # NOTE:
+    #   Best to get an up-to-date SDK from
+    #   https://cloud.google.com/sdk/install.
+    #
+/*
     inherit (self)
       google-cloud-sdk
 
       docker-credential-gcr
       kubectl
     ;
+*/
 
     #
     # Default packages.
