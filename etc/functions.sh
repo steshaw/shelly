@@ -61,7 +61,7 @@ isZsh() {
 }
 
 isInteractive() {
-  [[ -t 1 ]]
+  [[ -t 0 ]]
 }
 
 shellyIsNoisy() {
