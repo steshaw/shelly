@@ -151,7 +151,7 @@ PATH=$(dedup-path PATH)
 prettyPaths ".profile: After dedup"
 
 # Synchronise environment variables with macOS GUI programs.
-[[ ${SHELLY_OS} == 'darwin' ]] && macos-environment-sync --install
+false && [[ ${SHELLY_OS} == 'darwin' ]] && macos-environment-sync --install
 
 if [[ ${profile_startup} -eq 1 ]]; then
   unset profile_startup
