@@ -178,20 +178,18 @@ with builtins; rec {
     neovim = self.neovim;
 
     # Vim with Python3 for vim-orgmode support.
-    disableVim = true;
     vim_ = (
-      let
-        disableVim = true; # Using neovim.
+      let enableVim = true;
       in
-      if disableVim
-      then emptyPkg
-      else ((self.vim_configurable.override {
+      if enableVim
+      then ((self.vim_configurable.override {
         guiSupport = "no";
         darwinSupport = self.stdenv.isDarwin;
         python = self.python3;
       }).overrideAttrs (prevAttrs: {
         name = "my-vim-${prevAttrs.version}";
       }))
+      else emptyPkg
     );
 
     #
