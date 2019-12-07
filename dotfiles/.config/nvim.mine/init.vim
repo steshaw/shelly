@@ -100,7 +100,7 @@ fun! Plug()
   call plug#end()
 endfun
 
-" let mapleader = ','
+"let mapleader="\<Space>"
 let maplocalleader = ','
 
 call Plug()
@@ -213,3 +213,21 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+
+" ======================================================================
+" COC
+" ======================================================================
+
+" Remap for do action format
+nnoremap <leader> F :call CocAction('format')<CR>
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
