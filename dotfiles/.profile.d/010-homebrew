@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Bail if HOMEBREW already configured.
+# This makes a _huge_ difference to shell start times (such as well
+# opening a new tab in iTerm).
+[[ -n ${HOMEBREW_PREFIX} ]] && return
+
+echo HOMEBREW_PREFIX=${HOMEBREW_PREFIX}
 prettyPaths '010-homebrew: before'
 
 initBrew() {
@@ -43,4 +49,5 @@ initBrew /home/linuxbrew/.linuxbrew ||
 
 unset initBrew
 
+echo HOMEBREW_PREFIX=${HOMEBREW_PREFIX}
 prettyPaths '010-homebrew: after'
