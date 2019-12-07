@@ -147,6 +147,7 @@ with builtins; rec {
       killall
       lastpass-cli
       lsd
+      moreutils # ts and more
       mosh
       mr
       mtr
