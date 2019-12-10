@@ -49,7 +49,7 @@ homeFromBin() {
 
 has() {
   command=$1
-  command -v "$command" >/dev/null
+  type -p "$command" >/dev/null
 }
 
 isBash() {
