@@ -2,4 +2,4 @@
 
 set -eu
 
-date -u +%Y%m%d-%H%M%S
+TZ=UTC printf '%(%Y%m%d-%H%M%S)T\n' -1
