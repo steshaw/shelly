@@ -132,7 +132,7 @@ with builtins; rec {
 #      dbxcli # Defined in overlay/dbxcli.nix
       direnv
 #      dos2unix
-      eternal-terminal
+      eternal-terminal-5 # from ./eternal-terminal-5.nix
       fd
       file
       fzf
