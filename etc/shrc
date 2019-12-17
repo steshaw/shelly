@@ -64,10 +64,6 @@ alias rm='rm -i'
 alias cx='chmod +x'
 alias cw='chmod +w'
 
-alias vb='v ~/.Brewfile'
-alias bbg='brew bundle --global'
-alias bb='brew bundle'
-
 alias vp='v ~/.profile' # Vi Profile.
 alias sp='source ~/.profile' # Source Profile.
 
