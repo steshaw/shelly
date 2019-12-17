@@ -1,0 +1,25 @@
+{
+  "comment": "HT to Andres Löh",
+  "coc.preferences.hovertarget": "echo",
+  "coc.preferences.diagnostic.errorSign": "▶▶",
+  "coc.preferences.diagnostic.warningSign": "▶▶",
+  "suggest.autoTrigger": "none",
+  "languageserver": {
+    "haskell": {
+      "command": "ghcide",
+      "args": [ "--lsp" ],
+      "rootPatterns": [
+        "stack.yaml",
+        "hie.yaml",
+        "cabal.project",
+        "package.yaml",
+        "shell.nix"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ]
+    }
+  }
+}
