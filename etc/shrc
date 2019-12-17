@@ -6,6 +6,8 @@
 
 Echo "Executing shrc"
 
+# =========================================================================
+
 setEditor() {
   editor=$1
   Echo "Trying $editor"
@@ -27,10 +29,8 @@ setEditor nvim || setEditor vim
 
 set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 
+# =========================================================================
 # Aliases
-
-alias vi='v'
-alias vim='v'
 
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
@@ -63,22 +63,6 @@ alias rm='rm -i'
 
 alias cx='chmod +x'
 alias cw='chmod +w'
-
-alias vp='v ~/.profile' # Vi Profile.
-alias sp='source ~/.profile' # Source Profile.
-
-alias vbp=vp # Vi Bash Profile. No longer have ~/.bash_profile.
-alias sbp=sp # Source Bash Profile. No longer have ~/.bash_profile.
-
-alias vbrc='v ~/.bashrc' # Vi BashRC.
-alias sbrc='source ~/.bashrc' # Source BashRC.
-
-alias szrc="source ~/.zshrc" # Source ZshRC.
-alias vzrc="\${VISUAL} ~/.zshrc" # Vi ZshRC.
-alias ohmyzsh="\${VISUAL} ~/.oh-my-zsh"
-
-alias ssrc="source \${SHELLY_HOME}/etc/shrc" # Source ShellRC.
-alias vsrc="\${VISUAL} \${SHELLY_HOME}/etc/shrc" # Vi ShellRC.
 
 alias vo="edit-overlay"
 
@@ -114,6 +98,8 @@ fi
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
+# =========================================================================
+
 # This cdpath array works out-of-box for zsh.
 # For bash, it's processed into CDPATH.
 cdpath=(
@@ -126,11 +112,15 @@ if isBash; then
   unset cdpath
 fi
 
+# =========================================================================
+
 #
 # Source etc/shrc.d/*
 #
 for file in "$SHELLY_HOME"/etc/shrc.d/*; do
   sourceExists "${file}"
 done
+
+# =========================================================================
 
 sourceExists ~/.travis/travis.sh # for travis gem
