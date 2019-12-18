@@ -1,9 +1,14 @@
 {
-  "comment": "HT to Andres Löh",
-  "coc.preferences.hovertarget": "echo",
-  "coc.preferences.diagnostic.errorSign": "▶▶",
-  "coc.preferences.diagnostic.warningSign": "▶▶",
-  "suggest.autoTrigger": "none",
+  "_comment": "HT to Andres Löh",
+
+  "coc.preferences.hoverTarget": "echo",
+  "diagnostic.errorSign": "▶▶",
+  "diagnostic.errorSign": "🛑",
+  "diagnostic.warningSign": "⚠️ ",
+
+  "suggest.autoTrigger": "always",
+  "_or": "none",
+
   "languageserver": {
     "haskell": {
       "command": "ghcide",
@@ -21,5 +26,9 @@
         "haskell"
       ]
     }
-  }
+  },
+
+  "rust-client.disableRustup": true,
+  "rust-client.trace.server": "messages",
+  "rust.clippy_preference": "on",
 }
