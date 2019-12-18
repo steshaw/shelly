@@ -1,13 +1,13 @@
-{
-  "_comment": "HT to Andres Löh",
+/* See https://github.com/neoclide/coc.nvim/blob/master/data/schema.json */
 
-  "coc.preferences.hoverTarget": "echo",
-  "diagnostic.errorSign": "▶▶",
-  "diagnostic.errorSign": "🛑",
+/* HT to Andres Löh for initial configuration */
+
+{
+  "coc.preferences.hoverTarget": "float", /* preview, echo, float */
+  "diagnostic.errorSign": "🛑", /* "▶▶" */
   "diagnostic.warningSign": "⚠️ ",
 
-  "suggest.autoTrigger": "always",
-  "_or": "none",
+  "suggest.autoTrigger": "always", /* always, trigger, none */
 
   "languageserver": {
     "haskell": {
@@ -29,6 +29,6 @@
   },
 
   "rust-client.disableRustup": true,
-  "rust-client.trace.server": "messages",
+  "rust-client.trace.server": "off", /* off, messages, verbose */
   "rust.clippy_preference": "on",
 }

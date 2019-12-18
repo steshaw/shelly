@@ -215,28 +215,6 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-"" ======================================================================
-"" COC
-"" ======================================================================
-"
-"" Remap for format selected region
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
-"
-"" Remap for do action format
-"nnoremap <leader> F :call CocAction('format')<CR>
-"
-"" Use K to show documentation in preview window.
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
-"
-"function! s:show_documentation()
-"  if &filetype == 'vim'
-"    execute 'h '.expand('<cword>')
-"  else
-"    call CocAction('doHover')
-"  endif
-"endfunction
-
 " ======================================================================
 " Andres Löh's COC setup
 " COC / ghcide keybindings and functionality
@@ -262,6 +240,9 @@ nmap <leader>qf <Plug>(coc-fix-current)
 
 " Remap for do action format
 nnoremap <leader> F :call CocAction('format')<CR>
+"
+" Remap for format selected region
+nmap <leader>f  <Plug>(coc-format-selected)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
