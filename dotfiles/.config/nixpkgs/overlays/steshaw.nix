@@ -133,6 +133,7 @@ with builtins; rec {
       direnv
 #      dos2unix
       eternal-terminal-5 # from ./eternal-terminal-5.nix
+      exa
       fd
       file
       fzf
