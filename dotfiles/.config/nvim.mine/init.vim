@@ -239,7 +239,7 @@ nmap <leader>ac <Plug>(coc-codeaction)
 nmap <leader>qf <Plug>(coc-fix-current)
 
 " Remap for do action format
-nnoremap <leader> F :call CocAction('format')<CR>
+nnoremap <leader>F :call CocAction('format')<CR>
 "
 " Remap for format selected region
 nmap <leader>f  <Plug>(coc-format-selected)
