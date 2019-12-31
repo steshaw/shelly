@@ -158,6 +158,8 @@ endif
 set backupcopy=auto,breakhardlink ",breaksymlink
 
 autocmd FileType make setlocal noexpandtab | set tabstop=2
+autocmd FileType markdown set spell
+autocmd FileType org set spell " FIXME: Doesn't work for org mode.
 "autocmd BufNewFile,BufRead *.v set filetype=go
 
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
