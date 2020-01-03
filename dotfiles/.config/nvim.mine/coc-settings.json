@@ -3,7 +3,7 @@
 /* HT to Andres Löh for initial configuration */
 
 {
-  "coc.preferences.hoverTarget": "float", /* preview, echo, float */
+  "coc.preferences.hoverTarget": "preview", /* preview, echo, float */
   "diagnostic.errorSign": "🛑", /* "▶▶" */
   "diagnostic.warningSign": "⚠️ ",
 
@@ -25,6 +25,12 @@
         "lhs",
         "haskell"
       ]
+    },
+    "clangd": {
+      "command": "clangd",
+      "args": ["--background-index"],
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"]
     }
   },
 

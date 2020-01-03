@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
-vim +PlugInstall +qall
+script_name=$(basename "$0")
+editor=${script_name%%-*}
 
-#(cd ${bundle}/vimproc && make)
+echo ${editor} +PlugInstall +qall

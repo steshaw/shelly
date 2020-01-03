@@ -45,13 +45,14 @@ fun! Plugs()
   "
   Plug 'Shougo/deol.nvim'
   Plug 'airblade/vim-gitgutter'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'kien/ctrlp.vim'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'rhlobo/vim-super-retab'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'whatyouhide/vim-lengthmatters'
@@ -105,6 +106,10 @@ let maplocalleader = ','
 
 call Plug()
 
+" ctrlp
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" syntastic
 let g:syntastic_sh_shellcheck_args = "-x"
 
 " vim-airline

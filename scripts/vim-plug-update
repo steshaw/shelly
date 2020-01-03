@@ -2,4 +2,7 @@
 
 set -euo pipefail
 
-vim +PlugUpdate +qall
+script_name=$(basename "$0")
+editor=${script_name%%-*}
+
+${editor} +PlugUpdate +qall
