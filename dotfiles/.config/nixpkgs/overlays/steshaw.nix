@@ -82,13 +82,13 @@ with builtins; rec {
     #
     # Something like build-essential.
     #
-    inherit (self)
-      gnumake
-      pkgconfig
-      gcc
-      python
-      python3
-    ;
+#    inherit (self)
+#      gnumake
+#      pkgconfig
+#      gcc
+#      python
+#      python3
+#    ;
 
     #
     # Terminals.
