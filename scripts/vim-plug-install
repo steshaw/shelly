@@ -5,4 +5,4 @@ set -euo pipefail
 script_name=$(basename "$0")
 editor=${script_name%%-*}
 
-echo ${editor} +PlugInstall +qall
+${editor} +PlugInstall +qall
