@@ -4,7 +4,26 @@
 
 {
   "coc.preferences.hoverTarget": "preview", /* preview, echo, float */
-  "diagnostic.errorSign": "🛑", /* "▶▶" */
+
+/*
+  "diagnostic.warningSign": "⚠️ ",
+  "diagnostic.warningSign": "▶▶",
+
+  "diagnostic.warningSign": "😗",
+  "diagnostic.errorSign":   "😓",
+  "diagnostic.hintSign":    "📎",
+  "diagnostic.infoSign":    "💁",
+
+  "diagnostic.hintSign":    "ஐ",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.errorSign":   "✖",
+
+  "diagnostic.warningSign": "▶▶",
+  "diagnostic.errorSign": "▶▶",
+  "diagnostic.errorSign": "▶▶▶",
+*/
+
+  "diagnostic.errorSign": "▶▶",
   "diagnostic.warningSign": "⚠️ ",
 
   "suggest.autoTrigger": "always", /* always, trigger, none */
