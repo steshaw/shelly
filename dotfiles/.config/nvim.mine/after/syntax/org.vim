@@ -7,3 +7,7 @@ echom "after/org.vim"
 
 syntax include @Timedot syntax/timedot.vim
 syntax region orgTimedot start="#+begin_src" end="#+end_src" contains=@Timedot
+
+set paste
+set textwidth=76
+set shiftwidth=2
