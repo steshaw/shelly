@@ -63,10 +63,10 @@ fun! Plugs()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   "
-  " Install neosnippet {
+  " deoplete
   "
-  " See https://github.com/Shougo/neosnippet.vim#vim-plug
-  "
+  " https://github.com/Shougo/deoplete.nvim
+  " "
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   else
@@ -76,9 +76,13 @@ fun! Plugs()
   endif
   let g:deoplete#enable_at_startup = 1
 
+  "
+  " neosnippet
+  "
+  " See https://github.com/Shougo/neosnippet.vim#vim-plug
+  "
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
-  " }
 endfun
 
 " Ensure plug is installed.
@@ -143,6 +147,7 @@ endtry
 
 set background=dark
 set cindent
+set encoding=utf-8
 set expandtab
 set hlsearch! " Hightlight searchs.
 set modelines=5

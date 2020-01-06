@@ -192,6 +192,10 @@ with builtins; rec {
       }))
       else emptyPkg
     );
+    # Required for Vim's Neovim compatibility.
+    python3 = self.python3.withPackages (
+      ps: with ps; [ pynvim numpy toolz ]
+    );
 
     #
     # Programming Languages.
