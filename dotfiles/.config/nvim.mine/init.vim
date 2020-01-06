@@ -141,18 +141,19 @@ catch
   silent! colorscheme elflord
 endtry
 
-set showmatch
 set background=dark
-set tabstop=20
-set shiftwidth=2
-set softtabstop=2
-set textwidth=76
-set expandtab
-set smarttab
-set smartindent
 set cindent
-set modelines=5
+set expandtab
 set hlsearch! " Hightlight searchs.
+set modelines=5
+set number
+set shiftwidth=2
+set showmatch
+set smartindent
+set smarttab
+set softtabstop=2
+set tabstop=20
+set textwidth=76
 
 if &fileformat == 'dos'
   set nofixendofline
