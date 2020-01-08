@@ -8,6 +8,9 @@
 /*
   "diagnostic.warningSign": "⚠️ ",
   "diagnostic.warningSign": "▶▶",
+  "diagnostic.errorSign": "👎",
+  "diagnostic.errorSign": "😢",
+  "diagnostic.errorSign": "😱",
 
   "diagnostic.warningSign": "😗",
   "diagnostic.errorSign":   "😓",
@@ -24,7 +27,6 @@
 */
 
   "diagnostic.errorSign": "▶▶",
-  "diagnostic.errorSign": "👎",
   "diagnostic.warningSign": "⚠️ ",
 
   "suggest.autoTrigger": "always", /* always, trigger, none */
