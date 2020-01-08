@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-ssh "$@" -t 'tmux -CC new-session -AD -s main'
+exec ssh "$@" -t 'tmux -CC new-session -AD -s main'
