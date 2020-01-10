@@ -47,6 +47,7 @@ let
 
     # Apps
     inherit (self)
+      brave
       dropbox
       rescuetime
 
