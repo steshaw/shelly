@@ -1,35 +1,39 @@
-/* See https://github.com/neoclide/coc.nvim/blob/master/data/schema.json */
-
-/* HT to Andres Löh for initial configuration */
-
-{
-  "coc.preferences.hoverTarget": "preview", /* preview, echo, float */
-
 /*
+See https://github.com/neoclide/coc.nvim/blob/master/data/schema.json
+
+HT to Andres Löh for initial configuration
+*/
+{
+  "coc.preferences.hoverTarget": "preview",
+  /*
+  "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.hoverTarget": "float",
+  */
+
+  /*
   "diagnostic.warningSign": "⚠️ ",
   "diagnostic.errorSign": "👎",
   "diagnostic.errorSign": "😢",
   "diagnostic.errorSign": "😱",
   "diagnostic.hintSign":  "💡",
   "diagnostic.infoSign": "ℹ️",
+  "diagnostic.infoSign": "💁",
 
   "diagnostic.warningSign": "😗",
-  "diagnostic.errorSign":   "😓",
-  "diagnostic.hintSign":    "📎",
-  "diagnostic.infoSign":    "💁",
+  "diagnostic.errorSign": "😓",
+  "diagnostic.hintSign": "📎",
+  "diagnostic.infoSign": "💁",
 
-  "diagnostic.hintSign":    "ஐ",
+  "diagnostic.hintSign": "ஐ",
   "diagnostic.warningSign": "⚠",
-  "diagnostic.errorSign":   "✖",
+  "diagnostic.errorSign": "✖",
 
   "diagnostic.warningSign": "▶▶",
   "diagnostic.errorSign": "▶▶",
   "diagnostic.errorSign": "▶▶▶",
-*/
+  */
 
   "diagnostic.errorSign": "😢",
-  "diagnostic.hintSign":  "💡",
-  "diagnostic.infoSign": "💁",
   "diagnostic.warningSign": "⚠️ ",
 
   "suggest.autoTrigger": "always", /* always, trigger, none */
@@ -60,6 +64,12 @@
   },
 
   "rust-client.disableRustup": true,
-  "rust-client.trace.server": "off", /* off, messages, verbose */
-  "rust.clippy_preference": "on",
+
+  "rust-client.trace.server": "off",
+  /*
+  "rust-client.trace.server": "messages",
+  "rust-client.trace.server": "verbose",
+  */
+
+  "rust.clippy_preference": "on"
 }
