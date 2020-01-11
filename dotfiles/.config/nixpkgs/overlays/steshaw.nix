@@ -156,6 +156,7 @@ with builtins; rec {
       pup
       ripgrep
       rlwrap
+      rsync
       shellcheck
       speedtest-cli
       tree
