@@ -7,10 +7,11 @@
 
 /*
   "diagnostic.warningSign": "⚠️ ",
-  "diagnostic.warningSign": "▶▶",
   "diagnostic.errorSign": "👎",
   "diagnostic.errorSign": "😢",
   "diagnostic.errorSign": "😱",
+  "diagnostic.hintSign":  "💡",
+  "diagnostic.infoSign": "ℹ️",
 
   "diagnostic.warningSign": "😗",
   "diagnostic.errorSign":   "😓",
@@ -27,6 +28,8 @@
 */
 
   "diagnostic.errorSign": "😢",
+  "diagnostic.hintSign":  "💡",
+  "diagnostic.infoSign": "💁",
   "diagnostic.warningSign": "⚠️ ",
 
   "suggest.autoTrigger": "always", /* always, trigger, none */
