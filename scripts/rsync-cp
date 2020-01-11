@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [[ $# -eq 0 ]]; then exec rsync; fi
+
+exec rsync \
+  --progress \
+  --verbose \
+  --archive \
+  --update \
+  --compress \
+  --hard-links \
+  --xattrs \
+  "$@"
