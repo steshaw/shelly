@@ -72,31 +72,7 @@
     forwardX11 = true;
   };
 
-  # For development...
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_11;
-    enableTCPIP = true;
-    authentication = pkgs.lib.mkOverride 10 ''
-      local all all trust
-      host all all ::1/128 trust
-    '';
-    initialScript = pkgs.writeText "backend-initScript" ''
-      create role steshaw with login password 'password';
-    '';
-  };
-  services.redis.enable = true;
-  services.rabbitmq.enable = true;
-#  services.amqp.enable = true;
-
   services.keybase.enable = true;
-  services.teamviewer.enable = true;
-
-  services.xrdp.enable = true;
-#  services.xrdp.defaultWindowManager = "${config.services.xserver.displayManager.session.script} plasma5+none";
-#  services.xrdp.defaultWindowManager = "${pkgs.xfce4-12.xfce4-session}/bin/xfce4-session";
-#  services.xrdp.defaultWindowManager = "xterm";
-  services.xrdp.defaultWindowManager = "xfce4-session";
 
   # Open ports in the firewall.
   #
@@ -137,24 +113,14 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    # xkbOptions = "eurosign:e";
     # Enable touchpad support.
     libinput.enable = true;
 
-#    windowManager.xmonad {
-#      enable = true;
-#      enableContribAndExtras = true;
-#    };
     # Enable the KDE Desktop Environment.
-#    displayManager.sddm.enable = true;
+#    displayManager.lightdm.enable = true; # default displayManager.
+    displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
 
-#    # Enable the Gnome desktop environment.
-#    displayManager.gdm.enable = true;
-#    displayManager.gdm.wayland = false;
-#    desktopManager.gnome3.enable = true;
-
-    displayManager.lightdm.enable = true;
   };
 
   fonts.fonts = with pkgs; [
