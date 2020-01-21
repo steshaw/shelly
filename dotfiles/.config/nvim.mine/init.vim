@@ -1,16 +1,18 @@
 set nocompatible
 
 fun! Plugs()
+  "
   " Colour schemes.
-  Plug 'dracula/vim', { 'as': 'dracula' }
+  "
+  " Collections.
   Plug 'flazz/vim-colorschemes'
-  Plug 'joshdick/onedark.vim'
-  Plug 'morhetz/gruvbox'
   Plug 'mswift42/vim-themes'
-  Plug 'phanviet/vim-monokai-pro'
-  Plug 'rainglow/vim'
-
+  " Specific themes.
   Plug 'captbaritone/molokai'
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'joshdick/onedark.vim'
+  Plug 'lifepillar/vim-solarized8'
+  Plug 'morhetz/gruvbox'
   if 1
     Plug 'crusoexia/vim-monokai'
   else
@@ -140,24 +142,13 @@ nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
+" ==========================================================================
+" Settings
+" ==========================================================================
+
 " Don't reset the cursor style.
 " i.e. keep blinking underline from terminal configuration.
 set guicursor=
-
-" Set preferred theme if possible.
-try
-"  colorscheme molokai
-  " Override ErrorMsg color as molokai has a poor one!
-"  autocmd FileType * highlight ErrorMsg
-"    \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
-
-  colorscheme dracula
-"  colorscheme onedark
-"  colorscheme monokai
-catch
-  " Fallback theme.
-  silent! colorscheme darkblue
-endtry
 
 set background=dark
 set cindent
@@ -184,6 +175,29 @@ endif
 " clones.
 set backupcopy=auto,breakhardlink ",breaksymlink
 
+" ==========================================================================
+" Color Theme
+" ==========================================================================
+" Set preferred theme if possible.
+try
+"  colorscheme molokai
+  " FIXME: Change the color of the Coc floating error and warning boxes.
+  " Override ErrorMsg color as molokai has a poor one!
+"  autocmd FileType * highlight ErrorMsg
+"    \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
+
+"  colorscheme onedark
+"  colorscheme dracula
+"  colorscheme gruvbox "
+  colorscheme monokai
+"  colorscheme solarized8_high
+catch
+  " Fallback theme.
+  silent! colorscheme darkblue
+endtry
+
+" ==========================================================================
+
 autocmd FileType make setlocal noexpandtab | set tabstop=2
 autocmd FileType markdown set spell
 autocmd FileType org set spell " FIXME: Doesn't work for org mode.
@@ -197,11 +211,10 @@ inoremap kj <esc>
 
 nnoremap <Leader><space> :nohlsearch<Enter>
 
-let g:org_agenda_files=['~/dev/tlcsrc/log/log.org']
-
-"
+" ==========================================================================
 " Org mode configuration.
-"
+" ==========================================================================
+let g:org_agenda_files=['~/dev/tlcsrc/log/log.org']
 let g:org_heading_shade_leading_stars = 0
 let g:org_indent = 1
 let g:org_todo_keywords = ['TODO', 'BLOCKED', 'DOING', '|', 'DONE']
@@ -230,6 +243,8 @@ let g:org_todo_keyword_faces =
       \   ]
       \ ]
 
+" ==========================================================================
+
 " Switching windows
 tnoremap <A-h> <C-\><C-N><C-w>h
 tnoremap <A-j> <C-\><C-N><C-w>j
@@ -244,10 +259,10 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-" ======================================================================
+" ==========================================================================
 " Andres Löh's COC setup
 " COC / ghcide keybindings and functionality
-" ======================================================================
+" ==========================================================================
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -304,7 +319,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
 
 " Terminal mode allow escape
 tnoremap <Esc> <C-\><C-n>
