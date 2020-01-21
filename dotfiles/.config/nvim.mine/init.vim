@@ -2,15 +2,16 @@ set nocompatible
 
 fun! Plugs()
   " Colour schemes.
-  Plug 'flazz/vim-colorschemes'
   Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'flazz/vim-colorschemes'
   Plug 'joshdick/onedark.vim'
-  Plug 'captbaritone/molokai'
   Plug 'morhetz/gruvbox'
   Plug 'mswift42/vim-themes'
   Plug 'phanviet/vim-monokai-pro'
   Plug 'rainglow/vim'
-  if 0
+
+  Plug 'captbaritone/molokai'
+  if 1
     Plug 'crusoexia/vim-monokai'
   else
     Plug 'sickill/vim-monokai'
@@ -140,24 +141,22 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
 " Don't reset the cursor style.
-" i.e. keep blinking underline from iTerm2 configuration.
-"set guicursor=
+" i.e. keep blinking underline from terminal configuration.
+set guicursor=
 
 " Set preferred theme if possible.
 try
-"  colorscheme dracula
-  colorscheme monokai
-"  colorscheme onedark
 "  colorscheme molokai
   " Override ErrorMsg color as molokai has a poor one!
-  autocmd FileType * highlight ErrorMsg
-    \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
-  if has("gui_running")
-    colorscheme koehler
-  endif
+"  autocmd FileType * highlight ErrorMsg
+"    \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
+
+  colorscheme dracula
+"  colorscheme onedark
+"  colorscheme monokai
 catch
   " Fallback theme.
-  silent! colorscheme elflord
+  silent! colorscheme darkblue
 endtry
 
 set background=dark
