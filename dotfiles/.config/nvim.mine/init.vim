@@ -158,6 +158,7 @@ set smartindent
 set smarttab
 set softtabstop=2
 set tabstop=20
+set termguicolors
 set textwidth=76
 
 if &fileformat == 'dos'

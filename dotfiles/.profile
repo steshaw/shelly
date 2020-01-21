@@ -126,16 +126,6 @@ prettyPaths ".profile: After .profile.d/* and private bins"
 
 sourceExists ~/.profile.local
 
-# Ensure xterm-24bit exists.
-if isInteractive && [[ -z $(ls ~/.terminfo/*/xterm-24bit 2>/dev/null) ]]; then
-  xterm-24bit-create
-fi
-
-# Use 24bit terminal for tmux. A hack that works?
-if isInteractive && [[ $TERM == screen ]]; then
-  TERM=xterm-24bit
-fi
-
 #
 # Explicitly source `.bashrc`.
 #
