@@ -4,11 +4,16 @@ fun! Plugs()
   " Colour schemes.
   Plug 'flazz/vim-colorschemes'
   Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'joshdick/onedark.vim'
+  Plug 'captbaritone/molokai'
+  Plug 'morhetz/gruvbox'
+  Plug 'mswift42/vim-themes'
+  Plug 'phanviet/vim-monokai-pro'
+  Plug 'rainglow/vim'
   if 0
-    Plug 'captbaritone/molokai'
-    Plug 'chriskempson/base16-vim'
     Plug 'crusoexia/vim-monokai'
-    Plug 'joshdick/onedark.vim'
+  else
+    Plug 'sickill/vim-monokai'
   endif
 
   " Org mode.
@@ -25,6 +30,7 @@ fun! Plugs()
   " Modes
   Plug 'LnL7/vim-nix'
   Plug 'chr4/nginx.vim'
+  Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'idris-hackers/idris-vim'
   Plug 'nelsyeung/twig.vim'
@@ -32,9 +38,9 @@ fun! Plugs()
   Plug 'purescript-contrib/purescript-vim'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/syntastic'
+  "Plug 'sheerun/vim-polyglot'
   Plug 'vmchale/dhall-vim'
   Plug 'vmchale/ipkg-vim'
-  Plug 'dense-analysis/ale'
   Plug 'ziglang/zig.vim'
 
   " TypeScript
@@ -57,6 +63,10 @@ fun! Plugs()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'whatyouhide/vim-lengthmatters'
+
+  "Plug 'qualiabyte/vim-colorstepper'
+  Plug 'xolox/vim-misc'
+  Plug 'xolox/vim-colorscheme-switcher'
 
   " Turn off search highlighting when done.
   Plug 'romainl/vim-cool'
@@ -111,6 +121,8 @@ let maplocalleader = ','
 
 call Plug()
 
+let g:colorscheme_switcher_keep_background = 1
+
 " ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -129,11 +141,12 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
 " Don't reset the cursor style.
 " i.e. keep blinking underline from iTerm2 configuration.
-set guicursor=
+"set guicursor=
 
 " Set preferred theme if possible.
 try
-  colorscheme dracula
+"  colorscheme dracula
+  colorscheme monokai
 "  colorscheme onedark
 "  colorscheme molokai
   " Override ErrorMsg color as molokai has a poor one!
@@ -149,6 +162,7 @@ endtry
 
 set background=dark
 set cindent
+set cursorline
 set encoding=utf-8
 set expandtab
 set hlsearch! " Hightlight searchs.
