@@ -2,12 +2,13 @@ set nocompatible
 
 fun! Plugs()
   " Colour schemes.
-  Plug 'captbaritone/molokai'
-  Plug 'joshdick/onedark.vim'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'dracula/vim', { 'as': 'dracula' }
   if 0
+    Plug 'captbaritone/molokai'
     Plug 'chriskempson/base16-vim'
     Plug 'crusoexia/vim-monokai'
-    Plug 'flazz/vim-colorschemes'
+    Plug 'joshdick/onedark.vim'
   endif
 
   " Org mode.
@@ -132,8 +133,9 @@ set guicursor=
 
 " Set preferred theme if possible.
 try
-  colorscheme molokai
-  colorscheme onedark
+  colorscheme dracula
+"  colorscheme onedark
+"  colorscheme molokai
   " Override ErrorMsg color as molokai has a poor one!
   autocmd FileType * highlight ErrorMsg
     \ ctermbg=lightred ctermfg=black guibg=lightred guifg=black
