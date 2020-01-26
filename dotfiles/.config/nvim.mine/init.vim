@@ -32,6 +32,7 @@ fun! Plugs()
 
   " Modes
   Plug 'LnL7/vim-nix'
+  Plug 'cespare/vim-toml'
   Plug 'chr4/nginx.vim'
   Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -189,8 +190,14 @@ try
 "  colorscheme onedark
 "  colorscheme dracula
 "  colorscheme gruvbox "
-  colorscheme monokai
+"  colorscheme monokai
 "  colorscheme solarized8_high
+
+"  colorscheme pt_black
+"  colorscheme SerialExperimentsLain
+"  colorscheme 'space-vim-dark'
+"  colorscheme stereokai
+  colorscheme Tomorrow-Night
 catch
   " Fallback theme.
   silent! colorscheme darkblue
@@ -202,6 +209,7 @@ autocmd FileType make setlocal noexpandtab | set tabstop=2
 autocmd FileType markdown set spell
 autocmd FileType org set spell " FIXME: Doesn't work for org mode.
 "autocmd BufNewFile,BufRead *.v set filetype=go
+autocmd BufNewFile,BufRead .mrconfig set filetype=toml
 
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
 inoremap jj <esc>
