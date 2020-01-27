@@ -66,6 +66,8 @@
   services.openssh = {
     enable = true;
     forwardX11 = true;
+    permitRootLogin = "no";
+    passwordAuthentication = false;
   };
 
   services.keybase.enable = true;
