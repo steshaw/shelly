@@ -2,41 +2,9 @@
 gc = git gc "$@"
 sync = git sync-upstream-master
 
-[.emacs.d]
-checkout = git clone --branch develop https://github.com/syl20bnr/spacemacs .emacs.d
-
-[.oh-my-zsh]
-checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
-
-[.oh-my-zsh/custom/plugins/zsh-completions]
-checkout = git clone https://github.com/zsh-users/zsh-completions
-
-[Code/steshaw/Idris1]
-checkout = 
-	 git clone git@github.com:steshaw/Idris1 Idris1
-	 cd Idris1
-	 git remote add upstream git@github.com:idris-lang/Idris-dev.git
-
-[Code/steshaw/Idris2]
-checkout = 
-	 git clone git@github.com:steshaw/Idris2 Idris2
-	 cd Idris2
-	 git remote add upstream git@github.com:edwinb/Idris2.git
-
-[Code/steshaw/notes]
-checkout = git clone git@github.com:steshaw/notes
-
-[Code/steshaw/nix]
-checkout = 
-	 git clone git@github.com:steshaw/nix.git nix
-	 cd nix
-	 git remote add upstream git@github.com:NixOS/nix.git
-
-[Code/steshaw/nixpkgs]
-checkout = 
-	 git clone git@github.com:steshaw/nixpkgs.git nixpkgs
-	 cd nixpkgs
-	 git remote add upstream git@github.com:NixOS/nixpkgs.git
+# --------------------------------------------------------------------------
+# My repositories.
+# --------------------------------------------------------------------------
 
 [Code/steshaw/shelly]
 checkout = git clone --depth 20 git@github.com:steshaw/shelly
@@ -49,3 +17,69 @@ checkout = git clone git@github.com:steshaw/vim-timedot.git vim-timedot
 
 [Code/steshaw/haskell-zendesk]
 checkout = git clone 'git@github.com:steshaw/haskell-zendesk.git' 'haskell-zendesk'
+
+[Code/steshaw/learning-programming-languages]
+checkout = git clone 'git@github.com:steshaw/learning-programming-languages.git' 'learning-programming-languages'
+
+[Code/steshaw/learning-rust]
+checkout = git clone 'git@github.com:steshaw/learning-rust' 'learning-rust'
+
+[Code/steshaw/plt]
+checkout = git clone 'git@github.com:steshaw/plt' 'plt'
+
+[Code/steshaw/well-typed-1910T]
+checkout = git clone 'git@github.com:steshaw/well-typed-1910T.git' 'well-typed-1910T'
+
+[Code/steshaw/bf]
+checkout = git clone 'git@github.com:steshaw/bf.git' 'bf'
+
+[Code/steshaw/cv]
+checkout = git clone 'git@github.com:steshaw/cv' 'cv'
+
+# --------------------------------------------------------------------------
+# Forks
+# --------------------------------------------------------------------------
+
+[Code/steshaw/Idris1]
+checkout = 
+	  git clone git@github.com:steshaw/Idris1 Idris1
+	  cd Idris1
+	  git remote add upstream git@github.com:idris-lang/Idris-dev.git
+update = git sync-upstream-master
+
+[Code/steshaw/Idris2]
+checkout = 
+	  git clone git@github.com:steshaw/Idris2 Idris2
+	  cd Idris2
+	  git remote add upstream git@github.com:edwinb/Idris2.git
+update = git sync-upstream-master
+
+[Code/steshaw/notes]
+checkout = git clone git@github.com:steshaw/notes
+
+[Code/steshaw/nix]
+checkout = 
+	  git clone git@github.com:steshaw/nix.git nix
+	  cd nix
+	  git remote add upstream git@github.com:NixOS/nix.git
+update = git sync-upstream-master
+
+[Code/steshaw/nixpkgs]
+checkout = 
+	  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
+	  cd nixpkgs
+	  git remote add upstream git@github.com:NixOS/nixpkgs.git
+update = git sync-upstream-master
+
+# --------------------------------------------------------------------------
+# Tools
+# --------------------------------------------------------------------------
+
+[.emacs.d]
+checkout = git clone --branch develop https://github.com/syl20bnr/spacemacs .emacs.d
+
+[.oh-my-zsh]
+checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+
+[.oh-my-zsh/custom/plugins/zsh-completions]
+checkout = git clone https://github.com/zsh-users/zsh-completions
