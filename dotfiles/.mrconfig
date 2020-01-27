@@ -15,8 +15,8 @@ checkout = git clone --recursive git@github.com:steshaw/steshaw.org
 [Code/steshaw/vim-timedot]
 checkout = git clone git@github.com:steshaw/vim-timedot.git vim-timedot
 
-[Code/steshaw/haskell-zendesk]
-checkout = git clone 'git@github.com:steshaw/haskell-zendesk.git' 'haskell-zendesk'
+[Code/steshaw/zendesk-hs]
+checkout = git clone 'git@github.com:steshaw/zendesk-hs.git' 'zendesk-hs'
 
 [Code/steshaw/learning-programming-languages]
 checkout = git clone 'git@github.com:steshaw/learning-programming-languages.git' 'learning-programming-languages'
