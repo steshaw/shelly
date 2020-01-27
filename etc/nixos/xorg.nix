@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-{
+{ config, pkgs, lib, ... }:
+lib.mkIf true {
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -19,6 +19,14 @@
   security.pam.services.sddm.enableKwallet = true;
   security.pam.services.kdewallet.enableKwallet = true;
   environment.systemPackages = with pkgs; [
+    firefox
     libinput
+    lxqt.pavucontrol-qt
+    xorg.xev
+    xorg.xmodmap
+
+    # KDE specific
+    kdeFrameworks.kwallet
+    ksshaskpass
   ];
 }

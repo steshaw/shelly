@@ -47,18 +47,10 @@
   # Set your time zone.
   time.timeZone = "Australia/Brisbane";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
      git
      vim
      wget
-     ksshaskpass
-     kdeFrameworks.kwallet
-
-     firefox
-     lxqt.pavucontrol-qt
-     xorg.xmodmap
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
