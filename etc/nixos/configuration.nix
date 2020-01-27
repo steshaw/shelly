@@ -116,7 +116,10 @@
     enable = true;
     layout = "us";
     # Enable touchpad support.
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      naturalScrolling = true;
+    };
 
     # Enable the KDE Desktop Environment.
 #    displayManager.lightdm.enable = true; # default displayManager.
