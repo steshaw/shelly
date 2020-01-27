@@ -52,6 +52,8 @@
      git
      vim
      wget
+     ksshaskpass
+     kdeFrameworks.kwallet
 
      firefox
      lxqt.pavucontrol-qt
@@ -122,6 +124,8 @@
     desktopManager.plasma5.enable = true;
 
   };
+  security.pam.services.sddm.enableKwallet = true;
+  security.pam.services.kdewallet.enableKwallet = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts-emoji
