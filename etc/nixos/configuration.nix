@@ -24,6 +24,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # TODO: Perhaps swapfile's are not compatible with ZFS.
+#  swapDevices = [ { device = "/var/swapfile"; size = 32768; } ];
+#  boot.resumeDevice = "rpool/root/nixos";
+
   networking.hostName = "verona";
   networking.hostId = "df28ea3c";
 
