@@ -154,6 +154,7 @@ with builtins; rec {
       pandoc
       peco
       pup
+      python2
       ripgrep
       rlwrap
       rsync
