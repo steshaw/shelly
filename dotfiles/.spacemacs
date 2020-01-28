@@ -170,8 +170,8 @@ values."
    ;; Favourite themes.
    ;; molokai seems broken :(.
    dotspacemacs-themes '(
-                         kaolin-aurora
                          spacemacs-dark
+                         kaolin-aurora
                          majapahit-dark
 
                          molokai
