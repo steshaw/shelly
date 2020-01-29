@@ -6,6 +6,8 @@ elif [[ -d /usr/lib/google-cloud-sdk ]]; then
   CLOUDSDK_HOME=/usr/lib/google-cloud-sdk
 elif [[ -d /snap/google-cloud-sdk/current/ ]]; then
   CLOUDSDK_HOME=/snap/google-cloud-sdk/current
+elif [[ -d ~/.local/google-cloud-sdk ]]; then
+  CLOUDSDK_HOME=~/.local/google-cloud-sdk
 else
   return
 fi
