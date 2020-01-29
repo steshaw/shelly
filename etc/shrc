@@ -107,6 +107,12 @@ cdpath=(
   ~/Code
   ~/Code/steshaw
 )
+
+# Add all directories in `~/Code`.
+for dir in ~/Code/*; do
+  [[ -d ${dir} && ${dir} != ~/Code/steshaw ]] && cdpath=("${cdpath[@]}" "${dir}")
+done
+
 if isBash; then
   CDPATH=$(IFS=':'; echo "${cdpath[*]}")
   unset cdpath
