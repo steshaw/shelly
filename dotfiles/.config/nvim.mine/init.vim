@@ -28,7 +28,7 @@ fun! Plugs()
 
   " Ledger.
   Plug 'ledger/vim-ledger'
-  Plug '~/Code/steshaw/vim-timedot'
+  Plug '~/Code/steshaw/timedot-vim'
 
   " Modes
   Plug 'LnL7/vim-nix'
