@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_name=$(basename "$0")
+if [[ $# -eq 0 ]]; then
+  echo "usage: $script_name FILE ..."
+  exit 2
+fi
+
+chmod -R "$(umask -S | sed 's/x/X/g')" "$@"
