@@ -64,6 +64,8 @@ alias rm='rm -i'
 alias cx='chmod +x'
 alias cw='chmod +w'
 
+alias history-reload='history -a && history -r'
+
 alias vo="edit-overlay"
 
 alias sghci='stack exec -- ghci'
