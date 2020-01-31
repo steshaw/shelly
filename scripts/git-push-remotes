@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+${DEBUG:-}
+
+get_remote_url() {
+  local remote=$1
+  git config --local --get-regexp "^remote\.${remote}\.url" |
+    perl -ane 'print "$F[1]\n"'
+}
+
+for remote in $(git remote); do
+  remote_url=$(get_remote_url "${remote}")
+  echo "Pushing to ${remote} at ${remote_url}"
+  git push "${remote}"
+done
