@@ -422,6 +422,15 @@ you should place your code here."
 
 
   (add-hook 'org-mode-hook #'auto-fill-mode)
+
+  ;; Hunspell
+  (with-eval-after-load "ispell"
+    (setq ispell-program-name "hunspell")
+    (setq ispell-really-hunspell t)
+    ; Setting dictionary via DICTIONARY environment variable.
+;    (setq ispell-dictionary "en_GB")
+    )
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
