@@ -420,9 +420,6 @@ you should place your code here."
   (with-eval-after-load 'intero
     (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
-
-  (add-hook 'org-mode-hook #'auto-fill-mode)
-
   ;; Hunspell
   (with-eval-after-load "ispell"
     (setq ispell-program-name "hunspell")
@@ -430,6 +427,13 @@ you should place your code here."
     ; Setting dictionary via DICTIONARY environment variable.
 ;    (setq ispell-dictionary "en_GB")
     )
+
+  ;;
+  ;; orgmode
+  ;;
+  ;(add-hook 'org-mode-hook #'auto-fill-mode)
+  (setq org-todo-keywords
+        '((sequence "TODO" "DOING" "|" "DONE")))
 
   )
 
