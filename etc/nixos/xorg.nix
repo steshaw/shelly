@@ -25,8 +25,9 @@
     xorg.xev
     xorg.xmodmap
 
-    # KDE specific
+    # KDE
     kdeFrameworks.kwallet
     ksshaskpass
+    okular
   ];
 }
