@@ -431,7 +431,7 @@ you should place your code here."
   ;;
   ;; orgmode
   ;;
-  ;(add-hook 'org-mode-hook #'auto-fill-mode)
+  (add-hook 'org-mode-hook #'auto-fill-mode)
   (setq org-todo-keywords
         '((sequence "TODO" "DOING" "|" "DONE")))
 
