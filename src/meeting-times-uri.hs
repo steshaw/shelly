@@ -10,9 +10,9 @@ base="https://www.timeanddate.com/worldclock/meetingtime.html"
 date="iso=20200204"
 
 cities=
-  [ 43  -- Boston
+  [ 224 -- San Francisco
   , 64  -- Chicago
-  , 224 -- San Francisco
+  , 43  -- Boston
   , 136 -- London
   , 438 -- Bangalore
   , 248 -- Tokyo
@@ -25,4 +25,5 @@ main = do
   where
     f (i, city) = "p" <> show i <> "=" <> show city
     cs = map f $ zip [1..] cities
-    uri = base <> "?" <> date <> "&" <> List.intercalate "&" cs
+    ps = cs ++ [date]
+    uri = base <> "?" <> List.intercalate "&" ps
