@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if false && has kubectl; then
+if has kubectl; then
   # shellcheck source=/dev/null
   isBash && source <(kubectl completion bash)
   isZsh && source <(kubectl completion zsh)
