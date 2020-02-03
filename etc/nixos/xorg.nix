@@ -19,6 +19,7 @@
   security.pam.services.sddm.enableKwallet = true;
   security.pam.services.kdewallet.enableKwallet = true;
   environment.systemPackages = with pkgs; [
+    brave
     firefox
     libinput
     lxqt.pavucontrol-qt

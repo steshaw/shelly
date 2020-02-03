@@ -47,7 +47,6 @@ let
 
     # Apps
     inherit (self)
-      brave
       dropbox
       rescuetime
 
@@ -182,7 +181,7 @@ with builtins; rec {
     neovim = self.neovim;
 
     # Vim with Python3 for vim-orgmode support.
-    vim_ = (
+    vim_ = if true then null else (
       let enableVim = true;
       in
       if enableVim
@@ -224,9 +223,9 @@ with builtins; rec {
       ghcid # From haskell overlay.
       hindent # From haskell overlay.
       hlint # From haskell overlay.
-      ormolu # From haskell + omolu overlay.
       pointfree # From haskell overlay.
 */
+      ormolu # From haskell + omolu overlay.
     ;
 
     #
