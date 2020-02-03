@@ -17,7 +17,7 @@ other_repo_path=$1
 branch=$2
 remote_name=$(basename "${other_repo_path}")
 
-echo git remote add "${remote_name}" "${other_repo_path}"
-echo git fetch "${remote_name}" --tags
-echo git merge --allow-unrelated-histories "${remote_name}/${branch}"
-echo git remote remove "${remote_name}"
+git remote add "${remote_name}" "${other_repo_path}"
+git fetch "${remote_name}" --tags
+git merge --allow-unrelated-histories "${remote_name}/${branch}"
+git remote remove "${remote_name}"
