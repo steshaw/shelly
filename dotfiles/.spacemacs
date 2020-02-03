@@ -46,6 +46,7 @@ values."
      finance ;; ledger
      git
      github
+     go
      graphviz
      (haskell :variables
               haskell-completion-backend 'intero
