@@ -1,30 +1,5 @@
 ! F13 is PrtScr
 keycode 191 = Print Sys_Req Print Sys_Req
 
-! F14 is ?
-keycode 192 = Print Sys_Req Print Sys_Req
-
-! F15 is ?
-keycode 193 = Print Sys_Req Print Sys_Req
-
-! F16 is ?
-keycode 194 = Print Sys_Req Print Sys_Req
-
-! F17 is ?
-keycode 195 = Print Sys_Req Print Sys_Req
-
-! F18 is ?
-keycode 196 = Print Sys_Req Print Sys_Req
-
-! F19 is ?
-keycode 197 = Print Sys_Req Print Sys_Req
-
 ! Num-Enter is Compose
 keycode 104 = Multi_key
-
-! Switch Control (control on Apple kb) with Super (command on Apple kb)
-! NOTE: Currently using KDE System Settings.
-!remove control = Control_L Control_R
-!remove mod4 = Super_L Super_R
-!add mod4 = Control_L Control_R
-!add control = Super_L Super_R
