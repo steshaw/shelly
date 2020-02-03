@@ -217,16 +217,13 @@ with builtins; rec {
     inherit (self)
       cabal-install
       stack
-
-/*
-      brittany # From haskell overlay.
-      ghcid # From haskell overlay.
       hindent # From haskell overlay.
-      hlint # From haskell overlay.
       pointfree # From haskell overlay.
-*/
-      ormolu # From haskell + omolu overlay.
     ;
+#    ghcid = self.haskellPackages.ghcid;
+#    ormolu = self.haskellPackages.ormolu;
+#    brittany = self.haskellPackages.brittany;
+#    hlint = self.haskellPackages.hlint;
 
     #
     # Google Cloud SDK.
