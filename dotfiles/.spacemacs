@@ -387,17 +387,20 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ; Seems you need an explicit 'server-start' on the `develop` branch.
+  ;; Diable mouse in terminals
+  (xterm-mouse-mode -1)
+
+  ;; Seems you need an explicit 'server-start' on the `develop` branch.
   (server-start)
 
   (setq powerline-default-separator 'arrow)
 
-  ; Do case-sensitive searching.
+  ;; Do case-sensitive searching.
 ;  (setq case-fold-search nil)
 
   (evil-leader/set-key "/" 'spacemacs/helm-project-do-ag)
 
-  ; mouse scrolling in terminal.
+  ;; mouse scrolling in terminal.
   (global-set-key [mouse-4] 'scroll-down-line)
   (global-set-key [mouse-5] 'scroll-up-line)
 
