@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -182,11 +182,15 @@ values."
 
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
+   ;;
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    ;; :powerline-offset 2 ???
-   dotspacemacs-default-font '("FuraCode Nerd Font"
-                               :size 32
+   ;;
+   ;; Test symbols: -> >>=
+   ;;
+   dotspacemacs-default-font '("Hack"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -391,7 +395,7 @@ you should place your code here."
   (xterm-mouse-mode -1)
 
   ;; Use the primary clipboard when selecting text in Xorg.
-  (x-select-enable-primary t)
+  (setq x-select-enable-primary t)
 
   ;; Seems you need an explicit 'server-start' on the `develop` branch.
   (server-start)
@@ -429,10 +433,10 @@ you should place your code here."
 
   ;; Hunspell
   (with-eval-after-load "ispell"
+    (setenv "DICTIONARY" "en_GB")
     (setq ispell-program-name "hunspell")
     (setq ispell-really-hunspell t)
-    ; Setting dictionary via DICTIONARY environment variable.
-;    (setq ispell-dictionary "en_GB")
+    ;(setq ispell-dictionary "en_GB")
     )
 
   ;;
@@ -825,7 +829,7 @@ static char *gnus-pointer[] = {
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
+ '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "ADBO" :family "FuraMono Nerd Font"))))
  '(proof-eager-annotation-face ((t (:background "medium blue"))))
  '(proof-error-face ((t (:background "dark red"))))
  '(proof-warning-face ((t (:background "indianred3")))))
