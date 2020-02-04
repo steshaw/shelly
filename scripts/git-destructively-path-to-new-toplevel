@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+path=$1; shift
+path=${path%%/*} # Remove trailing slashes.
+
+git filter-repo --path "${path}/" --path-rename "${path}/:" "$@"
