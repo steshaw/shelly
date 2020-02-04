@@ -114,6 +114,8 @@
   fonts.fonts = with pkgs; [
     noto-fonts-emoji
     font-awesome_5
+    source-code-pro
+    fira-code
   ];
 
   security.sudo.wheelNeedsPassword = false;

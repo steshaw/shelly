@@ -24,17 +24,6 @@ let
     # --------------------------------------------------------------------------
     # X.org
     # --------------------------------------------------------------------------
-
-    # Fonts
-    inherit (self)
-      # Installing FiraCode from nerd-fonts (aka "FuraCode Nera Font") manually
-      # for now as there's an issue with the nerdfonts package.
-      # https://github.com/ryanoasis/nerd-fonts/releases/tag/v2.0.0
-#      nerdfonts
-#      fira-code
-      source-code-pro
-    ;
-
     inherit (self)
       xsel
     ;
@@ -177,7 +166,9 @@ with builtins; rec {
     # Editors
     #
     emacs = self.emacs;
-    ispell = self.ispell;
+    #ispell = self.ispell;
+    hunspell = super.hunspell;
+    hunspell-en-gb = super.hunspellDicts.en-gb-large;
     neovim = self.neovim;
 
     # Vim with Python3 for vim-orgmode support.
