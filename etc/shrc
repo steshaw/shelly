@@ -40,10 +40,10 @@ enable_lsd=0
 
 if [[ $enable_exa -ne 0 ]] && has exa; then
   alias ls='exa --classify'
-  alias l='exa --long'
-  alias ll='exa --long --all'
+  alias l='ls --long'
+  alias ll='l --all'
   # Fallback to GNU ls.
-  alias la='\ls --color --classify -l --human-readable --all'
+  alias la='ll --all'
 else
   if [[ $enable_lsd -ne 0 ]] && has lsd; then
     alias ls=lsd
