@@ -35,24 +35,34 @@ set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
 
-enable_lsd=1
-if [[ $enable_lsd -ne 0 ]] && has lsd; then
-  alias ls=lsd
-elif ls --color >/dev/null 2>&1; then
-  # GNU ls.
-  alias ls='ls --color -F'
-else
-  # macOS/Darwin/BSD ls.
-  export CLICOLOR=
-  eval "$(dircolors)"
-  LSCOLORS=$(gnu2bsd-colors)
-  export LSCOLORS
-  alias ls='ls -F'
-fi
+enable_exa=1
+enable_lsd=0
 
-alias l='ls -lh'
-alias ll='l -A' # and prefer -A to -a. Don't need '.' and '..' often.
-alias la='l -a'
+if [[ $enable_exa -ne 0 ]] && has exa; then
+  alias ls='exa --classify'
+  alias l='exa --long'
+  alias ll='exa --long --all'
+  # Fallback to GNU ls.
+  alias la='\ls --color --classify -l --human-readable --all'
+else
+  if [[ $enable_lsd -ne 0 ]] && has lsd; then
+    alias ls=lsd
+  elif ls --color >/dev/null 2>&1; then
+    # GNU ls.
+    alias ls='ls --color --classify'
+  else
+    # macOS/Darwin/BSD ls.
+    export CLICOLOR=
+    eval "$(dircolors)"
+    LSCOLORS=$(gnu2bsd-colors)
+    export LSCOLORS
+    alias ls='ls -F'
+  fi
+
+  alias l='ls -l --human-readable'
+  alias ll='l --almost-all' # and prefer -A to -a. Don't need '.' and '..' often.
+  alias la='l --all'
+fi
 
 alias wi='type -ap' # Where are all matching commands on PATH.
 
