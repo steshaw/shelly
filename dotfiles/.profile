@@ -168,3 +168,6 @@ if [[ ${profile_startup} -eq 1 ]]; then
   fi
   unset profile_startup_type
 fi
+
+# Use NIX_PATH instead of `nix-channel`.
+NIX_PATH=nixpkgs=channel:nixpkgs-unstable
