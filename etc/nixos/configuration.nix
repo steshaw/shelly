@@ -53,6 +53,7 @@
   time.timeZone = "Australia/Brisbane";
 
   environment.systemPackages = with pkgs; [
+     direnv
      git
      vim
      wget
