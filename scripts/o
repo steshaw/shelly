@@ -2,16 +2,17 @@
 
 set -euo pipefail
 
-if [[ -x "$(type -p gnome-open 2>&-)" ]]; then
+if [[ -x "$(type -p xdg-open 2>&-)" ]]; then
+  command=xdg-open
+elif [[ ${SHELLY_OS} == darwin && -x "$(type -p open 2>&-)" ]]; then
+  command=open
+elif [[ -x "$(type -p gnome-open 2>&-)" ]]; then
   command=gnome-open
 elif [[ -x "$(type -p firefox 2>&-)" ]]; then
   command=firefox
-elif [[ -x "$(type -p xdg-open 2>&-)" ]]; then
-  command=xdg-open
-elif [[ -x "$(type -p open 2>&-)" ]]; then
-  command=open
 else
-  alias o=echo
+  echo "echo find program to open open $*" >&2
+  exit 1
 fi
 
 $command "$@"
