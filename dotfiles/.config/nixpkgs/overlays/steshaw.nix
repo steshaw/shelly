@@ -119,7 +119,7 @@ with builtins; rec {
       coreutils
       curl
 #      dbxcli # Defined in overlay/dbxcli.nix
-#      direnv
+      direnv
 #      dos2unix
       eternal-terminal-5 # from ./eternal-terminal-5.nix
       exa
