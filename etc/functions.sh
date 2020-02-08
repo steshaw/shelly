@@ -97,4 +97,5 @@ shelly_determine_os() {
   else
     SHELLY_OS=${OSTYPE}
   fi
+  export SHELLY_OS
 }
