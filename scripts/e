@@ -2,4 +2,15 @@
 
 set -euo pipefail
 
-exec emacsclient --alternate-editor='emacs -nw' "$@"
+if true; then
+  emacsclient \
+    --no-wait \
+    --socket-name=/run/user/1000/emacs1000/server \
+    --alternate-editor='emacs -nw' \
+    "$@"
+else
+  emacsclient \
+    --no-wait \
+    --alternate-editor='emacs -nw' \
+    "$@"
+fi
