@@ -155,7 +155,7 @@ with builtins; rec {
       youtube-dl
     ;
 #    lab = self.gitAndTools.lab;
-    gitmoji = self.nodePackages.gitmoji-cli;
+#    gitmoji = self.nodePackages.gitmoji-cli;
     node = self.nodejs; # Required for gitmoji.
 
     # Tmux.
