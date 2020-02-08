@@ -1,0 +1,42 @@
+cabal-version: 1.12
+
+name:           xmonad-steshaw-config
+version:        0.0.1.0
+homepage:       https://github.com/steshaw/shelly#readme
+bug-reports:    https://github.com/steshaw/shelly/issues
+author:         Steven Shaw
+maintainer:     steven@steshaw.org
+copyright:      (c) 2019, Steven Shaw
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/steshaw/shelly
+
+executable xmonad-steshaw-config
+  main-is: xmonad.hs
+  other-modules:
+      Paths_xmonad_steshaw_config
+  hs-source-dirs:
+      ./.
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , xmonad
+    , xmonad-contrib
+  default-language: Haskell2010
+
+test-suite xmonad-steshaw-config-tests
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_xmonad_steshaw_config
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , xmonad
+    , xmonad-contrib
+  default-language: Haskell2010
