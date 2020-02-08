@@ -7,7 +7,10 @@ sourceExists ~/.nix-profile/etc/profile.d/nix.sh
 prettyPaths '000-nix: after'
 
 # Use NIX_PATH instead of `nix-channel`.
-rev='0c960262d159d3a884dadc3d4e4b131557dad116'
-base_url='https://github.com/NixOS/nixpkgs-channels'
-NIX_PATH="nixpkgs=${base_url}/archive/${rev}.tar.gz"
-unset base_url rev
+if false; then
+  rev='0c960262d159d3a884dadc3d4e4b131557dad116'
+  base_url='https://github.com/NixOS/nixpkgs-channels'
+  NIX_PATH="nixpkgs=${base_url}/archive/${rev}.tar.gz"
+  export NIX_PATH
+  unset base_url rev
+fi
