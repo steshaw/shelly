@@ -10,13 +10,13 @@
       naturalScrolling = true;
     };
 
-    # Enable the KDE Desktop Environment.
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-
     # Xmonad
     windowManager.xmonad.enable = true;
     windowManager.xmonad.enableContribAndExtras = true;
+
+    # Enable the KDE Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
 
   };
   security.pam.services.sddm.enableKwallet = true;
@@ -33,5 +33,9 @@
     kdeFrameworks.kwallet
     ksshaskpass
     okular
+
+    # Xmonad
+    dmenu
+    gmrun
   ];
 }
