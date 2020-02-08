@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dbus-send \
+  --type=method_call \
+  --session \
+  --dest=org.kde.plasmashell \
+  /PlasmaShell \
+  org.kde.PlasmaShell.activateLauncherMenu
