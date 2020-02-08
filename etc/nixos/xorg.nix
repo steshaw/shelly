@@ -11,9 +11,12 @@
     };
 
     # Enable the KDE Desktop Environment.
-#    displayManager.lightdm.enable = true; # default displayManager.
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
+
+    # Xmonad
+    windowManager.xmonad.enable = true;
+    windowManager.xmonad.enableContribAndExtras = true;
 
   };
   security.pam.services.sddm.enableKwallet = true;
