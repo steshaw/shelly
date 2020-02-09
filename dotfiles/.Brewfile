@@ -2,11 +2,7 @@
 # Usage: brew bundle --global
 #
 
-nix = File.file?("#{ENV['HOME']}/.nix-channels")
-
-def laptop?
-  OS.mac?
-end
+nix = !ENV['NIX_PATH'].nil?
 
 brew 'agda' if !nix
 if false then
