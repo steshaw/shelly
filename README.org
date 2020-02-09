@@ -1,7 +1,6 @@
 * Shelly
 
-My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and a simple package
-system that I haven't used much lately.
+My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and---once upon a time---a simple package system.
 
 ** Installation
 
