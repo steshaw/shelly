@@ -3,6 +3,8 @@ module Main where
 import XMonad
 import XMonad.Config.Kde
 import XMonad.Config.Mate
+import XMonad.Layout.Tabbed (simpleTabbed)
+import XMonad.Util.EZConfig (additionalKeys)
 import qualified XMonad.StackSet as W -- to shift and float windows
 
 import Data.Semigroup (Endo)
@@ -13,6 +15,16 @@ myTerminal = let useAlacritty = True in
     then "alacritty"
     else "konsole"
 
+myNormalBorderColor  = "#999999"
+myFocusedBorderColor = "#0066cc"
+
+myWorkspaces :: [String]
+myWorkspaces = ws
+  where
+    named = ["mail"]
+    nums = map show [1..9::Int]
+    ws = named ++ drop (length named) nums
+
 myBasicConfig = def {modMask = mod4Mask, terminal = myTerminal}
 
 -- |
@@ -21,24 +33,39 @@ myBasicConfig = def {modMask = mod4Mask, terminal = myTerminal}
 --
 -- * <https://wiki.haskell.org/Xmonad/Using_xmonad_in_KDE>
 -- * <https://github.com/marbu/xmonad/issues/1>
+--
 myKdeConfig = kdeConfig
               { modMask = mod4Mask, -- use the Windows button as mod
                 manageHook = manageHook kdeConfig <+> myManageHook
               }
 
-myMateConfig = mateConfig {modMask = mod4Mask, terminal = myTerminal, borderWidth = 50}
+myMateConfig = mateConfig
+  { modMask = myModMask
+  , terminal = myTerminal
+  , layoutHook = simpleTabbed ||| layoutHook mateConfig
+
+  -- TODO: Share this configuration.
+  , borderWidth = 2
+  , normalBorderColor  = myNormalBorderColor
+  , focusedBorderColor = myFocusedBorderColor
+  , workspaces = myWorkspaces
+  }
+  `additionalKeys` myKeys
+  where
+    myModMask = mod4Mask
+    myKeys = [ ((myModMask, xK_Print), spawn "mate-screenshot")]
 
 myManageHook :: Query (Endo WindowSet)
 myManageHook =
   composeAll . concat $
-    [ [className =? c --> doFloat | c <- myFloats],
-      [title =? t --> doFloat | t <- myOtherFloats],
+    [ [className =? c --> doFloat | c <- myFloatClassNames],
+      [title =? t --> doFloat | t <- myFloatTitles],
       [className =? c --> doF (W.shift "2") | c <- webApps],
       [className =? c --> doF (W.shift "3") | c <- ircApps]
     ]
   where
-    myFloats = ["MPlayer", "Gimp"]
-    myOtherFloats = ["alsamixer"]
+    myFloatClassNames = [ "mate-screenshot"]
+    myFloatTitles = ["alsamixer"]
     webApps = ["Firefox-bin", "Opera"] -- open on desktop 2
     ircApps = ["Ksirc"] -- open on desktop 3
 
