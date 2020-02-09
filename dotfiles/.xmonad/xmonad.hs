@@ -4,12 +4,19 @@ import XMonad
 import XMonad.Config.Kde
 import qualified XMonad.StackSet as W -- to shift and float windows
 
+import Data.Semigroup (Endo)
+
+myTerminal :: String
+myTerminal = let alacrittyBroken = True in
+  if alacrittyBroken then "kconsole" else "alacritty"
+
 -- |
 --
 -- Helpful KDE 5 references:
 --
 -- * <https://wiki.haskell.org/Xmonad/Using_xmonad_in_KDE>
 -- * <https://github.com/marbu/xmonad/issues/1>
+main :: IO ()
 main =
   let enableKde = False
    in if enableKde
@@ -19,13 +26,9 @@ main =
               { modMask = mod4Mask, -- use the Windows button as mod
                 manageHook = manageHook kdeConfig <+> myManageHook
               }
-        else-- Really nice basic configuration.
-          let
-            alacrittyBroken = True
-            terminal = if alacrittyBroken then "kconsole" else "alacritty"
-          in
-            xmonad defaultConfig {modMask = mod4Mask, terminal = terminal}
+        else xmonad def {modMask = mod4Mask, terminal = myTerminal}
 
+myManageHook :: Query (Endo WindowSet)
 myManageHook =
   composeAll . concat $
     [ [className =? c --> doFloat | c <- myFloats],
