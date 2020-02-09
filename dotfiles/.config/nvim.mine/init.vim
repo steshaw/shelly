@@ -36,6 +36,7 @@ fun! Plugs()
   Plug 'chr4/nginx.vim'
   Plug 'dense-analysis/ale'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'hashivim/vim-terraform'
   Plug 'idris-hackers/idris-vim'
   Plug 'nelsyeung/twig.vim'
   Plug 'ollykel/v-vim'
