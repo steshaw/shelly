@@ -55,7 +55,7 @@ brew 'heroku-toolbelt' if false
 brew 'htop' if !nix
 brew 'httpie' if !nix
 brew 'hub' if !nix
-brew 'idris' if laptop?
+brew 'idris' if !nix
 brew 'imagemagick' if false
 brew 'jq' if !nix
 brew 'mariadb' if false
@@ -69,7 +69,7 @@ brew 'opam' if false
 brew 'peco' if !nix
 brew 'pandoc' if !nix
 brew 'pijul' if false
-brew 'pinentry-mac' if OS.mac?
+brew 'pinentry-mac' if false && OS.mac? # Currently broken
 brew 'purescript' if false
 brew 'python' if false
 brew 'qt' if false
@@ -92,7 +92,7 @@ brew 'scalariform' if false
 brew 'shellcheck' if !nix
 brew 'speedtest-cli' if !nix
 brew 'sphinx-doc' if false
-brew 'terminal-notifier'
+brew 'terminal-notifier' if false && OS.mac? # Currently broken
 
 # the_searchers -- preferring ripgrep for now.
 if false
@@ -104,8 +104,6 @@ if false
   # Don't forget about `git grep`. Still pretty good :-).
 end
 
-brew 'tidy-html5'
-brew 'tig'
 brew 'tmux' if !nix
 brew 'tree' if !nix
 
@@ -134,72 +132,45 @@ brew 'zsh' if !nix
 #############################################
 
 if OS.mac?
-  cask '1password'
-  cask 'adobe-digital-editions'
-  cask 'alacritty' if false
-  cask 'android-file-transfer'
-  cask 'aquamacs' if false
-  cask 'atom' if false
-  cask 'balenaetcher' if false
+  # Casks as at 09-Feb-2020.
+  cask 'amethyst'
+  cask 'android-platform-tools'
+  cask 'brave-browser'
   cask 'caffeine'
-  cask 'calibre'
   cask 'docker'
   cask 'dropbox'
-  # emacs-mac
+  cask 'firefox'
+  cask 'flux'
+  cask 'font-firacode-nerd-font'
+  cask 'font-sourcecodepro-nerd-font'
+  cask 'google-chrome'
+  cask 'google-cloud-sdk'
+  cask 'google-drive-file-stream'
+  cask 'grammarly'
+  cask 'intellij-idea-ce'
+  cask 'iterm2'
+  cask 'karabiner-elements'
+  cask 'keybase'
+  cask 'kindle'
+  cask 'lastpass'
+  cask 'rescuetime'
+  cask 'signal'
+  cask 'skype'
+  cask 'spectacle'
+  cask 'visual-studio-code'
+  cask 'zotero'
+
+  # The best Emacs port for macOS.
   if false
     tap 'railwaycat/emacsmacport'
     cask 'emacs-mac-spacemacs-icon'
   end
-  cask 'firefox'
-  cask 'flux'
-  cask 'font-fira-code' if false
-  cask 'font-firacode-nerd-font-mono'
+
+  # Other fonts.
   if false
-    cask 'font-firamono-nerd-font-mono'
     cask 'font-iosevka-nerd-font-mono'
     cask 'font-monoid-nerd-font-mono'
   end
-  cask 'google-chrome'
-  cask 'google-cloud-sdk'
-  cask 'google-drive-file-stream'
-  cask 'graphviz' if false
-  cask 'horndis' if false
-  cask 'iina' if false
-  cask 'inkscape' if false
-  cask 'integrity' if false # In favour of linkchecker.
-  cask 'intellij-idea-ce' if false
-  cask 'iterm2'
-  cask 'java' if false
-  cask 'karabiner-elements'
-  cask 'key-codes' if false
-  cask 'keybase'
-  cask 'kindle'
-  cask 'kitty' if false
-  cask 'launchbar' if false
-  cask 'mactex' if false
-  cask 'miniconda' if false
-  cask 'ngrok'
-  cask 'nomachine'
-  cask 'overdrive-media-console' if false # OverDrive no longer support AudiBook downloads :(.
-  cask 'parallels' if false
-  cask 'proximity' if false
-  cask 'psequel'
-  cask 'rescuetime'
-  cask 'rocketcake' if false
-  cask 'sequel-pro' if false
-  cask 'skype'
-  cask 'slack' if false # In favour of web or Spacemacs slack layer.
-  cask 'smlnj'
-  cask 'spectacle'
-  cask 'teamviewer' if false
-  cask 'telegram' if false
-  cask 'virtualbox' if false
-  cask 'visual-studio-code' if false
-  cask 'visual-studio-code-insiders'
-  cask 'vlc' if false
-  cask 'xquartz' if false
-  cask 'yed' if false
-  cask 'zotero' if false
 end
 
 # vim: filetype=ruby
