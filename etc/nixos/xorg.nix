@@ -10,14 +10,20 @@
       naturalScrolling = true;
     };
 
+    displayManager.sddm.enable = true;
+
+    # Enable the KDE Desktop Environment.
+    desktopManager.plasma5.enable = true;
+
+    # Enable the Gnome 3 Desktop Environment.
+    desktopManager.gnome3.enable = true;
+
+    # Enable MATE.
+    desktopManager.mate.enable = true;
+
     # Xmonad
     windowManager.xmonad.enable = true;
     windowManager.xmonad.enableContribAndExtras = true;
-
-    # Enable the KDE Desktop Environment.
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-
   };
   security.pam.services.sddm.enableKwallet = true;
   security.pam.services.kdewallet.enableKwallet = true;
