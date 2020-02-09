@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+${DEBUG:-}
+
+setxkbmap -option caps:escape
+setxkbmap -option ctrl:swap_lwin_lctl,ctrl:swap_rwin_rctl
+
+#
+# Perhaps option useful XKB options:
+#
+# Swap Alt and Win
+# altwin:swap_alt_win
+# altwin:swap_alt_win
+#
+# Control is mapped to Win keys (and the usual Ctrl keys).
+# So advises StackOverflow but it didn't work for me.
+# setxkbmap -option altwin:ctrl_win
+#
