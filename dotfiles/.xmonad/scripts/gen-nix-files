@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+${DEBUG:-}
+
+package_name() {
+  cabal info . |
+    perl -ne '/^\* ([a-z-]+)-/ && print "$1\n"'
+}
+package_name=$(package_name)
+package_nix_file=${package_name}.nix
+
+has() {
+  type -p "${1}" >/dev/null
+}
+
+# Use Stackage pinning when stack2cabal is available.
+if has stack2cabal; then
+  stack2cabal
+fi
+
+cabal2nix --no-haddock . >"${package_name}.nix"
+# Patch the generate .nix file if necessary.
+patch_file=${package_name}.nix.patch
+if [[ -r ${patch_file} ]]; then
+  patch "${package_nix_file}" "${patch_file}"
+fi
+
+ghc='ghc865'
+
+cat <<! >default.nix
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "${ghc}" }:
+nixpkgs.pkgs.haskell.packages.\${compiler}.callPackage ./${package_nix_file} { }
+!
+
+cat <<! >shell.nix
+{ nixpkgs ? import <nixpkgs> {}, compiler ? "${ghc}" }:
+(import ./default.nix { inherit nixpkgs compiler; }).env
+!

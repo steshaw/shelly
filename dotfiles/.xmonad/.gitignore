@@ -1,4 +1,10 @@
 /.stack-work/
+/default.nix
 /dist-newstyle/
+/shell.nix
+/xmonad-steshaw-config.nix
 /xmonad-x86_64-linux
 /xmonad.errors
+/cabal.project
+/cabal.project.freeze
+/result

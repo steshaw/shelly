@@ -1,0 +1,11 @@
+2c2
+< mkDerivation {
+---
+> mkDerivation rec {
+5c5,8
+<   src = ./.;
+---
+>   src = builtins.path {
+>     name = pname;
+>     path = ./.;
+>   };

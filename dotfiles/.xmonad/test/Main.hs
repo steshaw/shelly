@@ -1,3 +1,3 @@
 module Main where
 
-main = putStrLn "No tests. Ha ha"
+main = putStrLn "No tests"
