@@ -1,0 +1,21 @@
+* My Xmonad configuration
+
+If Spacemacs is configured to use =ghcide= for it's Haskell LSP support,
+then suggestions and type definitions work as expected while editing
+=xmonad.hs=.
+
+Can be built with Stack, Cabal, Nix, and---of course---Xmonad.
+
+#+begin_src sh-session
+$ stack build
+
+$ nix-shell --command 'cabal v2-build'
+
+$ build # Script invokes =nix-build=
+#+end_src
+
+The =build= script makes use of the =gen-nix-files= script (which also
+generates =cabal.project.freeze=). The dependencies are frozen using
+[[http://hackage.haskell.org/package/stack2cabal][stack2cabal]] (recommended [[https://medium.com/@fommil/why-not-both-8adadb71a5ed][here]]). Then =cabal2nix= generates the Nix files.
+These need a minor patch due to the root directory beginning with a dot
+(i.e. =.xmonad=).
