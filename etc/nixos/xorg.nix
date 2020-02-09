@@ -32,6 +32,9 @@
     firefox
     libinput
     lxqt.pavucontrol-qt
+
+    # X Tools
+    xdotool
     xorg.xev
     xorg.xmodmap
 
