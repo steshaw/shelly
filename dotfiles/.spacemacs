@@ -76,6 +76,7 @@ values."
 ;      :variables enable-flyspell-auto-completion t)
      sql
      syntax-checking
+     terraform
      themes-megapack
      typescript
      version-control
