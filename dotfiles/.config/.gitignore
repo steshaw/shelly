@@ -19,6 +19,7 @@
 /dolphinrc
 /emaildefaults
 /enchant/
+/epiphany/
 /evolution/
 /filetypesrc
 /freerdp/
@@ -65,12 +66,14 @@
 /kxkbrc
 /libreoffice/
 /linkchecker/
+/menus/
 /mimeapps.list
 /okularpartrc
 /okularrc
 /pavucontrol-qt/
 /pavucontrol.ini
 /plasma-localerc
+/plasma-nm
 /plasma-org.kde.plasma.desktop-appletsrc
 /plasmanotifyrc
 /plasmarc
