@@ -7,8 +7,10 @@ import qualified XMonad.StackSet as W -- to shift and float windows
 import Data.Semigroup (Endo)
 
 myTerminal :: String
-myTerminal = let alacrittyBroken = True in
-  if alacrittyBroken then "kconsole" else "alacritty"
+myTerminal = let useAlacritty = True in
+  if useAlacritty
+    then "alacritty"
+    else "konsole"
 
 -- |
 --
