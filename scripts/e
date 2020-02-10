@@ -3,10 +3,10 @@
 set -euo pipefail
 
 if true; then
+#    --alternate-editor='emacs -nw' \
   emacsclient \
     --no-wait \
-    --socket-name=/run/user/1000/emacs1000/server \
-    --alternate-editor='emacs -nw' \
+    --socket-name=/tmp/emacs1000/server \
     "$@"
 else
   emacsclient \
