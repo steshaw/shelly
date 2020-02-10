@@ -3,11 +3,12 @@
 if [[ ${SHELLY_OS} == 'linux-gnu' ]]; then
   SSH_AUTH_SOCK=~/.ssh/ssh-agent.$(uname -n).sock
   export SSH_AUTH_SOCK
-  Echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK"
+  Echo "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}"
   ssh-add -l >/dev/null 2>/dev/null
   if [[ $? -ge 2 ]]; then
     Echo 'Starting ssh-agent'
-    ssh-agent -a "$SSH_AUTH_SOCK"
+    rm -f "${SSH_AUTH_SOCK}"
+    ssh-agent -a "${SSH_AUTH_SOCK}"
   else
     Echo 'ssh-agent already started'
   fi
