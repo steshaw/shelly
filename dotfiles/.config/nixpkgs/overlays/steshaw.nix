@@ -154,7 +154,7 @@ with builtins; rec {
       wget
       youtube-dl
     ;
-#    lab = self.gitAndTools.lab;
+    lab = self.gitAndTools.lab;
 #    gitmoji = self.nodePackages.gitmoji-cli;
     node = self.nodejs; # Required for gitmoji.
 
