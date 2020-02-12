@@ -2,10 +2,10 @@ resolver: lts-14.23
 
 nix:
   packages:
-#    - x11
+    - x11
     - xorg.libX11
     - xorg.libXext
     - xorg.libXrandr
-#    - xorg.libXScrnSaver
-#    - xorg.libXft
+    - xorg.libXScrnSaver
+    - xorg.libXft
     - pkg-config

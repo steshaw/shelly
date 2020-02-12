@@ -1,0 +1,3 @@
+cradle:
+  stack:
+    component: "xmonad-steshaw-config:exe:xmonad-steshaw-config"
