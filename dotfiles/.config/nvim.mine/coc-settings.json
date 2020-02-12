@@ -38,6 +38,31 @@ HT to Andres Löh for initial configuration
 
   "suggest.autoTrigger": "always", /* always, trigger, none */
 
+  // HIE
+  "languageserver": {
+    "haskell": {
+      "command": "hie-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+        }
+      }
+    }
+  },
+
+  // ghcide
+  /*
   "languageserver": {
     "haskell": {
       "command": "ghcide",
@@ -58,10 +83,17 @@ HT to Andres Löh for initial configuration
     "clangd": {
       "command": "clangd",
       "args": ["--background-index"],
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": [
+        "compile_flags.txt",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
       "filetypes": ["c", "cpp", "objc", "objcpp"]
     }
   },
+  */
 
   "rust-client.disableRustup": true,
 
