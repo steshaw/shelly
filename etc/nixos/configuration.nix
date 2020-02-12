@@ -53,6 +53,7 @@
   time.timeZone = "Australia/Brisbane";
 
   environment.systemPackages = with pkgs; [
+     cachix
      direnv
      git
      vim
@@ -121,7 +122,7 @@
   ];
 
   security.sudo.wheelNeedsPassword = false;
-  nix.trustedUsers = ["@wheel"];
+  nix.trustedUsers = ["@wheel" "steshaw"];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

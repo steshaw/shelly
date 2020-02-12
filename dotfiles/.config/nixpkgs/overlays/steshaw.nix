@@ -55,8 +55,18 @@ let
       spectacle # Screenshot taker.
     ;
 }; in
-with builtins; rec {
+with builtins;
+rec {
   userPackages = super.userPackages or {} // xpkgs // super.recurseIntoAttrs rec {
+
+    hie-ghc865 = (
+      let all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+      in
+      all-hies.selection { selector = p: { inherit (p) ghc865; }; });
+
+    ghcide-ghc865 = (import (builtins.fetchTarball
+    "https://github.com/cachix/ghcide-nix/tarball/master")
+    {}).ghcide-ghc865;
 
     #
     # Nix.
@@ -155,7 +165,7 @@ with builtins; rec {
       youtube-dl
     ;
     lab = self.gitAndTools.lab;
-#    gitmoji = self.nodePackages.gitmoji-cli;
+    gitmoji = self.nodePackages.gitmoji-cli;
     node = self.nodejs; # Required for gitmoji.
 
     # Tmux.

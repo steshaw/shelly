@@ -30,7 +30,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(agda
+   '(;agda ; TODO: Enable automatically when agda-mode is available.
      auto-completion
      better-defaults
      coq
@@ -55,10 +55,11 @@ values."
      idris
      javascript
      latex
+     lsp
      markdown
      nim
      nixos
-     ocaml
+     ;ocaml ; TODO Enable layer automatically when ocaml+merlin available.
      org
      osx
      ;php ; The php layer seems broken at the moment.
@@ -171,13 +172,14 @@ values."
    ;; Favourite themes.
    ;; molokai seems broken :(.
    dotspacemacs-themes '(
-                         spacemacs-dark
                          kaolin-aurora
                          majapahit-dark
+                         spacemacs-dark
 
                          molokai
-                         omtose-darker
-                         kaolin-valley-light
+                         leuven
+;                         kaolin-valley-light
+;                         omtose-darker
                          )
 
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -190,7 +192,7 @@ values."
    ;; Test symbols: -> >>=
    ;;
    dotspacemacs-default-font '("Hack"
-                               :size 14
+                               :size 25
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -398,7 +400,8 @@ you should place your code here."
   (setq x-select-enable-primary t)
 
   ;; Seems you need an explicit 'server-start' on the `develop` branch.
-  (server-start)
+  ; TODO: Have separate servers. One for each Emacs in an Xmonad screen would be good.
+  ;(unless (server-running-p) (server-start))
 
   (setq powerline-default-separator 'arrow)
 
@@ -449,26 +452,30 @@ you should place your code here."
   ;;
   ;; LSP for ghcide
   ;;
-  (use-package flycheck
-     :ensure t
-     :init
-     (global-flycheck-mode t))
-  (use-package yasnippet
-    :ensure t)
-  (use-package lsp-mode
-    :ensure t
-    :hook (haskell-mode . lsp)
-    :commands lsp)
-  (use-package lsp-ui
-    :ensure t
-    :commands lsp-ui-mode)
-  (use-package lsp-haskell
-    :ensure t
-    :config
-    (setq lsp-haskell-process-path-hie "nix-shell --command ghcide")
-    (setq lsp-haskell-process-args-hie '())
-    ; Comment/uncomment this line to see interactions between lsp client/server.
-    ;(setq lsp-log-io t)
+  (setq ghcide-enabled nil); t for true
+  (when ghcide-enabled
+    (use-package flycheck
+      :ensure t
+      :init
+      (global-flycheck-mode t))
+    (use-package yasnippet
+      :ensure t)
+    (use-package lsp-mode
+      :ensure t
+      :hook (haskell-mode . lsp)
+      :commands lsp)
+    (use-package lsp-ui
+      :ensure t
+      :commands lsp-ui-mode)
+    (use-package lsp-haskell
+      :ensure t
+      :config
+      ;(setq lsp-haskell-process-path-hie "nix-shell --command ghcide")
+      (setq lsp-haskell-process-path-hie "ghcide")
+      (setq lsp-haskell-process-args-hie '())
+      ; Comment/uncomment this line to see interactions between lsp client/server.
+      ;(setq lsp-log-io t)
+    )
   )
 )
 
