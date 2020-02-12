@@ -3,7 +3,10 @@ module Main where
 import XMonad
 import XMonad.Config.Kde
 import XMonad.Config.Mate
+import XMonad.Layout.Cross (simpleCross)
+import XMonad.Layout.StackTile (StackTile (..) )
 import XMonad.Layout.Tabbed (simpleTabbed)
+import XMonad.Layout.ThreeColumns (ThreeCol (..) )
 import XMonad.Util.EZConfig (additionalKeys)
 import qualified XMonad.StackSet as W -- to shift and float windows
 
@@ -39,10 +42,14 @@ myKdeConfig = kdeConfig
                 manageHook = manageHook kdeConfig <+> myManageHook
               }
 
+stackTile = StackTile 1 (3/100) (1/2)
+
+threeCol = ThreeCol 1 (3/100) (1/2)
+
 myMateConfig = mateConfig
   { modMask = myModMask
   , terminal = myTerminal
-  , layoutHook = simpleTabbed ||| layoutHook mateConfig
+  , layoutHook = simpleTabbed ||| threeCol ||| simpleCross ||| stackTile ||| layoutHook mateConfig
 
   -- TODO: Share this configuration.
   , borderWidth = 2
