@@ -53,20 +53,22 @@
   time.timeZone = "Australia/Brisbane";
 
   environment.systemPackages = with pkgs; [
-      # Install stable HIE for GHC 8.6.5
+    direnv
+    git
+    vim
+    wget
+
+    # Haskell packages.
+    # Install stable HIE for GHC 8.6.5.
     (let all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {}; in
       all-hies.selection { selector = p: { inherit (p) ghc865; }; })
-
+    haskellPackages.brittany
+    cachix
     haskell.compiler.ghc865
-
-       cachix
-       direnv
-       git
-       vim
-       wget
+    hlint
   ];
 
-  services.emacs.enable = true;
+  services.emacs.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
