@@ -28,22 +28,38 @@
   security.pam.services.sddm.enableKwallet = true;
   security.pam.services.kdewallet.enableKwallet = true;
   environment.systemPackages = with pkgs; [
+    # Apps.
     brave
     firefox
     libinput
     lxqt.pavucontrol-qt
+    dropbox
+    rescuetime
 
-    # X Tools
-    xdotool
-    xorg.xev
-    xorg.xmodmap
-
-    # KDE
+    # KDE apps.
+    gwenview # Image viewer.
     kdeFrameworks.kwallet
     ksshaskpass
     okular
+    spectacle # Screenshot taker.
 
-    # Xmonad
+    # Remote desktops. None work well.
+#    nomachine-client # no nomachine-server :-(.
+#    teamviewer
+#    tigervnc
+#    x11vnc
+
+    # X Tools
+    xsel
+    xdotool
+    xorg.xev
+    xorg.xmodmap
+    xorg.mkfontdir
+    xorg.mkfontscale
+    xorg.xev
+    xorg.xrandr
+
+    # Xmonad apps.
     dmenu
     gmrun
   ];

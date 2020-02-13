@@ -18,55 +18,23 @@
 #
 self: super:
 let
-  emptyPkg = {};
-  notDarwin = pkg: if self.stdenv.isDarwin then emptyPkg else pkg;
-  xpkgs = notDarwin rec {
-    # --------------------------------------------------------------------------
-    # X.org
-    # --------------------------------------------------------------------------
-    inherit (self)
-      xsel
-    ;
-    inherit (self.xorg)
-      mkfontdir
-      mkfontscale
-      xev
-      xrandr
-    ;
-
-    # Apps
-    inherit (self)
-      dropbox
-      rescuetime
-
-      # Remote desktops. None work or work well.
-#      nomachine-client # no nomachine-server :-(.
-#      teamviewer
-#      tigervnc
-#      x11vnc
-    ;
-
-    # https://github.com/KSmanis/kwin-move-window-to-center
-    # but let's have xmonad+KDE.
-
-    # KDE
-    inherit (self)
-      gwenview # Image viewer.
-      spectacle # Screenshot taker.
-    ;
-}; in
+  notDarwin = pkg: if self.stdenv.isDarwin then {} else pkg;
+in
 with builtins;
 rec {
-  userPackages = super.userPackages or {} // xpkgs // super.recurseIntoAttrs rec {
+  userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
 
-    hie-ghc865 = (
+    # Disable HIE.
+
+    hie-ghc865 = let enable_hie = false; in if enable_hie then (
       let all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
       in
-      all-hies.selection { selector = p: { inherit (p) ghc865; }; });
+      all-hies.selection { selector = p: { inherit (p) ghc865; }; }) else {};
 
-    ghcide-ghc865 = (import (builtins.fetchTarball
+    # Disable ghcide.
+    ghcide-ghc865 = let enable_ghcide = false; in if enable_ghcide then (import (builtins.fetchTarball
     "https://github.com/cachix/ghcide-nix/tarball/master")
-    {}).ghcide-ghc865;
+    {}).ghcide-ghc865 else {};
 
     #
     # Nix.
@@ -193,7 +161,7 @@ rec {
       }).overrideAttrs (prevAttrs: {
         name = "my-vim-${prevAttrs.version}";
       }))
-      else emptyPkg
+      else {}
     );
     # Required for Vim's Neovim compatibility.
     python3 = self.python3.withPackages (
@@ -214,7 +182,7 @@ rec {
 #    idris1 = if false then self.idris else null;
 
     # Haskell.
-    ghc865 = self.haskell.compiler.ghc865;
+    ghc865 = if true then "" else self.haskell.compiler.ghc865;
     inherit (self)
       cabal-install
       stack
