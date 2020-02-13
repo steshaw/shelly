@@ -49,7 +49,7 @@ threeCol = ThreeCol 1 (3/100) (1/2)
 myMateConfig = mateConfig
   { modMask = myModMask
   , terminal = myTerminal
-  , layoutHook = simpleTabbed ||| threeCol ||| simpleCross ||| stackTile ||| layoutHook mateConfig
+  , layoutHook = layoutHook mateConfig ||| simpleTabbed ||| threeCol ||| stackTile
 
   -- TODO: Share this configuration.
   , borderWidth = 2
