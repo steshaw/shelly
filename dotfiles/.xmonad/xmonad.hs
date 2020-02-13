@@ -13,7 +13,7 @@ import qualified XMonad.StackSet as W -- to shift and float windows
 import Data.Semigroup (Endo)
 
 myTerminal :: String
-myTerminal = let useAlacritty = True in
+myTerminal = let useAlacritty = False in
   if useAlacritty
     then "alacritty"
     else "konsole"
