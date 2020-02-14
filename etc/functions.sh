@@ -31,6 +31,11 @@ sourceExists() {
   done
 }
 
+trySource () {
+  file=$1
+  [[ -r $file ]] && shellySource "$file"
+}
+
 firstDirectoryExists() {
   for dir in "$@"; do
     [[ -d ${dir} ]] && echo "${dir}"

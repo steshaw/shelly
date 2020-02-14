@@ -33,11 +33,6 @@ sourceExists ~/.iterm2_shell_integration.bash
 # bash-completion
 #
 
-trySource () {
-  file=$1
-  [[ -r $file ]] && shellySource "$file"
-}
-
 dir=~/.nix-profile/etc/bash_completion.d
 if [[ -e ${dir} ]]; then
   Echo "Setting BASH_COMPLETION_COMPAT_DIR=${dir}"
