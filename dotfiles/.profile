@@ -112,7 +112,7 @@ precmd_functions=()
 # Source ~/.profile.d/*
 #
 unset PROMPT_COMMAND # In case of `source ~/.profile`.
-for file in ~/.profile.d/*; do
+for file in ~/.config/profile.d/*; do
   sourceExists "${file}"
 done
 
