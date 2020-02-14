@@ -60,8 +60,11 @@
 
     # Haskell packages.
     # Install stable HIE for GHC 8.6.5.
-    (let all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {}; in
-      all-hies.selection { selector = p: { inherit (p) ghc865; }; })
+    (let enable_hie = true;
+      all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+    in
+    if enable_hie then all-hies.selection { selector = p: { inherit (p)
+    ghc865; }; } else cachix)
     haskellPackages.brittany
     cachix
     haskell.compiler.ghc865
