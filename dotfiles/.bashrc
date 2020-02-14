@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 if [[ ! -t 0 ]]; then
+  # Don't customise non-interactive shells.
   return
 fi
 if [[ $IN_NIX_SHELL == pure ]]; then
+  # Don't customise pure Nix shells.
   return
 fi
 
