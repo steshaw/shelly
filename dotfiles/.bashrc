@@ -76,13 +76,6 @@ if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
 
-# shellcheck disable=SC1090
-source $SHELLY_HOME/etc/shrc
-
-if has hub; then
-  alias git=hub
-fi
-
 # If not running interactively, return
 case $- in
   *i*) ;;
@@ -94,3 +87,6 @@ sourceExists /google/devshell/bashrc.google
 for file in ~/.config/bashrc.d/*; do
   sourceExists "${file}"
 done
+
+# shellcheck disable=SC1090
+source $SHELLY_HOME/etc/shrc
