@@ -385,6 +385,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 
+  (setq-default default-tab-width 2)
   )
 
 (defun dotspacemacs/user-config ()
@@ -838,7 +839,9 @@ static char *gnus-pointer[] = {
      (intero-targets "hestia:lib" "rosetta:lib" "thoth:lib")
      (neotree-show)
      (buffer-file-coding-system . utf-8-unix))))
+ '(sh-basic-offset 2)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+ '(standard-indent 2)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
  '(vc-annotate-background nil)
@@ -876,7 +879,7 @@ static char *gnus-pointer[] = {
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "ADBO" :family "FuraMono Nerd Font"))))
+ '(default ((t (:background nil))))
  '(proof-eager-annotation-face ((t (:background "medium blue"))))
  '(proof-error-face ((t (:background "dark red"))))
  '(proof-warning-face ((t (:background "indianred3")))))
