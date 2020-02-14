@@ -69,13 +69,9 @@ HISTFILESIZE=$HISTSIZE
 shopt -s histappend
 saveHistory() {
   history -a
-#  history -c
-#  history -r
 }
 if true; then
   precmd_functions+=(saveHistory)
-  # The "old" way of doing precmd_functions:
-  #PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND:-}"
 fi
 
 # Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
