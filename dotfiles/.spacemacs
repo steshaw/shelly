@@ -48,8 +48,10 @@ values."
      github
      go
      graphviz
+
      (haskell :variables
               haskell-completion-backend 'lsp)
+
      helm
      html
      idris
@@ -399,9 +401,13 @@ you should place your code here."
   ;; Use the primary clipboard when selecting text in Xorg.
   (setq x-select-enable-primary t)
 
-  ;; Seems you need an explicit 'server-start' on the `develop` branch.
-  ; TODO: Have separate servers. One for each Emacs in an Xmonad screen would be good.
-  ;(unless (server-running-p) (server-start))
+  ;;
+  ;; You need an explicit 'server-start' on the `develop` branch.
+  ;;
+  ;; TODO: Have separate servers. One for each Emacs in an Xmonad screen would be good.
+  ;;
+  (load "server")
+  (unless (server-running-p) (server-start))
 
   (setq powerline-default-separator 'arrow)
 
@@ -448,6 +454,16 @@ you should place your code here."
   (add-hook 'org-mode-hook #'auto-fill-mode)
   (setq org-todo-keywords
         '((sequence "TODO" "DOING" "|" "DONE")))
+
+  ;;
+  ;; LSP
+  ;;
+  (setq lsp-ui-doc-position 'top)
+
+  ;;
+  ;; LSP for HIE
+  ;;
+;  (setq lsp-haskell-process-path-hie "hie")
 
   ;;
   ;; LSP for ghcide
