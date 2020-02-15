@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ ${SHELLY_OS} == 'darwin' ]]; then
+if true || [[ ${SHELLY_OS} == 'darwin' ]]; then
   isBash && sourceExists ~/.iterm2_shell_integration.bash
   isZsh && sourceExists ~/.iterm2_shell_integration.zsh
 fi
