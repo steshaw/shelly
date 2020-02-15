@@ -13,10 +13,10 @@
     displayManager.sddm.enable = true;
 
     # Enable the KDE Desktop Environment.
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma5.enable = false;
 
     # Enable the Gnome 3 Desktop Environment.
-    desktopManager.gnome3.enable = true;
+    desktopManager.gnome3.enable = false;
 
     # Enable MATE.
     desktopManager.mate.enable = true;
@@ -30,10 +30,11 @@
   environment.systemPackages = with pkgs; [
     # Apps.
     brave
+    dropbox
     firefox
+    konsole
     libinput
     lxqt.pavucontrol-qt
-    dropbox
     rescuetime
 
     # KDE apps.
@@ -50,14 +51,14 @@
 #    x11vnc
 
     # X Tools
-    xsel
     xdotool
-    xorg.xev
-    xorg.xmodmap
     xorg.mkfontdir
     xorg.mkfontscale
     xorg.xev
+    xorg.xev
+    xorg.xmodmap
     xorg.xrandr
+    xsel
 
     # Xmonad apps.
     dmenu
