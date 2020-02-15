@@ -5,7 +5,12 @@ export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 # shellcheck disable=SC2034
 SHELLY_NOISY=0 # Set to 1 for crude debugging.
 
-profile_startup=1
+if [[ -n ${ZSH_VERSION:-x} ]]; then
+  # Disable startup profiling in Zsh as it causes a hang.
+  profile_startup=0
+else
+  profile_startup=0
+fi
 profile_startup_type='timestamp'
 profile_startup_type='xtracefd'
 profile_startup_type='incremental'
@@ -95,7 +100,7 @@ prettyPaths() {
 # Shelly packages — if any.
 #
 # shellcheck disable=SC1090
-source ${SHELLY_HOME}/etc/shelly-pkgs-env.sh
+source ${SHELLY_HOME}/scripts/shelly-pkgs-env.sh
 
 #
 # Initialise preexec/precmd functions.
