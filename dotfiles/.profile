@@ -60,7 +60,7 @@ if [[ ${profile_startup} -eq 1 ]]; then
 fi
 
 # shellcheck disable=SC1090
-source $SHELLY_HOME/etc/functions.sh
+source $SHELLY_HOME/scripts/functions.sh
 shelly_determine_os
 
 Echo Executing ~/.profile

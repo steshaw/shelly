@@ -5,7 +5,7 @@ if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
 
-source $SHELLY_HOME/etc/functions.sh
+source $SHELLY_HOME/scripts/functions.sh
 
 Echo "Executing ~/.zshrc"
 
@@ -126,9 +126,6 @@ if [[ $ZSH_THEME == avit ]]; then
 fi
 # }}}
 
-# shellcheck source=etc/functions.sh
-source $SHELLY_HOME/etc/functions.sh
-
 sourceExists ~/.shrc
 
 setopt noclobber
@@ -203,7 +200,7 @@ autoload -U +X bashcompinit && bashcompinit
 sourceExists ~/.profile.d/haskell-stack
 sourceExists ~/.profile.d/google-cloud-sdk
 
-# shellcheck source=etc/shrc
-source $SHELLY_HOME/etc/shrc
+# shellcheck source=scripts/shrc
+source $SHELLY_HOME/scripts/shellyrc
 
 # }}}

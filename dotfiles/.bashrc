@@ -12,10 +12,10 @@ fi
 if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_DEV_DIR=~/Code
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
-fi
 
-# shellcheck disable=SC1090
-source $SHELLY_HOME/etc/functions.sh
+  # shellcheck disable=SC1090
+  source $SHELLY_HOME/scripts/functions.sh
+fi
 
 Echo Executing ~/.bashrc
 
@@ -25,7 +25,7 @@ Echo Executing ~/.bashrc
 #
 if isBash; then
   unset __bp_imported # In case of `source ~/.profile`.
-  sourceExists $SHELLY_HOME/etc/bash-preexec.sh
+  sourceExists $SHELLY_HOME/scripts/bash-preexec.sh
 fi
 
 sourceExists /etc/skel/.bashrc
@@ -89,4 +89,4 @@ for file in ~/.config/bashrc.d/*; do
 done
 
 # shellcheck disable=SC1090
-source $SHELLY_HOME/etc/shrc
+source $SHELLY_HOME/scripts/shellyrc
