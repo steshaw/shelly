@@ -2,6 +2,8 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+;; HT https://out-of-cheese-error.netlify.com/spacemacs-config
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -33,7 +35,9 @@ values."
    '(;agda ; TODO: Enable automatically when agda-mode is available.
      auto-completion
      better-defaults
+     bibtex
      coq
+     deft
      docker
      elm
      emacs-lisp
@@ -48,13 +52,11 @@ values."
      github
      go
      graphviz
-
      (haskell :variables
               haskell-completion-backend 'lsp)
-
-     helm
      html
      idris
+     ivy
      javascript
      latex
      lsp
@@ -65,6 +67,7 @@ values."
      org
      osx
      ;php ; The php layer seems broken at the moment.
+     pdf
      python
      (ruby :variables ruby-enable-enh-ruby-mode t)
      rust
@@ -92,7 +95,10 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
      '(
+       doom-themes
        editorconfig
+       org-bullets
+       org-noter
        shakespeare-mode
       )
    ;; A list of packages that cannot be updated.
@@ -174,14 +180,16 @@ values."
    ;; Favourite themes.
    ;; molokai seems broken :(.
    dotspacemacs-themes '(
+                         doom-moonlight
+                         doom-dark+
+                         doom-Iosvkem
+                         doom-molokai
+                         doom-wilmersdorf
+                         doom-tomorrow-night
+                         doom-spacegrey
                          kaolin-aurora
                          majapahit-dark
                          spacemacs-dark
-
-                         molokai
-                         leuven
-;                         kaolin-valley-light
-;                         omtose-darker
                          )
 
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -193,8 +201,13 @@ values."
    ;;
    ;; Test symbols: -> >>=
    ;;
-   dotspacemacs-default-font '("Hack"
-                               :size 25
+;   dotspacemacs-default-font '("Source Code Pro"
+;                               :size 35
+;                               :weight normal
+;                               :width normal
+;                               :powerline-scale 1.1)
+   dotspacemacs-default-font '("FiraCode"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -372,9 +385,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 ;      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
 ;      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
 
-  ;; mode-line (aka powerline).
-;  (setq dotspacemacs-mode-line-theme 'all-the-icons)
-
   ;;
   ;; UTF-8
   ;;
@@ -450,13 +460,6 @@ you should place your code here."
     )
 
   ;;
-  ;; orgmode
-  ;;
-  (add-hook 'org-mode-hook #'auto-fill-mode)
-  (setq org-todo-keywords
-        '((sequence "TODO" "DOING" "|" "DONE")))
-
-  ;;
   ;; LSP
   ;;
   (setq lsp-ui-doc-position 'top)
@@ -494,6 +497,67 @@ you should place your code here."
       ;(setq lsp-log-io t)
     )
   )
+
+  (setq notes-dir "~/Code/steshaw/notes/")
+
+  ;;
+  ;; Deft
+  ;;
+  (setq deft-directory notes-dir)
+  (setq deft-extensions '("org" "md" "txt"))
+  (setq deft-recursive t)
+
+  ;;
+  ;; Org
+  ;;
+  (setq org-agenda-window-setup (quote current-window))
+  ;; To add all org files in a repository to the agenda
+  (setq org-agenda-files (directory-files-recursively notes-dir "\.org$"))
+
+  ;; See https://out-of-cheese-error.netlify.com/spacemacs-config
+;  (setq org-todo-keywords
+;        '((sequence "TODO(t)" "RUNNING(r)" "WAITING(w)" "IDEA(i)" "|" "DONE(d)" "CANCELLED(c)" "DEFERRED(f)")
+;          (sequence "MEETING(m)" "|" "MEETING_DONE(M)")))
+
+  (setq org-todo-keywords
+        '((sequence "TODO" "DOING" "|" "DONE")))
+  ;; Ignore scheduled tasks in task list view (SPC m t)
+  (setq org-agenda-todo-ignore-scheduled t)
+  (setq org-agenda-todo-ignore-deadlines t)
+  ;; Skip finished items
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t)
+
+  (add-hook 'org-mode-hook #'auto-fill-mode)
+
+  ;; Nicer checkboxes.
+  (add-hook 'org-mode-hook (lambda ()
+                                "Beautify Org Checkbox Symbol"
+                                (push '("[ ]" . "☐") prettify-symbols-alist)
+                                (push '("[X]" . "☑" ) prettify-symbols-alist)
+                                (push '("[-]" . "❍" ) prettify-symbols-alist)
+                                (prettify-symbols-mode)))
+  (defface org-checkbox-done-text
+    '((t (:foreground "#71696A"
+                      :strike-through t
+                      :face "Noto Emoji")))
+    "Face for the text part of a checked org-mode checkbox.")
+
+;  (font-lock-add-keywords
+;   'org-mode
+;   `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
+;      1 'org-checkbox-done-text prepend))
+;   'append)
+
+  ;; Makes some things look nicer
+  (setq org-startup-indented t
+        org-pretty-entities t
+        ;; show actually italicized text instead of /italicized text/
+        org-hide-emphasis-markers t
+        org-agenda-block-separator ""
+        org-fontify-whole-heading-line t
+        org-fontify-done-headline t
+        org-fontify-quote-and-verse-blocks t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -677,15 +741,6 @@ static char *gnus-pointer[] = {
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
  '(xterm-color-names-bright
    ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
- '(proof-eager-annotation-face ((t (:background "medium blue"))))
- '(proof-error-face ((t (:background "dark red"))))
- '(proof-warning-face ((t (:background "indianred3")))))
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -874,13 +929,4 @@ static char *gnus-pointer[] = {
    ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
  '(xterm-color-names-bright
    ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
- '(proof-eager-annotation-face ((t (:background "medium blue"))))
- '(proof-error-face ((t (:background "dark red"))))
- '(proof-warning-face ((t (:background "indianred3")))))
 )
