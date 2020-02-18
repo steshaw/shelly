@@ -87,7 +87,7 @@
   # -------------------------------------------------------------------------
   # Buildkite
   # -------------------------------------------------------------------------
-  services.buildkite-agent.enable = true;
+  services.buildkite-agent.enable = false;
   services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
   services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
   services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
