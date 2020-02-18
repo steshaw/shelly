@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# HT https://stackoverflow.com/a/17841619/482382
+
+set -euo pipefail
+
+join_by() {
+  local delimiter=$1 first=$2; shift 2
+  printf '%s%s' "${first}" "${@/#/${delimiter}}"
+  printf '\n'
+}
+
+join_by "$@"
