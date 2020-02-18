@@ -32,10 +32,16 @@
     brave
     dropbox
     firefox
-    konsole
     libinput
     lxqt.pavucontrol-qt
     rescuetime
+
+    #
+    # Terminals.
+    #
+    alacritty
+    kitty
+    konsole
 
     # KDE apps.
     gwenview # Image viewer.

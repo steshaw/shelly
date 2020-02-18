@@ -19,19 +19,19 @@
 self: super:
 let
   notDarwin = pkg: if self.stdenv.isDarwin then {} else pkg;
+  broken = pkg: if false then pkg else {};
 in
 with builtins;
 rec {
   userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
 
-    # Disable HIE.
-
+    # HIE. Disabled as it is installed in systemPackages.
     hie-ghc865 = let enable_hie = false; in if enable_hie then (
       let all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
       in
       all-hies.selection { selector = p: { inherit (p) ghc865; }; }) else {};
 
-    # Disable ghcide.
+    # ghcide. Disabled as we are currently using HIE.
     ghcide-ghc865 = let enable_ghcide = false; in if enable_ghcide then (import (builtins.fetchTarball
     "https://github.com/cachix/ghcide-nix/tarball/master")
     {}).ghcide-ghc865 else {};
@@ -47,58 +47,44 @@ rec {
     ;
 
     #
-    # Something like build-essential.
-    #
-#    inherit (self)
-#      gnumake
-#      pkgconfig
-#      gcc
-#      python
-#      python3
-#    ;
-
-    #
-    # Terminals.
-    #
-    inherit (self)
-      alacritty
-      kitty
-    ;
-
-    #
     # Command line utilities.
     #
     bash = self.bashInteractive_5;
     inherit (self)
       # Shells.
-#      fish
-#      zsh
+      fish
+      nushell
+      zsh
 
       bash-completion
       nix-bash-completions
 
-      # VCS system.
-#      bazaar
-#      darcs
+      # SCM systems.
+      bazaar
+      darcs
       git
       gti # Humourous wrapper for git.
-#      mercurial
+      mercurial
+      pijul
 
-      # Security related.
+      #
+      # Security
+      #
       gnupg22
-#      gopass
-#      pass
-#      pinentry
+      gopass
+      pass
+      pinentry
 
       # Commands.
       bat
       bind # for dig. XXX: Any smaller package?
+      buildkite-cli
       cabal2nix
       coreutils
       curl
-#      dbxcli # Defined in overlay/dbxcli.nix
+      dbxcli # Defined in overlay/dbxcli.nix
       direnv
-#      dos2unix
+      dos2unix
       eternal-terminal-5 # from ./eternal-terminal-5.nix
       exa
       fd
@@ -111,12 +97,13 @@ rec {
       hub # Defined in overlay/hub.nix
       jq
       killall
-#      lastpass-cli
+      lastpass-cli
       lsd
       moreutils # ts and more
       mr
       mtr
       neofetch
+      nodejs # Required for Coc.
       pandoc
       peco
       pup
@@ -134,7 +121,6 @@ rec {
     ;
     lab = self.gitAndTools.lab;
     gitmoji = self.nodePackages.gitmoji-cli;
-    node = self.nodejs; # Required for gitmoji.
 
     # Tmux.
     tmux = self.tmux;
@@ -144,13 +130,12 @@ rec {
     # Editors
     #
     emacs = self.emacs;
-    #ispell = self.ispell;
     hunspell = super.hunspell;
     hunspell-en-gb = super.hunspellDicts.en-gb-large;
     neovim = self.neovim;
 
     # Vim with Python3 for vim-orgmode support.
-    vim_ = if true then null else (
+    vim_ = if false then null else (
       let enableVim = true;
       in
       if enableVim
@@ -171,15 +156,11 @@ rec {
     #
     # Programming Languages.
     #
-    inherit (self)
-#      coq
-      rustup
-#      idris
-    ;
-
-#    agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
-#    ats2 = notDarwin self.ats2; # Broken on macOS.
-#    idris1 = if false then self.idris else null;
+    agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
+    ats2 = notDarwin self.ats2; # Broken on macOS.
+    coq = if false then self.coq else {};
+    idris = if true then self.idris else {};
+    rustup = if true then self.rustup else {};
 
     # Haskell.
     ghc865 = if true then "" else self.haskell.compiler.ghc865;
@@ -189,16 +170,16 @@ rec {
       hindent # From haskell overlay.
       pointfree # From haskell overlay.
     ;
-#    ghcid = self.haskellPackages.ghcid;
-#    ormolu = self.haskellPackages.ormolu;
-#    brittany = self.haskellPackages.brittany;
-#    hlint = self.haskellPackages.hlint;
+    ghcid = self.haskellPackages.ghcid;
+    ormolu = self.haskellPackages.ormolu;
+    brittany = self.haskellPackages.brittany;
+    hlint = self.haskellPackages.hlint;
 
     #
     # Google Cloud SDK.
     #
     # NOTE:
-    #   Best to get an up-to-date SDK from
+    #   Currently, it's best to get an up-to-date SDK from
     #   https://cloud.google.com/sdk/install.
     #
 /*
@@ -218,56 +199,5 @@ rec {
     inherit (self)
       nix # Don't enable this on multi-user.
       cacert;
-
-/*
-    #
-    # nix-rebuild script.
-    #
-    nix-rebuild = super.writeScriptBin "nix-rebuild" ''
-      #!${super.stdenv.shell}
-      if ! command -v nix-env &>/dev/null; then
-        echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
-        PATH=${self.nix}/bin:$PATH
-      fi
-      nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
-    '';
-*/
-
-    #
-    # FIXME: Fix below which provides a diff but breaks with use of `super.recurseIntoAttrs` above.
-    #        The `super.recurseIntoAttrs` allows you to find userPackages when doing `nix search`.
-/*
-    nix-rebuild = super.writeScriptBin "nix-rebuild" ''
-      #!${super.stdenv.shell}
-
-#      #!${super.stdenv.shell}
-#      if ! command -v nix-env &>/dev/null; then
-#        echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
-#        PATH=${self.nix}/bin:$PATH
-#      fi
-#      exec nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
-
-      #!${super.stdenv.shell}
-      set -e
-      if ! command -v nix-env &>/dev/null; then
-        echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
-        PATH=${self.nix}/bin:$PATH
-      fi
-      IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
-      oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
-      nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
-      IFS=- read -r _ newGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
-      ${self.diffutils}/bin/diff --color -u --label "generation $oldGen" $oldVersions \
-        --label "generation $newGen" ~/.nix-profile/package_versions \
-        || true
-    '';
-
-    packageVersions =
-      let
-        versions = super.lib.attrsets.mapAttrsToList (_: pkg: pkg.name) self.userPackages;
-        versionText = super.lib.strings.concatMapStrings (s: s+"\n") versions;
-      in
-      super.writeTextDir "package_versions" versionText;
-*/
   };
 }

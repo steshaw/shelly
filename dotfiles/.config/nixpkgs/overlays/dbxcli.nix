@@ -5,11 +5,12 @@
 #
 # FIXME: Clashes with installation of hub binary from github/hub.
 #
+let enable = false; in
 self: super:
 with builtins;
 with super;
 rec {
-  dbxcli = buildGoModule rec {
+  dbxcli = if enable then buildGoModule rec {
     name = "dbxcli-${version}";
     version = "3.0.0";
 
@@ -31,5 +32,5 @@ rec {
       maintainers = with maintainers; [ steshaw ];
       platforms = platforms.linux ++ platforms.darwin;
     };
-  };
+  } else {};
 }

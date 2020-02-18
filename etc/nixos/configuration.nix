@@ -72,7 +72,12 @@
     hlint
   ];
 
-  services.emacs.enable = false;
+  services.emacs.enable = true;
+
+  services.buildkite-agent.enable = true;
+  services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
+  services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
+  services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
