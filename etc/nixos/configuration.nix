@@ -30,18 +30,30 @@
 
   networking.hostName = "verona";
   networking.hostId = "df28ea3c";
+  time.timeZone = "Australia/Brisbane";
 
+  # -------------------------------------------------------------------------
+  # Services
+  # -------------------------------------------------------------------------
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
   services.avahi.publish.enable = true;
   services.avahi.publish.addresses = true;
 
+  services.emacs.enable = true;
   services.eternal-terminal.enable = true;
+  services.keybase.enable = true;
 
+  # -------------------------------------------------------------------------
+  # Network proxy
+  # -------------------------------------------------------------------------
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # -------------------------------------------------------------------------
+  # Internationalisation
+  # -------------------------------------------------------------------------
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
@@ -49,9 +61,9 @@
   #   defaultLocale = "en_US.UTF-8";
   # };
 
-  # Set your time zone.
-  time.timeZone = "Australia/Brisbane";
-
+  # -------------------------------------------------------------------------
+  # System packages
+  # -------------------------------------------------------------------------
   environment.systemPackages = with pkgs; [
     direnv
     git
@@ -72,22 +84,33 @@
     hlint
   ];
 
-  services.emacs.enable = true;
-
+  # -------------------------------------------------------------------------
+  # Buildkite
+  # -------------------------------------------------------------------------
   services.buildkite-agent.enable = true;
   services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
   services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
   services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
 
+  # -------------------------------------------------------------------------
+  # mtr
+  # -------------------------------------------------------------------------
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.gnupg.agent.enable = true;
+  programs.mtr.enable = false;
 
-  # List services that you want to enable:
+  # -------------------------------------------------------------------------
+  # GNU Privacy Guard
+  # -------------------------------------------------------------------------
+  #programs.gnupg.agent.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
-  # Enable the OpenSSH daemon.
+  # -------------------------------------------------------------------------
+  # OpenSSH daemon
+  # -------------------------------------------------------------------------
   services.openssh = {
     enable = true;
     forwardX11 = true;
@@ -95,13 +118,13 @@
     passwordAuthentication = false;
   };
 
-  services.keybase.enable = true;
-
+  # -------------------------------------------------------------------------
   # Open ports in the firewall.
   #
   # No need to specify 22 here when the openssh service is enabled.
   # https://nixos.org/nixos/manual/index.html#sec-firewall
   #
+  # -------------------------------------------------------------------------
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [
@@ -115,13 +138,19 @@
     { from = 8000; to = 8081; } # Dev ports.
   ];
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  # -------------------------------------------------------------------------
+  # Printing
+  #
+  # CUPS for printing documents.
+  #
+  # -------------------------------------------------------------------------
+  services.printing.enable = false;
 
-  #
-  # Enable sound + bluetooth.
-  #
+  # -------------------------------------------------------------------------
+  # Sound and Bluetooth
+  # -------------------------------------------------------------------------
   sound.enable = true;
+  hardware.bluetooth.enable = true;
   hardware.pulseaudio = {
     enable = true;
 
@@ -130,8 +159,11 @@
     # it must be selected here.
     package = pkgs.pulseaudioFull;
   };
-  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
+  # -------------------------------------------------------------------------
+  # Fonts
+  # -------------------------------------------------------------------------
   fonts.fonts = with pkgs; [
     noto-fonts-emoji
     font-awesome_5
@@ -139,12 +171,18 @@
     fira-code
   ];
 
+  # -------------------------------------------------------------------------
+  # sudo
+  # -------------------------------------------------------------------------
   security.sudo.wheelNeedsPassword = false;
   nix.trustedUsers = ["@wheel" "steshaw"];
 
+  # -------------------------------------------------------------------------
+  # DANGER
+  # -------------------------------------------------------------------------
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.03"; # NOTE: Did you read the comment?
 }
