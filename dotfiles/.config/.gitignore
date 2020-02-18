@@ -26,6 +26,7 @@
 /gcloud/
 /geany/
 /gedit/
+/google-chrome/
 /gtk-2.0/
 /gtk-3.0/
 /gtkrc
@@ -53,6 +54,7 @@
 /kioclientrc
 /kmixrc
 /knotifyrc
+/konsole.notifyrc
 /konsolerc
 /krunnerrc
 /kscreenlockerrc
@@ -99,4 +101,3 @@
 /xfce4/
 /yarn/
 /zoomus.conf
-/konsole.notifyrc
