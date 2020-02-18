@@ -201,13 +201,8 @@ values."
    ;;
    ;; Test symbols: -> >>=
    ;;
-;   dotspacemacs-default-font '("Source Code Pro"
-;                               :size 35
-;                               :weight normal
-;                               :width normal
-;                               :powerline-scale 1.1)
-   dotspacemacs-default-font '("FiraCode"
-                               :size 14
+   dotspacemacs-default-font '("FiraCode" ; "Source Code Pro"
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
