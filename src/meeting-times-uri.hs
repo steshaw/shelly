@@ -19,10 +19,13 @@ base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 cities :: [Int]
 cities=
   [ 224 -- San Francisco
-  , 64  -- Chicago
+  , 24  -- Austin
   , 43  -- Boston
   , 136 -- London
+  , 37  -- Berlin
+  , 166 -- Moscow
   , 438 -- Bangalore
+  , 33  -- Beijing
   , 248 -- Tokyo
   , 47  -- Brisbane
   , 22  -- Auckland
