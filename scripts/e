@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-if true; then
+if false; then
   user_id=$(id --user)
   socket_name="/var/run/user/${user_id}/emacs${user_id}/server"
   socket_name="/tmp/emacs${user_id}/server"
