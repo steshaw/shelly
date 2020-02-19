@@ -383,7 +383,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;
   ;; UTF-8
   ;;
-  (set-language-environment 'utf-8)
+  (set-language-environment 'UTF-8)
   (set-terminal-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
@@ -529,8 +529,11 @@ you should place your code here."
   (add-hook 'org-mode-hook (lambda ()
                                 "Beautify Org Checkbox Symbol"
                                 (push '("[ ]" . "☐") prettify-symbols-alist)
+                                ;(push '("[ ]" . "💡") prettify-symbols-alist)
                                 (push '("[X]" . "☑" ) prettify-symbols-alist)
+                                ;(push '("[X]" . "✅" ) prettify-symbols-alist)
                                 (push '("[-]" . "❍" ) prettify-symbols-alist)
+                                ;(push '("[-]" . "🚧" ) prettify-symbols-alist)
                                 (prettify-symbols-mode)))
   (defface org-checkbox-done-text
     '((t (:foreground "#71696A"
