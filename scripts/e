@@ -2,14 +2,14 @@
 
 set -euo pipefail
 
-if false; then
+if true; then
   user_id=$(id --user)
   socket_name="/var/run/user/${user_id}/emacs${user_id}/server"
   socket_name="/tmp/emacs${user_id}/server"
 #    --alternate-editor='emacs -nw' \
   emacsclient \
     --no-wait \
-    --socket-name=${socket_name} \
+    --socket-name="${socket_name}" \
     "$@"
 else
   emacsclient \
