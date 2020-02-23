@@ -1,19 +1,28 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+${DEBUG:-}
 
-if true; then
+if [[ ${1:-} == -nw ]]; then
+  unset DISPLAY
+  shift
+fi
+
+if [[ -n ${DISPLAY:-} ]]; then
+  # Attempt to open in the X Emacs.
+  # Fall back on `e -nw`.
   user_id=$(id --user)
-  socket_name="/var/run/user/${user_id}/emacs${user_id}/server"
   socket_name="/tmp/emacs${user_id}/server"
-#    --alternate-editor='emacs -nw' \
+  socket_name="/var/run/user/${user_id}/emacs${user_id}/server"
   emacsclient \
     --no-wait \
     --socket-name="${socket_name}" \
+    --alternate-editor='e -nw' \
     "$@"
 else
+  # Attempt to use the emacs daemon/service.
+  # Fall back on `emacs -nw`.
   emacsclient \
-    --no-wait \
     --alternate-editor='emacs -nw' \
     "$@"
 fi
