@@ -28,9 +28,14 @@
 #  swapDevices = [ { device = "/var/swapfile"; size = 32768; } ];
 #  boot.resumeDevice = "rpool/root/nixos";
 
+  time.timeZone = "Australia/Brisbane";
+
+  # -------------------------------------------------------------------------
+  # Networks
+  # -------------------------------------------------------------------------
   networking.hostName = "verona";
   networking.hostId = "df28ea3c";
-  time.timeZone = "Australia/Brisbane";
+  networking.wireless.enable = true;
 
   # -------------------------------------------------------------------------
   # Services
