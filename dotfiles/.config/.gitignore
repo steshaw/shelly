@@ -91,6 +91,7 @@
 /startupconfig
 /startupconfigfiles
 /startupconfigkeys
+/systemd/
 /systemmonitorrc
 /systemsettingsrc
 /teamviewer/
