@@ -22,10 +22,9 @@ cities=
   , 24  -- Austin
   , 43  -- Boston
   , 136 -- London
-  , 37  -- Berlin
-  , 166 -- Moscow
+  , 215 -- Rome
+  , 776 -- Dubai
   , 438 -- Bangalore
-  , 33  -- Beijing
   , 248 -- Tokyo
   , 47  -- Brisbane
   , 22  -- Auckland
