@@ -83,3 +83,6 @@ checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh
 
 [.oh-my-zsh/custom/plugins/zsh-completions]
 checkout = git clone https://github.com/zsh-users/zsh-completions
+
+[Code/kowainik/summoner]
+checkout = git clone 'git@github.com:kowainik/summoner' 'summoner'
