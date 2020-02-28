@@ -11,8 +11,9 @@ revision='cc6cf0a96a627e678ffc996a8f9d1416200d6c81'
 revision='8465cae85c316aa07890a73496357f93d5ef9e37'
 
 # Current revision.
-revision='f77e057cda60a3f96a4010a698ff3be311bf18c6' # Later but neovim is broken :(.
 revision='e1456b291c53ab34f475c36092df07d6ddcb60ab'
+#revision='f77e057cda60a3f96a4010a698ff3be311bf18c6' # Later but neovim is broken :(.
+#revision='1fe82110febdf005d97b2927610ee854a38a8f26' # Later again but no binary cache yet.
 
 base_url=https://github.com/nixos/nixpkgs/archive
 NIX_PATH=nixpkgs=${base_url}/${revision}.tar.gz
