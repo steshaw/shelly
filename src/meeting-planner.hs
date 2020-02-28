@@ -11,6 +11,14 @@ import Text.Printf (printf)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
+-- World Clock examples
+-- https://www.timeanddate.com/worldclock/meetingtime.html?p1=224&p2=24&p3=43&p4=1323&p5=37&p6=438&p7=47&iso=20200228
+
+-- Astronomy examples
+--  https://www.timeanddate.com/astronomy/australia/brisbane
+-- https://www.timeanddate.com/astronomy/uk/nottingham
+
+-- Meeting Planner examples
 -- e.g. "https://www.timeanddate.com/worldclock/meetingtime.html?iso=20200204&p1=43&p2=64&p3=224&p4=438&p5=248&p6=47&p7=22
 
 --base :: Text.Text
@@ -18,16 +26,19 @@ base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 
 cities :: [Int]
 cities=
-  [ 224 -- San Francisco
-  , 24  -- Austin
-  , 43  -- Boston
-  , 136 -- London
-  , 215 -- Rome
-  , 776 -- Dubai
+  [ 224  -- San Francisco
+  , 24   -- Austin
+  , 43   -- Boston
+  , 136  -- London
+--  , 1323 -- Nottingham
+--  , 215 -- Rome
+--  , 37  -- Berlin
+  , 281  -- Zagreb
+--  , 776 -- Dubai
   , 438 -- Bangalore
-  , 248 -- Tokyo
+--  , 248 -- Tokyo
   , 47  -- Brisbane
-  , 22  -- Auckland
+--  , 22  -- Auckland
   ]
 
 main = do
