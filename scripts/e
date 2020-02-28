@@ -20,9 +20,13 @@ if [[ -n ${DISPLAY:-} ]]; then
     --alternate-editor='e -nw' \
     "$@"
 else
+  user_id=$(id --user)
+  socket_name="/tmp/emacs${user_id}/server"
   # Attempt to use the emacs daemon/service.
   # Fall back on `emacs -nw`.
   emacsclient \
+    --no-wait \
+    --socket-name="${socket_name}" \
     --alternate-editor='emacs -nw' \
     "$@"
 fi
