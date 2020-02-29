@@ -6,11 +6,11 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [ ./hardware-configuration.nix
+
       ./cachix.nix
-      ./xorg.nix
       ./users.nix
+      ./xorg.nix
     ];
 
   nix.useSandbox = true;
@@ -30,16 +30,16 @@
 
   time.timeZone = "Australia/Brisbane";
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Networks
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   networking.hostName = "verona";
   networking.hostId = "df28ea3c";
   networking.wireless.enable = true;
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Services
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
   services.avahi.publish.enable = true;
@@ -49,16 +49,16 @@
   services.eternal-terminal.enable = true;
   services.keybase.enable = true;
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Network proxy
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Internationalisation
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
@@ -66,9 +66,9 @@
   #   defaultLocale = "en_US.UTF-8";
   # };
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # System packages
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   environment.systemPackages = with pkgs; [
     direnv
     git
@@ -76,46 +76,62 @@
     vim
     wget
 
+    #
     # Haskell packages.
+    #
+
     # Install stable HIE for GHC 8.6.5.
-    (let enable_hie = true;
-      all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-    in
-    if enable_hie then all-hies.selection { selector = p: { inherit (p)
-    ghc865; }; } else cachix)
+    #
+    # https://github.com/infinisil/all-hies/
+    #
+    (
+      let
+        enable_hie = true;
+        u = "https://github.com/infinisil/all-hies/tarball/master";
+        all-hies = import (fetchTarball u) {};
+      in
+      if enable_hie then all-hies.selection {
+        selector = p: {
+          inherit (p)
+            ghc882
+            ghc865
+          ;
+        };
+      } else cachix
+    )
     haskellPackages.brittany
     cachix
     haskell.compiler.ghc865
     hlint
   ];
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Buildkite
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   services.buildkite-agent.enable = false;
   services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
   services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
   services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # mtr
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = false;
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # GNU Privacy Guard
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   #programs.gnupg.agent.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # OpenSSH daemon
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   services.openssh = {
     enable = true;
     forwardX11 = true;
@@ -123,13 +139,13 @@
     passwordAuthentication = false;
   };
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Open ports in the firewall.
   #
   # No need to specify 22 here when the openssh service is enabled.
   # https://nixos.org/nixos/manual/index.html#sec-firewall
   #
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [
@@ -143,17 +159,17 @@
     { from = 8000; to = 8081; } # Dev ports.
   ];
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Printing
   #
   # CUPS for printing documents.
   #
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   services.printing.enable = false;
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Sound and Bluetooth
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   sound.enable = true;
   hardware.bluetooth.enable = true;
   hardware.pulseaudio = {
@@ -166,9 +182,9 @@
   };
   services.blueman.enable = true;
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # Fonts
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   fonts.fonts = with pkgs; [
     noto-fonts-emoji
     font-awesome_5
@@ -176,15 +192,15 @@
     fira-code
   ];
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # sudo
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   security.sudo.wheelNeedsPassword = false;
   nix.trustedUsers = ["@wheel" "steshaw"];
 
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # DANGER
-  # -------------------------------------------------------------------------
+  # ------------------------------------------------------------------------
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
