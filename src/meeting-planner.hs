@@ -26,19 +26,20 @@ base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 
 cities :: [Int]
 cities=
-  [ 224  -- San Francisco
-  , 24   -- Austin
-  , 43   -- Boston
-  , 136  -- London
---  , 1323 -- Nottingham
---  , 215 -- Rome
---  , 37  -- Berlin
-  , 281  -- Zagreb
---  , 776 -- Dubai
-  , 438 -- Bangalore
---  , 248 -- Tokyo
-  , 47  -- Brisbane
---  , 22  -- Auckland
+  [ 224  -- San Francisco, USA
+  , 24   -- Austin, USA
+  , 43   -- Boston, USA
+  , 136  -- London, England
+--  , 1323 -- Nottingham, England
+--  , 215 -- Rome, Italy
+  , 37  -- Berlin, Germany
+--  , 281  -- Zagreb, Croatia
+--  , 776 -- Dubai, EAE
+  , 438 -- Bangalore, India
+  , 145 -- Manilla, Phillipines
+--  , 248 -- Tokyo, Japan
+  , 47  -- Brisbane, Australia
+--  , 22  -- Auckland, New Zealand
   ]
 
 main = do
