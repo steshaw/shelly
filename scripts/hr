@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cols=$(tput cols)
+
+eval printf '─%.0s' '{1..'"${cols}"'}'; echo
