@@ -42,6 +42,7 @@
     libinput
     lxqt.pavucontrol-qt
     rescuetime
+    slack
 
     #
     # Terminals.
