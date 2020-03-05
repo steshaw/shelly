@@ -3,7 +3,12 @@ self: super:
 let
   source = builtins.fetchGit {
     url = "https://github.com/tweag/ormolu";
-    rev = "231b93c5d4718da20b779e2ae6a81a9e1285f1d0";
+    #
+    # Find the latest rev with
+    #
+    #   git ls-remote https://github.com/tweag/ormolu master
+    #
+    rev = "55d8b7f8c482655ea575425e55352e650f304ea0";
   };
   ormolu = import source { pkgs = self; };
   # Seems that ormolu is now in nixpkgs, so disable.
