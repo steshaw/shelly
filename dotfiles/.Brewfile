@@ -128,7 +128,6 @@ brew 'zsh' if !nix
 #############################################
 
 if OS.mac?
-  # Casks as at 09-Feb-2020.
   cask 'amethyst'
   cask 'android-platform-tools'
   cask 'brave-browser'
