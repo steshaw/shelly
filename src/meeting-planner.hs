@@ -24,23 +24,35 @@ import qualified Data.Text.IO as T
 --base :: Text.Text
 base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 
-cities :: [Int]
-cities=
+usa =
   [ 224  -- San Francisco, USA
   , 24   -- Austin, USA
   , 43   -- Boston, USA
-  , 136  -- London, England
+  ]
+
+eu =
+  [ 136  -- London, England
 --  , 1323 -- Nottingham, England
 --  , 215 -- Rome, Italy
-  , 37  -- Berlin, Germany
 --  , 281  -- Zagreb, Croatia
+  , 37  -- Berlin, Germany
 --  , 776 -- Dubai, EAE
-  , 438 -- Bangalore, India
+  ]
+
+asiaPacific =
+  [ 438 -- Bangalore, India
   , 145 -- Manilla, Phillipines
 --  , 248 -- Tokyo, Japan
   , 47  -- Brisbane, Australia
 --  , 22  -- Auckland, New Zealand
   ]
+
+short = asiaPacific
+
+personal = usa ++ eu ++ asiaPacific
+
+cities :: [Int]
+cities = if True then short else personal
 
 main = do
   c <- Time.getCurrentTime
