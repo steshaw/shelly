@@ -113,6 +113,7 @@ rec {
       rsync
       shellcheck
       speedtest-cli
+      tokei
       tree
       unzip
       watchman
