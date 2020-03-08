@@ -41,7 +41,7 @@ eu =
 
 asiaPacific =
   [ 438 -- Bangalore, India
-  , 145 -- Manilla, Phillipines
+--  , 145 -- Manilla, Phillipines
 --  , 248 -- Tokyo, Japan
   , 47  -- Brisbane, Australia
 --  , 22  -- Auckland, New Zealand
