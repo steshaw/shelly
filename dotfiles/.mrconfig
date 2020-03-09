@@ -41,14 +41,14 @@ checkout = git clone 'git@github.com:steshaw/cv' 'cv'
 # --------------------------------------------------------------------------
 
 [Code/steshaw/Idris1]
-checkout = 
+checkout =
 	  git clone git@github.com:steshaw/Idris1 Idris1
 	  cd Idris1
 	  git remote add upstream git@github.com:idris-lang/Idris-dev.git
 update = git sync-upstream-master
 
 [Code/steshaw/Idris2]
-checkout = 
+checkout =
 	  git clone git@github.com:steshaw/Idris2 Idris2
 	  cd Idris2
 	  git remote add upstream git@github.com:edwinb/Idris2.git
@@ -58,14 +58,14 @@ update = git sync-upstream-master
 checkout = git clone git@github.com:steshaw/notes
 
 [Code/steshaw/nix]
-checkout = 
+checkout =
 	  git clone git@github.com:steshaw/nix.git nix
 	  cd nix
 	  git remote add upstream git@github.com:NixOS/nix.git
 update = git sync-upstream-master
 
 [Code/steshaw/nixpkgs]
-checkout = 
+checkout =
 	  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
 	  cd nixpkgs
 	  git remote add upstream git@github.com:NixOS/nixpkgs.git
@@ -89,3 +89,19 @@ checkout = git clone 'git@github.com:kowainik/summoner' 'summoner'
 
 [.fzf]
 checkout = git clone 'https://github.com/junegunn/fzf.git' '.fzf'
+
+# --------------------------------------------------------------------------
+# More
+# --------------------------------------------------------------------------
+
+[Code/kowainik/hit-on]
+checkout = git clone 'git@github.com:kowainik/hit-on' 'hit-on'
+
+[Code/ghc/ghc/ghc.nix]
+checkout = git clone 'https://github.com/alpmestan/ghc.nix' 'ghc.nix'
+
+[Code/ghc/ghc]
+checkout = git clone 'https://gitlab.haskell.org/ghc/ghc.git' 'ghc'
+
+[Code/granule-project/granule]
+checkout = git clone 'git@github.com:granule-project/granule' 'granule'
