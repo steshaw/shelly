@@ -89,4 +89,4 @@ for file in ~/.config/bashrc.d/*; do
 done
 
 # shellcheck disable=SC1090
-source $SHELLY_HOME/scripts/shellyrc
+source $SHELLY_HOME/dotfiles/.config/shellyrc

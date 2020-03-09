@@ -201,6 +201,6 @@ sourceExists ~/.profile.d/haskell-stack
 sourceExists ~/.profile.d/google-cloud-sdk
 
 # shellcheck source=scripts/shrc
-source $SHELLY_HOME/scripts/shellyrc
+source $SHELLY_HOME/dotfiles/.config/shellyrc
 
 # }}}

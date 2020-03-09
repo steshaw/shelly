@@ -1,4 +1,3 @@
-set -x
 export SHELLY_DEV_DIR=~/Code
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 

@@ -136,7 +136,7 @@ fi
 #
 # Source etc/shrc.d/*
 #
-for file in "$SHELLY_HOME"/scripts/shellyrc.d/*; do
+for file in "$SHELLY_HOME"/dotfiles/.config/shellyrc.d/*; do
   sourceExists "${file}"
 done
 
