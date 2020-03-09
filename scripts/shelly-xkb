@@ -3,44 +3,33 @@
 set -euo pipefail
 ${DEBUG:-}
 
-# Make Caps Lock an additional Esc
-setxkbmap -option caps:escape
+# Make unmodified Caps Lock an additional Esc, but Shift + Caps Lock behaves
+# like regular Caps Lock.
+setxkbmap -option 'caps:escape_shifted_capslock'
+
+# Both Shift together enable Caps Lock.
+setxkbmap -option 'shift:both_capslock'
+
 # Swap Ctrl and Win (command and control).
-setxkbmap -option ctrl:swap_lwin_lctl,ctrl:swap_rwin_rctl
+setxkbmap -option 'ctrl:swap_lwin_lctl,ctrl:swap_rwin_rctl'
 
-#
-# TODO: Emulate MATE's keyboard options:
-#
-# Caps Lock Behaviour:
-#
-# - Make unmodified Caps Lock an additional Esc, but Shift + Caps Lock
-# behaves like regular Caps Lock.
-#
-# "Miscellaneous compatibility options":
-#
-# - Apple Aluminium emulate PC keys (PrtSc, Scroll Lock, Pause, Num Lock)
-# - Both Shift together enable Caps Lock
-# - Numeric keypad always enters digits (as in MacOS)
-#
-# "Postition of Compose key"
-#
-# - Right Alt
-# - Scroll Lock
-#
+# Compose is Right Alt or Scroll Lock.
+setxkbmap -option 'compose:ralt,compose:sclk'
 
-#
-# Perhaps option useful XKB options:
+# Apple Aluminium: emulate PC keys (PrtSc, Scroll Lock, Pause, Num Lock)
+setxkbmap -option 'apple:alupckeys'
+
+# Numeric keypad always enters digits (as in macOS).
+setxkbmap -option 'numpad:mac'
+
+# Use Enter to choose the 3rd level.
+setxkbmap -option 'lv3:enter_switch'
+
+# Ctrl is mapped to Win and the usual Ctrl keys.
+setxkbmap -option 'altwin:ctrl_win'
+
 #
 # Swap Alt and Win
 # altwin:swap_alt_win
 # altwin:swap_alt_win
 #
-# Control is mapped to Win keys (and the usual Ctrl keys).
-# So advises StackOverflow but it didn't work for me.
-# setxkbmap -option altwin:ctrl_win
-#
-
-# Perhaps also use my Xmodmap configuration.
-if false; then
-  xmodmap ~/.Xmodmap
-fi
