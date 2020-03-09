@@ -28,7 +28,38 @@ myWorkspaces = ws
     nums = map show [1..9::Int]
     ws = named ++ drop (length named) nums
 
-myBasicConfig = def {modMask = mod4Mask, terminal = myTerminal}
+myManageHook :: Query (Endo WindowSet)
+myManageHook =
+  composeAll . concat $
+    [ [className =? c --> doFloat | c <- myFloatClassNames],
+      [title =? t --> doFloat | t <- myFloatTitles],
+      [className =? c --> doF (W.shift "2") | c <- webApps],
+      [className =? c --> doF (W.shift "3") | c <- ircApps]
+    ]
+  where
+    myFloatClassNames = ["mate-screenshot", "spectacle"]
+    myFloatTitles = ["alsamixer"]
+    webApps = ["Firefox-bin", "Opera"] -- open on desktop 2
+    ircApps = ["Ksirc"] -- open on desktop 3
+
+stackTile = StackTile 1 (3/100) (1/2)
+
+threeCol = ThreeCol 1 (3/100) (1/2)
+
+myBasicConfig = def
+  { modMask = myModMask
+  , terminal = myTerminal
+  , workspaces = myWorkspaces
+  , borderWidth = 2
+  , normalBorderColor  = myNormalBorderColor
+  , focusedBorderColor = myFocusedBorderColor
+  , layoutHook = layoutHook def ||| simpleTabbed ||| threeCol ||| stackTile
+  , manageHook = manageHook def <+> myManageHook
+  }
+  `additionalKeys` myKeys
+  where
+    myKeys = [ ((myModMask, xK_Print), spawn "mate-screenshot")]
+    myModMask = mod4Mask
 
 -- |
 --
@@ -41,10 +72,6 @@ myKdeConfig = kdeConfig
               { modMask = mod4Mask, -- use the Windows button as mod
                 manageHook = manageHook kdeConfig <+> myManageHook
               }
-
-stackTile = StackTile 1 (3/100) (1/2)
-
-threeCol = ThreeCol 1 (3/100) (1/2)
 
 myMateConfig = mateConfig
   { modMask = myModMask
@@ -59,22 +86,8 @@ myMateConfig = mateConfig
   }
   `additionalKeys` myKeys
   where
-    myModMask = mod4Mask
     myKeys = [ ((myModMask, xK_Print), spawn "mate-screenshot")]
-
-myManageHook :: Query (Endo WindowSet)
-myManageHook =
-  composeAll . concat $
-    [ [className =? c --> doFloat | c <- myFloatClassNames],
-      [title =? t --> doFloat | t <- myFloatTitles],
-      [className =? c --> doF (W.shift "2") | c <- webApps],
-      [className =? c --> doF (W.shift "3") | c <- ircApps]
-    ]
-  where
-    myFloatClassNames = [ "mate-screenshot"]
-    myFloatTitles = ["alsamixer"]
-    webApps = ["Firefox-bin", "Opera"] -- open on desktop 2
-    ircApps = ["Ksirc"] -- open on desktop 3
+    myModMask = mod4Mask
 
 data MyConfig = Basic | KDE | MATE
 
@@ -86,4 +99,4 @@ myConfig MATE = myMateConfig
 -}
 
 main :: IO ()
-main = xmonad myMateConfig
+main = xmonad myBasicConfig
