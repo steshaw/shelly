@@ -117,13 +117,28 @@ alias ocaml='rlwrap ocaml'
 # For bash, it's processed into CDPATH.
 cdpath=(
   .
-  ~/Code
-  ~/Code/steshaw
 )
 
-# Add all directories in `~/Code`.
-for dir in ~/Code/*; do
-  [[ -d ${dir} && ${dir} != ~/Code/steshaw ]] && cdpath=("${cdpath[@]}" "${dir}")
+grandfather_code_dirs() {
+  find ~/Code -type d -name .git 2>/dev/null |
+    perl -pe 's~/[^/]*/.git$~~' |
+    grep -v -E 'nvim.mine|\.archive|node_modules' |
+    sort -u
+}
+cached_grandfather_code_dirs() {
+  cached=~/.cache/shelly/code_dirs.txt
+  # Cache for 5 hours
+  hours=5
+  minutes=$((${hours} * 60))
+  if [[ ! -f ${cached} || -n $(find ${cached} -mmin +${minutes}) ]]; then
+    mkdir -p $(basename ${cached})
+    grandfather_code_dirs >|${cached}
+  fi
+  cat $cached
+}
+# All grandparent's of all .git directories under ~/Code to CDPATH.
+for dir in $(cached_grandfather_code_dirs); do
+  [[ -d ${dir} && ${dir} ]] && cdpath=("${cdpath[@]}" "${dir}")
 done
 
 if isBash; then
