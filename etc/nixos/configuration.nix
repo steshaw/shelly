@@ -11,6 +11,7 @@
       ./cachix.nix
       ./users.nix
       ./xorg.nix
+      ./dnsmasq.nix
     ];
 
   nix.useSandbox = true;
@@ -29,13 +30,6 @@
 #  boot.resumeDevice = "rpool/root/nixos";
 
   time.timeZone = "Australia/Brisbane";
-
-  # ------------------------------------------------------------------------
-  # Networks
-  # ------------------------------------------------------------------------
-  networking.hostName = "verona";
-  networking.hostId = "df28ea3c";
-  networking.wireless.enable = true;
 
   # ------------------------------------------------------------------------
   # Services
@@ -108,10 +102,12 @@
   # ------------------------------------------------------------------------
   # Buildkite
   # ------------------------------------------------------------------------
+/*
   services.buildkite-agent.enable = false;
   services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
   services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
   services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
+*/
 
   # ------------------------------------------------------------------------
   # mtr
@@ -140,12 +136,25 @@
   };
 
   # ------------------------------------------------------------------------
+  # Networking
+  # ------------------------------------------------------------------------
+  networking.hostName = "verona";
+  networking.hostId = "df28ea3c";
+  networking.wireless.enable = true;
+/*
+  networking.networkmanager = {
+    enable = true;
+    dns = "dnsmasq";
+    unmanaged = ["boo"];
+  };
+*/
+
+  #
   # Open ports in the firewall.
   #
   # No need to specify 22 here when the openssh service is enabled.
   # https://nixos.org/nixos/manual/index.html#sec-firewall
   #
-  # ------------------------------------------------------------------------
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [
