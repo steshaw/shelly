@@ -1,50 +1,35 @@
-*.o
-*.hi
-*.swp
-*.log
-*.out
-*.bup
-*.bak
-
-*~
-~*
-\.#*
-\#*
-
-.DS_Store
-.localized
-
-/.idea/
-/.ideaHaskellLib/
-*.iml
-cabal.config
-
-# Automatically created by GitHub for Mac
-# To make edits, delete these initial comments, or else your changes may be lost!
-
-# General
 *.DS_Store
+*.bak
+*.bup
+*.hi
+*.iml
+*.log
+*.o
+*.out
+*.swp
+*~
+.AppleDB
+.AppleDesktop
 .AppleDouble
-.LSOverride
-
-# Icon must end with two \r
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
+.DS_Store
 .DocumentRevisions-V100
-.fseventsd
+.LSOverride
 .Spotlight-V100
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
+._*
+.apdisk
+.archive/
 .com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
+.fseventsd
+.localized
+/.idea/
+/.ideaHaskellLib/
+Icon
 Network Trash Folder
 Temporary Items
-.apdisk
+\#*
+\.#*
+cabal.config
+~*
