@@ -66,6 +66,7 @@
   environment.systemPackages = with pkgs; [
     direnv
     git
+    neovim
     poppler # For Emacs pdf-tools — Spacemacs pdf layer.
     vim
     wget
