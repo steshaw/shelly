@@ -24,6 +24,7 @@
 .com.apple.timemachine.donotpresent
 .fseventsd
 .localized
+.save/
 /.idea/
 /.ideaHaskellLib/
 Icon
