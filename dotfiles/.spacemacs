@@ -495,12 +495,12 @@ you should place your code here."
     )
   )
 
-  (setq notes-dir "~/Code/steshaw/notes/")
+  (setq org-directory "~/Code/steshaw/notes/")
 
   ;;
   ;; Deft
   ;;
-  (setq deft-directory notes-dir)
+  (setq deft-directory org-directory)
   (setq deft-extensions '("org" "md" "txt"))
   (setq deft-recursive t)
 
@@ -510,8 +510,8 @@ you should place your code here."
   (setq org-agenda-include-diary t) ; XXX: Maybe use this?
   (setq org-agenda-window-setup (quote current-window))
   ;; To add all org files in a repository to the agenda
-  (setq org-agenda-files (directory-files-recursively notes-dir "\.org$"))
-  (setq org-default-notes-file (concat notes-dir "/tasks.org"))
+  (setq org-agenda-files (directory-files-recursively org-directory "\.org$"))
+  (setq org-default-notes-file (concat org-directory "/tasks.org"))
 
   ;; See https://out-of-cheese-error.netlify.com/spacemacs-config
 ;  (setq org-todo-keywords
