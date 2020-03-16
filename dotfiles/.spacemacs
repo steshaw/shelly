@@ -507,9 +507,11 @@ you should place your code here."
   ;;
   ;; Org
   ;;
+  (setq org-agenda-include-diary t) ; XXX: Maybe use this?
   (setq org-agenda-window-setup (quote current-window))
   ;; To add all org files in a repository to the agenda
   (setq org-agenda-files (directory-files-recursively notes-dir "\.org$"))
+  (setq org-default-notes-file (concat notes-dir "/tasks.org"))
 
   ;; See https://out-of-cheese-error.netlify.com/spacemacs-config
 ;  (setq org-todo-keywords
@@ -517,7 +519,7 @@ you should place your code here."
 ;          (sequence "MEETING(m)" "|" "MEETING_DONE(M)")))
 
   (setq org-todo-keywords
-        '((sequence "TODO" "DOING" "|" "DONE")))
+        '((sequence "TODO" "DOING" "WAITING" "|" "DONE")))
   ;; Ignore scheduled tasks in task list view (SPC m t)
   (setq org-agenda-todo-ignore-scheduled t)
   (setq org-agenda-todo-ignore-deadlines t)
