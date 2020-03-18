@@ -82,21 +82,21 @@
     (
       let
         enable_hie = true;
-        u = "https://github.com/infinisil/all-hies/tarball/master";
+        u = "https://github.com/infinisil/all-hies/tarball/4b6aab017cdf96a90641dc287437685675d598da";
         all-hies = import (fetchTarball u) {};
       in
       if enable_hie then all-hies.selection {
         selector = p: {
           inherit (p)
-            ghc882
+#            ghc882
             ghc865
           ;
         };
       } else cachix
     )
-    haskellPackages.brittany
     cachix
     haskell.compiler.ghc865
+    haskellPackages.brittany
     hlint
   ];
 
