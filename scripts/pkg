@@ -39,7 +39,7 @@ if [[ $command = 'info' ]]; then
           name,
           description,
           homepage,
-          license
+          license: .license.spdxId
         }'
   elif has_brew; then
     brew info "$@"
