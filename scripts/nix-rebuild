@@ -12,12 +12,10 @@ revision='1fe82110febdf005d97b2927610ee854a38a8f26' # Later again but no binary 
 
 base_url=https://github.com/nixos/nixpkgs/archive
 url=${base_url}/${revision}.tar.gz
-NIX_PATH=nixpkgs=${url}
-export NIX_PATH
 
-echo "NIX_PATH = ${NIX_PATH}"
-
-nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+set -x
+NIX_PATH=nixpkgs=${url} nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+set +x
 
 exit
 
