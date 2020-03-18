@@ -127,29 +127,35 @@ cdpath-update() {
       grep -v -E 'nvim.mine|\.archive|node_modules' |
       sort -u
   }
-  cdpath-refresh() {
-    mkdir -p "$(dirname ${cached})"
-    find_code_dirs >|${cached}
-
-    # All grandparent's of all .git directories under ~/Code to CDPATH.
-    for dir in $(cat ${cached}); do
+  cdpath-load() {
+    while read -r dir; do
       [[ -d ${dir} && ${dir} ]] && cdpath=("${cdpath[@]}" "${dir}")
-    done
+    done <${cached}
 
     if isBash; then
       CDPATH=$(IFS=':'; echo "${cdpath[*]}")
       unset cdpath
     fi
   }
-  cdpath-refresh-when-necessary() {
+  cdpath-write-cache() {
+    mkdir -p "$(dirname ${cached})"
+    find_code_dirs >|${cached}
+  }
+  cdpath-refresh() {
+    cdpath-write-cache
+    cdpath-load
+  }
+  cdpath-check-cache() {
+    # Write a new cache when expired or non-existant.
     # Cache for 5 hours
     hours=5
     minutes=$((hours * 60))
     if [[ ! -f ${cached} || -n $(find ${cached} -mmin +${minutes}) ]]; then
-      cdpath-refresh
+      cdpath-write-cache
     fi
   }
-  cdpath-refresh-when-necessary
+  cdpath-check-cache
+  cdpath-load
 }
 cdpath-update
 
