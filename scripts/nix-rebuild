@@ -10,6 +10,8 @@ set -euo pipefail
 revision='1fe82110febdf005d97b2927610ee854a38a8f26' # Later again but no binary cache yet.
 #revision='e113100be0207ec2cfd54c39a069b823aa56f58e' # EdisonCore broken
 
+revision='053ad4e0db7241ae6a02394d62750fdc5d64aa9f'
+
 base_url=https://github.com/nixos/nixpkgs/archive
 url=${base_url}/${revision}.tar.gz
 

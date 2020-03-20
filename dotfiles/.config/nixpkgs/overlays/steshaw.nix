@@ -50,6 +50,7 @@ rec {
     # Command line utilities.
     #
     bash = self.bashInteractive_5;
+    darcs = broken darcs;
     inherit (self)
       # Shells.
       fish
@@ -61,7 +62,6 @@ rec {
 
       # SCM systems.
       bazaar
-      darcs
       git
       gti # Humourous wrapper for git.
       mercurial
@@ -157,10 +157,10 @@ rec {
     #
     # Programming Languages.
     #
-    agda = notDarwin self.haskellPackages.Agda; # Broken on macOS.
+    agda = broken self.haskellPackages.Agda;
     ats2 = notDarwin self.ats2; # Broken on macOS.
     coq = if false then self.coq else {};
-    idris = if true then self.idris else {};
+    idris = broken self.idris;
     rustup = if true then self.rustup else {};
 
     # Haskell.
@@ -168,9 +168,9 @@ rec {
     inherit (self)
       cabal-install
       stack
-      hindent # From haskell overlay.
-      pointfree # From haskell overlay.
     ;
+    pointfree = broken self.haskellPackages.pointfree;
+    hindent = broken self.haskellPackages.hindent;
     ghcid = self.haskellPackages.ghcid;
     ormolu = self.haskellPackages.ormolu;
     brittany = self.haskellPackages.brittany;
