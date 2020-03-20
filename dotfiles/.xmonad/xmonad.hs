@@ -46,6 +46,13 @@ stackTile = StackTile 1 (3/100) (1/2)
 
 threeCol = ThreeCol 1 (3/100) (1/2)
 
+myModMask = mod4Mask
+
+myKeys =
+  [ ((myModMask, xK_Print), spawn "spectacle")
+  , ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
+  ]
+
 myBasicConfig = def
   { modMask = myModMask
   , terminal = myTerminal
@@ -57,9 +64,6 @@ myBasicConfig = def
   , manageHook = manageHook def <+> myManageHook
   }
   `additionalKeys` myKeys
-  where
-    myKeys = [ ((myModMask, xK_Print), spawn "mate-screenshot")]
-    myModMask = mod4Mask
 
 -- |
 --
