@@ -52,6 +52,9 @@ fun! Plugs()
   Plug 'Quramy/tsuquyomi'
   Plug 'leafgarland/typescript-vim'
 
+  " Haskell Formatting
+  Plug 'sdiehl/vim-ormolu'
+
   "
   " Miscellaneous.
   "
@@ -120,6 +123,10 @@ fun! Plug()
   call Plugs()
   call plug#end()
 endfun
+
+" Ormolu
+let g:ormolu_disable=1
+nnoremap tf :call RunOrmolu()<CR>
 
 "let mapleader="\<Space>"
 let maplocalleader = ','
