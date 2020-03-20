@@ -112,6 +112,7 @@ rec {
       rsync
       shellcheck
       speedtest-cli
+      terraform
       tokei
       tree
       unzip
