@@ -2,15 +2,7 @@
 
 set -euo pipefail
 
-#
-# Revisions in ascending date order.
-#
-#revision='e1456b291c53ab34f475c36092df07d6ddcb60ab' # Working version
-#revision='f77e057cda60a3f96a4010a698ff3be311bf18c6' # Later but neovim is broken :(.
-revision='1fe82110febdf005d97b2927610ee854a38a8f26' # Later again but no binary cache yet.
-#revision='e113100be0207ec2cfd54c39a069b823aa56f58e' # EdisonCore broken
-
-revision='053ad4e0db7241ae6a02394d62750fdc5d64aa9f'
+revision='9b3515eb95d9b3bc033f43cd562fe2b14f9efd86'
 
 base_url=https://github.com/nixos/nixpkgs/archive
 url=${base_url}/${revision}.tar.gz
