@@ -77,5 +77,6 @@
     # Xmonad apps.
     dmenu
     gmrun
+    xscreensaver
   ];
 }
