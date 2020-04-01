@@ -4,8 +4,8 @@ See https://github.com/neoclide/coc.nvim/blob/master/data/schema.json
 HT to Andres Löh for initial configuration
 */
 {
-  "coc.preferences.hoverTarget": "preview",
   /*
+  "coc.preferences.hoverTarget": "preview",
   "coc.preferences.hoverTarget": "echo",
   "coc.preferences.hoverTarget": "float",
   */
@@ -33,12 +33,8 @@ HT to Andres Löh for initial configuration
   "diagnostic.errorSign": "▶▶▶",
   */
 
-  "diagnostic.errorSign": "😢",
-  "diagnostic.warningSign": "⚠️ ",
-
   "suggest.autoTrigger": "always", /* always, trigger, none */
 
-  // HIE
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",
@@ -58,27 +54,6 @@ HT to Andres Löh for initial configuration
         "languageServerHaskell": {
         }
       }
-    }
-  },
-
-  // ghcide
-  /*
-  "languageserver": {
-    "haskell": {
-      "command": "ghcide",
-      "args": [ "--lsp" ],
-      "rootPatterns": [
-        "stack.yaml",
-        "hie.yaml",
-        "cabal.project",
-        "package.yaml",
-        "shell.nix"
-      ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ]
     },
     "clangd": {
       "command": "clangd",
@@ -93,7 +68,6 @@ HT to Andres Löh for initial configuration
       "filetypes": ["c", "cpp", "objc", "objcpp"]
     }
   },
-  */
 
   "rust-client.disableRustup": true,
 

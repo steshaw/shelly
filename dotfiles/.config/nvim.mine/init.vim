@@ -30,6 +30,13 @@ fun! Plugs()
   Plug 'ledger/vim-ledger'
   Plug '~/Code/steshaw/timedot-vim'
 
+  "
+  " vim-lsp.
+  " https://github.com/prabirshrestha/vim-lsp
+  "
+"  Plug 'prabirshrestha/async.vim'
+"  Plug 'prabirshrestha/vim-lsp'
+
   " Modes
   Plug 'LnL7/vim-nix'
   Plug 'cespare/vim-toml'
