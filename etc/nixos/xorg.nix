@@ -12,15 +12,7 @@
       disableWhileTyping = true;
     };
 
-    displayManager = {
-      sddm.enable = true;
-
-      setupCommands = ''
-        exec >/tmp/xserver-setup-commands.log 2>&1
-        PATH=/home/steshaw/Code/steshaw/shelly/scripts:/run/current-system/sw/bin:$PATH
-        su -c 'xserver-setup-commands' steshaw
-      '';
-    };
+    displayManager.sddm.enable = true;
 
     # Enable the KDE Desktop Environment.
     desktopManager.plasma5.enable = false;
