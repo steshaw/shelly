@@ -33,6 +33,7 @@ myManageHook =
   composeAll . concat $
     [ [className =? c --> doFloat | c <- myFloatClassNames]
     , [title =? t --> doFloat | t <- myFloatTitles]
+    , [className =? "Slack" --> doF (W.shift "9")]
     ]
   where
     myFloatClassNames = ["mate-screenshot", "spectacle"]
