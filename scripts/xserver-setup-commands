@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo xserver-setup-commands
+
+rescuetime&
+
+shelly-xkb
+shelly-xinput
