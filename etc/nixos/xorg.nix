@@ -6,9 +6,22 @@
     layout = "us";
     # Enable touchpad support.
     libinput = {
-      enable = true;
+      enable = false;
       naturalScrolling = true;
+      accelProfile = "adaptive";
+      disableWhileTyping = true;
     };
+/*
+    inputClassSections = [
+      ''
+        Identifier "Mouse"
+          MatchProduct "Dell Dell Universal Receiver Mouse"
+          Option "Accel Profile Enabled" "1 0"
+          Option 'Accel Speed' "-1.0"
+          Option "NaturalScrolling" "true"
+      ''
+    ];
+*/
 
     displayManager.sddm.enable = true;
 
