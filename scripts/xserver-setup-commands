@@ -3,6 +3,7 @@
 echo xserver-setup-commands
 
 rescuetime&
+xscreensaver -no-splash&
 
 shelly-xkb
 shelly-xinput
