@@ -353,7 +353,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -423,8 +423,6 @@ you should place your code here."
 
   ;; Do case-sensitive searching.
 ;  (setq case-fold-search nil)
-
-  (evil-leader/set-key "/" 'spacemacs/helm-project-do-ag)
 
   ;; mouse scrolling in terminal.
   (global-set-key [mouse-4] 'scroll-down-line)
@@ -630,7 +628,6 @@ static char *gnus-pointer[] = {
 \"###....####.######\",
 \"###..######.######\",
 \"###########.######\" };")) t)
- '(helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -771,7 +768,6 @@ static char *gnus-pointer[] = {
 \"###....####.######\",
 \"###..######.######\",
 \"###########.######\" };")) t)
- '(helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
