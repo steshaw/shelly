@@ -8,7 +8,7 @@ let
     #
     #   git ls-remote https://github.com/tweag/ormolu master
     #
-    rev = "55d8b7f8c482655ea575425e55352e650f304ea0";
+    rev = "3fbc130a0962ab236d87711beae1895d84a68362";
   };
   ormolu = import source { pkgs = self; };
   # Seems that ormolu is now in nixpkgs, so disable.
