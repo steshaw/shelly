@@ -12,7 +12,7 @@ let
   };
   ormolu = import source { pkgs = self; };
   # Seems that ormolu is now in nixpkgs, so disable.
-  enable = false;
+  enable = true;
 in
 if enable
 then {

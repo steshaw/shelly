@@ -3,6 +3,7 @@
 set -euo pipefail
 
 revision='9b3515eb95d9b3bc033f43cd562fe2b14f9efd86'
+revision='10100a97c8964e82b30f180fda41ade8e6f69e41'
 
 base_url=https://github.com/nixos/nixpkgs/archive
 url=${base_url}/${revision}.tar.gz

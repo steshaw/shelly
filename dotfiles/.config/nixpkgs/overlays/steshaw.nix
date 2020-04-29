@@ -174,7 +174,7 @@ rec {
     hindent = broken self.haskellPackages.hindent;
     ghcid = self.haskellPackages.ghcid;
     ormolu = self.haskellPackages.ormolu;
-    brittany = self.haskellPackages.brittany;
+    brittany = broken self.haskellPackages.brittany; # Brittany seems broken :(
     hlint = self.haskellPackages.hlint;
 
     #
