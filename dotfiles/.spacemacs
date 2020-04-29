@@ -462,9 +462,11 @@ you should place your code here."
   (setq lsp-ui-doc-position 'top)
 
   ;;
-  ;; LSP for HIE
+  ;; LSP for Haskell
   ;;
 ;  (setq lsp-haskell-process-path-hie "hie")
+  (with-eval-after-load 'lsp-haskell
+    (lsp-haskell-set-config "formattingProvider" "ormolu"))
 
   ;;
   ;; LSP for ghcide
