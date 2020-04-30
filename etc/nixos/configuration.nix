@@ -82,7 +82,10 @@
     (
       let
         enable_hie = true;
-        u = "https://github.com/infinisil/all-hies/tarball/4b6aab017cdf96a90641dc287437685675d598da";
+        #r = "4b6aab017cdf96a90641dc287437685675d598da"; # Mar 13
+        #r = "92148680060ed68f24738128d8489f4f9387d2ff"; # Feb 2
+        r = "67227c42ab0b652775dbaf6401f8eff71f5d0c4f"; # Jan 30
+        u = "https://github.com/infinisil/all-hies/tarball/${r}";
         all-hies = import (fetchTarball u) {};
       in
       if enable_hie then all-hies.selection {
@@ -92,7 +95,7 @@
             ghc865
           ;
         };
-      } else cachix
+      } else {}
     )
     cachix
     haskell.compiler.ghc865
