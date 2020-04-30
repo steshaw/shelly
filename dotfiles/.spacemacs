@@ -464,9 +464,9 @@ you should place your code here."
   ;;
   ;; LSP for Haskell
   ;;
-;  (setq lsp-haskell-process-path-hie "hie")
-  (with-eval-after-load 'lsp-haskell
-    (lsp-haskell-set-config "formattingProvider" "ormolu"))
+  ; Currently using ormolu-hindent-adapter script.
+;  (with-eval-after-load 'lsp-haskell
+;    (lsp-haskell-set-config "formattingProvider" "ormolu"))
 
   ;;
   ;; LSP for ghcide
@@ -489,7 +489,6 @@ you should place your code here."
     (use-package lsp-haskell
       :ensure t
       :config
-      ;(setq lsp-haskell-process-path-hie "nix-shell --command ghcide")
       (setq lsp-haskell-process-path-hie "ghcide")
       (setq lsp-haskell-process-args-hie '())
       ; Comment/uncomment this line to see interactions between lsp client/server.
