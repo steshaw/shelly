@@ -101,6 +101,7 @@ rec {
       moreutils # ts and more
       mr
       mtr
+      ncdu # NCurses Disk Usage
       neofetch
       nodejs # Required for Coc.
       pandoc
