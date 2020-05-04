@@ -1,0 +1,13 @@
+- #australia
+- #coding
+- #firefox
+- #introduction
+- #mozillians
+- #mozpdx
+- #newbies
+- #rust
+- #rust-gamedev
+- #rust-internals
+- #rust-osdev
+- #seattle
+- #servo

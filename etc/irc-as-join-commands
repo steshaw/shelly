@@ -1,4 +1,0 @@
-#!/bin/bash
-
-channels=$(perl -ne 'if (/^  -/) {s/^  - //; s/\n/,/; print;}' irc.org | perl -pe 's/,$//')
-echo -e "join ${channels}"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+name=$1
+file="${SHELLY_HOME}/etc/irc/${name}.org"
+
+channels=$(perl -ne 'if (/^-/) {s/^- //; s/\n/,/; print;}' "${file}" | perl -pe 's/,$//')
+echo -e "/join ${channels}"
