@@ -532,9 +532,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
       ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
       ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
-   ;; Either nil or a number of seconds. If non-nil zone out after the specified
-   ;; number of seconds. (default nil)
-;   dotspacemacs-zone-out-when-idle nil
 
   ;;
   ;; UTF-8
