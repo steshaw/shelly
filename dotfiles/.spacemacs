@@ -90,7 +90,9 @@ This function should only modify configuration layer settings."
      terraform
      themes-megapack
      typescript
-     version-control
+     '(version-control :variables
+                       version-control-global-margin t
+                       version-control-diff-side 'left)
      vimscript
      yaml
      )
