@@ -528,10 +528,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;;
   ;; See https://github.com/d12frosted/elpa-mirror/blob/master/README.org#usage-with-spacemacs
   ;;
-  (setq configuration-layer-elpa-archives
-    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
-      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
-      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
+;  (setq configuration-layer-elpa-archives
+;    `(("melpa" . ,(concat user-home-directory ".elpa-mirror/melpa/"))
+;      ("org"   . ,(concat user-home-directory ".elpa-mirror/org/"))
+;      ("gnu"   . ,(concat user-home-directory ".elpa-mirror/gnu/"))))
 
   ;;
   ;; UTF-8
