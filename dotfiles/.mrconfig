@@ -30,9 +30,6 @@ checkout = git clone 'git@github.com:steshaw/plt' 'plt'
 [Code/steshaw/well-typed-1910T]
 checkout = git clone 'git@github.com:steshaw/well-typed-1910T.git' 'well-typed-1910T'
 
-[Code/steshaw/cv]
-checkout = git clone 'git@github.com:steshaw/cv' 'cv'
-
 [Code/steshaw/notes]
 checkout = git clone git@github.com:steshaw/notes
 
