@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# HT https://github.com/not-an-aardvark/git-delete-squashed
+#
+
+set -euo pipefail
+
+git checkout -q master
+git for-each-ref refs/heads/ --format='%(refname:short)' | while read -r branch; do
+  merge_base=$(git merge-base master "${branch}")
+  if [[ $(git cherry master $(git commit-tree $(git rev-parse "${branch}\^{tree}") -p "${merge_base}" -m _)) == "-"* ]]; then
+    echo git branch -D "${branch}"
+  fi
+done
