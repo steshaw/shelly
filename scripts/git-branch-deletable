@@ -8,7 +8,9 @@ set -euo pipefail
 git checkout -q master
 git for-each-ref refs/heads/ --format='%(refname:short)' | while read -r branch; do
   merge_base=$(git merge-base master "${branch}")
-  if [[ $(git cherry master $(git commit-tree $(git rev-parse "${branch}\^{tree}") -p "${merge_base}" -m _)) == "-"* ]]; then
+  branch_tree=$(git rev-parse "${branch}^{tree}")
+  commit_tree=$(git commit-tree "${branch_tree}" -p "${merge_base}" -m _)
+  if [[ $(git cherry master "${commit_tree}") == "-"* ]]; then
     echo git branch -D "${branch}"
   fi
 done
