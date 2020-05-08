@@ -34,10 +34,11 @@ if [[ $command = 'info' ]]; then
       exit 2
     fi
     pkg=$1
-    nix-env --query --available --attr "${pkg}" --description --json \
+    nix-env --query --available --json --attr "${pkg}" \
       | jq '."'"${pkg}"'".meta | {
           name,
           description,
+          longDescription,
           homepage,
           license
         }'
