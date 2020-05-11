@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-set -x
 
 device='Dell Dell Universal Receiver Mouse'
 xinput --set-prop "${device}" 'libinput Accel Profile Enabled' 1 0
