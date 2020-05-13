@@ -7,11 +7,11 @@
   alias = "!f() { git config --get-regexp "^alias.${1}$" ; }; f"
   aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
   co = checkout
-  ci = commit -v
-  cm = commit
+  ci = commit
   ls = ls-files
   st = status
   who = blame
+  annotate = blame
   tags = tag -l
   branches = branch -a
   tracking = branch -vv
@@ -27,7 +27,6 @@
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
   wdiff = diff --word-diff
   undo = reset HEAD^
-  ac = !git add -A && git commit
   l = log
   ll = log -p
   ff = pull --ff-only
@@ -73,6 +72,7 @@
   program = gnu-privacy-guard
 [commit]
   gpgsign = true
+	verbose = true
 
 [magithub]
   online = false
