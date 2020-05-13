@@ -101,6 +101,7 @@
     haskell.compiler.ghc865
     haskellPackages.brittany
     hlint
+    (if false then (import (builtins.fetchTarball "https://github.com/cachix/ghcide-nix/tarball/master") {}).ghcide-ghc865 else cachix)
   ];
 
   # ------------------------------------------------------------------------

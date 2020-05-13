@@ -634,7 +634,7 @@ you should place your code here."
   ;;
   ;; LSP for ghcide
   ;;
-  (setq ghcide-enabled nil); t for true
+  (setq ghcide-enabled nil) ; t for true
   (when ghcide-enabled
     (use-package flycheck
       :ensure t
@@ -654,8 +654,7 @@ you should place your code here."
       :config
       (setq lsp-haskell-process-path-hie "ghcide")
       (setq lsp-haskell-process-args-hie '())
-      ; Comment/uncomment this line to see interactions between lsp client/server.
-      ;(setq lsp-log-io t)
+      (setq lsp-log-io t) ; nil for less noise
     )
   )
 
