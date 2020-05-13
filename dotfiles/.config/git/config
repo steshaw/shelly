@@ -4,17 +4,26 @@
   signingkey = "0afe77f7474d1596ee557a291d9a17dfd23dcb91"
 
 [alias]
+  aa = add --all
   alias = "!f() { git config --get-regexp "^alias.${1}$" ; }; f"
   aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
-  co = checkout
-  ci = commit
-  ls = ls-files
-  st = status
-  who = blame
   annotate = blame
-  tags = tag -l
+  ap = add --patch
+  branch-upstream = rev-parse --abbrev-ref @{upstream}
   branches = branch -a
-  tracking = branch -vv
+  ci = commit
+  co = checkout
+  contributors = shortlog --summary --numbered --email --all
+  contributors-single = shortlog --summary --numbered --email
+  ff = pull --ff-only
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  l = log
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  ll = log -p
+  llog = log --date=local
+  ls = ls-files
+  pf = push --force-with-lease
+  pick = cherry-pick
   remotes = remote -v
   s = status --short --branch
   slog = log --oneline --decorate
@@ -22,22 +31,13 @@
   slogvI  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%aE %Creset%s'"
   slogvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%aE %Creset%s'"
   slogvvv  = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%aE %Creset%s'"
-  llog = log --date=local
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-  wdiff = diff --word-diff
+  st = status
+  tags = tag -l
+  tracking = branch -vv
   undo = reset HEAD^
-  l = log
-  ll = log -p
-  ff = pull --ff-only
-  pick = cherry-pick
-  pf = push --force-with-lease
-  aa = add --all
-  ap = add --patch
-  contributors = shortlog --summary --numbered --email --all
-  contributors-single = shortlog --summary --numbered --email
   untracked=ls-files --others --exclude-standard
-  branch-upstream = rev-parse --abbrev-ref @{upstream}
+  wdiff = diff --word-diff
+  who = blame
 
 [credential]
   helper = cache --timeout 36000
