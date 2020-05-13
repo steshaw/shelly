@@ -92,7 +92,6 @@ checkout =
 	  git remote add upstream git@github.com:NixOS/nix.git
 update = git sync-upstream-master
 
-
 [Code/NixOS/nixpkgs]
 checkout =
 	  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
