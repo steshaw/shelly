@@ -135,6 +135,7 @@ before layer configuration.
 It should only modify the values of Spacemacs settings."
 
   (setq-default custom-file "~/.emacs.d/private/custom.el")
+  (load custom-file)
 
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
