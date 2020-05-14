@@ -430,7 +430,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -592,8 +592,15 @@ you should place your code here."
   (global-set-key [mouse-4] 'scroll-down-line)
   (global-set-key [mouse-5] 'scroll-up-line)
 
-;  (spacemacs/toggle-fill-column-indicator-on)
-  (spacemacs/toggle-highlight-long-lines-globally-on)
+  (setq-default treemacs-position 'right)
+
+  ;; Activate column indicator in prog-mode and text-mode
+  (setq-default fill-column 100)
+  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+  (add-hook 'text-mode-hook 'turn-on-fci-mode)
+  ;(spacemacs/toggle-fill-column-indicator-on)
+
+  ;(spacemacs/toggle-highlight-long-lines-globally-on)
   (setq magit-repository-directories '("~/Code/steshaw/" "~/Code/"))
 
   ;; Use Spacemacs as the $GIT_EDITOR.
