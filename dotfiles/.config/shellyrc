@@ -96,7 +96,7 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias gitp='git push'
 alias gp='git push'
-alias gpf='git push --force-with-lease'
+alias gpfl='git push --force-with-lease'
 alias grh='git reset HEAD'
 alias gst='git status'
 
