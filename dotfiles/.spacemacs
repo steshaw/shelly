@@ -595,7 +595,7 @@ you should place your code here."
   (setq-default treemacs-position 'right)
 
   ;; Activate column indicator in prog-mode and text-mode
-  (setq-default fill-column 100)
+  (setq-default fill-column 80)
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   (add-hook 'text-mode-hook 'turn-on-fci-mode)
   ;(spacemacs/toggle-fill-column-indicator-on)
