@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+rm -rf /run/user/1000/bios-wrapper* /run/user/1000/ghc* /run/user/1000/haskell-lsp* /run/user/1000/nix-shell-* /run/user/1000/coc-nvim-*
