@@ -663,8 +663,7 @@ you should place your code here."
       (setq lsp-haskell-process-path-hie "ghcide")
       (setq lsp-haskell-process-args-hie '())
       (setq lsp-log-io t) ; nil for less noise
-    )
-  )
+    ))
 
   (setq org-directory "~/Code/steshaw/notes/")
 
@@ -732,6 +731,23 @@ you should place your code here."
         org-fontify-whole-heading-line t
         org-fontify-done-headline t
         org-fontify-quote-and-verse-blocks t)
+
+  ;;
+  ;; Customise sql-indent
+  ;;
+  (require 'sql-indent)
+
+  (defvar my-sql-indentation-offsets-alist
+    `((select-clause 0)
+      (insert-clause 0)
+      (delete-clause 0)
+      (update-clause 0)
+      ,@sqlind-default-indentation-offsets-alist))
+
+  (add-hook 'sqlind-minor-mode-hook
+            (lambda ()
+              (setq sqlind-indentation-offsets-alist
+                    my-sql-indentation-offsets-alist)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
