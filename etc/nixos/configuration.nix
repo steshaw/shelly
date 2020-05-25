@@ -43,6 +43,8 @@
   services.eternal-terminal.enable = true;
   services.keybase.enable = true;
 
+  services.tailscale.enable = true;
+
   # ------------------------------------------------------------------------
   # Network proxy
   # ------------------------------------------------------------------------
@@ -70,6 +72,8 @@
     poppler # For Emacs pdf-tools — Spacemacs pdf layer.
     vim
     wget
+
+    tailscale
 
     #
     # Haskell packages.
