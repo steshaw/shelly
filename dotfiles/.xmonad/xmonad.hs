@@ -53,12 +53,14 @@ myKeys =
 myBasicConfig = def
   { modMask = myModMask
   , terminal = myTerminal
-  , workspaces = myWorkspaces
+  , layoutHook = layoutHook def ||| simpleTabbed ||| threeCol ||| stackTile
+  , manageHook = manageHook def <+> myManageHook
+
+  -- TODO: Share this configuration.
   , borderWidth = 2
   , normalBorderColor  = myNormalBorderColor
   , focusedBorderColor = myFocusedBorderColor
-  , layoutHook = layoutHook def ||| simpleTabbed ||| threeCol ||| stackTile
-  , manageHook = manageHook def <+> myManageHook
+  , workspaces = myWorkspaces
   }
   `additionalKeys` myKeys
 
@@ -78,6 +80,7 @@ myMateConfig = mateConfig
   { modMask = myModMask
   , terminal = myTerminal
   , layoutHook = layoutHook mateConfig ||| simpleTabbed ||| threeCol ||| stackTile
+  , manageHook = manageHook def <+> myManageHook
 
   -- TODO: Share this configuration.
   , borderWidth = 2
@@ -87,8 +90,7 @@ myMateConfig = mateConfig
   }
   `additionalKeys` myKeys
   where
-    myKeys = [ ((myModMask, xK_Print), spawn "mate-screenshot")]
-    myModMask = mod4Mask
+    -- myKeys = [ ((myModMask, xK_Print), spawn "mate-screenshot")]
 
 data MyConfig = Basic | KDE | MATE
 
