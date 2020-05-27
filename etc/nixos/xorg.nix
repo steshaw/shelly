@@ -14,14 +14,14 @@
 
     displayManager.sddm.enable = true;
 
-    # Enable the KDE Desktop Environment.
+    # Enable the KDE Desktop Environment?
     desktopManager.plasma5.enable = false;
 
-    # Enable the Gnome 3 Desktop Environment.
+    # Enable the Gnome 3 Desktop Environment?
     desktopManager.gnome3.enable = false;
 
-    # Enable MATE.
-    desktopManager.mate.enable = true;
+    # Enable MATE?
+    desktopManager.mate.enable = false;
 
     # Xmonad
     windowManager.xmonad.enable = true;
@@ -42,16 +42,16 @@
     dropbox
     firefox
     libinput
-    lxqt.pavucontrol-qt
+    lxqt.pavucontrol-qt # Audio controls.
     rescuetime
-    slack
+    #slack
 
     #
     # Terminals.
     #
     alacritty
-    kitty
-    konsole
+    #kitty
+    #konsole
 
     # KDE apps.
     gwenview # Image viewer.
@@ -70,7 +70,6 @@
     xdotool
     xorg.mkfontdir
     xorg.mkfontscale
-    xorg.xev
     xorg.xev
     xorg.xmodmap
     xorg.xrandr
