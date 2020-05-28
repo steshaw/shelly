@@ -44,6 +44,7 @@
   services.keybase.enable = true;
 
   services.tailscale.enable = true;
+  services.lorri.enable = true;
 
   # ------------------------------------------------------------------------
   # Network proxy
