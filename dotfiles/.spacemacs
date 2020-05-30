@@ -86,9 +86,8 @@ This function should only modify configuration layer settings."
      shell-scripts
      slack
      sml
-     spell-checking
-;     (spell-checking
-;      :variables enable-flyspell-auto-completion t)
+     (spell-checking
+      :variables enable-flyspell-auto-completion t)
      sql
      syntax-checking
      terraform
@@ -275,7 +274,9 @@ It should only modify the values of Spacemacs settings."
    ;;
    ;; Test symbols: -> >>=
    ;;
-   dotspacemacs-default-font '("FiraCode" ; "Source Code Pro"
+   ;dotspacemacs-default-font '("FiraCode Nerd Font" ; "Source Code Pro"
+   ;dotspacemacs-default-font '("FuraCode Nerd Font Mono"
+   dotspacemacs-default-font '("FiraCode Nerd Font Mono"
                                :size 15
                                :weight normal
                                :width normal
@@ -550,8 +551,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 ;  (set-default-coding-systems 'utf-8)
 ;  (set-selection-coding-system 'utf-8)
 ;  (prefer-coding-system 'utf-8)
-
-;  (setq-default default-tab-width 2)
   )
 
 (defun dotspacemacs/user-load ()
@@ -620,11 +619,16 @@ you should place your code here."
     (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
   ;; Hunspell
-  (with-eval-after-load "ispell"
-    (setenv "DICTIONARY" "en_GB")
-    (setq ispell-program-name "hunspell")
-    (setq ispell-really-hunspell t)
-    ;(setq ispell-dictionary "en_GB")
+  (when nil
+    (with-eval-after-load "ispell"
+      (setenv "DICPATH"
+              (concat user-home-directory "/.nix-profile/share/hunspell"))
+      (setq ispell-program-name (executable-find "hunspell"))
+      ;(setq ispell-program-name "hunspell")
+      (setq ispell-really-hunspell t)
+      ;(setq ispell-dictionary "en_GB")
+      (ispell-change-dictionary "en_GB" t)
+      )
     )
 
   ;;
