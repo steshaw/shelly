@@ -70,11 +70,11 @@
     direnv
     git
     neovim
+    nix-index
     poppler # For Emacs pdf-tools — Spacemacs pdf layer.
+    tailscale
     vim
     wget
-
-    tailscale
 
     #
     # Haskell packages.
