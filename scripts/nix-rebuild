@@ -9,9 +9,7 @@ revision='6bcb1dec8ea16f20e6404631668cf69e76424eef'
 base_url=https://github.com/nixos/nixpkgs/archive
 url=${base_url}/${revision}.tar.gz
 
-set -x
 NIX_PATH=nixpkgs=${url} nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
-set +x
 
 exit
 
