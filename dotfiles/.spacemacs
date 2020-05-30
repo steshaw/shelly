@@ -552,10 +552,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 ;  (set-selection-coding-system 'utf-8)
 ;  (prefer-coding-system 'utf-8)
 
+  ;; Hunspell
   (setenv "DICTIONARY" "en_GB")
   (setenv "DICPATH"
           (concat user-home-directory "/.nix-profile/share/hunspell"))
-  (setq ispell-program-name (executable-find "hunspell"))
   )
 
 (defun dotspacemacs/user-load ()
@@ -622,36 +622,6 @@ you should place your code here."
 
   (with-eval-after-load 'intero
     (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
-
-  ;; Hunspell
-  (when nil
-    (with-eval-after-load "ispell"
-      (when t
-        (setenv "DICPATH"
-                (concat user-home-directory "/.nix-profile/share/hunspell")))
-      (setq ispell-program-name (executable-find "hunspell"))
-
-      ;(setq ispell-program-name "hunspell")
-      ;(setq ispell-really-hunspell t)
-      ;(setq ispell-dictionary "en_GB")
-      ;(ispell-change-dictionary "en_GB" t)
-      )
-    )
-
-  (when nil
-    (setq ispell-hunspell-dict-paths-alist
-          '(("british" "/home/steshaw/.nix-profile/share/hunspell/en_GB.aff")
-            ("en_GB" "/home/steshaw/.nix-profile/share/hunspell/en_GB.aff")))
-
-    (setq ispell-hunspell-dictionary-alist
-          '(("en_GB" "[[:alpha:]]" "[^[:alpha:]]" "[0-9]" t
-             ("-d" "en_GB")
-             nil utf-8)
-            ("british")
-            (nil "[[:alpha:]]" "[^[:alpha:]]" "[0-9]" t
-                 ("-d" "en_GB")
-                 nil utf-8)))
-    )
 
   ;;
   ;; LSP
