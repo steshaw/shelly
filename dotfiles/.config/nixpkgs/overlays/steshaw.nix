@@ -89,7 +89,6 @@ rec {
       fd
       file
       fzf
-      gist
       hledger
       htop
       httpie
