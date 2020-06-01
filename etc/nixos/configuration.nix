@@ -204,11 +204,12 @@
   # Fonts
   # ------------------------------------------------------------------------
   fonts.fonts = with pkgs; [
-    noto-fonts-emoji
-    font-awesome_5
-    source-code-pro
+    corefonts
     fira-code
+    font-awesome_5
     nerdfonts
+    noto-fonts-emoji
+    source-code-pro
   ];
 
   # ------------------------------------------------------------------------
