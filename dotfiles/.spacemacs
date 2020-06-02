@@ -86,8 +86,9 @@ This function should only modify configuration layer settings."
      shell-scripts
      slack
      sml
+
      (spell-checking
-      :variables enable-flyspell-auto-completion t)
+      :variables enable-flyspell-auto-completion nil)
      sql
      syntax-checking
      terraform
