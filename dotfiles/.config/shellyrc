@@ -84,6 +84,7 @@ alias pj='pijul'
 
 alias k8s='kubectl'
 alias kube='kubectl'
+alias bj='jq | bat --language=json'
 
 alias clear='clear -x'
 
