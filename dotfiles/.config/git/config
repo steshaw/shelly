@@ -13,6 +13,7 @@
   branches = branch -a
   ci = commit
   co = checkout
+  cd = checkout
   contributors = shortlog --summary --numbered --email --all
   contributors-single = shortlog --summary --numbered --email
   ff = pull --ff-only
