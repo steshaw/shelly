@@ -90,7 +90,8 @@
         #r = "4b6aab017cdf96a90641dc287437685675d598da"; # Mar 13
         #r = "92148680060ed68f24738128d8489f4f9387d2ff"; # Feb 2
         #r = "67227c42ab0b652775dbaf6401f8eff71f5d0c4f"; # Jan 30
-        r = "master";
+        # haskell.nix branch, Jun 8, 2020.
+        r = "815746252771eb7e745b03920a239324398ce79f";
         u = "https://github.com/infinisil/all-hies/tarball/${r}";
         all-hies = import (fetchTarball u) {};
       in
