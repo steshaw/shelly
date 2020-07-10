@@ -121,7 +121,6 @@ rec {
       wget
       youtube-dl
     ;
-    pinentry = if self.stdenv.isDarwin then self.pinentry_mac else self.pinentry;
     lab = self.gitAndTools.lab;
     gitmoji = self.nodePackages.gitmoji-cli;
 
