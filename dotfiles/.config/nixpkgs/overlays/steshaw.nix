@@ -20,6 +20,7 @@ self: super:
 let
   notDarwin = pkg: if self.stdenv.isDarwin then {} else pkg;
   broken = pkg: if false then pkg else {};
+  avoid = pkg: if false then pkg else {};
 in
 with builtins;
 rec {
@@ -135,34 +136,16 @@ rec {
     hunspell = super.hunspell;
     hunspell-en-gb = super.hunspellDicts.en-gb-large;
     neovim = self.neovim;
-
-    # Vim with Python3 for vim-orgmode support.
-    vim_ = if false then null else (
-      let enableVim = true;
-      in
-      if enableVim
-      then ((self.vim_configurable.override {
-        guiSupport = "no";
-        darwinSupport = self.stdenv.isDarwin;
-        python = self.python3;
-      }).overrideAttrs (prevAttrs: {
-        name = "my-vim-${prevAttrs.version}";
-      }))
-      else {}
-    );
-    # Required for Vim's Neovim compatibility.
-    python3 = self.python3.withPackages (
-      ps: with ps; [ pynvim numpy toolz ]
-    );
+    python = self.python;
 
     #
     # Programming Languages.
     #
     agda = broken self.haskellPackages.Agda;
     ats2 = notDarwin self.ats2; # Broken on macOS.
-    coq = if false then self.coq else {};
+    coq = avoid self.coq;
     idris = broken self.idris;
-    rustup = if true then self.rustup else {};
+    rustup = avoid self.rustup;
 
     # Haskell.
     ghc865 = if true then "" else self.haskell.compiler.ghc865;
@@ -174,7 +157,7 @@ rec {
     hindent = broken self.haskellPackages.hindent;
     ghcid = self.haskellPackages.ghcid;
     ormolu = self.haskellPackages.ormolu;
-    brittany = broken self.haskellPackages.brittany; # Brittany seems broken :(
+    brittany = self.haskellPackages.brittany; # Brittany seems broken :(
     hlint = self.haskellPackages.hlint;
 
     #
