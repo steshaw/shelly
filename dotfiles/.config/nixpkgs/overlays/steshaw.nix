@@ -153,10 +153,10 @@ rec {
       stack
     ;
     pointfree = broken self.haskellPackages.pointfree;
-    hindent = broken self.haskellPackages.hindent;
+    hindent = avoid self.haskellPackages.hindent;
     ghcid = self.haskellPackages.ghcid;
     ormolu = self.haskellPackages.ormolu;
-    brittany = self.haskellPackages.brittany; # Brittany seems broken :(
+    brittany = avoid self.haskellPackages.brittany;
     hlint = self.haskellPackages.hlint;
 
     #
