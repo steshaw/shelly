@@ -106,6 +106,7 @@ rec {
       nodejs # Required for Coc.
       pandoc
       peco
+      pstree
       pup
       python2
       ripgrep
