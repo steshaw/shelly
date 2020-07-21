@@ -115,7 +115,7 @@ if [[ $ZSH_THEME == avit ]]; then
   }
 
   PROMPT='
-%{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(_shell) $(git_prompt_info) $(_ruby_version)
+%{$fg[$CARETCOLOR]%}╭─$(_user_host):$(_current_dir) $(_shell) $(git_prompt_info)
 %{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f%{$(iterm2_prompt_end)%}'
 #%{$(iterm2_prompt_mark)%}%{$fg[$CARETCOLOR]%}╰─${CARET}%{$resetcolor%} %f'
   PROMPT2='%{$fg[$CARETCOLOR]%}${CARET2}%{$reset_color%} '
