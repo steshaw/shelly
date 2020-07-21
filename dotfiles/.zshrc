@@ -74,11 +74,12 @@ CASE_SENSITIVE='true'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  direnv
   git
   github
+  kube-ps1
   vi-mode
   zsh-completions
-  kube-ps1
 )
 
 source $ZSH/oh-my-zsh.sh
