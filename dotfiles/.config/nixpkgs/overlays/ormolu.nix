@@ -1,27 +1,19 @@
-# This overlay adds Ormolu straight from GitHub.
 self: super:
 let
-  source = builtins.fetchGit {
-    url = "https://github.com/tweag/ormolu";
-    #
-    # Find the latest rev with
-    #
-    #   git ls-remote https://github.com/tweag/ormolu master
-    #
-    rev = "3fbc130a0962ab236d87711beae1895d84a68362";
+  source = super.fetchFromGitHub {
+    owner = "tweag";
+    repo = "ormolu";
+    rev = "de279d80122b287374d4ed87c7b630db1f157642"; # 0.1.2.0
+    sha256 = "0qrxfk62ww6b60ha9sqcgl4nb2n5fhf66a65wszjngwkybwlzmrv"; # as well
   };
   ormolu = import source { pkgs = self; };
-  # Seems that ormolu is now in nixpkgs, so disable.
-  enable = true;
 in
-if enable
-then {
+{
   haskell = super.haskell // {
     packages = super.haskell.packages // {
-      "${ormolu.ormoluCompiler}" =
-        super.haskell.packages.${ormolu.ormoluCompiler}.override {
-          overrides = ormolu.ormoluOverlay;
-        };
+      "${ormolu.ormoluCompiler}" = super.haskell.packages.${ormolu.ormoluCompiler}.override {
+        overrides = ormolu.ormoluOverlay;
+      };
     };
   };
-} else {}
+}
