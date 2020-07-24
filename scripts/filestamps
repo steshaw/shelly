@@ -7,8 +7,10 @@
 
 set -euo pipefail
 
-for file in "$@"; do
-  mod_epoch=$(stat --format=%Y "${file}")
+for file_path in "$@"; do
+  mod_epoch=$(stat --format=%Y "${file_path}")
   prefix=$(date "--date=@${mod_epoch}" --utc +%Y-%m-%d-%H%M%S)
-  mv -i "${file}" "${prefix}-${file}"
+  dir_name=$(dirname "$file_path")
+  file_name=$(basename "$file_path")
+  mv -iv "${file_path}" "${dir_name}/${prefix}-${file_name}"
 done
