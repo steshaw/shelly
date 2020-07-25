@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-ssh-keygen -t rsa -b 4096 -C "steven@steshaw.org"
-#ssh-keygen -t rsa -b 4096 -C "${USER}@$(hostname)"
+ssh-keygen -t rsa -b 4096 -C "${USER}@$(hostname -s)"
