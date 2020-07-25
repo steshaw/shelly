@@ -82,7 +82,18 @@ plugins=(
   zsh-completions
 )
 
-source $ZSH/oh-my-zsh.sh
+function myMultilinePrompt() {
+#  local prompt_char="z%(#:#:$)"
+  local prompt_char="%(#:#:$)"
+  local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
+  PROMPT="
+$fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ \$(git_prompt_info)
+$fg[green]╰─${exit_status}%{$reset_color%} "
+}
+
+if [[ -r $ZSH/oh-my-zsh.sh ]]; then
+  source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration {{{
 
@@ -183,14 +194,6 @@ export PAGER='less --quit-if-one-screen --no-init'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-function myMultilinePrompt() {
-  local prompt_char="z%(#:#:$)"
-  local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
-  PROMPT=$"
-$fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~ \$(git_prompt_info)
-$fg[green]╰─${exit_status}%{$reset_color%} "
-}
-
 # Set up bash completion.
 # This bash completion set up is in ~/.zprofile too but this is required here
 # for the times we are in bash and type `zsh` rather than `zsh --login`.
@@ -200,6 +203,14 @@ autoload -U +X bashcompinit && bashcompinit
 # FIXME: Seemingly have to source this from the .zshrc for it to work.
 sourceExists ~/.profile.d/haskell-stack
 sourceExists ~/.profile.d/google-cloud-sdk
+
+if [[ ! -r $ZSH/oh-my-zsh.sh ]]; then
+  local prompt_char="%(#:#:$)"
+  local exit_status="%(?:%{$fg_bold[green]%}${prompt_char}:%{$fg_bold[red]%}${prompt_char}%s)"
+  PROMPT="
+$fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~
+$fg[green]╰─${exit_status}%{$reset_color%} "
+fi
 
 # shellcheck source=scripts/shrc
 source $SHELLY_HOME/dotfiles/.config/shellyrc
