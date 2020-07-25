@@ -277,7 +277,7 @@ It should only modify the values of Spacemacs settings."
    ;;
    ;dotspacemacs-default-font '("FiraCode Nerd Font" ; "Source Code Pro"
    ;dotspacemacs-default-font '("FuraCode Nerd Font Mono"
-   dotspacemacs-default-font '("FiraCode Nerd Font Mono"
+   dotspacemacs-default-font '("FiraCode Nerd Font"
                                :size 15
                                :weight normal
                                :width normal
