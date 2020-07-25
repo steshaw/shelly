@@ -12,12 +12,21 @@ $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstr
 
 This downloads this repo and links my dotfiles.
 
-For a more complete environment:
+For a more complete environment, follow this by:
+
+1. Install Nix and Homebrew on macOS
 
 - Install [[https://brew.sh][Homebrew]] and [[https://nixos.org/nix][Nix]] on macOS.
 - Install [[https://nixos.org/nix][Nix]] on Linux. If you're on NixOS, we're sweet.
 
-and then run:
+2. Generate a new SSH and add to GitHub
+
+#+begin_src bash session
+$ generate-ssh-key
+$ github-add-key
+#+end_src
+
+3. Run post-bootstrap
 
 #+begin_src bash session
 $ post-bootstrap
