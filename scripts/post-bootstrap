@@ -25,11 +25,6 @@ else
   brew bundle --global
 fi
 
-echo
-echo 'Upgrading Haskell Stack ...'
-# 'n' for no sudo
-stack upgrade <<< "n"
-
 # Thinking that this isn't required any longer.
 if false; then
   if [[ $(uname) == Darwin ]]; then
