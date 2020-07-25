@@ -14,10 +14,19 @@ This downloads this repo and links my dotfiles.
 
 For a more complete environment, follow this by:
 
-1. Install Nix and Homebrew on macOS
+1. Install Nix. Plus Homebrew on macOS
 
-- Install [[https://brew.sh][Homebrew]] and [[https://nixos.org/nix][Nix]] on macOS.
+On macOS, install [[https://brew.sh][Homebrew]] and [[https://nixos.org/nix][Nix]].
+
+#+begin_src bash session
+$ sh <(curl -fsSL https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
+#+end_src
+
 - Install [[https://nixos.org/nix][Nix]] on Linux. If you're on NixOS, we're sweet.
+
+#+begin_src bash session
+$ sh <(curl -fsSL https://nixos.org/nix/install) --daemon
+#+end_src
 
 2. Generate a new SSH and add to GitHub
 
