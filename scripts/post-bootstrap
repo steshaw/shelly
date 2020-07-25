@@ -2,37 +2,12 @@
 
 set -euo pipefail
 
-# Not sure that we need the following.
-if false; then
-  binDir=$(dirname "$0")
-  shellyDir=$(dirname "${binDir}")
-  cd "$shellyDir"
-fi
-
-if [[ -f /etc/NIXOS || -f ~/.nix-channels ]]; then
-  # Install steshaw.nix userPackages overlay.
-  echo 'Installing userPackages overlay ...'
-  nix-env -f '<nixpkgs>' -r -iA userPackages
-else
-  # Use Homebrew
-  echo 'Installing Homebrew ...'
-  install-brew
-
-  echo
-  echo 'Installing brews ...'
-  # shellcheck disable=SC1090
-  source ~/.profile.d/000-linuxbrew
+if [[ $(uname) == Darwin ]]; then
+  echo 'Brewing ...'
   brew bundle --global
 fi
 
-# Thinking that this isn't required any longer.
-if false; then
-  if [[ $(uname) == Darwin ]]; then
-    echo
-    create-xterm-24bit
-  fi
+if [[ -n $NIX_PROFILES ]]; then
+  echo 'Installing Nix user packages ...'
+  nix-rebuild
 fi
-
-echo
-echo 'Add key to ssh-agent if required ...'
-ssh-add -l | grep -q ~/.ssh/id_rsa || ssh-add ~/.ssh/id_rsa

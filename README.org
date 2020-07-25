@@ -4,23 +4,21 @@ My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and---once upon a time---
 
 ** Installation
 
-I bootstrap on a new machine like this:
+I bootstrap my dotfiles on a new machine like this:
 
 #+begin_src bash session
-  $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
+$ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
-After that, I tend to run start a new shell to ensure all shell dotfiles are
-installed correctly and run [[scripts/post-bootstrap][post-bootstrap]]:
+For a more complete environment:
+
+- Install Homebrew and Nix on macOS.
+- Install Nix on Linux.
+
+and run:
 
 #+begin_src bash session
-  $ post-bootstrap
+$ post-bootstrap
 #+end_src
-
-This installs either:
-
-- A Nix overlay.
-- [[https://brew.sh/][Homebrew]]/[[https://linuxbrew.sh/][Linuxbrew]]
-  and all packages from [[dotfiles/.Brewfile][~/.Brewfile]].
 
 Then clones all my git repositories via [[https://myrepos.branchable.com/][myrepos]].
