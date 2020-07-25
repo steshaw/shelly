@@ -29,6 +29,12 @@ if isBash; then
 fi
 
 sourceExists /etc/skel/.bashrc
+
+
+# iTerm2 integration.
+iterm2_prompt_mark() {
+  true
+}
 sourceExists ~/.iterm2_shell_integration.bash
 
 #

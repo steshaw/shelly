@@ -28,6 +28,12 @@ simple_prompt() {
 #
 # Bring in git-prompt.
 #
+__git_ps1() {
+  p1=$1
+  p2=$2
+  p3=$3
+  PS1="${p1}${p2}"
+}
 trySource ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ||
   trySource /etc/bash_completion.d/git-prompt.sh ||
   trySource /usr/share/git/git-prompt.sh || # MSYS2
