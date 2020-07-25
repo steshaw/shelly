@@ -31,7 +31,7 @@ if OS.mac?
   cask "kindle"
   cask "lastpass"
   cask "mkchromecast"
-  cask "rescuetime"
+  cask "rescuetime" if false
   cask "signal"
   cask "skype"
   cask "slack"
@@ -42,6 +42,8 @@ if OS.mac?
   cask "zotero"
   cask "zulip"
   cask 'docker'
+  mas 'Adblock Plus', id: 1432731683
+  mas 'Octotree Pro', id: 1457450145
 end
 
 # vim: filetype=ruby

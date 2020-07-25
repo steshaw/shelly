@@ -1,6 +1,6 @@
 * Shelly
 
-My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and---once upon a time---a simple package system.
+My [[dotfiles][dotfiles]], [[scripts][shell scripts]].
 
 ** Installation
 
@@ -10,15 +10,17 @@ I bootstrap my dotfiles on a new machine like this:
 $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
+This downloads this repo and links my dotfiles.
+
 For a more complete environment:
 
-- Install Homebrew and Nix on macOS.
-- Install Nix on Linux.
+- Install [[https://brew.sh][Homebrew]] and [[https://nixos.org/nix][Nix]] on macOS.
+- Install [[https://nixos.org/nix][Nix]] on Linux. If you're on NixOS, we're sweet.
 
-and run:
+and then run:
 
 #+begin_src bash session
 $ post-bootstrap
 #+end_src
 
-Then clones all my git repositories via [[https://myrepos.branchable.com/][myrepos]].
+This will install packages and clone my Git repos.

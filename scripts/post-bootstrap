@@ -7,7 +7,8 @@ if [[ $(uname) == Darwin ]]; then
   brew bundle --global
 fi
 
-if [[ -n $NIX_PROFILES ]]; then
-  echo 'Installing Nix user packages ...'
-  nix-rebuild
-fi
+echo 'Installing Nix user packages ...'
+nix-rebuild
+
+echo 'Doing myrepos checkout ...'
+mr --directory "$HOME" checkout
