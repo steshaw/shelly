@@ -49,21 +49,28 @@ if [[ $enable_exa -ne 0 ]] && has exa; then
 else
   if [[ $enable_lsd -ne 0 ]] && has lsd; then
     alias ls=lsd
+    alias l='ls -l --human-readable'
+    alias ll='l --almost-all'
+    alias la='l --all'
   elif ls --color >/dev/null 2>&1; then
     # GNU ls.
     alias ls='ls --color --classify'
+    alias l='ls -l --human-readable'
+    alias ll='l --almost-all'
+    alias la='l --all'
   else
     # macOS/Darwin/BSD ls.
     export CLICOLOR=
-    eval "$(dircolors)"
-    LSCOLORS=$(gnu2bsd-colors)
-    export LSCOLORS
+    if has dircolors; then
+      eval "$(dircolors)"
+      LSCOLORS=$(gnu2bsd-colors)
+      export LSCOLORS
+    fi
     alias ls='ls -F'
+    alias l='ls -l -h'
+    alias ll='l -A'
+    alias la='l -a'
   fi
-
-  alias l='ls -l --human-readable'
-  alias ll='l --almost-all' # and prefer -A to -a. Don't need '.' and '..' often.
-  alias la='l --all'
 fi
 
 alias wi='type -ap' # Where are all matching commands on PATH.
