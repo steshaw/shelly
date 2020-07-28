@@ -1,14 +1,12 @@
 #
-# Usage: brew bundle --global
+# Usage: brew bundle install --global
 #
 
+
 if OS.mac?
-  #tap "homebrew/bundle"
-  #tap "homebrew/cask"
-  #tap "homebrew/cask-fonts"
-  #tap "homebrew/cask-versions"
-  #tap "homebrew/core"
-  #tap "homebrew/services"
+  tap "homebrew/bundle"
+  tap "homebrew/cask-fonts"
+  tap "homebrew/core"
   tap "railwaycat/emacsmacport"
   brew "dnsmasq", restart_service: true
   cask "amethyst"
@@ -20,22 +18,20 @@ if OS.mac?
   cask "emacs-mac-spacemacs-icon"
   cask "firefox"
   cask "flux"
-  cask "font-firacode-nerd-font"
+  cask "font-fira-code-nerd-font"
   cask "google-chrome"
   cask "google-cloud-sdk"
-  cask "google-drive-file-stream"
+  cask "google-drive-file-stream" if false # Never use this...
   cask "grammarly"
   cask "iterm2"
   cask "karabiner-elements"
   cask "keybase"
   cask "kindle"
   cask "lastpass"
-  cask "mkchromecast"
-  cask "rescuetime" if false
+  cask "rescuetime"
   cask "signal"
   cask "skype"
   cask "slack"
-  cask "soundflower"
   cask "spectacle"
   cask "visual-studio-code"
   cask "vlc"
