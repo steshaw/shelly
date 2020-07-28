@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+${SCRIPT_DEBUG:-}
 
 revision='ccf92d9702aecca6d5d696cccc0781ca41bcb863'
 
