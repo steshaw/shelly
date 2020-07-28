@@ -36,8 +36,9 @@ cask "zotero"
 cask "zulip"
 mas "Adblock Plus", id: 1432731683
 mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Octotree Pro", id: 1457450145
 mas "Pages", id: 409201541
+mas "Tailscale", id: 1475387142
+mas "iMovie", id: 408981434
