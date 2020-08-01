@@ -6,6 +6,9 @@
 
 Echo "Executing shrc"
 
+# Set umask to 077. No default group or other access.
+umask go-rwx
+
 # =========================================================================
 
 setEditor() {
