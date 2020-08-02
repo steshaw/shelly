@@ -85,7 +85,7 @@ rec {
       dbxcli # Defined in overlay/dbxcli.nix
       direnv
       dos2unix
-      eternal-terminal-5 # from ./eternal-terminal-5.nix
+      eternal-terminal
       exa
       fd
       file
