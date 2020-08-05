@@ -4,6 +4,8 @@
 
 { config, pkgs, ... }:
 
+let enableTailscale = false;
+in
 {
   imports =
     [ ./hardware-configuration.nix
@@ -43,7 +45,7 @@
   services.eternal-terminal.enable = true;
   services.keybase.enable = true;
 
-  services.tailscale.enable = true;
+  services.tailscale.enable = enableTailscale;
   services.lorri.enable = true;
 
   # ------------------------------------------------------------------------
@@ -72,7 +74,7 @@
     neovim
     nix-index
     poppler # For Emacs pdf-tools — Spacemacs pdf layer.
-    tailscale
+    (if enableTailscale then tailscale else git)
     vim
     wget
 
