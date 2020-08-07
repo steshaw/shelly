@@ -213,12 +213,6 @@ autocmd FileType org set spell " FIXME: Doesn't work for org mode.
 autocmd BufNewFile,BufRead .mrconfig set filetype=toml
 autocmd BufNewFile,BufRead .Brewfile set filetype=ruby
 
-" https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
-inoremap jj <esc>
-inoremap kk <esc>
-inoremap jk <esc>
-inoremap kj <esc>
-
 nnoremap <Leader><space> :nohlsearch<Enter>
 
 " ==========================================================================
