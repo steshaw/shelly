@@ -148,7 +148,7 @@ rec {
     rustup = avoid self.rustup;
 
     # Haskell.
-    ghc865 = if true then "" else self.haskell.compiler.ghc865;
+    ghc865 = self.haskell.compiler.ghc865;
     inherit (self)
       cabal-install
       stack
