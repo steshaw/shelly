@@ -45,6 +45,7 @@
     lxqt.pavucontrol-qt # Audio controls.
     rescuetime
     #slack
+    vscode
 
     #
     # Terminals.
