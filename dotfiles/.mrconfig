@@ -38,21 +38,6 @@ checkout = git clone 'https://github.com/junegunn/fzf.git' '.fzf'
 # FLOSS
 # --------------------------------------------------------------------------
 
-[Code/kowainik/summoner]
-checkout = git clone 'git@github.com:kowainik/summoner' 'summoner'
-
-[Code/kowainik/hit-on]
-checkout = git clone 'git@github.com:kowainik/hit-on' 'hit-on'
-
-[Code/ghc/ghc/ghc.nix]
-checkout = git clone 'https://github.com/alpmestan/ghc.nix' 'ghc.nix'
-
-[Code/ghc/ghc]
-checkout = git clone 'https://gitlab.haskell.org/ghc/ghc.git' 'ghc'
-
-[Code/granule-project/granule]
-checkout = git clone 'git@github.com:granule-project/granule' 'granule'
-
 [Code/NixOS/nix]
 checkout = git clone 'git@github.com:NixOS/nix' 'nix'
 
@@ -63,11 +48,11 @@ checkout =
 	  git remote add upstream git@github.com:idris-lang/Idris-dev.git
 update = git sync-upstream-master
 
-[Code/edwinb/Idris2]
+[Code/idris-lang/Idris2]
 checkout =
 	  git clone git@github.com:steshaw/Idris2 Idris2
 	  cd Idris2
-	  git remote add upstream git@github.com:edwinb/Idris2.git
+	  git remote add upstream git@github.com:idris-lang/Idris2.git
 update = git sync-upstream-master
 
 [Code/NixOS/nix]
