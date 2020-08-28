@@ -64,6 +64,7 @@ rec {
       # Git.
       git
       gti # Humourous wrapper for git.
+      darcs
 
       #
       # Security
