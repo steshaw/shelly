@@ -31,9 +31,12 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # TODO: Perhaps swapfile's are not compatible with ZFS.
-#  swapDevices = [ { device = "/var/swapfile"; size = 32768; } ];
-#  boot.resumeDevice = "rpool/root/nixos";
+  # FIXME: Perhaps swap files are not compatible with ZFS?
+#  swapDevices = [{
+#    device = "/var/swap";
+#    size = 32768; # MiB
+#  }];
+  #boot.resumeDevice = "rpool/root/nixos";
 
   time.timeZone = "Australia/Brisbane";
 
@@ -77,10 +80,12 @@ in
     git
     neovim
     nix-index
+    perl
     poppler # For Emacs pdf-tools — Spacemacs pdf layer.
-    (if enableTailscale then tailscale else git)
     vim
     wget
+
+    (if enableTailscale then tailscale else git)
 
     #
     # Haskell packages.
