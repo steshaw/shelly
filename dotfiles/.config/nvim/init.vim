@@ -218,7 +218,7 @@ nnoremap <Leader><space> :nohlsearch<Enter>
 " ==========================================================================
 " Org mode configuration.
 " ==========================================================================
-let g:org_agenda_files=['~/dev/tlcsrc/log/log.org']
+let g:org_agenda_files=['~/Code/steshaw/notes/work/logs/current/*.org']
 let g:org_heading_shade_leading_stars = 0
 let g:org_indent = 1
 let g:org_todo_keywords = ['TODO', 'BLOCKED', 'DOING', '|', 'DONE']
