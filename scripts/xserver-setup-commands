@@ -2,7 +2,7 @@
 
 echo xserver-setup-commands
 
-xscreensaver -no-splash&
+#xscreensaver -no-splash&
 rescuetime&
 dropbox&
 

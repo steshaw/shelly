@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 {
+  # FIXME: Not Xorg.
+  programs.sway.enable = false;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -12,7 +15,18 @@
       disableWhileTyping = true;
     };
 
-    displayManager.sddm.enable = true;
+    displayManager.sddm.enable = false;
+
+    displayManager = {
+      lightdm = {
+        enable = true;
+        greeters.enso.enable = false;
+      };
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+    };
 
     # Enable the KDE Desktop Environment?
     desktopManager.plasma5.enable = false;
@@ -24,9 +38,21 @@
     desktopManager.mate.enable = false;
 
     # Xmonad
-    windowManager.xmonad.enable = true;
-    windowManager.xmonad.enableContribAndExtras = true;
+    windowManager.xmonad.enable = false;
+    windowManager.xmonad.enableContribAndExtras = false;
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        #i3blocks
+      ];
+    };
   };
+
+  services.gnome3.gnome-keyring.enable = true;
 
   environment.mate.excludePackages = with pkgs.mate; [
     mate-calc
@@ -41,18 +67,15 @@
     brave
     dropbox
     firefox
+    google-chrome
     libinput
-    lxqt.pavucontrol-qt # Audio controls.
     rescuetime
-    #slack
     vscode
 
-    #
-    # Terminals.
-    #
+    # Terminal emulators.
     alacritty
-    #kitty
-    #konsole
+    kitty
+    konsole
 
     # KDE apps.
     gwenview # Image viewer.
@@ -79,6 +102,7 @@
     # Xmonad apps.
     dmenu
     gmrun
+    lxqt.pavucontrol-qt # Audio controls.
     xscreensaver
   ];
 }

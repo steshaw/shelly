@@ -19,6 +19,10 @@ in
   nix.useSandbox = true;
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableExtensionPack = true;
+  };
   systemd.extraConfig = "DefaultLimitNOFILE=1048576";
 
   # Use the systemd-boot EFI boot loader.
