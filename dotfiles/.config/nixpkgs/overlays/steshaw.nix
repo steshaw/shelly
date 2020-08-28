@@ -61,12 +61,9 @@ rec {
       bash-completion
       nix-bash-completions
 
-      # SCM systems.
-      bazaar
+      # Git.
       git
       gti # Humourous wrapper for git.
-      mercurial
-      pijul
 
       #
       # Security
