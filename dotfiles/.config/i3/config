@@ -41,8 +41,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal # xmonad compatibility.
+set $terminal "konsole"
+# FIXME: Have i3 see my TERMINAL variable from .profile.
+#set $terminal "i3-sensible-terminal"
+bindsym $mod+Return       exec $terminal
+bindsym $mod+Shift+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
