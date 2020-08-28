@@ -51,7 +51,6 @@ rec {
     # Command line utilities.
     #
     bash = self.bashInteractive_5;
-    darcs = broken darcs;
     inherit (self)
       # Shells.
       fish
