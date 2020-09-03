@@ -2,9 +2,9 @@
 
 echo xserver-setup-commands
 
-#xscreensaver -no-splash&
-rescuetime&
-dropbox&
+if false; then
+  shelly-xkb
+  shelly-xinput
+fi
 
-shelly-xkb
-shelly-xinput
+echo NOP
