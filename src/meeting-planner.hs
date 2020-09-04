@@ -1,15 +1,15 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+
 --
 -- Construct a URI for timeanddate.com's international meeting planner.
 --
 
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 import qualified Data.List as List
-import qualified Data.Time as Time
-import Text.Printf (printf)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
+import qualified Data.Time as Time
+import Text.Printf (printf)
 
 -- World Clock examples
 -- https://www.timeanddate.com/worldclock/meetingtime.html?p1=224&p2=24&p3=43&p4=1323&p5=37&p6=438&p7=47&iso=20200228
@@ -25,43 +25,40 @@ import qualified Data.Text.IO as T
 base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 
 usa =
-  [ 224  -- San Francisco, USA
-  , 24   -- Austin, USA
-  , 43   -- Boston, USA
+  [ 224, -- San Francisco, USA
+    24, -- Austin, USA
+    43 -- Boston, USA
   ]
 
 eu =
-  [ 136  -- London, England
---  , 1323 -- Nottingham, England
---  , 215 -- Rome, Italy
---  , 281  -- Zagreb, Croatia
-  , 37  -- Berlin, Germany
---  , 776 -- Dubai, EAE
+  [ 136, -- London, England
+    37 -- Berlin, Germany
   ]
 
 asiaPacific =
-  [ 438 -- Bangalore, India
---  , 145 -- Manilla, Phillipines
---  , 248 -- Tokyo, Japan
-  , 47  -- Brisbane, Australia
---  , 22  -- Auckland, New Zealand
+  [ 438, -- Bangalore, India
+    145, -- Manilla, Phillipines
+    248, -- Tokyo, Japan
+    22 -- Auckland, New Zealand
   ]
 
-short = asiaPacific
+home =
+  [ 47 -- Brisbane, Australia
+  ]
 
-personal = usa ++ eu ++ asiaPacific
+personal = home ++ usa
 
 cities :: [Int]
-cities = if True then short else personal
+cities = personal
 
 main = do
   c <- Time.getCurrentTime
-  let (y , m , d ) = Time.toGregorian $ Time.utctDay c
+  let (y, m, d) = Time.toGregorian $ Time.utctDay c
   -- Date like yyyymmdd
   let date = T.pack $ printf "%4d%02d%02d" y m d
   T.putStrLn $ uri date
   where
     f i city = T.pack $ printf "p%d=%d" i city
-    cs = zipWith f ([1..] :: [Int]) cities
+    cs = zipWith f ([1 ..] :: [Int]) cities
     ps d = cs <> ["iso=" <> d]
     uri d = base <> "?" <> T.intercalate "&" (ps d)
