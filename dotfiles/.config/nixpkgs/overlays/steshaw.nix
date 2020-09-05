@@ -138,11 +138,14 @@ rec {
     #
     # Programming Languages.
     #
-    agda = broken self.haskellPackages.Agda;
     ats2 = notDarwin self.ats2; # Broken on macOS.
     coq = avoid self.coq;
-    idris = broken self.idris;
-    rustup = avoid self.rustup;
+    inherit (self)
+      agda
+      idris
+      idris2
+      rustup
+    ;
 
     # Haskell.
     ghc865 = self.haskell.compiler.ghc865;
@@ -151,11 +154,12 @@ rec {
       stack
     ;
     pointfree = broken self.haskellPackages.pointfree;
-    hindent = avoid self.haskellPackages.hindent;
-    ghcid = self.haskellPackages.ghcid;
-    ormolu = self.haskellPackages.ormolu;
     brittany = avoid self.haskellPackages.brittany;
-    hlint = self.haskellPackages.hlint;
+    inherit (self)
+
+      ghcid
+      ormolu
+      hlint;
 
     #
     # Google Cloud SDK.

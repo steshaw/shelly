@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-exec git ls-remote --heads \
-    https://github.com/NixOS/nixpkgs-channels \
-    nixpkgs-unstable |
-  cut -f1

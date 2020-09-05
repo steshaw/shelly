@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo='https://github.com/NixOS/nixpkgs-channels'
+
+exec git ls-remote --heads ${repo} "$@"
