@@ -129,21 +129,28 @@
         dmenu
         networkmanager_dmenu
         i3status
-        #i3lock
-        #i3blocks
         i3lock
-        xss-lock
+        #i3blocks
+        #xss-lock
       ];
     };
 
-    /*
     xautolock = {
       enable = true;
-      time = 1;
-      locker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/Pictures/background.png";
+      time = 10;
+      locker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
     };
-    */
   };
+
+  /*
+  programs.xss-lock = {
+    enable = true;
+    extraOptions = if true then [] else [
+      "--transfer-sleep-lock"
+      "${pkgs.i3lock}/bin/i3lock -c 49938e -i ~/.background.png"
+    ];
+  };
+  */
 
   # Enable Qt5 integration.
   qt5 = {
@@ -186,7 +193,7 @@
     gwenview # Image viewer.
     kdeFrameworks.kwallet
     ksshaskpass
-    okular
+    okular # PDF viewer.
     spectacle # Screenshots.
 
     # Remote desktops. None work well.
@@ -202,6 +209,7 @@
     xdotool
     xorg.mkfontdir
     xorg.mkfontscale
+    xorg.xdpyinfo
     xorg.xev
     xorg.xinput
     xorg.xmodmap
