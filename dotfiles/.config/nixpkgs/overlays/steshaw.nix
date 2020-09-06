@@ -142,6 +142,7 @@ rec {
     coq = avoid self.coq;
     inherit (self)
       agda
+      go
       idris
       idris2
       rustup
