@@ -1,33 +1,10 @@
 { config, pkgs, lib, ... }:
+let myLocker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
+in
 {
-  # FIXME: Not Xorg.
-  programs.sway.enable = false;
-
-  /*
-    environment = {
-      etc."xdg/gtk-2.0/gtkrc" = {
-        text = ''
-          gtk-icon-theme-name = "Adwaita"
-          gtk-theme-name = "Arc-Dark"
-          gtk-cursor-theme-name = "Adwaita"
-          gtk-fallback-icon-theme = "gnome"
-          gtk-font-name = "DejaVu Sans 11"
-        '';
-        mode = "444";
-      };
-      etc."xdg/gtk-3.0/settings.ini" = {
-        text = ''
-          [Settings]
-          gtk-icon-theme-name=Arc
-          gtk-theme-name=Arc-Dark
-          gtk-cursor-theme-name=Adwaita
-          gtk-fallback-icon-theme=gnome
-          gtk-font-name = Noto Sans 11
-        '';
-        mode = "444";
-      };
-    };
-  */
+  programs.xss-lock = {
+    enable = true;
+  };
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -95,6 +72,7 @@
           (builtins.readFile ./scripts/shelly-xinput);
       in
         ''
+          ${pkgs.xss-lock}/bin/xss-lock -- ${myLocker} &
           ${pkgs.rescuetime}/bin/rescuetime &
           ${pkgs.dropbox}/bin/dropbox &
           echo before xinput
@@ -131,26 +109,15 @@
         i3status
         i3lock
         #i3blocks
-        #xss-lock
       ];
     };
 
     xautolock = {
       enable = true;
-      time = 10;
-      locker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
+      time = 1;
+      locker = "${myLocker}";
     };
   };
-
-  /*
-  programs.xss-lock = {
-    enable = true;
-    extraOptions = if true then [] else [
-      "--transfer-sleep-lock"
-      "${pkgs.i3lock}/bin/i3lock -c 49938e -i ~/.background.png"
-    ];
-  };
-  */
 
   # Enable Qt5 integration.
   qt5 = {
@@ -215,6 +182,5 @@
     xorg.xmodmap
     xorg.xrandr
     xsel
-    xss-lock
   ];
 }
