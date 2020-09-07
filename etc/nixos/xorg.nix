@@ -105,16 +105,14 @@ in
       enable = true;
       extraPackages = with pkgs; [
         dmenu
-        networkmanager_dmenu
         i3status
-        i3lock
-        #i3blocks
+        networkmanager_dmenu
       ];
     };
 
     xautolock = {
       enable = true;
-      time = 1;
+      time = 10;
       locker = "${myLocker}";
     };
   };
