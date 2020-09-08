@@ -11,22 +11,33 @@ fi
 if [[ -n ${DISPLAY:-} ]]; then
   # Attempt to open in the X Emacs.
   # Fall back on `e -nw`.
-  user_id=$(id --user)
-  socket_name="/tmp/emacs${user_id}/server"
-  socket_name="/var/run/user/${user_id}/emacs${user_id}/server"
+  if false; then
+    user_id=$(id --user)
+    socket_name="/tmp/emacs${user_id}/server"
+    socket_name="/var/run/user/${user_id}/emacs${user_id}/server"
+    socket_options=( "--socket-name=${socket_name}" )
+  else
+    socket_options=()
+  fi
+
   emacsclient \
     --no-wait \
-    --socket-name="${socket_name}" \
+    "${socket_options[@]}" \
     --alternate-editor='e -nw' \
     "$@"
 else
-  user_id=$(id --user)
-  socket_name="/tmp/emacs${user_id}/server"
+  if true; then
+    user_id=$(id --user)
+    socket_name="/tmp/emacs${user_id}/server"
+    socket_options=( "--socket-name=${socket_name}" )
+  else
+    socket_options=()
+  fi
   # Attempt to use the emacs daemon/service.
   # Fall back on `emacs -nw`.
   emacsclient \
     --no-wait \
-    --socket-name="${socket_name}" \
+    "${socket_options[@]}" \
     --alternate-editor='emacs -nw' \
     "$@"
 fi
