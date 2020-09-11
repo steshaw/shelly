@@ -1,5 +1,14 @@
 { config, pkgs, lib, ... }:
-let myLocker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
+let
+  myLocker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
+  uPkgs = import (builtins.fetchGit {
+    url = "https://github.com/nixos/nixpkgs/";
+    rev = "3c0e3697520cbe7d9eb3a64bfd87de840bf4aa77";
+  }) {
+    config = {
+      allowUnfree = true;
+    };
+  };
 in
 {
   programs.xss-lock = {
@@ -147,7 +156,7 @@ in
     brave
     firefox
     google-chrome
-    vscode
+    uPkgs.vscode
 
     # Terminal emulators.
     alacritty
@@ -168,6 +177,7 @@ in
     #    x11vnc
 
     # X tools.
+    autokey
     libinput
     libnotify
     networkmanager_dmenu
