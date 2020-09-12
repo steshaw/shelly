@@ -6,6 +6,8 @@ tap "homebrew/services"
 tap "railwaycat/emacsmacport"
 brew "dnsmasq", restart_service: true
 brew "mas"
+brew "step"
+cask "adobe-acrobat-reader"
 cask "amethyst"
 cask "android-platform-tools"
 cask "brave-browser"
