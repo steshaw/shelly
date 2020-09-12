@@ -1,14 +1,16 @@
 { config, pkgs, lib, ... }:
 let
   myLocker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
-  uPkgs = import (builtins.fetchGit {
-    url = "https://github.com/nixos/nixpkgs/";
-    rev = "3c0e3697520cbe7d9eb3a64bfd87de840bf4aa77";
-  }) {
-    config = {
-      allowUnfree = true;
+  uPkgs = import
+    (builtins.fetchGit {
+      url = "https://github.com/nixos/nixpkgs/";
+      rev = "3c0e3697520cbe7d9eb3a64bfd87de840bf4aa77";
+    })
+    {
+      config = {
+        allowUnfree = true;
+      };
     };
-  };
 in
 {
   programs.xss-lock = {
@@ -76,10 +78,11 @@ in
           };
         };
       };
-      sessionCommands = let
-        shellyXInput = pkgs.writeScript "shelly-xinput"
-          (builtins.readFile ./scripts/shelly-xinput);
-      in
+      sessionCommands =
+        let
+          shellyXInput = pkgs.writeScript "shelly-xinput"
+            (builtins.readFile ./scripts/shelly-xinput);
+        in
         ''
           ${pkgs.xss-lock}/bin/xss-lock -- ${myLocker} &
           ${pkgs.rescuetime}/bin/rescuetime &

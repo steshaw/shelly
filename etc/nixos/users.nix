@@ -15,6 +15,6 @@
     isNormalUser = true;
     home = "/home/debbie";
     description = "Deborah Shaw";
-    extraGroups = [];
+    extraGroups = [ ];
   };
 }

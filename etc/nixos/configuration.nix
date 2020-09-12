@@ -3,12 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 let enableTailscale = false;
 in
 {
   imports =
-    [ ./hardware-configuration.nix
+    [
+      ./hardware-configuration.nix
 
       ./cachix.nix
       ./users.nix
@@ -32,10 +32,10 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # FIXME: Perhaps swap files are not compatible with ZFS?
-#  swapDevices = [{
-#    device = "/var/swap";
-#    size = 32768; # MiB
-#  }];
+  #  swapDevices = [{
+  #    device = "/var/swap";
+  #    size = 32768; # MiB
+  #  }];
   #boot.resumeDevice = "rpool/root/nixos";
 
   time.timeZone = "Australia/Brisbane";
@@ -104,33 +104,35 @@ in
         # haskell.nix branch, Jun 8, 2020.
         r = "815746252771eb7e745b03920a239324398ce79f";
         u = "https://github.com/infinisil/all-hies/tarball/${r}";
-        all-hies = import (fetchTarball u) {};
+        all-hies = import (fetchTarball u) { };
       in
-      if enable_hie then all-hies.selection {
-        selector = p: {
-          inherit (p)
-#            ghc882
-            ghc865
-          ;
-        };
-      } else {}
+      if enable_hie then
+        all-hies.selection
+          {
+            selector = p: {
+              inherit (p)
+                #            ghc882
+                ghc865
+                ;
+            };
+          } else { }
     )
     cachix
     haskell.compiler.ghc865
     haskellPackages.brittany
     hlint
-    (if false then (import (builtins.fetchTarball "https://github.com/cachix/ghcide-nix/tarball/master") {}).ghcide-ghc865 else cachix)
+    (if false then (import (builtins.fetchTarball "https://github.com/cachix/ghcide-nix/tarball/master") { }).ghcide-ghc865 else cachix)
   ];
 
   # ------------------------------------------------------------------------
   # Buildkite
   # ------------------------------------------------------------------------
-/*
-  services.buildkite-agent.enable = false;
-  services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
-  services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
-  services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
-*/
+  /*
+    services.buildkite-agent.enable = false;
+    services.buildkite-agent.openssh.privateKeyPath = /tmp/buildkite-agent/buildkite_rsa;
+    services.buildkite-agent.openssh.publicKeyPath = /tmp/buildkite-agent/buildkite_rsa.pub;
+    services.buildkite-agent.tokenPath = /tmp/buildkite-agent/token;
+  */
 
   # ------------------------------------------------------------------------
   # mtr
@@ -164,13 +166,13 @@ in
   networking.hostName = "verona";
   networking.hostId = "df28ea3c";
   networking.wireless.enable = true;
-/*
-  networking.networkmanager = {
-    enable = true;
-    dns = "dnsmasq";
-    unmanaged = ["boo"];
-  };
-*/
+  /*
+    networking.networkmanager = {
+      enable = true;
+      dns = "dnsmasq";
+      unmanaged = ["boo"];
+    };
+  */
 
   #
   # Open ports in the firewall.
@@ -181,10 +183,12 @@ in
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [
-    80 433 # HTTP ports
+    80
+    433 # HTTP ports
     5900 # VNC
     3389 # RDP
-    6568 7070 # AnyDesk
+    6568
+    7070 # AnyDesk
   ];
   networking.firewall.allowedTCPPortRanges = [
     { from = 3000; to = 3010; } # Dev ports.
@@ -208,8 +212,8 @@ in
     enable = true;
 
     # NixOS allows either a lightweight build (default) or full build of
-    # PulseAudio to be installed.  Only the full build has Bluetooth support, so
-    # it must be selected here.
+    # PulseAudio to be installed. Only the full build has Bluetooth support,
+    # so it must be selected here.
     package = pkgs.pulseaudioFull;
   };
   services.blueman.enable = true;
@@ -230,7 +234,7 @@ in
   # sudo
   # ------------------------------------------------------------------------
   security.sudo.wheelNeedsPassword = false;
-  nix.trustedUsers = ["@wheel" "steshaw"];
+  nix.trustedUsers = [ "@wheel" "steshaw" ];
 
   # ------------------------------------------------------------------------
   # DANGER
