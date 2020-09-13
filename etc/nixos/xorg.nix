@@ -160,6 +160,7 @@ in
     firefox
     google-chrome
     uPkgs.vscode
+    zotero
 
     # Terminal emulators.
     alacritty
