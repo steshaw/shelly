@@ -19,27 +19,31 @@ source $SHELLY_HOME/scripts/functions.sh
 
 Echo Executing ~/.bashrc
 
-#
+# --------------------------------------------------------------------------
 # Set up bash-preexec.
-# See https://github.com/rcaloras/bash-preexec.
 #
+# See https://github.com/rcaloras/bash-preexec.
+# --------------------------------------------------------------------------
 if isBash; then
   unset __bp_imported # In case of `source ~/.profile`.
   sourceExists $SHELLY_HOME/scripts/bash-preexec.sh
 fi
 
+# --------------------------------------------------------------------------
+
 sourceExists /etc/skel/.bashrc
 
-
+# --------------------------------------------------------------------------
 # iTerm2 integration.
+# --------------------------------------------------------------------------
 iterm2_prompt_mark() {
   true
 }
 sourceExists ~/.iterm2_shell_integration.bash
 
-#
+# --------------------------------------------------------------------------
 # bash-completion
-#
+# --------------------------------------------------------------------------
 
 dir=~/.nix-profile/etc/bash_completion.d
 if [[ -e ${dir} ]]; then
@@ -59,13 +63,18 @@ trySource ~/.nix-profile/etc/profile.d/bash_completion.sh ||
   trySource /etc/profile.d/bash_completion.sh ||
   trySource "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
+# --------------------------------------------------------------------------
+
 [[ $BASH_VERSION == 4.* ]] && shopt -s globstar
 [[ $BASH_VERSION == 4.* ]] && shopt -s autocd
 shopt -s xpg_echo
 
-#
+# --------------------------------------------------------------------------
+# Configure history.
+# --------------------------------------------------------------------------
+HISTTIMEFORMAT="%F %T %Z %z "
+
 # Enable a shared history file for all shell sessions.
-#
 HISTCONTROL=ignoredups:erasedups
 HISTSIZE=100000
 HISTFILESIZE=$HISTSIZE
@@ -77,10 +86,15 @@ if true; then
   precmd_functions+=(saveHistory)
 fi
 
-# Prevent noclobber in a Nix shell because it causes Nix trouble overwriting tmp files.
+# --------------------------------------------------------------------------
+
+# Prevent noclobber in a Nix shell because it causes Nix trouble overwriting
+# tmp files.
 if [[ $- == *i* && -z ${IN_NIX_SHELL:-} ]]; then
   set -o noclobber
 fi
+
+# --------------------------------------------------------------------------
 
 # If not running interactively, return
 case $- in
@@ -88,7 +102,11 @@ case $- in
   *) return;;
 esac
 
+# --------------------------------------------------------------------------
+
 sourceExists /google/devshell/bashrc.google
+
+# --------------------------------------------------------------------------
 
 for file in ~/.config/bashrc.d/*; do
   sourceExists "${file}"
