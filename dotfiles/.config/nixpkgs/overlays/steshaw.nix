@@ -143,7 +143,6 @@ rec {
     inherit (self)
       agda
       go
-      idris
       idris2
       rustup
     ;
