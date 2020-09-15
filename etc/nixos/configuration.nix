@@ -40,6 +40,12 @@ in
 
   time.timeZone = "Australia/Brisbane";
 
+  documentation.man = {
+    enable = true;
+    # TODO: Only in 20.09.
+    # generateCaches = true;
+  };
+
   # ------------------------------------------------------------------------
   # Services
   # ------------------------------------------------------------------------
