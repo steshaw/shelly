@@ -148,7 +148,7 @@ rec {
     ;
 
     # Haskell.
-    ghc865 = self.haskell.compiler.ghc865;
+    ghc844 = self.haskell.compiler.ghc884;
     inherit (self)
       cabal-install
       stack
