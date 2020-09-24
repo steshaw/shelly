@@ -37,21 +37,24 @@ HT to Andres Löh for initial configuration
 
   "languageserver": {
     "haskell": {
-      "command": "hie-wrapper",
+      "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
       "rootPatterns": [
         "*.cabal",
-        "stack.yaml",
         "cabal.project",
+        "stack.yaml",
         "package.yaml"
       ],
       "filetypes": [
         "hs",
         "lhs",
-        "haskell"
+        "haskell",
+        "lhaskell",
+        "chaskell"
       ],
       "initializationOptions": {
-        "languageServerHaskell": {
+        "haskell": {
+          "formattingProvider": "ormolu"
         }
       }
     },
