@@ -30,6 +30,7 @@
 /gcloud/
 /geany/
 /gedit/
+/glib-2.0/
 /google-chrome/
 /gtkrc
 /gtkrc-2.0
@@ -105,6 +106,7 @@
 /trashrc
 /user-dirs.dirs
 /user-dirs.locale
+/vlc/
 /xfce4/
 /yarn/
 /zoomus.conf
