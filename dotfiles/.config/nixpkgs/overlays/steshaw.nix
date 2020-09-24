@@ -26,17 +26,6 @@ with builtins;
 rec {
   userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
 
-    # HIE. Disabled as it is installed in systemPackages.
-    hie-ghc865 = let enable_hie = false; in if enable_hie then (
-      let all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-      in
-      all-hies.selection { selector = p: { inherit (p) ghc865; }; }) else {};
-
-    # ghcide. Disabled as we are currently using HIE.
-    ghcide-ghc865 = let enable_ghcide = false; in if enable_ghcide then (import (builtins.fetchTarball
-    "https://github.com/cachix/ghcide-nix/tarball/master")
-    {}).ghcide-ghc865 else {};
-
     #
     # Nix.
     #
