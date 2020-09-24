@@ -137,7 +137,7 @@ rec {
     ;
 
     # Haskell.
-    ghc844 = self.haskell.compiler.ghc884;
+    ghc8102 = self.haskell.compiler.ghc8102; # GHC 8.10.2
     inherit (self)
       cabal-install
       stack
@@ -145,7 +145,6 @@ rec {
     pointfree = broken self.haskellPackages.pointfree;
     brittany = avoid self.haskellPackages.brittany;
     inherit (self)
-
       ghcid
       ormolu
       hlint;
