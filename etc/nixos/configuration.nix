@@ -234,6 +234,7 @@ in
     nerdfonts
     noto-fonts-emoji
     source-code-pro
+    jetbrains-mono
   ];
 
   # ------------------------------------------------------------------------
