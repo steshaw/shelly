@@ -18,32 +18,39 @@
 #
 self: super:
 let
-  notDarwin = pkg: if self.stdenv.isDarwin then {} else pkg;
-  broken = pkg: if false then pkg else {};
-  avoid = pkg: if false then pkg else {};
+  notDarwin = pkg: if self.stdenv.isDarwin then { } else pkg;
+  broken = pkg: if false then pkg else { };
+  avoid = pkg: if false then pkg else { };
+  ifExistsElse = attrPath: default:
+    self.lib.attrByPath attrPath self default;
+  ifExists = attrPath: self.lib.attrByPath attrPath self "";
 in
 with builtins;
 rec {
-  userPackages = super.userPackages or {} // super.recurseIntoAttrs rec {
+  userPackages = super.userPackages or { } // super.recurseIntoAttrs rec {
 
     #
     # Nix.
     #
+    nixfmt = ifExists [ "nixfmt" ];
+    nixpkgs-fmt = ifExists [ "nixpkgs-fmt" ];
     inherit (self)
       nix-prefetch-scripts
-      nixfmt
-      nixpkgs-fmt
       nox
-    ;
+      ;
 
     #
     # Command line utilities.
     #
-    bash = self.bashInteractive_5;
+    bash = ifExistsElse [ "bashInteractive_5" ] self.bashInteractive;
+
+    killall = ifExists [ "killall" ];
+    lsd = ifExists [ "lsd" ];
+
+    nushell = ifExists [ "nushell" ];
     inherit (self)
       # Shells.
       fish
-      nushell
       zsh
 
       bash-completion
@@ -51,7 +58,7 @@ rec {
 
       # Git.
       git
-      gti # Humourous wrapper for git.
+      gti# Humourous wrapper for git.
       darcs
 
       #
@@ -63,12 +70,12 @@ rec {
 
       # Commands.
       bat
-      bind # for dig. XXX: Any smaller package?
+      bind# for dig. XXX: Any smaller package?
       buildkite-cli
       cabal2nix
       coreutils
       curl
-      dbxcli # Defined in overlay/dbxcli.nix
+      dbxcli# Defined in overlay/dbxcli.nix
       direnv
       dos2unix
       eternal-terminal
@@ -79,17 +86,15 @@ rec {
       hledger
       htop
       httpie
-      hub # Defined in overlay/hub.nix
+      hub# Defined in overlay/hub.nix
       jq
-      killall
       lastpass-cli
-      lsd
-      moreutils # ts and more
+      moreutils# ts and more
       mr
       mtr
-      ncdu # NCurses Disk Usage
+      ncdu# NCurses Disk Usage
       neofetch
-      nodejs # Required for Coc.
+      nodejs# Required for Coc.
       pandoc
       peco
       pstree
@@ -107,20 +112,20 @@ rec {
       watchman
       wget
       youtube-dl
-    ;
-    lab = self.gitAndTools.lab;
-    gitmoji = self.nodePackages.gitmoji-cli;
+      ;
+    lab = ifExists [ "gitAndTools" "lab" ];
+    gitmoji = ifExists [ "gitmoji-cli" ];
 
     # Tmux.
     tmux = self.tmux;
-    tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
+    tmux-fzf-url = ifExists [ "tmuxPlugins" "fzf-tmux-url" ];
 
     #
     # Editors
     #
     emacs = self.emacs;
     hunspell = super.hunspell;
-    hunspell-en-gb = super.hunspellDicts.en-gb-large;
+    hunspell-en-gb = ifExists [ "hunspellDicts" "en-gb-large" ];
     neovim = self.neovim;
     python = self.python;
 
@@ -129,24 +134,34 @@ rec {
     #
     ats2 = notDarwin self.ats2; # Broken on macOS.
     coq = avoid self.coq;
+    idris2 = ifExists [ "idris2" ];
     inherit (self)
       agda
       go
-      idris2
       rustup
-    ;
+      ;
 
     # Haskell.
-    ghc8102 = self.haskell.compiler.ghc8102; # GHC 8.10.2
+    #my_GHC = ifExistsElse "ghc8102" (ifExists "ghc884" (ifExist "ghc self.haskell.compiler.ghc884;
+    my_ghc =
+      if builtins.hasAttr "ghc8102" (builtins.getAttr "compiler" (builtins.getAttr "haskell" self))
+      then self.haskell.compiler.ghc8102
+      else "";
+    /*
+    myGHC = if (builtins.tryEval
+       (builtins.deepSeq self["haskell"]["compiler"]["ghc8102"])).success
+       then self.haskell.compiler.ghc8102 else "";
+       */
+
     inherit (self)
       cabal-install
       stack
-    ;
+      ;
     pointfree = broken self.haskellPackages.pointfree;
     brittany = avoid self.haskellPackages.brittany;
+    ghcid = if builtins.hasAttr "ghcid" self then self.ghcid else "";
+    ormolu = ifExists [ "ormolu" ];
     inherit (self)
-      ghcid
-      ormolu
       hlint;
 
     #
@@ -156,14 +171,14 @@ rec {
     #   Currently, it's best to get an up-to-date SDK from
     #   https://cloud.google.com/sdk/install.
     #
-/*
+    /*
     inherit (self)
       google-cloud-sdk
 
       docker-credential-gcr
       kubectl
     ;
-*/
+    */
 
     #
     # Default packages.
@@ -171,7 +186,7 @@ rec {
     # WARNING: Do not remove!
     #
     inherit (self)
-      nix # Don't enable this on multi-user.
+      nix# Don't enable this on multi-user.
       cacert;
   };
 }
