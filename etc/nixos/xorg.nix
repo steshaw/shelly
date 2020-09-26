@@ -87,6 +87,7 @@ in
           ${pkgs.xss-lock}/bin/xss-lock -- ${myLocker} &
           ${pkgs.rescuetime}/bin/rescuetime &
           ${pkgs.dropbox}/bin/dropbox &
+          ${pkgs.autokey}/bin/autokey-gtk &
           echo before xinput
           ${shellyXInput}
           echo after xinput
@@ -117,6 +118,7 @@ in
       enable = true;
       extraPackages = with pkgs; [
         dmenu
+        i3lock
         i3status
         networkmanager_dmenu
       ];
