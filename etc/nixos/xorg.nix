@@ -163,6 +163,7 @@ in
     google-chrome
     uPkgs.vscode
     zotero
+    rescuetime
 
     # Terminal emulators.
     alacritty
