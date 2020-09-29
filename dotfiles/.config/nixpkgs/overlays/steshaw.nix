@@ -114,6 +114,7 @@ rec {
       youtube-dl
       ;
     lab = ifExists [ "gitAndTools" "lab" ];
+    git-filter-repo = self.gitAndTools.git-filter-repo;
     gitmoji = ifExists [ "gitmoji-cli" ];
 
     # Tmux.
