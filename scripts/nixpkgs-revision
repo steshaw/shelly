@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pkgs=${1:-nixpkgs}
+
+nix-instantiate --json --eval --expr "with import <${pkgs}> {}; lib.trivial.revisionWithDefault null" | jq --raw-output
