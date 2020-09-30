@@ -6,9 +6,9 @@ ${SCRIPT_DEBUG:-}
 revision='c59ea8b8a0e7f927e7291c14ea6cd1bd3a16ff38'
 
 base_url=https://github.com/nixos/nixpkgs/archive
-url=${base_url}/${revision}.tar.gz
+tarball_url=${base_url}/${revision}.tar.gz
 
-NIX_PATH=nixpkgs=${url} nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+nix-env --file ${tarball_url} --install --remove-all --attr userPackages "$@"
 
 exit
 
