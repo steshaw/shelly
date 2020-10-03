@@ -42,7 +42,7 @@ rec {
     #
     # Command line utilities.
     #
-    bash = ifExistsElse [ "bashInteractive_5" ] self.bashInteractive;
+    bash = self.bashInteractive_5;
 
     killall = ifExists [ "killall" ];
     lsd = ifExists [ "lsd" ];
