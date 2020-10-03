@@ -21,9 +21,6 @@ let
   notDarwin = pkg: if self.stdenv.isDarwin then { } else pkg;
   broken = pkg: if false then pkg else { };
   avoid = pkg: if false then pkg else { };
-  ifExistsElse = attrPath: default:
-    self.lib.attrByPath attrPath self default;
-  ifExists = attrPath: self.lib.attrByPath attrPath self "";
 in
 with builtins;
 rec {
@@ -44,10 +41,9 @@ rec {
     #
     bash = self.bashInteractive_5;
 
-    killall = ifExists [ "killall" ];
-    lsd = ifExists [ "lsd" ];
+    killall = self.killall;
+    lsd = self.lsd;
 
-    nushell = ifExists [ "nushell" ];
     inherit (self)
       # Shells.
       fish
@@ -113,20 +109,20 @@ rec {
       wget
       youtube-dl
       ;
-    lab = ifExists [ "gitAndTools" "lab" ];
+    lab = self.gitAndTools.lab;
     git-filter-repo = self.gitAndTools.git-filter-repo;
-    gitmoji = ifExists [ "gitmoji-cli" ];
+    gitmoji = self.nodePackages.gitmoji-cli;
 
     # Tmux.
     tmux = self.tmux;
-    tmux-fzf-url = ifExists [ "tmuxPlugins" "fzf-tmux-url" ];
+    tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
 
     #
     # Editors
     #
     emacs = self.emacs;
     hunspell = super.hunspell;
-    hunspell-en-gb = ifExists [ "hunspellDicts" "en-gb-large" ];
+    hunspell-en-gb = self.hunspellDicts.en-gb-large;
     neovim = self.neovim;
     python = self.python;
 
@@ -135,7 +131,7 @@ rec {
     #
     ats2 = notDarwin self.ats2; # Broken on macOS.
     coq = avoid self.coq;
-    idris2 = ifExists [ "idris2" ];
+    idris2 = self.idris2;
     inherit (self)
       agda
       go
@@ -143,27 +139,17 @@ rec {
       ;
 
     # Haskell.
-    #my_GHC = ifExistsElse "ghc8102" (ifExists "ghc884" (ifExist "ghc self.haskell.compiler.ghc884;
-    my_ghc =
-      if builtins.hasAttr "ghc8102" (builtins.getAttr "compiler" (builtins.getAttr "haskell" self))
-      then self.haskell.compiler.ghc8102
-      else "";
-    /*
-    myGHC = if (builtins.tryEval
-       (builtins.deepSeq self["haskell"]["compiler"]["ghc8102"])).success
-       then self.haskell.compiler.ghc8102 else "";
-       */
+    my_ghc = self.haskell.compiler.ghc8102;
 
     inherit (self)
       cabal-install
       stack
+      ormolu
+      ghcid
+      hlint
       ;
     pointfree = broken self.haskellPackages.pointfree;
     brittany = avoid self.haskellPackages.brittany;
-    ghcid = if builtins.hasAttr "ghcid" self then self.ghcid else "";
-    ormolu = ifExists [ "ormolu" ];
-    inherit (self)
-      hlint;
 
     #
     # Google Cloud SDK.
