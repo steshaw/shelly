@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ ${SHELLY_OS} = 'darwin' ]] && /usr/libexec/java_home 2>/dev/null; then
+if [[ ${SHELLY_OS} = 'darwin' ]] && /usr/libexec/java_home >/dev/null 2>&1; then
   JAVA_HOME=$(/usr/libexec/java_home)
   export JAVA_HOME
 
