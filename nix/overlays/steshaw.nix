@@ -32,10 +32,10 @@ rec {
     #
     # Nix.
     #
-    nixfmt = ifExists [ "nixfmt" ];
-    nixpkgs-fmt = ifExists [ "nixpkgs-fmt" ];
     inherit (self)
       nix-prefetch-scripts
+      nixfmt
+      nixpkgs-fmt
       nox
       ;
 
