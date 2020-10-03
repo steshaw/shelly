@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-overlay_dir=~/.config/nixpkgs/overlays
+overlay_dir="${SHELLY_HOME}/nix/overlays"
 default_overlay=steshaw.nix
 
 if [[ $# -gt 1 ]]; then
