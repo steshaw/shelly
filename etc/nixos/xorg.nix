@@ -3,8 +3,9 @@ let
   myLocker = "${pkgs.i3lock}/bin/i3lock -c000000 -i ~/.background.png";
   uPkgs = import
     (builtins.fetchGit {
-      url = "https://github.com/nixos/nixpkgs/";
-      rev = "3c0e3697520cbe7d9eb3a64bfd87de840bf4aa77";
+      url = "https://github.com/NixOS/nixpkgs";
+      #rev = "3c0e3697520cbe7d9eb3a64bfd87de840bf4aa77";
+      rev = "dfd2eeabd6e1be22676dac26854a2de21c3d4c87";
     })
     {
       config = {
@@ -159,11 +160,12 @@ in
 
     # Apps.
     brave
+    dropbox
     firefox
     google-chrome
+    rescuetime
     uPkgs.vscode
     zotero
-    rescuetime
 
     # Terminal emulators.
     alacritty
