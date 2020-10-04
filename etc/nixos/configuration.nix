@@ -17,7 +17,16 @@ in
     ];
 
   nix.useSandbox = true;
+
+  # Nix options for derivations to persist garbage collection.
+  # See https://github.com/nix-community/nix-direnv
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
+
   nixpkgs.config.allowUnfree = true;
+
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host = {
     enable = true;

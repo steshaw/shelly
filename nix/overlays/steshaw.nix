@@ -64,6 +64,9 @@ rec {
       gopass
       pass
 
+      direnv
+      nix-direnv
+
       # Commands.
       bat
       bind# for dig. XXX: Any smaller package?
@@ -72,7 +75,6 @@ rec {
       coreutils
       curl
       dbxcli# Defined in overlay/dbxcli.nix
-      direnv
       dos2unix
       eternal-terminal
       exa
@@ -121,7 +123,7 @@ rec {
     # Editors
     #
     emacs = self.emacs;
-    hunspell = super.hunspell;
+    hunspell = self.hunspell;
     hunspell-en-gb = self.hunspellDicts.en-gb-large;
     neovim = self.neovim;
     python = self.python;
