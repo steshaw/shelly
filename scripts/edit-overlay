@@ -3,7 +3,7 @@
 set -euo pipefail
 
 overlay_dir="${SHELLY_HOME}/nix/overlays"
-default_overlay=steshaw.nix
+default_overlay=pkgs.nix
 
 if [[ $# -gt 1 ]]; then
   echo "usage $0: [overlay]" >&2

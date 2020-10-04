@@ -111,6 +111,8 @@ rec {
       wget
       youtube-dl
       ;
+
+
     lab = self.gitAndTools.lab;
     git-filter-repo = self.gitAndTools.git-filter-repo;
     gitmoji = self.nodePackages.gitmoji-cli;
@@ -152,6 +154,19 @@ rec {
       ;
     pointfree = broken self.haskellPackages.pointfree;
     brittany = avoid self.haskellPackages.brittany;
+
+    # Kubernetes
+    inherit (self)
+      argocd
+      kube-prompt
+      kubectl
+      kubectl-argo-rollouts
+      kubectx
+      kubernetes-helm
+      kubespy
+      kubetail
+      kustomize
+      ;
 
     #
     # Google Cloud SDK.
