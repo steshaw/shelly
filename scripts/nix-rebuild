@@ -3,19 +3,13 @@
 set -euo pipefail
 ${SCRIPT_DEBUG:-}
 
-nix-env --file "${SHELLY_HOME}/nix" --install --remove-all --attr userPackages "$@"
-
-exit
-
-#
-# FIXME: Fix below which provides a diff but breaks with use of `super.recurseIntoAttrs` above.
-#        The `super.recurseIntoAttrs` allows you to find userPackages when doing `nix search`.
-
-set -e
-IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
-oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
-nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
-IFS=- read -r _ newGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
-${self.diffutils}/bin/diff --color -u --label "generation $oldGen" $oldVersions \
-  --label "generation $newGen" ~/.nix-profile/package_versions \
-  || true
+export NIX_PATH="nixpkgs=${SHELLY_HOME}/nix"
+if [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
+  if [[ $# -eq 1 && ( $1 == '--dry-run' || $1 == '-n' ) ]]; then
+    nix-what-rebuild
+  else
+    ~/.nix-profile/bin/nix-rebuild
+  fi
+else
+  nix-env --install --remove-all --attr userPackages "$@"
+fi

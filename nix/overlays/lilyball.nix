@@ -6,7 +6,7 @@ in
 self: super: if !enable then {} else
 {
   userPackages = super.userPackages or {}
-    // super.recurseIntoAttrs (import ../pkgs/packages.nix self super)
+    // super.recurseIntoAttrs (import ../pkgs/packages.nix super)
     // super.lib.optionalAttrs (builtins.pathExists ./local.nix) (import ./local.nix self super)
     // (if multiuser then {} else {
       # Default packages for single-user; don't include this for multi-user
