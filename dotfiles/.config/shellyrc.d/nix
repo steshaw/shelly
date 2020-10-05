@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-if [[ -r ~/.nix-profile/etc/ssl/certs/ca-bundle.crt ]]; then
-  export SSL_CERT_FILE=~/.nix-profile/etc/ssl/certs/ca-bundle.crt
-  export GIT_SSL_CAINFO=~/.nix-profile/etc/ssl/certs/ca-bundle.crt
-fi
+crt_files=(
+  /run/current-system/etc/ssl/certs/ca-bundle.crt
+  /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt
+)
+for crt in "${crt_files[@]}"; do
+  if [[ -r $crt ]]; then
+    export SSL_CERT_FILE="${crt}"
+    export GIT_SSL_CAINFO="${crt}"
+    break
+  fi
+done
