@@ -127,7 +127,7 @@ in
 
     xautolock = {
       enable = true;
-      time = 10;
+      time = 5;
       locker = "${myLocker}";
     };
   };
