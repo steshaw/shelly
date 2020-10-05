@@ -1,35 +1,15 @@
-#
-# HT https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74
-#
-# Initially install with
-#  $ nix-env -f '<nixpkgs>' -r -iA userPackages
-#
-# Afterwards, edit the file and run:
-#
-#  $ nix-rebuild
-#
-# See https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74#gistcomment-2598159
-#
-# See also:
-#  https://gist.github.com/Widdershin/de023630617c405b033245ced16221f2
-#
-# Found at
-#   https://nixos.wiki/wiki/FAQ#Why_not_use_nix-env_-i_foo.3F
-#
 self: super:
 let
-  notDarwin = pkg: if self.stdenv.isDarwin then { } else pkg;
-  broken = pkg: if false then pkg else { };
-  avoid = pkg: if false then pkg else { };
+  notDarwin = super.lib.mkIf (!super.stdenv.isDarwin);
+  broken = super.lib.mkIf false;
 in
-with builtins;
 rec {
-  userPackages = super.userPackages or { } // super.recurseIntoAttrs rec {
+  #userPackages = super.userPackages or { } // super.recurseIntoAttrs rec {
 
     #
     # Nix.
     #
-    inherit (self)
+    inherit (super)
       nix-prefetch-scripts
       nixfmt
       nixpkgs-fmt
@@ -39,15 +19,16 @@ rec {
     #
     # Command line utilities.
     #
-    bash = self.bashInteractive_5;
+    bash = super.bashInteractive_5;
 
-    killall = self.killall;
-    lsd = self.lsd;
+    killall = super.killall;
+    lsd = super.lsd;
 
-    inherit (self)
+    inherit (super)
       # Shells.
       fish
       zsh
+      mosh
 
       bash-completion
       nix-bash-completions
@@ -84,7 +65,6 @@ rec {
       hledger
       htop
       httpie
-      hub# Defined in overlay/hub.nix
       jq
       lastpass-cli
       moreutils# ts and more
@@ -112,51 +92,50 @@ rec {
       youtube-dl
       ;
 
-
-    lab = self.gitAndTools.lab;
-    git-filter-repo = self.gitAndTools.git-filter-repo;
-    gitmoji = self.nodePackages.gitmoji-cli;
+    lab = super.gitAndTools.lab;
+    git-filter-repo = super.gitAndTools.git-filter-repo;
+    gitmoji = super.nodePackages.gitmoji-cli;
 
     # Tmux.
-    tmux = self.tmux;
-    tmux-fzf-url = self.tmuxPlugins.fzf-tmux-url;
+    tmux = super.tmux;
+    tmux-fzf-url = super.tmuxPlugins.fzf-tmux-url;
 
     #
     # Editors
     #
-    emacs = self.emacs;
-    hunspell = self.hunspell;
-    hunspell-en-gb = self.hunspellDicts.en-gb-large;
-    neovim = self.neovim;
-    python = self.python;
+    emacs = super.emacs;
+    hunspell = super.hunspell;
+    hunspell-en-gb = super.hunspellDicts.en-gb-large;
+    neovim = super.neovim;
+    python = super.python;
 
     #
     # Programming Languages.
     #
-    ats2 = notDarwin self.ats2; # Broken on macOS.
-    coq = avoid self.coq;
-    idris2 = self.idris2;
-    inherit (self)
+    ats2 = notDarwin super.ats2; # Broken on macOS.
+    coq = super.coq;
+    idris2 = super.idris2;
+    inherit (super)
       agda
       go
       rustup
       ;
 
     # Haskell.
-    my_ghc = self.haskell.compiler.ghc8102;
+    my_ghc = super.haskell.compiler.ghc8102;
 
-    inherit (self)
+    inherit (super)
       cabal-install
       stack
       ormolu
       ghcid
       hlint
       ;
-    pointfree = broken self.haskellPackages.pointfree;
-    brittany = avoid self.haskellPackages.brittany;
+    pointfree = broken super.haskellPackages.pointfree;
+    brittany = super.haskellPackages.brittany;
 
     # Kubernetes
-    inherit (self)
+    inherit (super)
       argocd
       kube-prompt
       kubectl
@@ -176,7 +155,7 @@ rec {
     #   https://cloud.google.com/sdk/install.
     #
     /*
-    inherit (self)
+    inherit (super)
       google-cloud-sdk
 
       docker-credential-gcr
@@ -189,8 +168,10 @@ rec {
     #
     # WARNING: Do not remove!
     #
-    inherit (self)
+    /*
+    inherit (super)
       nix# Don't enable this on multi-user.
       cacert;
-  };
+      */
+  #};
 }

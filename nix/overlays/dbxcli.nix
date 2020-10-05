@@ -5,7 +5,7 @@
 #
 # FIXME: Clashes with installation of hub binary from github/hub.
 #
-let enable = false; in
+let enable = true; in
 self: super:
 with builtins;
 with super;
@@ -25,6 +25,7 @@ rec {
           };
 
           modSha256 = "05pkcm68i6ig4jhz70sj3gq1vk7xp27cvl0sixys3dsg9krrm0y3";
+          vendorSha256 = null;
 
           subPackages = [ "." ];
 

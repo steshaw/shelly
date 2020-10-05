@@ -1,0 +1,19 @@
+The origin of the =userPackages= overlay idea is Daiderd Jordan's [[https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74][lnl-overlay]].
+
+Initially install with
+
+#+begin_src sh-session
+ $ nix-env -f '<nixpkgs>' -r -iA userPackages
+#+end_src
+
+Afterwards, edit [[packages.nix]] and run:
+
+#+begin_src sh-session
+ $ nix-rebuild
+#+end_src
+
+* References
+
+- https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74#gistcomment-2598159
+- https://gist.github.com/Widdershin/de023630617c405b033245ced16221f2
+- https://nixos.wiki/wiki/FAQ#Why_not_use_nix-env_-i_foo.3F

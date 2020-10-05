@@ -1,3 +1,3 @@
 self: super: {
-  kubectl-argo-rollouts = super.callPackages ../pkgs/kubectl-argo-rollouts { };
+  kubectl-argo-rollouts = super.callPackage ../pkgs/kubectl-argo-rollouts { };
 }
