@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-overlay_dir="${SHELLY_HOME}/nix/overlays"
+# Argh, this isn't an overlay any more...
+overlay_dir="${SHELLY_HOME}/nix/pkgs"
 default_overlay=packages.nix
 
 if [[ $# -gt 1 ]]; then

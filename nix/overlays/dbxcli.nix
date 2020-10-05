@@ -5,7 +5,7 @@
 #
 # FIXME: Clashes with installation of hub binary from github/hub.
 #
-let enable = true; in
+let enable = false; in
 self: super:
 with builtins;
 with super;

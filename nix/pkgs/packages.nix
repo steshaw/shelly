@@ -88,9 +88,10 @@ with pkgs; [
   wget
   youtube-dl
 
-  pkgs.gitAndTools.lab
   gitAndTools.git-filter-repo
   nodePackages.gitmoji-cli
+  pkgs.gitAndTools.hub
+  pkgs.gitAndTools.lab
 
   # Tmux.
   tmux
