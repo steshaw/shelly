@@ -1,0 +1,23 @@
+The origin of the =userPackages= overlay idea is Daiderd Jordan's [[https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74][lnl-overlay]],
+with [[https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74#gistcomment-3372828][improvements by Lily Ballard]].
+
+Initially install with
+
+#+begin_src sh-session
+ $ nix-env -f . --install --remove-all --attr userPackages
+#+end_src
+
+or invoke the [[../scripts/nix-rebuild]] script.
+
+Afterwards, edit [[pkgs/packages.nix]] and run the following to update the user packages:
+
+#+begin_src sh-session
+ $ nix-rebuild [--dry-run]
+#+end_src
+
+* References
+
+- [[https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74][lnl-overlay]] gist
+- Overlay [[https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74#gistcomment-3372828][improvements by Lily Ballard]].
+- https://gist.github.com/Widdershin/de023630617c405b033245ced16221f2
+- https://nixos.wiki/wiki/FAQ#Why_not_use_nix-env_-i_hello.3F
