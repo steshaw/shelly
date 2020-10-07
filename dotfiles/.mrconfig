@@ -9,9 +9,6 @@ sync = git sync-upstream-master
 [Code/steshaw/shelly]
 checkout = git clone git@github.com:steshaw/shelly
 
-[Code/steshaw/steshaw.org]
-checkout = git clone --recursive git@github.com:steshaw/steshaw.org
-
 [Code/steshaw/notes]
 checkout = git clone git@github.com:steshaw/notes
 
