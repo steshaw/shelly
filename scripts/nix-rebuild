@@ -3,13 +3,16 @@
 set -euo pipefail
 ${SCRIPT_DEBUG:-}
 
-export NIX_PATH="nixpkgs=${SHELLY_HOME}/nix"
+pkgs_home="${SHELLY_HOME}/nix"
 if [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
+  export NIX_PATH="nixpkgs=${pkgs_home}"
   if [[ $# -eq 1 && ( $1 == '--dry-run' || $1 == '-n' ) ]]; then
     nix-what-rebuild
   else
     ~/.nix-profile/bin/nix-rebuild
   fi
 else
-  nix-env --install --remove-all --attr userPackages "$@"
+  nix-env \
+    --file "${pkgs_home}" \
+    --install --remove-all --attr userPackages "$@"
 fi
