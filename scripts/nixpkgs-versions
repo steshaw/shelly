@@ -9,4 +9,4 @@ nix-instantiate \
     --eval \
     --strict \
     --json \
-    --expr '({pkg}: (import ./v.nix {inherit pkg ;}))' | jq
+    --expr '({pkg}: (import ./nixpkgs-versions.nix {inherit pkg ;}))' | jq
