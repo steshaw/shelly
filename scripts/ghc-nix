@@ -17,4 +17,4 @@ else
 fi
 
 exec nix-shell -p "haskellPackages.ghcWithPackages
-  (pkgs: with pkgs; [ hscolour show-prettyprint $* ])" $command
+  (pkgs: with pkgs; [ $* ])" $command
