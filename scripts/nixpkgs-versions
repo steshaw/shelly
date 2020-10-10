@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pkg=$1
+
+nix-instantiate \
+    --argstr pkg "${pkg}" \
+    --eval \
+    --strict \
+    --json \
+    --expr '({pkg}: (import ./v.nix {inherit pkg ;}))' | jq

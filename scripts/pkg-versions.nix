@@ -34,7 +34,9 @@
 #   https://gist.github.com/matthewbauer/7c57f8fb69705bb8da9741bf4b9a7e64
 #
 
-{ channels ? [
+{
+  nixpkgs ? (import <nixpkgs> {}),
+  channels ? [
   "20.03"
   "19.09"
   "19.03"
@@ -48,7 +50,7 @@
   "14.12"
   "14.04"
   "13.10"
-], attrs ? builtins.attrNames (import <nixpkgs> { })
+], attrs ? builtins.attrNames nixpkgs
 , system ? builtins.currentSystem, args ? { inherit system; } }:
 
 let
@@ -66,7 +68,7 @@ let
       value = {
         channel = channel;
         pkg = pkg;
-        rev = pkgs.lib.fileContents ((builtins.fetchTarball "channel:nixos-13.10") + "/nixpkgs/.git-revision");
+        rev = nixpkgs.lib.fileContents ((builtins.fetchTarball "channel:nixos-13.10") + "/nixpkgs/.git-revision");
       };
     } else
       null;
