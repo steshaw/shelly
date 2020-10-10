@@ -66,6 +66,7 @@ let
       value = {
         channel = channel;
         pkg = pkg;
+        rev = pkgs.lib.fileContents ((builtins.fetchTarball "channel:nixos-13.10") + "/nixpkgs/.git-revision");
       };
     } else
       null;
