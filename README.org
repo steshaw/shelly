@@ -32,7 +32,7 @@ $ sh <(curl -fsSL https://nixos.org/nix/install) --daemon
 
 #+begin_src bash session
 $ generate-ssh-key
-$ github-add-key
+ GITHUB_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX github-add-key
 #+end_src
 
 3. Run post-bootstrap
