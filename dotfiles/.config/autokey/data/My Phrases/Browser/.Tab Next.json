@@ -25,7 +25,7 @@
         "hotKey": "<right>"
     },
     "filter": {
-        "regex": null,
+        "regex": ".*[Ff]irefox.*",
         "isRecursive": false
     },
     "sendMode": "kb"
