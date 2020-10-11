@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-repo='https://github.com/NixOS/nixpkgs-channels'
+repo='https://github.com/NixOS/nixpkgs'
 
 exec git ls-remote --heads ${repo} "$@"
