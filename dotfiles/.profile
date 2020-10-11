@@ -32,7 +32,7 @@ if [[ ${profile_startup} -eq 1 ]]; then
   fi
 
   if [[ ${profile_startup_type} == 'incremental' ]]; then
-    ts=~/.nix-profile/bin/ts
+    ts=~/.nix"-"profile/bin/ts
     # Ensure ts exists and accepts -i.
     if [[ -x ${ts} ]] && ${ts} -i </dev/null 2>/dev/null; then
       exec 3>&1 # Save stdout.
@@ -47,7 +47,7 @@ if [[ ${profile_startup} -eq 1 ]]; then
   fi
 
   if [[ ${profile_startup_type} == 'xtracefd' ]]; then
-    ts=~/.nix-profile/bin/ts
+    ts=~/.nix"-"profile/bin/ts
     # Ensure ts exists and accepts -i.
     if [[ -x ${ts} ]] && ${ts} -i </dev/null 2>/dev/null; then
       # HT https://mdjnewman.me/2017/10/debugging-slow-bash-startup-files/
