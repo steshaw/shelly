@@ -42,6 +42,12 @@ asiaPacific =
     22 -- Auckland, New Zealand
   ]
 
+au =
+  [ 196 -- Perth, Australia
+  , 47 -- Brisbane, Australia
+  , 152 -- Melbourne, Australia
+  ]
+
 home =
   [ 47 -- Brisbane, Australia
   ]
@@ -49,7 +55,7 @@ home =
 personal = home ++ usa
 
 cities :: [Int]
-cities = personal
+cities = au
 
 main = do
   c <- Time.getCurrentTime
