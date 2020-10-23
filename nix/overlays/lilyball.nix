@@ -31,6 +31,7 @@ in
       fi
       IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
+      export NIX_PATH="nixpkgs=$SHELLY_HOME/nix"
       nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
       IFS=- read -r _ newGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       ${self.diffutils}/bin/diff --color -u --label "generation $oldGen" $oldVersions \
@@ -43,6 +44,7 @@ in
         echo "warning: nix-env was not found in PATH, add nix to userPackages" >&2
         PATH=${self.nix}/bin:$PATH
       fi
+      export NIX_PATH="nixpkgs=$SHELLY_HOME/nix"
       IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
       newVersions=$(nix-build --no-out-link -A userPackages.packageVersions '<nixpkgs>')
