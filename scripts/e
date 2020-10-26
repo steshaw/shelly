@@ -25,7 +25,7 @@ if [[ -n ${DISPLAY:-} ]]; then
     --alternate-editor='e -nw' \
     "$@"
 else
-  if true; then
+  if [[ $SHELLY_OS != 'darwin' ]]; then
     user_id=$(id --user)
     socket_name="/tmp/emacs${user_id}/server"
     socket_options=( "--socket-name=${socket_name}" )
