@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-${DEBUG:-}
-
 set -ue
 
 cd "${SHELLY_ENV}"

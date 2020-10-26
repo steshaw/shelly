@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-${DEBUG:-}
 
 if [[ ${1:-} == -nw ]]; then
   unset DISPLAY

@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-${DEBUG:-}
-
 if [[ $# -lt 1 ]]; then
   name=$(basename "${0}")
   echo "usage: ${name} cabal-package-name [args to cabal new-install]" >&2

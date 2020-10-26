@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-${SCRIPT_DEBUG:-}
 
 pkgs_home="${SHELLY_HOME}/nix"
 if [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then

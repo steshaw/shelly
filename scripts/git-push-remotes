@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-${DEBUG:-}
 
 get_remote_url() {
   local remote=$1

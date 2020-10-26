@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-${SCRIPT_DEBUG:-}
 
 script_name=$(basename "${0}")
 title="${USER}@$(hostname) (added by ${script_name})"

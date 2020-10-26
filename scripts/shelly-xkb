@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-${DEBUG:-}
 
 # Make unmodified Caps Lock an additional Esc, but Shift + Caps Lock behaves
 # like regular Caps Lock.

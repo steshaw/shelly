@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-${DEBUG:-}
 
 #
 # HT https://stackoverflow.com/a/10548919/482382

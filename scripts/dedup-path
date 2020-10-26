@@ -12,7 +12,6 @@
 #
 
 set -euo pipefail
-${DEBUG:-}
 
 do_dedup() {
   tr : '\n' | dedup | paste -s -d: -
