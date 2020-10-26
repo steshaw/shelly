@@ -2,7 +2,7 @@
 
 set -eu
 
-script=$(basename ${0})
+script=$(basename "${0}")
 
 if [[ $# -ne 2 ]]; then
   echo "usage: ${script} <your-repository> <upstream-repo>" >&2
@@ -26,5 +26,5 @@ if [[ ! -d ${directory} ]]; then
   exit 1
 fi
 
-cd ${directory}
-git remote add upstream ${upstream}
+cd "${directory}"
+git remote add upstream "${upstream}"
