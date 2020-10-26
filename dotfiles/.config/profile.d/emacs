@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-prependPathsExists /Applications/Emacs.app/Contents/MacOS/bin
-prependPathsExists /Applications/Aquamacs.app/Contents/MacOS/bin
