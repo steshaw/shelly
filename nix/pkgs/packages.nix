@@ -42,7 +42,7 @@ with pkgs; [
   nix-direnv
 
   # Other utilities.
-  awscli
+  awscli2
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
