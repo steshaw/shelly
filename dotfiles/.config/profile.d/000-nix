@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+# Ensure we have configured Nix.
 sourceExists '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
