@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if false; then
   if [[ -d ~/.rvm ]]; then
     export PATH="$PATH:$HOME/.rvm/bin"

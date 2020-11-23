@@ -1,2 +1,4 @@
+#!/bin/bash
+
 export DICTIONARY=en_GB
 export DICPATH=~/.nix-profile/share/hunspell

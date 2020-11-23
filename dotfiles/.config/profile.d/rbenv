@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if true; then
   if [[ -d ~/.rbenv ]]; then
     PATH=~/.rbenv/bin:${PATH}

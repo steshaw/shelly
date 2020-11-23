@@ -1,1 +1,3 @@
+#!/bin/bash
+
 prependPathsExists ~/Applications/IntelliJ\ IDEA\ 14\ CE.app/Contents/MacOS

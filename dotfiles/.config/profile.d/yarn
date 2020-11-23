@@ -1,1 +1,3 @@
+#!/bin/bash
+
 PATH=~/.yarn/bin:$PATH

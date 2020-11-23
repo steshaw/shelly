@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if has direnv; then
   if isZsh; then
     eval "$(direnv hook zsh)"

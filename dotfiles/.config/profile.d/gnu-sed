@@ -1,3 +1,5 @@
+#!/bin/bash
+
 gnuSedBase="/usr/local/opt/gnu-sed/libexec"
 
 if [[ -d $gnuSedBase ]]; then
