@@ -4,7 +4,7 @@ set -euo pipefail
 
 script_name=$(basename "${0}")
 title="${USER}@$(hostname) (added by ${script_name})"
-key="$(cat ~/.ssh/id_rsa.pub)"
+key="$(cat ~/.ssh/id_ed25519.pub)"
 
 curl \
   -X POST \
