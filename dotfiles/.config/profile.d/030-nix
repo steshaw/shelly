@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sourceExists '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
