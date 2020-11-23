@@ -1,0 +1,4 @@
+i3-wm.gaps.inner.size:	4
+i3-wm.gaps.outer.size:	0
+i3-wm.window.border.size:	1
+i3-wm.gaps.focus_follows_mouse: 1
