@@ -24,38 +24,54 @@ import Text.Printf (printf)
 --base :: Text.Text
 base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 
+sf = 224 -- San Francisco, USA
+austin = 24 -- Austin, USA
+boston = 43 -- Boston, USA
+
 usa =
-  [ 224, -- San Francisco, USA
-    24, -- Austin, USA
-    43 -- Boston, USA
+  [ sf,
+    austin,
+    boston
   ]
+
+london = 136 -- London, England
+berlin = 37 -- Berlin, Germany
 
 eu =
-  [ 136, -- London, England
-    37 -- Berlin, Germany
+  [ london,
+    berlin
   ]
+
+bangalore = 438 -- Bangalore, India
+manilla = 145 -- Manilla, Phillipines
+tokyo = 248 -- Tokyo, Japan
+auckland = 22 -- Auckland, New Zealand
 
 asiaPacific =
-  [ 438, -- Bangalore, India
-    145, -- Manilla, Phillipines
-    248, -- Tokyo, Japan
-    22 -- Auckland, New Zealand
+  [ bangalore,
+    manilla,
+    tokyo,
+    auckland
   ]
 
+perth = 196 -- Perth, Australia
+brisbane = 47 -- Brisbane, Australia
+melbourne = 152 -- Melbourne, Australia
+
 au =
-  [ 196 -- Perth, Australia
-  , 47 -- Brisbane, Australia
-  , 152 -- Melbourne, Australia
+  [ perth
+  , brisbane
+  , melbourne
   ]
 
 home =
-  [ 47 -- Brisbane, Australia
+  [ brisbane
   ]
 
 personal = home ++ usa
 
 cities :: [Int]
-cities = au
+cities = [brisbane, sf]
 
 main = do
   c <- Time.getCurrentTime
