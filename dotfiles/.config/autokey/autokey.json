@@ -1,5 +1,5 @@
 {
-    "version": "0.94.1",
+    "version": "0.95.10",
     "userCodeDir": null,
     "settings": {
         "isFirstRun": true,
@@ -12,10 +12,10 @@
         "interfaceType": "XRecord",
         "undoUsingBackspace": true,
         "windowDefaultSize": [
-            1276,
-            706
+            638,
+            1174
         ],
-        "hPanePosition": 319,
+        "hPanePosition": 159,
         "columnWidths": [
             150,
             50,
@@ -25,6 +25,7 @@
         "notificationIcon": "autokey-status",
         "workAroundApps": ".*VirtualBox.*|krdc.Krdc",
         "triggerItemByInitial": false,
+        "disabledModifiers": [],
         "scriptGlobals": {}
     },
     "folders": [],
