@@ -1,47 +1,59 @@
 * Shelly
 
-My [[dotfiles][dotfiles]], [[scripts][shell scripts]].
+My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and packages.
 
 ** Installation
 
-I bootstrap my dotfiles on a new machine like this:
+*** Install dotfiles
 
-#+begin_src bash session
+Bootstrap my dotfiles on a new machine like this:
+
+#+begin_src sh-session
 $ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
 #+end_src
 
-This downloads this repo and links my dotfiles.
+This downloads this repo and links my dotfiles. Open a new terminal.
+Stop right here for a minimal setup, or install packages for a complete
+setup.
 
-For a more complete environment, follow this by:
+*** Install packages (optional)
 
-1. Install [[https://nixos.org/nix][Nix]]
+**** 1. Install [[https://nixos.org/nix][Nix]]
 
-Ensure that the umask is 022 to prevent installation errors.
+On NixOS, Nix is already installed.
 
-#+begin_src bash session
+For other Linux systems:
+
+#+begin_src sh-session
+$ sh <(curl -fsSL https://nixos.org/nix/install) --daemon
+#+end_src
+
+For macOS systems:
+
+#+begin_src sh-session
 $ umask 022
 $ sh <(curl -fsSL https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
 #+end_src
 
-- Install [[https://nixos.org/nix][Nix]] on Linux. If you're on NixOS, we're sweet.
+**** 2. Install [[https://brew.sh][Homebrew]] on macOS
 
-#+begin_src bash session
-$ sh <(curl -fsSL https://nixos.org/nix/install) --daemon
+This is used primarily to install desktop applications via Homebrew Cask.
+
+#+begin_src sh-session
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 #+end_src
 
-2. Install [[https://brew.sh][Homebrew]] on macOS
+**** 3. Generate a new SSH and add to GitHub
 
-3. Generate a new SSH and add to GitHub
-
-#+begin_src bash session
+#+begin_src sh-session
 $ generate-ssh-key
- GITHUB_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX github-add-key
+$ GITHUB_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX github-add-key
 #+end_src
 
-4. Run post-bootstrap
-
-#+begin_src bash session
-$ post-bootstrap
-#+end_src
+**** 4. Run post-bootstrap
 
 This will install packages and clone my Git repos.
+
+#+begin_src sh-session
+$ post-bootstrap
+#+end_src
