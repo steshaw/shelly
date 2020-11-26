@@ -9,12 +9,11 @@ My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and packages.
 Bootstrap my dotfiles on a new machine like this:
 
 #+begin_src sh-session
-$ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/bootstrap)
+$ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/scripts/bootstrap)
 #+end_src
 
-This downloads this repo and links my dotfiles. Open a new terminal.
-Stop right here for a minimal setup, or install packages for a complete
-setup.
+This downloads this repo and links my dotfiles. Open a new terminal. Stop right
+here for a minimal setup, or install packages for a complete setup.
 
 *** Install packages (optional)
 
