@@ -1,0 +1,9 @@
+#/usr/bin/env bash
+
+set -euo pipefail
+
+font_url='https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip'
+zip_file='/tmp/font.zip'
+curl -sSL --output "${zip_file}" "${font_url}"
+unzip -o -d ~/.local/share/fonts "${zip_file}"
+fc-cache -fv
