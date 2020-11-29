@@ -26,9 +26,3 @@ setxkbmap -option 'lv3:enter_switch'
 
 # Ctrl is mapped to Win and the usual Ctrl keys.
 setxkbmap -option 'altwin:ctrl_win'
-
-#
-# Swap Alt and Win
-# altwin:swap_alt_win
-# altwin:swap_alt_win
-#
