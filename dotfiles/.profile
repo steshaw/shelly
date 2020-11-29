@@ -173,3 +173,5 @@ if [[ ${profile_startup} -eq 1 ]]; then
   fi
   unset profile_startup_type
 fi
+
+export QT_QPA_PLATFORMTHEME=gtk2
