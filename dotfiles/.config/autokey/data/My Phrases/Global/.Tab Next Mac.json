@@ -1,10 +1,10 @@
 {
     "type": "phrase",
-    "description": "Tab Next",
+    "description": "Tab Next Mac",
     "modes": [
         3
     ],
-    "usageCount": 28,
+    "usageCount": 10,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
@@ -19,13 +19,13 @@
     },
     "hotkey": {
         "modifiers": [
-            "<alt>",
-            "<ctrl>"
+            "<ctrl>",
+            "<shift>"
         ],
-        "hotKey": "<right>"
+        "hotKey": "]"
     },
     "filter": {
-        "regex": ".*[Ff]irefox.*",
+        "regex": null,
         "isRecursive": false
     },
     "sendMode": "kb"

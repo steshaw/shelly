@@ -1,10 +1,10 @@
 {
     "type": "phrase",
-    "description": "Tab Prev",
+    "description": "Tab Prev Mac",
     "modes": [
         3
     ],
-    "usageCount": 11,
+    "usageCount": 12,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
@@ -19,13 +19,13 @@
     },
     "hotkey": {
         "modifiers": [
-            "<alt>",
-            "<ctrl>"
+            "<ctrl>",
+            "<shift>"
         ],
-        "hotKey": "<left>"
+        "hotKey": "["
     },
     "filter": {
-        "regex": ".*[Ff]irefox.*",
+        "regex": null,
         "isRecursive": false
     },
     "sendMode": "kb"
