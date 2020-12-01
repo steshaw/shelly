@@ -4,7 +4,7 @@
     "modes": [
         3
     ],
-    "usageCount": 24,
+    "usageCount": 49,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
@@ -24,7 +24,7 @@
         "hotKey": "<right>"
     },
     "filter": {
-        "regex": null,
+        "regex": "gnome-terminal-server.Gnome-terminal",
         "isRecursive": false
     },
     "sendMode": "kb"
