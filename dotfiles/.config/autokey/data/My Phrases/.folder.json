@@ -1,9 +1,7 @@
 {
     "type": "folder",
     "title": "My Phrases",
-    "modes": [
-        3
-    ],
+    "modes": [],
     "usageCount": 0,
     "showInTrayMenu": false,
     "abbreviation": {

@@ -12,10 +12,10 @@
         "interfaceType": "XRecord",
         "undoUsingBackspace": true,
         "windowDefaultSize": [
-            958,
+            638,
             1174
         ],
-        "hPanePosition": 239,
+        "hPanePosition": 159,
         "columnWidths": [
             150,
             50,
@@ -30,7 +30,7 @@
     },
     "folders": [],
     "toggleServiceHotkey": {
-        "enabled": true,
+        "enabled": false,
         "modifiers": [
             "<shift>",
             "<super>"
@@ -38,7 +38,7 @@
         "hotKey": "k"
     },
     "configHotkey": {
-        "enabled": true,
+        "enabled": false,
         "modifiers": [
             "<super>"
         ],
