@@ -133,6 +133,7 @@ with pkgs; [
 
   # Kubernetes
   argocd
+  kind
   kube-prompt
   kubectl
   kubectl-argo-rollouts
