@@ -30,31 +30,3 @@ checkout = git clone https://github.com/zsh-users/zsh-completions
 
 [.fzf]
 checkout = git clone 'https://github.com/junegunn/fzf.git' '.fzf'
-
-# --------------------------------------------------------------------------
-# FLOSS
-# --------------------------------------------------------------------------
-
-[Code/NixOS/nix]
-checkout = git clone 'git@github.com:NixOS/nix' 'nix'
-
-[Code/idris-lang/Idris2]
-checkout =
-	  git clone git@github.com:steshaw/Idris2 Idris2
-	  cd Idris2
-	  git remote add upstream git@github.com:idris-lang/Idris2.git
-update = git sync-upstream-master
-
-[Code/NixOS/nix]
-checkout =
-	  git clone git@github.com:steshaw/nix.git nix
-	  cd nix
-	  git remote add upstream git@github.com:NixOS/nix.git
-update = git sync-upstream-master
-
-[Code/NixOS/nixpkgs]
-checkout =
-	  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
-	  cd nixpkgs
-	  git remote add upstream git@github.com:NixOS/nixpkgs.git
-update = git sync-upstream-master
