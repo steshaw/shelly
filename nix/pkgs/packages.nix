@@ -46,8 +46,8 @@ with pkgs; [
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
-  cabal2nix
-  coreutils
+  (broken cabal2nix)
+  (broken coreutils)
   curl
   dbxcli # Defined in overlay/dbxcli.nix
   dos2unix
@@ -112,7 +112,7 @@ with pkgs; [
   (notDarwin pkgs.ats2)
   coq
   idris2
-  agda
+  (broken agda)
   go
   rustup
 
@@ -132,11 +132,11 @@ with pkgs; [
   docker-credential-gcr
 
   # Kubernetes
-  argocd
+  (broken argocd)
   kind
   kube-prompt
   kubectl
-  kubectl-argo-rollouts
+  (broken kubectl-argo-rollouts)
   kubectx
   kubernetes-helm
   kubespy
