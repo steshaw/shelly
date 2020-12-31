@@ -33,7 +33,7 @@ cask "skype"
 cask "spectacle"
 cask "visual-studio-code"
 cask "vlc"
-cask "zoomus"
+cask "zoom"
 cask "zotero"
 mas "Adblock Plus", id: 1432731683
 mas "GarageBand", id: 682658836
