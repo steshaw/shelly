@@ -8,6 +8,7 @@ with pkgs; [
   #
   # Nix.
   #
+  niv
   nix-prefetch-scripts
   nixfmt
   nixpkgs-fmt
@@ -47,7 +48,7 @@ with pkgs; [
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
   cabal2nix
-  (broken coreutils)
+  coreutils
   curl
   dbxcli # Defined in overlay/dbxcli.nix
   dos2unix
@@ -112,7 +113,7 @@ with pkgs; [
   (notDarwin pkgs.ats2)
   coq
   idris2
-  agda
+  (broken agda)
   go
   rustup
 
