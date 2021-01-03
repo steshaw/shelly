@@ -46,7 +46,7 @@ with pkgs; [
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
-  (broken cabal2nix)
+  cabal2nix
   (broken coreutils)
   curl
   dbxcli # Defined in overlay/dbxcli.nix
@@ -112,7 +112,7 @@ with pkgs; [
   (notDarwin pkgs.ats2)
   coq
   idris2
-  (broken agda)
+  agda
   go
   rustup
 
