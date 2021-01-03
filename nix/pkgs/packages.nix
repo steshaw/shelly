@@ -137,7 +137,7 @@ with pkgs; [
   kind
   kube-prompt
   kubectl
-  (broken kubectl-argo-rollouts)
+  kubectl-argo-rollouts
   kubectx
   kubernetes-helm
   kubespy
