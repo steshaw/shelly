@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   pname = "kubectl-argo-rollouts";
-  version = "0.8.3";
+  version = "0.10.2";
 
   src = fetchFromGitHub {
     owner = "argoproj";

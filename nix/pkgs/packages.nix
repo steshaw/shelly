@@ -132,7 +132,7 @@ with pkgs; [
   docker-credential-gcr
 
   # Kubernetes
-  (broken argocd)
+  argocd
   kind
   kube-prompt
   kubectl
