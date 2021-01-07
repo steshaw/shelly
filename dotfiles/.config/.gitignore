@@ -1,6 +1,7 @@
 /BraveSoftware/
 /Code/
 /Hyper/
+/JetBrains/
 /Keybase/
 /QtProject.conf
 /QtProject/
@@ -51,6 +52,7 @@
 /kcminputrc
 /kcmshell5rc
 /kconf_updaterc
+/kdeconnect/
 /kded5rc
 /kdeglobals
 /keybase/
