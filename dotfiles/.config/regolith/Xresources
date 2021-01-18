@@ -5,3 +5,4 @@ i3-wm.gaps.focus_follows_mouse: 1
 
 i3-wm.program.1: shelly-xkb
 i3-wm.program.2: rescuetime
+gnome.terminal.font: FiraCode NF Regular 12
