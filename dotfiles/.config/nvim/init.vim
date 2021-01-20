@@ -5,18 +5,12 @@ fun! Plugs()
   " Colour schemes.
   "
   " Collections.
-  Plug 'flazz/vim-colorschemes'
-  Plug 'mswift42/vim-themes'
+"  Plug 'flazz/vim-colorschemes'
+"  Plug 'mswift42/vim-themes'
   " Specific themes.
-  Plug 'captbaritone/molokai'
-  Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'joshdick/onedark.vim'
-  Plug 'lifepillar/vim-solarized8'
-  Plug 'morhetz/gruvbox'
-  if 1
-    Plug 'crusoexia/vim-monokai'
-  else
-    Plug 'sickill/vim-monokai'
+  Plug 'drewtempelmeyer/palenight.vim'
+  if 0
+    Plug 'ayu-theme/ayu-vim'
   endif
 
   " Org mode.
@@ -190,18 +184,25 @@ try
 
 "  colorscheme onedark
 "  colorscheme dracula
-"  colorscheme gruvbox "
+"  colorscheme gruvbox
 "  colorscheme monokai
 "  colorscheme solarized8_high
-
 "  colorscheme pt_black
 "  colorscheme SerialExperimentsLain
-"  colorscheme 'space-vim-dark'
+"  colorscheme space-vim-dark
 "  colorscheme stereokai
-  colorscheme Tomorrow-Night
+"  colorscheme Tomorrow-Night
+"  colorscheme synthwave84
+
+  if 0
+    let ayucolor="mirage"
+    colorscheme ayu
+  endif
+
+  colorscheme palenight
 catch
   " Fallback theme.
-  silent! colorscheme darkblue
+  silent! colorscheme default
 endtry
 
 " ==========================================================================
