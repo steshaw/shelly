@@ -34,9 +34,8 @@
 #   https://gist.github.com/matthewbauer/7c57f8fb69705bb8da9741bf4b9a7e64
 #
 
-{
-  nixpkgs ? (import <nixpkgs> {}),
-  channels ? [
+let defaultChannels = map (version: "channel:nixos-${version}") [
+  "20.09"
   "20.03"
   "19.09"
   "19.03"
@@ -50,12 +49,15 @@
   "14.12"
   "14.04"
   "13.10"
-], attrs ? builtins.attrNames nixpkgs
-, system ? builtins.currentSystem, args ? { inherit system; } }:
-
+] ++ ["channel:nixos-unstable"]; in
+{
+  nixpkgs ? (import <nixpkgs> {}),
+  channels ? defaultChannels,
+  attrs ? builtins.attrNames nixpkgs,
+  system ? builtins.currentSystem, args ? { inherit system; } }:
 let
   getSet = channel:
-    let tarball = builtins.fetchTarball "channel:nixos-${channel}";
+    let tarball = builtins.fetchTarball channel;
     in (import tarball args).pkgs;
 
   pkg2version = name: channel:
