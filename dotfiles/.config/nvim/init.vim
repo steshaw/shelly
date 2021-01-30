@@ -207,12 +207,12 @@ endtry
 
 " ==========================================================================
 
-autocmd FileType make setlocal noexpandtab | set tabstop=2
-autocmd FileType markdown set spell
-autocmd FileType org set spell " FIXME: Doesn't work for org mode.
-"autocmd BufNewFile,BufRead *.v set filetype=go
-autocmd BufNewFile,BufRead .mrconfig set filetype=toml
 autocmd BufNewFile,BufRead .Brewfile set filetype=ruby
+autocmd BufNewFile,BufRead .mrconfig set filetype=toml
+autocmd FileType go setlocal tabstop=2
+autocmd FileType make setlocal noexpandtab | setlocal tabstop=2
+autocmd FileType markdown set spell
+autocmd FileType org set spell
 
 nnoremap <Leader><space> :nohlsearch<Enter>
 
