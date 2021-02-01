@@ -114,7 +114,6 @@ with pkgs; [
   coq
   idris2
   (broken agda)
-  go
   rustup
 
   # Haskell.
