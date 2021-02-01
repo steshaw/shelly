@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-#
-# Note: Shelly apps should be sourced from your .bash_profile.
-# The shebang above is just for file type detection in vim :).
-#
-# Usage:
-#
-#   source /path/to/shelly/bin/ShellyPath
-#
 
 export SHELLY_ENV=${SHELLY_ENV:-~/.shelly/env/0}
 
