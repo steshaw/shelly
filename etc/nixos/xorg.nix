@@ -86,7 +86,6 @@ in
         in
         ''
           ${pkgs.xss-lock}/bin/xss-lock -- ${myLocker} &
-          ${pkgs.rescuetime}/bin/rescuetime &
           ${pkgs.dropbox}/bin/dropbox &
           ${pkgs.autokey}/bin/autokey-gtk &
           echo before xinput
@@ -163,7 +162,6 @@ in
     dropbox
     firefox
     google-chrome
-    rescuetime
     uPkgs.vscode
     zotero
 
