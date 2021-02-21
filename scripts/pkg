@@ -24,7 +24,7 @@ function is_nix() {
 }
 
 function has_brew() {
-  [[ -n $HOMEBREW_PREFIX ]] && echo Yes has Brew
+  [[ -n ${HOMEBREW_PREFIX:-} ]] && echo Yes has Brew
 }
 
 if [[ $command = 'info' ]]; then
