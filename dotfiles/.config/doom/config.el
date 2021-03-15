@@ -61,3 +61,9 @@
 ;; they are implemented.
 
 (setq doom-localleader-key ",")
+
+; Use Agda mode for literal Agda file with Markdown i.e. *.lagda.md.
+(setq auto-mode-alist
+   (append
+     '(("\\.lagda.md\\'" . agda2-mode))
+     auto-mode-alist))
