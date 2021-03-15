@@ -10,4 +10,4 @@ templates:
     category: Example
 
 nix:
-  enable: true
+  enable: false
