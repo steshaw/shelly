@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-exec et -c 'tmux -CC new-session -AD -s main' "$@"
+exec et -c ".nix-profile/bin/tmux -CC new-session -AD -s main" "$@"
