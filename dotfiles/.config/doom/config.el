@@ -67,3 +67,5 @@
    (append
      '(("\\.lagda.md\\'" . agda2-mode))
      auto-mode-alist))
+
+(setq org-time-stamp-rounding-minutes '(0 30))
