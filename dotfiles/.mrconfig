@@ -20,7 +20,7 @@ checkout = git clone git@github.com:steshaw/notes
 checkout = git clone git@github.com:steshaw/timedot-vim.git timedot-vim
 
 [.emacs.d]
-checkout = git clone --branch develop https://github.com/syl20bnr/spacemacs .emacs.d
+checkout = git clone https://github.com/hlissner/doom-emacs
 
 [.oh-my-zsh]
 checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
