@@ -44,6 +44,7 @@
 /hub
 /ibus/
 /inkscape/
+/jgit/
 /kactivitymanagerd-statsrc
 /kactivitymanagerdrc
 /kateschemarc
@@ -99,6 +100,7 @@
 /powermanagementprofilesrc
 /psysh_history
 /pulse/
+/qt5ct/
 /qterminal.org/
 /session/
 /spectaclerc
@@ -120,4 +122,3 @@
 /yarn/
 /yelp/
 /zoomus.conf
-/qt5ct/
