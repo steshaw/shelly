@@ -9,7 +9,7 @@ Echo "Executing shrc"
 # Set umask to 077. No default group or other access.
 umask go-rwx
 
-# =========================================================================
+#===========================================================================
 
 setEditor() {
   editor=$1
@@ -32,9 +32,9 @@ setEditor nvim || setEditor vim
 
 set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 
-# =========================================================================
+#===========================================================================
 # Aliases
-
+#
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
 
@@ -126,7 +126,8 @@ fi
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
 
-# =========================================================================
+#===========================================================================
+# cdpath
 
 cdpath-update() {
   # This cdpath array works out-of-box for zsh.
@@ -174,15 +175,9 @@ cdpath-update() {
 }
 cdpath-update
 
-# =========================================================================
-
-#
+#===========================================================================
 # Source etc/shrc.d/*
 #
 for file in "$SHELLY_HOME"/dotfiles/.config/shellyrc.d/*; do
   sourceExists "${file}"
 done
-
-# =========================================================================
-
-sourceExists ~/.travis/travis.sh # for travis gem
