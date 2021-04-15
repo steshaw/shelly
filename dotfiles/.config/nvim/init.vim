@@ -200,6 +200,11 @@ try
   endif
 
   colorscheme palenight
+
+  " Light scheme if outside.
+  if 0
+    colorscheme zellner
+  endif
 catch
   " Fallback theme.
   silent! colorscheme default
