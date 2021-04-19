@@ -134,6 +134,7 @@ cdpath-update() {
   # For bash, it's processed into CDPATH.
   cdpath=(
     .
+    ~/Code
   )
 
   cached=~/.cache/shelly/code_dirs.txt
