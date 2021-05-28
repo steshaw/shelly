@@ -74,7 +74,7 @@ This function should only modify configuration layer settings."
      ;ocaml ; TODO Enable layer automatically when ocaml+merlin available.
      org
      osx
-     php
+     ;php
      pdf
      python
      purescript
@@ -610,7 +610,7 @@ you should place your code here."
 
   ;; Use Spacemacs as the $GIT_EDITOR.
   ;; See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bsource-control/git#global-git-commit-mode
-  (global-git-commit-mode t)
+  ;(global-git-commit-mode t)
 
   ;; 2-space indentation for JS/JSON.
   (setq-default js2-basic-offset 2
