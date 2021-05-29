@@ -19,8 +19,11 @@ checkout = git clone git@github.com:steshaw/notes
 [Code/steshaw/timedot-vim]
 checkout = git clone git@github.com:steshaw/timedot-vim.git timedot-vim
 
-[.emacs.d]
-checkout = git clone https://github.com/hlissner/doom-emacs
+[.emacs.d.doom]
+checkout = git clone 'https://github.com/hlissner/doom-emacs' '.emacs.d.doom'
+
+[.emacs.d.spacemacs]
+checkout = git clone 'https://github.com/syl20bnr/spacemacs' '.emacs.d.spacemacs'
 
 [.oh-my-zsh]
 checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
