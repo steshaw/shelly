@@ -2,3 +2,7 @@
 
 # Ensure we have configured Nix.
 sourceExists '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+
+# Ensure that Nix-installed packages can find locale referred to by LANG.
+# See https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
+export LOCALE_ARCHIVE="$(readlink ~/.nix-profile/lib/locale)/locale-archive"
