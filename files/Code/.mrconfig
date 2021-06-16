@@ -49,3 +49,12 @@ checkout = git clone 'git@github.com:reasonml/reason' 'reason'
 
 [ocaml/ocaml]
 checkout = git clone 'git@github.com:ocaml/ocaml' 'ocaml'
+
+[chaoyangnz/javo]
+checkout = git clone 'git@github.com:steshaw/javo.git' 'javo'
+
+[imba/imba]
+checkout = git clone 'git@github.com:imba/imba' 'imba'
+
+[typelevel/cats]
+checkout = git clone 'git@github.com:typelevel/cats' 'cats'
