@@ -12,7 +12,10 @@ import qualified Data.Time as Time
 import Text.Printf (printf)
 
 -- World Clock examples
+--
 -- https://www.timeanddate.com/worldclock/meetingtime.html?p1=224&p2=24&p3=43&p4=1323&p5=37&p6=438&p7=47&iso=20200228
+-- San Francisco, Austin, Boston, London, Moscow, Bengaluru, Brisbane, Auckland
+-- https://www.timeanddate.com/worldclock/personal.html?cities=224,24,43,136,166,438,47,22&wch=2
 
 -- Astronomy examples
 --  https://www.timeanddate.com/astronomy/australia/brisbane
@@ -35,20 +38,26 @@ usa =
   ]
 
 london = 136 -- London, England
+uk = london
 berlin = 37 -- Berlin, Germany
+moscow = 166
+russia = moscow
 
 eu =
-  [ london,
-    berlin
+  [ uk,
+    berlin,
+    moscow
   ]
 
-bangalore = 438 -- Bangalore, India
+bengaluru = 438 -- Bengaluru, India
+india = bengaluru
 manilla = 145 -- Manilla, Phillipines
 tokyo = 248 -- Tokyo, Japan
 auckland = 22 -- Auckland, New Zealand
+nz = auckland
 
 asiaPacific =
-  [ bangalore,
+  [ bengaluru,
     manilla,
     tokyo,
     auckland
@@ -68,10 +77,10 @@ home =
   [ brisbane
   ]
 
-personal = home ++ usa
+mlabs = [sf, austin, boston, uk, russia, bengaluru, brisbane, nz]
 
 cities :: [Int]
-cities = [brisbane, sf]
+cities = mlabs
 
 main = do
   c <- Time.getCurrentTime
