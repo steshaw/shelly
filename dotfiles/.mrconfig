@@ -1,6 +1,7 @@
 [DEFAULT]
 gc = git gc "$@"
 sync = git sync-upstream-master
+fork = hub fork --remote-name origin
 
 # --------------------------------------------------------------------------
 # Personal repositories.
