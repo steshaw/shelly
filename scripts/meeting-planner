@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec runhaskell "${SHELLY_HOME}/src/meeting-planner.hs"
