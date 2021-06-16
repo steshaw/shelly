@@ -1,24 +1,45 @@
-# --------------------------------------------------------------------------
-# FLOSS
-# --------------------------------------------------------------------------
-
 [idris-lang/Idris2]
-checkout =
-	  git clone git@github.com:steshaw/Idris2 Idris2
-	  cd Idris2
-	  git remote add upstream git@github.com:idris-lang/Idris2.git
-update = git sync-upstream-master
+checkout = git clone-fork idris-lang/Idris2
+update = mr sync
 
 [NixOS/nix]
-checkout =
-	  git clone git@github.com:steshaw/nix.git nix
-	  cd nix
-	  git remote add upstream git@github.com:NixOS/nix.git
-update = git sync-upstream-master
+checkout = git clone-fork NixOS/nix
+update = mr sync
 
 [NixOS/nixpkgs]
-checkout =
-	  git clone git@github.com:steshaw/nixpkgs.git nixpkgs
-	  cd nixpkgs
-	  git remote add upstream git@github.com:NixOS/nixpkgs.git
-update = git sync-upstream-master
+checkout = git clone-fork NixOS/nixpkgs
+update = mr sync
+
+[AndrasKovacs/elaboration-zoo]
+checkout = git clone 'git@github.com:AndrasKovacs/elaboration-zoo' 'elaboration-zoo'
+
+[AndrasKovacs/glued-eval-gist]
+checkout = git clone 'git@gist.github.com:a0e0938113b193d6b9c1c0620d853784.git' 'glued-eval-gist'
+
+[AndrasKovacs/smalltt]
+checkout = git clone 'git@github.com:AndrasKovacs/smalltt' 'smalltt'
+
+[edwinb/SPLV20]
+checkout = git clone-fork edwinb/SPLV20
+update = mr sync
+
+[lampepfl/dotty]
+checkout = git clone 'git@github.com:lampepfl/dotty' 'dotty'
+
+[mgrabmueller/AlgorithmW]
+checkout = git clone 'git@github.com:mgrabmueller/AlgorithmW' 'AlgorithmW'
+
+[mgrabmueller/disassembler]
+checkout = git clone 'git@github.com:mgrabmueller/disassembler' 'disassembler'
+
+[mgrabmueller/down]
+checkout = git clone 'git@github.com:mgrabmueller/down' 'down'
+
+[mgrabmueller/waddle]
+checkout = git clone 'git@github.com:mgrabmueller/waddle' 'waddle'
+
+[purescript/purescript]
+checkout = git clone 'git@github.com:purescript/purescript' 'purescript'
+
+[stefan-hoeck/idris2-elab-util]
+checkout = git clone 'git@github.com:stefan-hoeck/idris2-elab-util' 'idris2-elab-util'
