@@ -43,3 +43,9 @@ checkout = git clone 'git@github.com:purescript/purescript' 'purescript'
 
 [stefan-hoeck/idris2-elab-util]
 checkout = git clone 'git@github.com:stefan-hoeck/idris2-elab-util' 'idris2-elab-util'
+
+[reasonml/reason]
+checkout = git clone 'git@github.com:reasonml/reason' 'reason'
+
+[ocaml/ocaml]
+checkout = git clone 'git@github.com:ocaml/ocaml' 'ocaml'
