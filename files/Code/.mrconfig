@@ -58,3 +58,6 @@ checkout = git clone 'git@github.com:imba/imba' 'imba'
 
 [typelevel/cats]
 checkout = git clone 'git@github.com:typelevel/cats' 'cats'
+
+[camllight/camllight]
+checkout = git clone 'git@github.com:camllight/camllight' 'camllight'
