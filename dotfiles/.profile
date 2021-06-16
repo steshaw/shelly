@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-export SHELLY_DEV_DIR=~/Code
-export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
+export SHELLY_DEV_DIR=~/Code # XXX: Deprecated!
+export SHELLY_CODE_DIR=~/Code
+export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 # shellcheck disable=SC2034
 SHELLY_NOISY=0 # Set to 1 for crude debugging.
 
