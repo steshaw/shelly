@@ -13,6 +13,7 @@ with pkgs; [
   nixfmt
   nixpkgs-fmt
   nox
+  glibcLocales # Fix for locale issue.
 
   #
   # Command line utilities.

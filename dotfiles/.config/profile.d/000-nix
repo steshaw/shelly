@@ -5,4 +5,9 @@ sourceExists '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 
 # Ensure that Nix-installed packages can find locale referred to by LANG.
 # See https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
-export LOCALE_ARCHIVE="$(readlink ~/.nix-profile/lib/locale)/locale-archive"
+locale_dir=~/.nix-profile/lib/locale
+if [[ -d ${locale_dir} ]]; then
+  LOCALE_ARCHIVE="$(readlink ${locale_dir})/locale-archive"
+  export LOCALE_ARCHIVE
+fi
+unset locale_dir
