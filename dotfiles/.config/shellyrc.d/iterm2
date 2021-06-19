@@ -6,10 +6,11 @@ if true || [[ ${SHELLY_OS} == 'darwin' ]]; then
 fi
 
 iterm-colour() {
-  if [[ $ITERM_PROFILE == 'Dark' ]]; then
-    ITERM_PROFILE='Light'
+  if [[ $ITERM_COLOUR == 'dark' ]]; then
+    ITERM_COLOUR='light'
+    it2setcolor preset 'Light Background'
   else
-    ITERM_PROFILE='Dark'
+    ITERM_COLOUR='dark'
+    it2setcolor preset 'Dark Background'
   fi
-  echo -e "\e]50;SetProfile=${ITERM_PROFILE}\a"
 }
