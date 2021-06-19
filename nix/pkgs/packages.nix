@@ -64,6 +64,7 @@ with pkgs; [
   jq
   killall
   lastpass-cli
+  licensee
   lsd
   moreutils # ts and more
   mr
