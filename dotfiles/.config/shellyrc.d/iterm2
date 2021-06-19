@@ -4,3 +4,12 @@ if true || [[ ${SHELLY_OS} == 'darwin' ]]; then
   isBash && sourceExists ~/.iterm2_shell_integration.bash
   isZsh && sourceExists ~/.iterm2_shell_integration.zsh
 fi
+
+iterm-colour() {
+  if [[ $ITERM_PROFILE == 'Dark' ]]; then
+    ITERM_PROFILE='Light'
+  else
+    ITERM_PROFILE='Dark'
+  fi
+  echo -e "\e]50;SetProfile=${ITERM_PROFILE}\a"
+}
