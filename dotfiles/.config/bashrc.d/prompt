@@ -159,7 +159,7 @@ ${cwd_colour}\w$reset_colour"
       local PROMPT_LINE_1="${UPC}${TOP_LEFT}─${user_host_cwd} ${shell}${nix}${direnv}"
       local PROMPT_LINE_2="${UPC}${BOT_LEFT}─${UP}${reset_colour} "
       local iterm2Mark=""
-      if [[ ${SHELLY_OS} == 'darwin' ]]; then
+      if true; then
         iterm2Mark="\[$(iterm2_prompt_mark)\]"
       fi
 
