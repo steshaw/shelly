@@ -119,7 +119,7 @@ with pkgs; [
   rustup
 
   # Haskell.
-  haskell.compiler.ghc8102
+  haskell.compiler.ghc901
   cabal-install
   stack
   ormolu

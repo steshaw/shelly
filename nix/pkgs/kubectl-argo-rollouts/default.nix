@@ -1,24 +1,15 @@
-{ stdenv, buildGoModule, fetchFromGitHub }:
-
-buildGoModule rec {
-  pname = "kubectl-argo-rollouts";
-  version = "0.10.2";
-
-  src = fetchFromGitHub {
-    owner = "argoproj";
-    repo = "argo-rollouts";
-    rev = "v${version}";
-    sha256 = "0g9lj5q884b06znzbmn542mxkxid5aybzj2m3dvrwzcypsxrk32s";
+{ stdenv, fetchurl }:
+stdenv.mkDerivation rec {
+  name = "kubectl-argo-rollouts";
+  version = "v1.0.2";
+  src = fetchurl {
+    url = "https://github.com/argoproj/argo-rollouts/releases/download/${version}/kubectl-argo-rollouts-linux-amd64";
+    sha256 = "1y9f35qixw602bp55r6zyq2djnl6718yzix54fq8gq3xbcllmd62";
   };
-
-  subPackages = [ "cmd/kubectl-argo-rollouts" ];
-
-  vendorSha256 = "079q9x7f35fzn8b2jd3ny3flvc70pv0yqkj3v9rkkqq4jp27a55x";
-
-  meta = with stdenv.lib; {
-    description = "kubectl plugin for Argo Rollouts";
-    homepage = "https://github.com/argoproj/argo-rollouts";
-    license = licenses.asl20;
-  };
+  phases = ["installPhase" "patchPhase"];
+  installPhase = ''
+    mkdir -p $out/bin
+    cp $src $out/bin/kubectl-argo-rollouts
+    chmod +x $out/bin/kubectl-argo-rollouts
+  '';
 }
-
