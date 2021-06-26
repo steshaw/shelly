@@ -9,16 +9,22 @@ if [[ $# -ne 1 ]]; then
   exit 2
 fi
 
-repoPath=$1
+repoPath=${1#https://github.com/}
 
 IFS=/ read -r -a fields <<<"$repoPath"
-if [[ ${#fields[@]} != 2 ]]; then
-  echo "Invalid repo path: $repoPath" >&2
-  exit 2
-fi
-
-user=${fields[0]}
-repo=${fields[1]}
+case ${#fields[@]} in
+  1)
+    user=${USER}
+    repo=${fields[0]}
+    ;;
+  2)
+    user=${fields[0]}
+    repo=${fields[1]}
+    ;;
+  *)
+    echo "Invalid repo path: $repoPath" >&2
+    exit 2
+esac
 
 cd "$root"
 git clone "git@github.com:$user/$repo" "$user/$repo"
