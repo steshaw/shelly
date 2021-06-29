@@ -7,7 +7,7 @@ set -euo pipefail
 setxkbmap -option 'caps:escape_shifted_capslock'
 
 # Both Shift together enable Caps Lock.
-setxkbmap -option 'shift:both_capslock'
+setxkbmap -option 'shift:both_capslock_cancel'
 
 # Compose is Right Alt or Scroll Lock.
 setxkbmap -option 'compose:ralt,compose:sclk'
