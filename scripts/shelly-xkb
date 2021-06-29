@@ -26,6 +26,8 @@ if [[ $apple_keyboard -eq 1 ]]; then
 
   # Ctrl is mapped to Win and the usual Ctrl keys.
   setxkbmap -option 'altwin:ctrl_win'
+else
+  setxkbmap -option 'ctrl:swap_lalt_lctl,ctrl:swap_lalt_lctl_lwin'
 fi
 
 # Use Enter to choose the 3rd level.
