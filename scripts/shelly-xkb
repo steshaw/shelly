@@ -9,20 +9,24 @@ setxkbmap -option 'caps:escape_shifted_capslock'
 # Both Shift together enable Caps Lock.
 setxkbmap -option 'shift:both_capslock'
 
-# Swap Ctrl and Win (command and control).
-setxkbmap -option 'ctrl:swap_lwin_lctl,ctrl:swap_rwin_rctl'
-
 # Compose is Right Alt or Scroll Lock.
 setxkbmap -option 'compose:ralt,compose:sclk'
 
-# Apple Aluminium: emulate PC keys (PrtSc, Scroll Lock, Pause, Num Lock)
-setxkbmap -option 'apple:alupckeys'
+apple_keyboard=0
 
-# Numeric keypad always enters digits (as in macOS).
-setxkbmap -option 'numpad:mac'
+if [[ $apple_keyboard -eq 1 ]]; then
+  # Swap Ctrl and Win (command and control).
+  setxkbmap -option 'ctrl:swap_lwin_lctl,ctrl:swap_rwin_rctl'
+
+  # Apple Aluminium: emulate PC keys (PrtSc, Scroll Lock, Pause, Num Lock)
+  setxkbmap -option 'apple:alupckeys'
+
+  # Numeric keypad always enters digits (as in macOS).
+  setxkbmap -option 'numpad:mac'
+
+  # Ctrl is mapped to Win and the usual Ctrl keys.
+  setxkbmap -option 'altwin:ctrl_win'
+fi
 
 # Use Enter to choose the 3rd level.
 setxkbmap -option 'lv3:enter_switch'
-
-# Ctrl is mapped to Win and the usual Ctrl keys.
-setxkbmap -option 'altwin:ctrl_win'
