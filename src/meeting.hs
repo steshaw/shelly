@@ -28,6 +28,8 @@ usa =
     boston
   ]
 
+toronto = 250 -- Toronto, Ontario, Canada
+
 london = 136 -- London, England
 uk = london
 berlin = 37 -- Berlin, Germany
@@ -68,7 +70,7 @@ home =
   [ brisbane
   ]
 
-mlabs = [sf, austin, boston, uk, russia, bengaluru, brisbane, nz]
+mlabs = [sf, austin, toronto, uk, russia, bengaluru, brisbane, nz]
 
 cities :: [Int]
 cities = mlabs
