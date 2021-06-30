@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# List the "extra" dotfiles.
+# e.g. files in $HOME that are not directories or symlinks, just regular
+# files.
+
+cd ~
+fd -d 1 --hidden --type=f '.*' .
