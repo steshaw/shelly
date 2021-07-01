@@ -26,5 +26,12 @@ case ${#fields[@]} in
     exit 2
 esac
 
+# User aliases.
+if [[ $user == 'input-output-hk' ]]; then
+  user_alias='iohk'
+else
+  user_alias="${user}"
+fi
+
 cd "$root"
-git clone "git@github.com:$user/$repo" "$user/$repo"
+git clone "git@github.com:${user}/${repo}" "${user_alias}/${repo}"
