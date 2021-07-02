@@ -13,6 +13,11 @@ usage: ${script} info|search|install|remove|upgrade|installed|files
 
 [[ $# -eq -0 ]] && Usage
 
+if [[ $1 == '--apt' ]]; then
+  shift
+  apt=1
+fi
+
 command=$1; shift
 
 # Aliases.
@@ -20,7 +25,7 @@ command=$1; shift
 [[ $command == refresh ]] && command=update
 
 function is_nix() {
-  [[ -n $NIX_PROFILES ]]
+  [[ ! $apt && -n $NIX_PROFILES ]]
 }
 
 function has_brew() {
