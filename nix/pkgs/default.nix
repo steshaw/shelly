@@ -107,7 +107,7 @@ with pkgs; [
   emacs
   hunspell
   hunspellDicts.en-gb-large
-  neovim
+  neovim-nightly
   python
 
   #

@@ -80,7 +80,8 @@ fun! Plugs()
   " Turn off search highlighting when done.
   Plug 'romainl/vim-cool'
 
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neovim/nvim-lspconfig'
 
   "
   " neosnippet

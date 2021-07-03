@@ -15,7 +15,7 @@ let
 in
 {
   userPackages = super.userPackages or { }
-    // super.recurseIntoAttrs (genAttrSet (import ../pkgs/packages.nix super))
+    // super.recurseIntoAttrs (genAttrSet (import ../pkgs self))
     // super.lib.optionalAttrs (builtins.pathExists ./local.nix) (import ./local.nix self super)
     // (if multiuser then { } else {
     # Default packages for single-user; don't include this for multi-user
