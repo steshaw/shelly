@@ -52,6 +52,7 @@ with pkgs; [
   coreutils
   curl
   dbxcli # Defined in overlay/dbxcli.nix
+  delta
   dos2unix
   eternal-terminal
   exa
