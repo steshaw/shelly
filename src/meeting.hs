@@ -71,9 +71,10 @@ home =
   ]
 
 mlabs = [sf, austin, toronto, uk, russia, bengaluru, brisbane, nz]
+team = [toronto, uk, russia, brisbane]
 
 cities :: [Int]
-cities = mlabs
+cities = team
 
 cs = zipWith f ([1 ..] :: [Int]) cities
  where
