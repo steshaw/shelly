@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dhall text < nix.conf.dhall >nix.conf
