@@ -29,6 +29,8 @@ esac
 # User aliases.
 if [[ $user == 'input-output-hk' ]]; then
   user_alias='iohk'
+elif [[ $user == 'mlabs-haskell' ]]; then
+  user_alias='mlabs'
 else
   user_alias="${user}"
 fi
