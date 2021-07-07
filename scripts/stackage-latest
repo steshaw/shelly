@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+curl -fsSL https://www.stackage.org/feed | xq -r '.feed.entry[].id' | grep lts- | head -1
