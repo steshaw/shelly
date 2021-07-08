@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Argh, this isn't an overlay any more...
 overlay_dir="${SHELLY_HOME}/nix/pkgs"
-default_overlay=packages.nix
+default_overlay=default.nix
 
 if [[ $# -gt 1 ]]; then
   echo "usage $0: [overlay]" >&2
