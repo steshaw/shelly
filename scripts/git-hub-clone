@@ -31,6 +31,8 @@ if [[ $user == 'input-output-hk' ]]; then
   user_alias='iohk'
 elif [[ $user == 'mlabs-haskell' ]]; then
   user_alias='mlabs'
+elif [[ $user == 'ArdanaLabs' ]]; then
+  user_alias='ardana'
 else
   user_alias="${user}"
 fi
