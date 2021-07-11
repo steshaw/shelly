@@ -12,7 +12,7 @@ setxkbmap -option 'shift:both_capslock_cancel'
 # Compose is Right Alt or Scroll Lock.
 setxkbmap -option 'compose:ralt,compose:sclk'
 
-apple_keyboard=0
+apple_keyboard=1
 
 if [[ $apple_keyboard -eq 1 ]]; then
   # Swap Ctrl and Win (command and control).
