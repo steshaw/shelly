@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+# Reset
+setxkbmap us
+
 # Make unmodified Caps Lock an additional Esc, but Shift + Caps Lock behaves
 # like regular Caps Lock.
 setxkbmap -option 'caps:escape_shifted_capslock'
@@ -12,7 +15,7 @@ setxkbmap -option 'shift:both_capslock_cancel'
 # Compose is Right Alt or Scroll Lock.
 setxkbmap -option 'compose:ralt,compose:sclk'
 
-apple_keyboard=1
+apple_keyboard=0
 
 if [[ $apple_keyboard -eq 1 ]]; then
   # Swap Ctrl and Win (command and control).
