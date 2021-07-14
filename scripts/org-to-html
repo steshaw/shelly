@@ -2,7 +2,7 @@
 
 set -eu
 
-script=$(basename $0)
+script=$(basename "$0")
 
 for file in "$@"; do
   base=${file%.org}
@@ -10,14 +10,12 @@ for file in "$@"; do
 #  echo "base = [[$base]]"
   org=$base.org
   html=$base.html
-#  echo "orgFile = [[$base.org]]"
-#  echo "htmlFile = [[$base.html]]"
-  if [[ -r $org && -w $html && $html -ot $org ]]; then
-    set +x
-    echo $$org -> $html
+  echo "orgFile = [[$base.org]]"
+  echo "htmlFile = [[$base.html]]"
+  if [[ -r $org && (! -f $html || -w $html && $html -ot $org) ]]; then
+    echo "$org -> $html"
     echo "${script}: $org ➔ $html" >&2
-    pandoc --smart --to=html5 --self-contained --output ${html} ${org}
-    set -x
+    pandoc --from=org --to=html5 --self-contained --output "${html}" "${org}"
   else
     # Be nice to say why we are skipping here
     echo "${script}: skipping $org" >&2

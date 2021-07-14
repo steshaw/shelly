@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+transform() {
+  input=${1}
+
+  fixArrows() {
+    perl -pe 's/-\\>/->/g'
+  }
+
+  fixTodoCheckboxes() {
+    perl -pe 's/\\([\[\]])/\1/g'
+  }
+
+  convertBullets() {
+    perl -pe 's/^( *)- /\1• /g'
+  }
+  pandoc "${file}" --write=gfm | fixTodoCheckboxes >"${input}.slack.md"
+#    fixArrows | fixTodoCheckboxes | convertBullets > "${input}.slack.md"
+}
+
+for file in "${@}"; do
+  transform "${file}"
+done
