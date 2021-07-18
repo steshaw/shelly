@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+log=cabal.configure.log
+
+do-configure() {
+  cabal configure "$@" 2>&1 | tee $log
+}
+
+find-no-cabal() {
+  perl -ne 's/NoCabalFileFound "(.*)"/\1/ && print' <$log
+}
+
+while true; do
+  if ! do-configure "$@"; then
+    no_cabal_dir=$(find-no-cabal)
+    if [[ -n ${no_cabal_dir} ]]; then
+      echo
+      echo "Try to correct error by generating .cabal with hpack in ${no_cabal_dir}"
+      # Try hpack to generate a missing .cabal file and try again
+      (cd "$no_cabal_dir" && hpack)
+      continue
+    else
+      exit $?
+    fi
+  fi
+  exit $?
+done
