@@ -1,1 +1,1 @@
-source $HOME/.nix-profile/share/nix-direnv/direnvrc
+source ~/.nix-profile/share/nix-direnv/direnvrc
