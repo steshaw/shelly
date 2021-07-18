@@ -40,7 +40,15 @@ if [[ $command = 'info' ]]; then
       exit 2
     fi
     pkg=$1
-    nix-env --query --available --json --attr "${pkg}" | jq
+    nix-env --query --available --json --attr "${pkg}" | jq \
+      'to_entries
+        | .[].value
+        | del(
+          .meta.platforms,
+          .meta.maintainers,
+          .meta.position,
+          .meta.outputsToInstall
+        )'
   elif has_brew; then
     brew info "$@"
   else
