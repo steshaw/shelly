@@ -64,3 +64,14 @@
      auto-mode-alist))
 
 (setq org-time-stamp-rounding-minutes '(0 30))
+
+;; Reload files that have changed on disk.
+(global-auto-revert-mode t)
+
+;; Save all buffers when Emacs loses focus.
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+
+;; Auto-save all buffers regularly.
+(setq auto-save-visited-mode t)
+(setq auto-save-visited-interval 1)
+(auto-save-visited-mode +1)
