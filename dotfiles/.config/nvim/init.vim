@@ -90,6 +90,8 @@ fun! Plugs()
   "
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
+
+  Plug 'wakatime/vim-wakatime'
 endfun
 
 " Ensure plug is installed.

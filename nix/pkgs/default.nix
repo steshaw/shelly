@@ -89,6 +89,7 @@ with pkgs; [
   tree
   unzip
   up
+  wakatime
   watchman
   wget
   youtube-dl

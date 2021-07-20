@@ -75,3 +75,8 @@
 ;(setq auto-save-visited-mode t)
 ;(setq auto-save-visited-interval 1)
 ;(auto-save-visited-mode +1)
+
+; Wakatime
+(use-package wakatime-mode
+  :ensure t)
+(global-wakatime-mode)
