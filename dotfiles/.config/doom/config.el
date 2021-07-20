@@ -72,6 +72,6 @@
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
 ;; Auto-save all buffers regularly.
-(setq auto-save-visited-mode t)
-(setq auto-save-visited-interval 1)
-(auto-save-visited-mode +1)
+;(setq auto-save-visited-mode t)
+;(setq auto-save-visited-interval 1)
+;(auto-save-visited-mode +1)
