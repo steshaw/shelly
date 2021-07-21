@@ -14,6 +14,7 @@
 /dconf/
 /discord/
 /dolphinrc
+/electron/
 /emaildefaults
 /enchant/
 /eog/
@@ -121,6 +122,7 @@
 /user-dirs.dirs
 /user-dirs.locale
 /VirtualBox
+/Visual Studio Live Share/
 /vlc/
 /xfce4/
 /yarn/
