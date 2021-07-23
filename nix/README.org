@@ -9,7 +9,7 @@ Initially install with
 
 or invoke the [[../scripts/nix-rebuild]] script.
 
-Afterwards, edit [[pkgs/packages.nix]] and run the following to update the user packages:
+Afterwards, edit [[pkgs/default.nix]] and run the following to update the user packages:
 
 #+begin_src sh-session
  $ nix-rebuild [--dry-run]
