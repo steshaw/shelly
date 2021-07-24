@@ -126,6 +126,7 @@ with pkgs; [
   cabal-install
   stack
   ormolu
+  haskellPackages.fourmolu
   ghcid
   hlint
   (broken pkgs.haskellPackages.pointfree)
