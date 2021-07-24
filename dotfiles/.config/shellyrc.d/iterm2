@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if true || [[ ${SHELLY_OS} == 'darwin' ]]; then
   isBash && sourceExists ~/.iterm2_shell_integration.bash

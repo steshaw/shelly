@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 alias use-brittany='(cd ~/.local; ln -fs $SHELLY_HOME/scripts/hindent-brittany-adapter ~/.local/bin/hindent)'
 alias use-ormolu='(cd ~/.local; ln -fs $SHELLY_HOME/scripts/hindent-ormolu-adapter ~/.local/bin/hindent)'

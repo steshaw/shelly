@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 crt_files=(
   /run/current-system/etc/ssl/certs/ca-bundle.crt

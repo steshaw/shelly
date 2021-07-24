@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 Echo '{ shrc.d/haskell-stack {'
 if has stack; then

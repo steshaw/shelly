@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if has hub; then
   alias git=hub
 fi

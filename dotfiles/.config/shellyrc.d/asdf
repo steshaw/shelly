@@ -1,4 +1,4 @@
-# vim: set filetype=bash
+#!/bin/sh
 
 if [[ -d ~/.asdf ]]; then
   if has brew; then

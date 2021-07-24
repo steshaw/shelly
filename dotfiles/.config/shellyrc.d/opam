@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 if [ -n "$ZSH_VERSION" ]; then
   test -r /Users/steshaw/.opam/opam-init/init.zsh &&

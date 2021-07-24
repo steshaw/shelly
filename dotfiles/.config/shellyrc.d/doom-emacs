@@ -1,1 +1,3 @@
+#!/bin/sh
+
 prependPaths ~/.emacs.d.doom/bin

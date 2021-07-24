@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if has kubectl; then
   # shellcheck source=/dev/null
