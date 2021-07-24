@@ -44,7 +44,7 @@ fun! Plugs()
   Plug 'purescript-contrib/purescript-vim'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/syntastic'
-  "Plug 'sheerun/vim-polyglot'
+  Plug 'sheerun/vim-polyglot'
   Plug 'vmchale/dhall-vim'
   Plug 'vmchale/ipkg-vim'
   Plug 'ziglang/zig.vim'
