@@ -1,7 +1,7 @@
 if status is-interactive
   abbr --add --global gaa 'git add --all'
   abbr --add --global gb 'git branch --verbose --verbose'
-  abbr --add --global gba 'git branch -all --verbose --verbose'
+  abbr --add --global gba 'git branch --all --verbose --verbose'
   abbr --add --global gd 'git diff'
   abbr --add --global gds 'git diff --staged'
   abbr --add --global gst 'git status'
