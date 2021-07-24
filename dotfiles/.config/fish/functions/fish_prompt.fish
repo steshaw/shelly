@@ -61,6 +61,7 @@ function fish_prompt
     set -l red (set_color -o red)
     set -l green (set_color -o green)
     set -l blue (set_color -o blue)
+    set -l purple (set_color -o purple)
     set -l normal (set_color normal)
 
     set -l arrow_color "$green"
@@ -73,7 +74,8 @@ function fish_prompt
         set arrow "$arrow_color# "
     end
 
-    set -l cwd $cyan(basename (prompt_pwd))
+    set -l cwd $blue(prompt_pwd)$normal
+    set -l cwd $blue(pwd | sed "s-$HOME-~-")$normal
 
     set -l repo_info
     if set -l repo_type (_repo_type)
@@ -86,5 +88,12 @@ function fish_prompt
         end
     end
 
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    set --local top_left "$green╭─$normal"
+    set --local bot_left "$green╰─\$$normal"
+
+    set --local user_host "$cyan$USER@$hostname$normal"
+
+    set --local time $yellow(date '+%T')$normal
+
+    printf "\n$top_left%s:%s %s%s\n$bot_left $normal" $user_host $cwd $time $repo_info
 end
