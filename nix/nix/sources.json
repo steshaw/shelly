@@ -1,4 +1,16 @@
 {
+    "neovim-nightly-overlay": {
+        "branch": "master",
+        "description": "[maintainer=@mjlbach] ",
+        "homepage": "",
+        "owner": "nix-community",
+        "repo": "neovim-nightly-overlay",
+        "rev": "694db7d5bfa2036f510a1dc58a6403850fa86239",
+        "sha256": "0hwn0l0jbx7jnjx6fdxdjlxi7vndjvmddpm3fndmkar2s70xh8gy",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/694db7d5bfa2036f510a1dc58a6403850fa86239.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",

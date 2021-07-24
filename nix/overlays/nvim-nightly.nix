@@ -1,3 +1,8 @@
+let
+  sources = import ../nix/sources.nix;
+  nvim = sources.neovim-nightly-overlay;
+in
 (import (builtins.fetchTarball {
-  url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+  url = nvim.url;
+  sha256 = nvim.sha256;
 }))
