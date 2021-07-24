@@ -1,6 +1,6 @@
 * Shelly
 
-My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and packages.
+My [[dotfiles][dotfiles]], [[scripts][shell scripts]], and [[nix][packages]].
 
 ** Installation
 
