@@ -2,4 +2,6 @@
 
 set -euo pipefail
 
+[[ -r nix.conf ]] && chmod +w nix.conf
 dhall text < nix.conf.dhall >nix.conf
+chmod -w nix.conf

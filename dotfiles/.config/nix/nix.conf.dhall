@@ -35,5 +35,11 @@ let conf_line = \(name: Text) -> \(things: List Text) ->
   ${name} = ${Text/concatSep " " things}
   ''
 
-in conf_line "substituters" substituters ++
-   conf_line "trusted-public-keys" trusted-public-keys
+in
+  ''
+  # Warning: this file is generated from nix.conf.dhall"
+
+  '' ++
+  conf_line "substituters" substituters ++
+  conf_line "trusted-public-keys" trusted-public-keys ++
+  conf_line "experimental-features" ["nix-command flakes"]
