@@ -7,6 +7,8 @@ if status is-interactive
   abbr --add --global gst 'git status'
   abbr --add --global gco 'git checkout'
   abbr --add --global gcom 'git checkout '(git-main-branch)
+  abbr --add --global gp 'git push'
+  abbr --add --global gpfl 'git push --force-with-lease'
 
   alias ls='exa --classify'
   alias l='ls --long'
