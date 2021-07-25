@@ -13,4 +13,6 @@ if status is-interactive
   alias l='ls --long'
   alias ll='l --all'
   alias la='ll --all'
+
+  set CDPATH ~/Code/steshaw ~/Code/ardana ~/Code/iohk ~/Code/mlabs
 end
