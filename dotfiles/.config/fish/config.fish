@@ -6,9 +6,6 @@ if status is-interactive
   abbr --add --global gds 'git diff --staged'
   abbr --add --global gst 'git status'
 
-  #abbr --add --global ls 'exa --classify'
-  #abbr --add --global l 'exa --classify --long'
-
   alias ls='exa --classify'
   alias l='ls --long'
   alias ll='l --all'
