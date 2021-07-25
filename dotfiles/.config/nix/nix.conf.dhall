@@ -37,7 +37,7 @@ let conf_line = \(name: Text) -> \(things: List Text) ->
 
 in
   ''
-  # Warning: this file is generated from nix.conf.dhall"
+  # Warning: this file is generated from nix.conf.dhall!
 
   '' ++
   conf_line "substituters" substituters ++
