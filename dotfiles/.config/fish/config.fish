@@ -5,6 +5,8 @@ if status is-interactive
   abbr --add --global gd 'git diff'
   abbr --add --global gds 'git diff --staged'
   abbr --add --global gst 'git status'
+  abbr --add --global gco 'git checkout'
+  abbr --add --global gcom 'git checkout '(git-main-branch)
 
   alias ls='exa --classify'
   alias l='ls --long'
