@@ -88,12 +88,14 @@ function fish_prompt
         end
     end
 
-    set --local top_left "$green╭─$normal"
-    set --local bot_left "$green╰─\$$normal"
+    set --local prompt_colour $green
 
+    set --local top_left "$prompt_colour╭─$normal"
+    set --local bot_left "$prompt_colour╰─\$$normal"
     set --local user_host "$cyan$USER@$hostname$normal"
-
     set --local time $yellow(date '+%T')$normal
+    set --local shell_type $prompt_colour fish $normal
 
-    printf "\n$top_left%s:%s %s%s\n$bot_left $normal" $user_host $cwd $time $repo_info
+    printf "\n$top_left%s:%s %s %s%s\n$bot_left $normal" \
+       $user_host $cwd $time (echo -s $shell_type) $repo_info
 end
