@@ -42,4 +42,6 @@ in
   '' ++
   conf_line "substituters" substituters ++
   conf_line "trusted-public-keys" trusted-public-keys ++
-  conf_line "experimental-features" ["nix-command flakes"]
+  ''
+  experimental-features = nix-command flakes
+  ''
