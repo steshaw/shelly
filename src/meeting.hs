@@ -35,6 +35,8 @@ uk = london
 berlin = 37 -- Berlin, Germany
 moscow = 166
 russia = moscow
+warsaw = 262
+-- https://www.timeanddate.com/worldclock/meetingtime.html?iso=20210727&p1=250&p2=136&p3=262&p4=166&p5=47
 
 eu =
   [ uk,
@@ -71,7 +73,7 @@ home =
   ]
 
 mlabs = [sf, austin, toronto, uk, russia, bengaluru, brisbane, nz]
-team = [toronto, uk, russia, brisbane]
+team = [toronto, uk, warsaw, russia, brisbane]
 
 cities :: [Int]
 cities = team
