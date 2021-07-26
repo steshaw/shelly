@@ -8,12 +8,12 @@ with pkgs; [
   #
   # Nix.
   #
+  glibcLocales # Fix for locale issue.
   niv
   nix-prefetch-scripts
   nixfmt
   nixpkgs-fmt
   nox
-  glibcLocales # Fix for locale issue.
 
   #
   # Command line utilities.

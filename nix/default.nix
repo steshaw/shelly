@@ -3,7 +3,7 @@ with
 {
   overlay = _: pkgs:
     {
-      niv = import sources.niv { };
+      niv = (import sources.niv { }).niv;
     };
 };
 let
