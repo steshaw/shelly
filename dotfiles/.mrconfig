@@ -35,7 +35,7 @@ checkout = git clone https://github.com/zsh-users/zsh-completions
 [.fzf]
 checkout = git clone 'https://github.com/junegunn/fzf.git' '.fzf'
 
-[gjsheep/bash-wakatime]
+[Code/gjsheep/bash-wakatime]
 checkout = git clone 'git@github.com:gjsheep/bash-wakatime' 'bash-wakatime'
 
 [.oh-my-zsh/custom/plugins/wakatime]
