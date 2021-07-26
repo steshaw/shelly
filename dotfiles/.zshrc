@@ -80,6 +80,7 @@ plugins=(
   kube-ps1
   vi-mode
   zsh-completions
+  wakatime
 )
 
 function myMultilinePrompt() {
