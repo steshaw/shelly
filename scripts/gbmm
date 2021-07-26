@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Rename the default Git branch from master to main.
+# Update remotes.
+
+git branch -m master main
+for remote in $(git remote); do
+  git fetch "${remote}"
+  git remote set-head "${remote}" --auto
+done
+
+git branch --set-upstream-to=origin/main main
