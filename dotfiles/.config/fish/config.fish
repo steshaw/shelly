@@ -9,6 +9,7 @@ if status is-interactive
   abbr --add --global gcom 'git checkout '(git-main-branch)
   abbr --add --global gp 'git push'
   abbr --add --global gpfl 'git push --force-with-lease'
+  abbr --add --global gcane 'git commit --amend --no-edit'
 
   alias ls='exa --classify'
   alias l='ls --long'
