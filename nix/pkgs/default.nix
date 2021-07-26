@@ -122,15 +122,15 @@ with pkgs; [
   rustup
 
   # Haskell.
-  haskell.compiler.ghc901
-  cabal-install
-  stack
-  ormolu
-  haskellPackages.fourmolu
-  ghcid
-  hlint
   (broken pkgs.haskellPackages.pointfree)
-  haskellPackages.brittany
+  (notDarwin pkgs.haskellPackages.brittany)
+  cabal-install
+  ghcid
+  haskell.compiler.ghc901
+  haskellPackages.fourmolu
+  hlint
+  ormolu
+  stack
 
   # Docker
   docker
