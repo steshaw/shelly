@@ -1,3 +1,5 @@
+source ~/.config/fish/wakatime.fish
+
 function fish_prompt
     set -l __last_command_exit_status $status
 
