@@ -1,5 +1,5 @@
 let
-  sources = import ../nix/sources.nix;
+  sources = import ../sources.nix;
   nvim = sources.neovim-nightly-overlay;
 in
 (import (builtins.fetchTarball {

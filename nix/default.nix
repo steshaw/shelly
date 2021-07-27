@@ -1,4 +1,4 @@
-{ sources ? import ./nix/sources.nix }:
+{ sources ? import ./sources.nix }:
 with
 {
   overlay = _: pkgs:
