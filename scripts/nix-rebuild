@@ -8,7 +8,7 @@ if [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
   if [[ $# -eq 1 && ( $1 == '--dry-run' || $1 == '-n' ) ]]; then
     nix-what-rebuild
   else
-    ~/.nix-profile/bin/nix-rebuild
+    ~/.nix-profile/bin/nix-rebuild "$@"
   fi
 else
   nix-env \
