@@ -25,10 +25,7 @@ if status is-interactive
   function reverse_history_search
     history | fzf --no-sort | read -l command
     if test $command
-      # Clear the command line buffer first
-      # as a workaround for the buffer appearing
-      # to the empty (when it is not).
-      commandline -rb '' # Force clear.
+      # FIXME: This doesn't display the new command without typing 'l'
       commandline -rb $command
     end
   end
