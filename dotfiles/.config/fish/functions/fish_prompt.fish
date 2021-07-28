@@ -91,13 +91,26 @@ function fish_prompt
     end
 
     set --local prompt_colour $green
-
-    set --local top_left "$prompt_colour╭─$normal"
-    set --local bot_left "$prompt_colour╰─\$$normal"
     set --local user_host "$cyan$USER@$hostname$normal"
     set --local time $yellow(date '+%T')$normal
     set --local shell_type $prompt_colour fish $normal
 
-    printf "\n$top_left%s:%s %s %s%s\n$bot_left $normal" \
-       $user_host $cwd $time (echo -s $shell_type) $repo_info
+    set --local multiline 1
+
+    if test $multiline -eq 1
+        printf "\n$prompt_colour╭─$normal"
+    else
+        printf ""
+    end
+    printf "%s:%s" $user_host $cwd
+    printf " %s " $time
+    printf "%s" (echo -s $shell_type)
+    printf "%s" $repo_info
+
+    if test $multiline -eq 1
+        printf "\n$prompt_colour╰─\$"
+    else
+        printf "$prompt_colour \$"
+    end
+    printf " %s" $normal
 end
