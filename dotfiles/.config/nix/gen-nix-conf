@@ -2,6 +2,19 @@
 
 set -euo pipefail
 
-[[ -r nix.conf ]] && chmod +w nix.conf
+timestamp() {
+  TZ=UTC printf '%(%Y%m%d-%H%M%S)T\n' -1
+}
+
+bup_dir=.bup
+mkdir -p $bup_dir
+bup_file=$bup_dir/nix.$(timestamp).conf
+
+if [[ -r nix.conf ]]; then
+  cp nix.conf "${bup_file}"
+  chmod +w nix.conf
+fi
 dhall text < nix.conf.dhall >nix.conf
 chmod -w nix.conf
+echo Differences:
+diff $bup_file nix.conf
