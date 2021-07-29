@@ -8,6 +8,7 @@ if [[ $# -ne 2 ]]; then
 fi
 
 gist=${1#https://gist.github.com/*/}
+gist=${gist#https://gist.github.com/}
 dir=$2
 
 if false; then
