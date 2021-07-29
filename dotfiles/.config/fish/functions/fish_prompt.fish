@@ -91,7 +91,8 @@ function fish_prompt
     end
 
     set --local prompt_colour $green
-    set --local user_host "$cyan$USER@$hostname$normal"
+    set --local short_hostname (string replace '.local' '' $hostname)
+    set --local user_host "$cyan$USER@$short_hostname$normal"
     set --local time $yellow(date '+%T')$normal
     set --local shell_type $prompt_colour fish $normal
 
