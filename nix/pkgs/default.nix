@@ -8,13 +8,14 @@ with pkgs; [
   #
   # Nix.
   #
+  cachix
   glibcLocales # Fix for locale issue.
   niv
   nix-prefetch-scripts
+  nixUnstable
   nixfmt
   nixpkgs-fmt
   nox
-  cachix
 
   #
   # Command line utilities.
