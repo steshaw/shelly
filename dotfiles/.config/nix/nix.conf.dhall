@@ -1,5 +1,6 @@
 let substituters = [
   "https://cache.nixos.org",
+  "https://cache.nixos.org/",
   "https://nix-community.cachix.org",
   "https://niv.cachix.org",
   "https://hercules-ci.cachix.org",
@@ -12,8 +13,9 @@ let substituters = [
   "https://all-hies.cachix.org",
   "https://ghcide-nix.cachix.org",
   "https://nixcache.reflex-frp.org",
-]
 
+  "https://mlabs.cachix.org",
+]
 
 let trusted-public-keys = [
   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=",
@@ -29,6 +31,8 @@ let trusted-public-keys = [
   "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k=",
   "ghcide-nix.cachix.org-1:ibAY5FD+XWLzbLr8fxK6n8fL9zZe7jS+gYeyxyWYK5c=",
   "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=",
+
+  "mlabs.cachix.org-1:gStKdEqNKcrlSQw5iMW6wFCj3+b+1ASpBVY2SYuNV2M=",
 ]
 
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep
@@ -48,3 +52,10 @@ in
   ''
   experimental-features = nix-command flakes
   ''
+
+--
+-- Hopefully, we don't need to explicitly set netrc-file to an absolute path
+-- as the default is ~/.config/nix/netrc.
+--
+--   netrc-file = /home/steshaw/.config/nix/netrc
+--
