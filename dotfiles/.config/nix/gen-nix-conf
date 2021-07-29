@@ -17,4 +17,4 @@ fi
 dhall text < nix.conf.dhall >nix.conf
 chmod -w nix.conf
 echo Differences:
-diff $bup_file nix.conf
+diff "${bup_file}" nix.conf
