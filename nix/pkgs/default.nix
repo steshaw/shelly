@@ -14,6 +14,7 @@ with pkgs; [
   nixfmt
   nixpkgs-fmt
   nox
+  cachix
 
   #
   # Command line utilities.
