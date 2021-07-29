@@ -46,16 +46,13 @@ in
   ''
   # Warning: this file is generated from nix.conf.dhall!
 
+  experimental-features = nix-command flakes
+
   '' ++
   conf_line "substituters" substituters ++
   conf_line "trusted-public-keys" trusted-public-keys ++
   ''
-  experimental-features = nix-command flakes
+  # Unfortunately, an absolute path to netrc is required meaning that we
+  # need different locations for linux and macOS.
+  netrc-file = ${env:PWD as Text}/netrc
   ''
-
---
--- Hopefully, we don't need to explicitly set netrc-file to an absolute path
--- as the default is ~/.config/nix/netrc.
---
---   netrc-file = /home/steshaw/.config/nix/netrc
---
