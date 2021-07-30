@@ -7,6 +7,10 @@ if status is-interactive
   abbr --add --global cx 'chmod +x'
   abbr --add --global cw 'chmod +w'
 
+  abbr --add --global rm 'rm -i'
+  abbr --add --global mv 'mv -i'
+  abbr --add --global cp 'cp -i'
+
   abbr --add --global gaa 'git add --all'
   abbr --add --global gb 'git branch --verbose --verbose'
   abbr --add --global gba 'git branch --all --verbose --verbose'
