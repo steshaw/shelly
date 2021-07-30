@@ -15,6 +15,7 @@ let substituters = [
   "https://nixcache.reflex-frp.org",
 
   "https://mlabs.cachix.org",
+  "https://steshaw.cachix.org",
 ]
 
 let trusted-public-keys = [
@@ -33,6 +34,7 @@ let trusted-public-keys = [
   "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=",
 
   "mlabs.cachix.org-1:gStKdEqNKcrlSQw5iMW6wFCj3+b+1ASpBVY2SYuNV2M=",
+  "steshaw.cachix.org-1:l/+4nVnZ9ldk0kCKphhmSsJ5wI3Wr5p4S+c/3mJnPi0=",
 ]
 
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep
@@ -48,11 +50,10 @@ in
 
   experimental-features = nix-command flakes
 
-  '' ++
-  conf_line "substituters" substituters ++
-  conf_line "trusted-public-keys" trusted-public-keys ++
-  ''
   # Unfortunately, an absolute path to netrc is required meaning that we
   # need different locations for linux and macOS.
   netrc-file = ${env:PWD as Text}/netrc
-  ''
+
+  '' ++
+  conf_line "substituters" substituters ++
+  conf_line "trusted-public-keys" trusted-public-keys
