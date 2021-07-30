@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+exec >>/tmp/wakatime.bash.log 2>&1
+set -x
+
+version="1.0.1"
+entity="/tmp/$TERM.bash"
+touch "${entity}"
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  toplevel=$(git rev-parse --show-toplevel)
+  project=$(basename "${toplevel}")
+else
+  project='Terminal'
+fi
+wakatime \
+  --write \
+  --plugin "bash-wakatime/${version}" \
+  --entity-type file \
+  --project "${project}" \
+  --entity "${entity}" &

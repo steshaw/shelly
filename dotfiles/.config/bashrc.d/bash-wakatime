@@ -1,1 +1,3 @@
-source ~/Code/gjsheep/bash-wakatime/bash-wakatime.sh
+#!/usr/bin/env bash
+
+precmd_functions+=(bash-wakatime)
