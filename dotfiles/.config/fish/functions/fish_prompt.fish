@@ -1,6 +1,6 @@
-source ~/.config/fish/wakatime.fish
-
 function fish_prompt
+    source ~/.config/fish/wakatime.fish
+
     set -l __last_command_exit_status $status
 
     if not set -q -g __fish_arrow_functions_defined
