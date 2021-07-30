@@ -10,7 +10,8 @@ end
 
 set -l entity
 if true
-    set entity "$TERM.fish"
+    set entity "/tmp/$TERM.fish"
+    touch "$entity" # Seems that the file must exist.
 else
     set entity (echo $history[1] | cut -d ' ' -f1)
 end
@@ -22,8 +23,8 @@ wakatime \
    --write \
    --plugin "fish-wakatime/0.0.2" \
    --project "$project" \
-   --entity-type 'app' \
-   --entity 'Fish' \
+   --entity-type 'file' \
+   --entity "$entity" \
    --language 'fish' \
    --verbose \
    2>&1 >> /tmp/wakatime.fish.log &
