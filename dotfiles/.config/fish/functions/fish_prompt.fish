@@ -47,11 +47,11 @@ function fish_prompt
         end
 
         function _repo_type
-            if _is_hg_repo
-                echo hg
-                return 0
-            else if _is_git_repo
+            if _is_git_repo
                 echo git
+                return 0
+            else if _is_hg_repo
+                echo hg
                 return 0
             end
             return 1
