@@ -18,7 +18,6 @@ end
 
 echo $project:$entity >>/tmp/wakatime.fish.log
 
-#wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 >> /tmp/wakatime.fish.log &
 wakatime \
    --write \
    --plugin "fish-wakatime/0.0.2" \
