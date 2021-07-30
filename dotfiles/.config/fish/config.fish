@@ -4,6 +4,9 @@ if status is-interactive
   alias ll='l --all'
   alias la='ll --all'
 
+  abbr --add --global cx 'chmod +x'
+  abbr --add --global cw 'chmod +w'
+
   abbr --add --global gaa 'git add --all'
   abbr --add --global gb 'git branch --verbose --verbose'
   abbr --add --global gba 'git branch --all --verbose --verbose'
