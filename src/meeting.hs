@@ -58,14 +58,16 @@ asiaPacific =
     auckland
   ]
 
-perth = 196 -- Perth, Australia
 brisbane = 47 -- Brisbane, Australia
 melbourne = 152 -- Melbourne, Australia
+perth = 196 -- Perth, Australia
+sydney = 240 -- Sydney, Australia
 
 au =
-  [ perth
-  , brisbane
+  [ brisbane
   , melbourne
+  , sydney
+  , perth
   ]
 
 home =
@@ -75,8 +77,14 @@ home =
 mlabs = [sf, austin, toronto, uk, russia, bengaluru, brisbane, nz]
 team = [toronto, uk, warsaw, russia, brisbane]
 
+sbs = [london, sf, brisbane, sydney]
+
+work = sbs
+
+freetime = [london, sf]
+
 cities :: [Int]
-cities = team
+cities = [london, sf, brisbane, sydney]
 
 cs = zipWith f ([1 ..] :: [Int]) cities
  where
