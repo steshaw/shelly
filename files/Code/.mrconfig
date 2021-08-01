@@ -10,6 +10,12 @@ update = mr sync
 checkout = git clone-fork NixOS/nixpkgs
 update = mr sync
 
+[ghc/ghc]
+checkout =
+  git clone --recurse-submodules https://gitlab.haskell.org/ghc/ghc.git
+  cd ghc
+  git config submodule.recurse true
+
 [AndrasKovacs/elaboration-zoo]
 checkout = git clone 'git@github.com:AndrasKovacs/elaboration-zoo' 'elaboration-zoo'
 
