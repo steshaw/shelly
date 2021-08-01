@@ -16,6 +16,7 @@ let substituters = [
 
   "https://mlabs.cachix.org",
   "https://steshaw.cachix.org",
+  "https://ghc-nix.cachix.org",
 ]
 
 let trusted-public-keys = [
@@ -35,6 +36,7 @@ let trusted-public-keys = [
 
   "mlabs.cachix.org-1:gStKdEqNKcrlSQw5iMW6wFCj3+b+1ASpBVY2SYuNV2M=",
   "steshaw.cachix.org-1:l/+4nVnZ9ldk0kCKphhmSsJ5wI3Wr5p4S+c/3mJnPi0=",
+  "ghc-nix.cachix.org-1:wI8l3tirheIpjRnr2OZh6YXXNdK2fVQeOI4SVz/X8nA=",
 ]
 
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep
