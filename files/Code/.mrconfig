@@ -16,6 +16,9 @@ checkout =
   cd ghc
   git config submodule.recurse true
 
+[ghc/ghc.nix]
+checkout = git clone https://github.com/alpmestan/ghc.nix
+
 [AndrasKovacs/elaboration-zoo]
 checkout = git clone 'git@github.com:AndrasKovacs/elaboration-zoo' 'elaboration-zoo'
 
