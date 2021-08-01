@@ -24,6 +24,6 @@ wakatime \
    --project "$project" \
    --entity-type 'file' \
    --entity "$entity" \
-   --language 'fish' \
+   --language 'Fish' \
    --verbose \
    2>&1 >> /tmp/wakatime.fish.log &
