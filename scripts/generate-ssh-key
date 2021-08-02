@@ -1,13 +1,24 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
 
 key_type='ed25519'
 
-file="id_${key_type}"
-postfix=''
-if [[ $# -eq 1 ]]; then
-  postfix="-$1"
-  file="$1_${key_type}"
+if [[ $# -eq 0 ]]; then
+  file="id_${key_type}"
+  comment_postfix=''
+elif [[ $# -eq 1 ]]; then
+  purpose=$1
+  comment_postfix="-${purpose}"
+  file="${purpose}_${key_type}"
+else
+  script_name=$(basename "$0")
+  echo "usage: ${script_name} [purpose]" >&2
+  exit 2
 fi
 
-ssh-keygen -f "${file}" -t ed25519 -b 4096 -C "${USER}@$(hostname -s)${postfix}"
+ssh-keygen \
+  -f "${file}" \
+  -t ed25519 \
+  -b 4096 \
+  -C "${USER}@$(hostname -s)${comment_postfix}"
