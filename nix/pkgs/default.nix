@@ -12,7 +12,7 @@ with pkgs; [
   glibcLocales # Fix for locale issue.
   niv
   nix-prefetch-scripts
-  nixUnstable
+  nix
   nixfmt
   nixpkgs-fmt
   nox
