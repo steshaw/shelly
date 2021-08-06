@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! wakatime-mode)
+(package! adoc-mode)

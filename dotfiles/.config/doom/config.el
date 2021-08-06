@@ -80,3 +80,13 @@
 (use-package wakatime-mode
   :ensure t)
 (global-wakatime-mode)
+
+;; AsciiDoc
+;(add-hook! adoc-mode
+; (add-to-list 'auto-mode-alist '("\\.adoc" . adoc-mode))
+; (flyspell-mode t))
+
+(setq auto-mode-alist
+   (append
+     '(("\\.adoc\\'" . adoc-mode))
+     auto-mode-alist))
