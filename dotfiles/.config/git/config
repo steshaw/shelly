@@ -73,7 +73,7 @@
   program = gnu-privacy-guard
 [commit]
   gpgsign = true
-	verbose = true
+  verbose = true
 
 [magithub]
   online = false
@@ -104,9 +104,9 @@
   file-style = bold yellow ul
   file-decoration-style = none
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [url "git@bitbucket.org:"]
-	insteadOf = https://bitbucket.org/
+  insteadOf = https://bitbucket.org/
 
 [includeIf "gitdir:~/Code/sbs/"]
   path = sbs.config
