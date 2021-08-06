@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd ~/.shelly/local
+
+version=${1#go}
+tarball="go${version}.linux-amd64.tar.gz"
+url="https://golang.org/dl/${tarball}"
+dir="go-${version}"
+
+mkdir "${dir}"
+curl --continue-at - -L -o "${tarball}" "${url}" || true
+tar -x -C "${dir}" --strip-components=1 -f "${tarball}"
