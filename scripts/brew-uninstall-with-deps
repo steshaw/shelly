@@ -9,7 +9,8 @@ for pkg in "$@"; do
   if [[ -z $deps ]]; then
     echo No dependencies
   else
-    echo Uninstalling dependencies $deps ...
+    echo "Uninstalling dependencies $deps ..."
+    # shellcheck disable=SC2086
     brew uninstall $deps
   fi
 done
