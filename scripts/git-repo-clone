@@ -2,8 +2,10 @@
 
 set -euo pipefail
 
+script_name=$(basename "$0")
+
 if [[ $# -ne 1 ]]; then
-  echo "usage: $0 repo (i.e. leanprover/lean)"
+  echo "usage: $script_name repo (i.e. leanprover/lean)"
   exit 2
 fi
 
@@ -30,7 +32,10 @@ case ${#fields[@]} in
     host=${fields[0]}
     org=${fields[1]}
     repo=${fields[2]}
-    echo "Discarding ${fields[*]:3}" >&2
+    remainder=${fields[*]:3}
+    if [[ -n $remainder ]]; then
+      echo "$script_name: Warning: discarding \"${remainder}\"" >&2
+    fi
     ;;
 esac
 
