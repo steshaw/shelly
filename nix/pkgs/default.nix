@@ -95,6 +95,7 @@ with pkgs; [
   watchman
   wget
   youtube-dl
+  yq
 
   gitAndTools.git-filter-repo
   nodePackages.gitmoji-cli
