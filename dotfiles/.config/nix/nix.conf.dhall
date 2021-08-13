@@ -1,22 +1,22 @@
 let substituters = [
   "https://cache.nixos.org",
-  "https://cache.nixos.org/",
-  "https://nix-community.cachix.org",
+--  "https://cache.nixos.org/",
+--  "https://nix-community.cachix.org",
   "https://niv.cachix.org",
-  "https://hercules-ci.cachix.org",
+--  "https://hercules-ci.cachix.org",
 
-  "https://hydra.iohk.io",
-  "https://iohk.cachix.org",
+--  "https://hydra.iohk.io",
+--  "https://iohk.cachix.org",
 
-  "https://pre-commit-hooks.cachix.org",
+--  "https://pre-commit-hooks.cachix.org",
 
-  "https://all-hies.cachix.org",
-  "https://ghcide-nix.cachix.org",
-  "https://nixcache.reflex-frp.org",
+--  "https://all-hies.cachix.org",
+--  "https://ghcide-nix.cachix.org",
+--  "https://nixcache.reflex-frp.org",
 
-  "https://mlabs.cachix.org",
+--  "https://mlabs.cachix.org",
   "https://steshaw.cachix.org",
-  "https://ghc-nix.cachix.org",
+--  "https://ghc-nix.cachix.org",
 ]
 
 let trusted-public-keys = [
