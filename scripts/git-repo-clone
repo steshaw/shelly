@@ -12,6 +12,7 @@ fi
 repo_path=${1#https://}
 repo_path=${repo_path#git@}
 repo_path=${repo_path%.git}
+repo_path=${repo_path%#*}
 repo_path=${repo_path%/}
 repo_path=${repo_path/://}
 repo_path=${repo_path%*/*/*/}
