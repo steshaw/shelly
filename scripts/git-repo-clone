@@ -5,7 +5,7 @@ set -euo pipefail
 script_name=$(basename "$0")
 
 if [[ $# -ne 1 ]]; then
-  echo "usage: $script_name repo (i.e. leanprover/lean)"
+  echo "usage: $script_name repo (i.e. leanprover/lean4)"
   exit 2
 fi
 
