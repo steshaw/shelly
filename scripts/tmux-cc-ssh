@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-exec ssh "$@" -t '.nix-profile/bin/tmux -CC new-session -AD -s main'

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_name=$(basename "$0")
+
+if [[ $# -eq 3 ]]; then
+  ty=$1
+  host=$2
+  session=$3
+elif [[ $# -eq 2 ]]; then
+  ty=$1
+  host=$2
+  session=main
+else
+  echo "usage: $script_name et|ssh host [session-name]" >&2
+  exit 2
+fi
+
+cmd=".nix-profile/bin/tmux -CC new-session -AD -s ${session}"
+
+case $ty in
+  ssh)
+    set -x
+    exec ssh "$host" -t "${cmd}"
+    ;;
+  et)
+    set -x
+    exec et -c "${cmd}" "${host}"
+    ;;
+esac
