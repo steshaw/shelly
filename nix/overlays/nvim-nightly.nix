@@ -1,3 +1,7 @@
+if true then
+self: super: {
+}
+else
 let
   sources = import ../sources.nix;
   nvim = sources.neovim-nightly-overlay;

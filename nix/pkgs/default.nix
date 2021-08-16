@@ -8,12 +8,12 @@ with pkgs; [
   #
   # Nix.
   #
-  cachix
+  (notDarwin cachix)
   glibcLocales # Fix for locale issue.
-  niv
+#  niv
   nix-prefetch-scripts
-  nix
-  nixfmt
+  nixUnstable
+#  nixfmt
   nixpkgs-fmt
   nox
 
@@ -23,7 +23,7 @@ with pkgs; [
   # Shells.
   fish
   zsh
-  mosh
+  (notDarwin mosh)
   bashInteractive_5
 
   bash-completion
@@ -32,7 +32,7 @@ with pkgs; [
   # Git.
   git
   gti # Humourous wrapper for git.
-  darcs
+  (notDarwin darcs)
 
   #
   # Security
@@ -50,19 +50,19 @@ with pkgs; [
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
-  cabal2nix
+  (notDarwin cabal2nix)
   coreutils
   curl
   dbxcli # Defined in overlay/dbxcli.nix
   delta
-  dhall
+  (notDarwin dhall)
   dos2unix
-  eternal-terminal
-  exa
+  (notDarwin eternal-terminal)
+  (notDarwin exa)
   fd
   file
   fzf
-  hledger
+  (notDarwin hledger)
   htop
   httpie
   jq
@@ -76,7 +76,7 @@ with pkgs; [
   ncdu # NCurses Disk Usage
   neofetch
   nodejs # Required for Coc.
-  pandoc
+  (notDarwin pandoc)
   peco
   pstree
   pup
@@ -84,7 +84,7 @@ with pkgs; [
   ripgrep
   rlwrap
   rsync
-  shellcheck
+  (notDarwin shellcheck)
   speedtest-cli
   terraform
   tokei
@@ -119,21 +119,21 @@ with pkgs; [
   # Programming Languages.
   #
   (notDarwin pkgs.ats2)
-  coq
-  idris2
+  (notDarwin coq)
+  (notDarwin idris2)
   (broken agda)
   rustup
 
   # Haskell.
-  (broken pkgs.haskellPackages.pointfree)
-  (notDarwin pkgs.haskellPackages.brittany)
-  cabal-install
-  ghcid
-  haskell.compiler.ghc901
-  haskellPackages.fourmolu
-  hlint
-  ormolu
-  stack
+#  (broken pkgs.haskellPackages.pointfree)
+#  (notDarwin pkgs.haskellPackages.brittany)
+#  cabal-install
+#  ghcid
+#  (broken haskell.compiler.ghc901)
+#  haskellPackages.fourmolu
+#  hlint
+#  ormolu
+#  stack
 
   # Docker
   docker
