@@ -69,8 +69,6 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[gpg]
-  program = gnu-privacy-guard
 [commit]
   gpgsign = true
   verbose = true
@@ -110,3 +108,5 @@
 
 [includeIf "gitdir:~/Code/sbs/"]
   path = sbs.config
+[gpg]
+	program = gpg
