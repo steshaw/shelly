@@ -8,7 +8,7 @@ with pkgs; [
   #
   # Nix.
   #
-  (notDarwin cachix)
+#  cachix
   glibcLocales # Fix for locale issue.
 #  niv
   nix-prefetch-scripts
@@ -23,7 +23,6 @@ with pkgs; [
   # Shells.
   fish
   zsh
-  (notDarwin mosh)
   bashInteractive_5
 
   bash-completion
@@ -32,7 +31,6 @@ with pkgs; [
   # Git.
   git
   gti # Humourous wrapper for git.
-  (notDarwin darcs)
 
   #
   # Security
@@ -50,19 +48,19 @@ with pkgs; [
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
-  (notDarwin cabal2nix)
+#  cabal2nix
   coreutils
   curl
   dbxcli # Defined in overlay/dbxcli.nix
   delta
-  (notDarwin dhall)
+#  dhall
   dos2unix
-  (notDarwin eternal-terminal)
-  (notDarwin exa)
+#  eternal-terminal
+#  exa
   fd
   file
   fzf
-  (notDarwin hledger)
+#  hledger
   htop
   httpie
   jq
@@ -76,7 +74,7 @@ with pkgs; [
   ncdu # NCurses Disk Usage
   neofetch
   nodejs # Required for Coc.
-  (notDarwin pandoc)
+#  pandoc
   peco
   pstree
   pup
@@ -84,7 +82,7 @@ with pkgs; [
   ripgrep
   rlwrap
   rsync
-  (notDarwin shellcheck)
+#  shellcheck
   speedtest-cli
   terraform
   tokei
@@ -118,18 +116,18 @@ with pkgs; [
   #
   # Programming Languages.
   #
-  (notDarwin pkgs.ats2)
-  (notDarwin coq)
-  (notDarwin idris2)
-  (broken agda)
+#  ats2
+#  coq
+#  idris2
+#  agda
   rustup
 
   # Haskell.
-#  (broken pkgs.haskellPackages.pointfree)
-#  (notDarwin pkgs.haskellPackages.brittany)
+#  haskellPackages.pointfree
+#  haskellPackages.brittany
 #  cabal-install
 #  ghcid
-#  (broken haskell.compiler.ghc901)
+#  haskell.compiler.ghc901
 #  haskellPackages.fourmolu
 #  hlint
 #  ormolu
