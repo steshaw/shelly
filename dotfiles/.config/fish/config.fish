@@ -26,7 +26,7 @@ if status is-interactive
 
   abbr --add --global grep 'grep --directories=skip'
 
-  set CDPATH ~/Code/steshaw ~/Code/sbs ~/Code/iohk ~/Code
+  set CDPATH . ~/Code/steshaw ~/Code/sbs ~/Code
 
   # vi-style search as in Bash
   # Cribbed from https://github.com/fish-shell/fish-shell/issues/2271#issuecomment-352210807
