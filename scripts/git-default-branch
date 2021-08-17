@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if command git show-ref -q --verify refs/heads/master; then
+  echo master
+else
+  echo main
+fi
