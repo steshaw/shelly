@@ -1,8 +1,15 @@
 if status is-interactive
-  alias ls='exa --classify'
-  alias l='ls --long'
-  alias ll='l --all'
-  alias la='ll --all'
+  if false
+    alias ls='exa --classify'
+    alias l='ls --long'
+    alias ll='l --all'
+    alias la='ll --all'
+  else
+    alias ls=lsd
+    alias l='ls -l --human-readable'
+    alias ll='l --almost-all'
+    alias la='l --all'
+  end
 
   abbr --add --global cx 'chmod +x'
   abbr --add --global cw 'chmod +w'
