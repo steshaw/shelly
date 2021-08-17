@@ -117,7 +117,6 @@ alias gdsl='git diff --staged --name-only'
 alias gitp='git push'
 alias gp='git push'
 alias gpfl='git push --force-with-lease'
-alias grh='git reset HEAD'
 alias gst='git status'
 
 alias path='ppath'
