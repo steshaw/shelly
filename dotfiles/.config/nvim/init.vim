@@ -167,7 +167,7 @@ set showmatch
 set smartindent
 set smarttab
 set softtabstop=2
-set tabstop=20
+set tabstop=4
 set termguicolors
 set textwidth=76
 
