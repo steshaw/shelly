@@ -11,10 +11,10 @@ checkout = git clone-fork NixOS/nixpkgs
 update = mr sync
 
 [ghc/ghc]
-checkout =
-  git clone --recurse-submodules https://gitlab.haskell.org/ghc/ghc.git
-  cd ghc
-  git config submodule.recurse true
+checkout = 
+	 git clone --recurse-submodules https://gitlab.haskell.org/ghc/ghc.git
+	 cd ghc
+	 git config submodule.recurse true
 
 [ghc/ghc.nix]
 checkout = git clone https://github.com/alpmestan/ghc.nix
@@ -70,3 +70,9 @@ checkout = git clone 'git@github.com:typelevel/cats' 'cats'
 
 [camllight/camllight]
 checkout = git clone 'git@github.com:camllight/camllight' 'camllight'
+
+[steshaw/project-scripts]
+checkout = git clone 'git@gist.github.com:9f81d64526856c761cdc43290f0fc017.git' 'project-scripts'
+
+[steshaw/project-base-directory]
+checkout = git clone 'git@gist.github.com:c957ff0a2cc6ae412ab6b57c84943ca7.git' 'project-base-directory'
