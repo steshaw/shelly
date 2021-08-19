@@ -74,5 +74,5 @@ checkout = git clone 'git@github.com:camllight/camllight' 'camllight'
 [steshaw/project-scripts]
 checkout = git clone 'git@gist.github.com:9f81d64526856c761cdc43290f0fc017.git' 'project-scripts'
 
-[steshaw/project-base-directory]
+[steshaw/project-directory]
 checkout = git clone 'git@gist.github.com:c957ff0a2cc6ae412ab6b57c84943ca7.git' 'project-base-directory'
