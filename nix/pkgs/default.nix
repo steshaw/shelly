@@ -137,6 +137,7 @@ with pkgs; [
   docker
   docker-compose
   docker-credential-gcr
+  amazon-ecr-credential-helper
 
   # Kubernetes
   argocd
