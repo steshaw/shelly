@@ -63,7 +63,7 @@
      '(("\\.lagda.md\\'" . agda2-mode))
      auto-mode-alist))
 
-(setq org-time-stamp-rounding-minutes '(0 15))
+(setq org-time-stamp-rounding-minutes '(0 30))
 
 ;; Reload files that have changed on disk.
 (global-auto-revert-mode t)
