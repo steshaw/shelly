@@ -16,6 +16,9 @@ repo_path=${repo_path%#*}
 repo_path=${repo_path%/}
 repo_path=${repo_path/://}
 repo_path=${repo_path%*/*/*/}
+repo_path=${repo_path%%/blob/*} # For GitHub
+repo_path=${repo_path%%/-/tree/*} # For GitLab
+repo_path=${repo_path%%/src/*} # For Bitbucket
 
 IFS=/ read -r -a fields <<<"$repo_path"
 case ${#fields[@]} in
@@ -32,11 +35,8 @@ case ${#fields[@]} in
   *)
     host=${fields[0]}
     org=${fields[1]}
-    repo=${fields[2]}
-    remainder=${fields[*]:3}
-    if [[ -n $remainder ]]; then
-      echo "$script_name: Warning: discarding \"${remainder}\"" >&2
-    fi
+    repo=${fields[*]:2}
+    repo=${repo// /\/} # Spaces back to / directory separator
     ;;
 esac
 
