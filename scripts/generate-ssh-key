@@ -2,23 +2,28 @@
 
 set -euo pipefail
 
-key_type='ed25519'
-
 if [[ $# -eq 0 ]]; then
+  key_type='ed25519'
   file="id_${key_type}"
-  comment_postfix=''
+  comment="${USER}@$(hostname -s)"
 elif [[ $# -eq 1 ]]; then
-  purpose=$1
-  comment_postfix="-${purpose}"
+  key_type=$1
+  file="id_${key_type}"
+  comment="${USER}@$(hostname -s)"
+elif [[ $# -eq 2 ]]; then
+  key_type=$1
+  purpose=$2
   file="${purpose}_${key_type}"
+  comment="${USER}@$(hostname -s) — ${purpose}"
 else
   script_name=$(basename "$0")
-  echo "usage: ${script_name} [purpose]" >&2
+  echo "usage: ${script_name} [key-type [purpose]]" >&2
   exit 2
 fi
 
+set -x
 ssh-keygen \
   -f "${file}" \
-  -t ed25519 \
+  -t ${key_type} \
   -b 4096 \
-  -C "${USER}@$(hostname -s)${comment_postfix}"
+  -C "${comment}"
