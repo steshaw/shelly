@@ -1,14 +1,14 @@
 {
-    "type": "phrase",
-    "description": "Tab Prev Mac",
+    "type": "script",
+    "description": "macOS Next Tab",
+    "store": {},
     "modes": [
         3
     ],
-    "usageCount": 12,
+    "usageCount": 49,
     "prompt": false,
     "omitTrigger": false,
-    "matchCase": false,
-    "showInTrayMenu": false,
+    "showInTrayMenu": true,
     "abbreviation": {
         "abbreviations": [],
         "backspace": true,
@@ -22,11 +22,10 @@
             "<ctrl>",
             "<shift>"
         ],
-        "hotKey": "["
+        "hotKey": "]"
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    },
-    "sendMode": "kb"
+    }
 }

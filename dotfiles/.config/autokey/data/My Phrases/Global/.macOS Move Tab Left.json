@@ -1,13 +1,13 @@
 {
-    "type": "phrase",
-    "description": "Move Tab Left",
+    "type": "script",
+    "description": "macOS Move Tab Left",
+    "store": {},
     "modes": [
         3
     ],
-    "usageCount": 3,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
-    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -27,6 +27,5 @@
     "filter": {
         "regex": null,
         "isRecursive": false
-    },
-    "sendMode": "kb"
+    }
 }
