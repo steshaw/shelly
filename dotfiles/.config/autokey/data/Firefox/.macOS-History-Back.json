@@ -1,14 +1,14 @@
 {
-    "type": "script",
-    "description": "macOS Next Tab",
-    "store": {},
+    "type": "phrase",
+    "description": "macOS-History-Back",
     "modes": [
         3
     ],
-    "usageCount": 49,
+    "usageCount": 2,
     "prompt": false,
     "omitTrigger": false,
-    "showInTrayMenu": true,
+    "matchCase": false,
+    "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
         "backspace": true,
@@ -19,13 +19,13 @@
     },
     "hotkey": {
         "modifiers": [
-            "<ctrl>",
-            "<shift>"
+            "<ctrl>"
         ],
-        "hotKey": "]"
+        "hotKey": "<left>"
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    }
+    },
+    "sendMode": "kb"
 }

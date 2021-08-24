@@ -1,13 +1,13 @@
 {
-    "type": "script",
-    "description": "macOS Prev Tab",
-    "store": {},
+    "type": "phrase",
+    "description": "macOS-Move-Tab-Right",
     "modes": [
         3
     ],
-    "usageCount": 15,
+    "usageCount": 62,
     "prompt": false,
     "omitTrigger": false,
+    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -19,13 +19,14 @@
     },
     "hotkey": {
         "modifiers": [
-            "<ctrl>",
-            "<shift>"
+            "<alt>",
+            "<ctrl>"
         ],
-        "hotKey": "["
+        "hotKey": "<right>"
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    }
+    },
+    "sendMode": "kb"
 }

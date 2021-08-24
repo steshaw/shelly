@@ -1,10 +1,10 @@
 {
     "type": "phrase",
-    "description": "History Forward",
+    "description": "macOS-Prev-Tab",
     "modes": [
         3
     ],
-    "usageCount": 2,
+    "usageCount": 29,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
@@ -19,9 +19,10 @@
     },
     "hotkey": {
         "modifiers": [
-            "<ctrl>"
+            "<ctrl>",
+            "<shift>"
         ],
-        "hotKey": "<right>"
+        "hotKey": "["
     },
     "filter": {
         "regex": null,

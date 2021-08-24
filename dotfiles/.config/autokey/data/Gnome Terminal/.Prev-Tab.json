@@ -1,10 +1,10 @@
 {
     "type": "phrase",
-    "description": "Next Tab",
+    "description": "Prev-Tab",
     "modes": [
         3
     ],
-    "usageCount": 49,
+    "usageCount": 45,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
@@ -21,7 +21,7 @@
         "modifiers": [
             "<shift>"
         ],
-        "hotKey": "<right>"
+        "hotKey": "<left>"
     },
     "filter": {
         "regex": "gnome-terminal-server.Gnome-terminal",

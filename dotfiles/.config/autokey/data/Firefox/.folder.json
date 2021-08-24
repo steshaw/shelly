@@ -1,8 +1,8 @@
 {
     "type": "folder",
-    "title": "My Phrases",
+    "title": "Firefox",
     "modes": [],
-    "usageCount": 0,
+    "usageCount": 27,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -13,13 +13,11 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "<f7>"
+        "modifiers": [],
+        "hotKey": null
     },
     "filter": {
-        "regex": null,
-        "isRecursive": false
+        "regex": "Navigator.Firefox",
+        "isRecursive": true
     }
 }

@@ -1,8 +1,13 @@
 {
-    "type": "folder",
-    "title": "Global",
-    "modes": [],
-    "usageCount": 0,
+    "type": "phrase",
+    "description": "macOS-Prev-Tab",
+    "modes": [
+        3
+    ],
+    "usageCount": 35,
+    "prompt": false,
+    "omitTrigger": false,
+    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -13,11 +18,15 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [],
-        "hotKey": null
+        "modifiers": [
+            "<ctrl>",
+            "<shift>"
+        ],
+        "hotKey": "["
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    }
+    },
+    "sendMode": "kb"
 }
