@@ -222,7 +222,6 @@ endtry
 
 autocmd BufNewFile,BufRead .Brewfile set filetype=ruby
 autocmd BufNewFile,BufRead .mrconfig set filetype=toml
-autocmd FileType go setlocal tabstop=2
 autocmd FileType make setlocal noexpandtab | setlocal tabstop=2
 autocmd FileType markdown set spell
 autocmd FileType org set spell
