@@ -45,7 +45,6 @@ with pkgs; [
   nix-direnv
 
   # Other utilities.
-  awscli2
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
@@ -151,6 +150,10 @@ with pkgs; [
   kubespy
   kubetail
   kustomize
+
+  # AWS
+  awscli2
+  python3Packages.ec2instanceconnectcli
 
   #
   # Google Cloud SDK.
