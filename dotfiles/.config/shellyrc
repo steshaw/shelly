@@ -38,8 +38,8 @@ set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'
 # This also ensures that we switch the "standard" oh-my-zsh ls aliases
 # as we want the shortest one for the most common command! i.e. l.
 
-enable_exa=0
-enable_lsd=1
+enable_exa=1
+enable_lsd=0
 
 if [[ $enable_exa -ne 0 ]] && has exa; then
   alias ls='exa --classify'

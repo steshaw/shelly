@@ -56,7 +56,7 @@ with pkgs; [
   (notDarwin dhall)
   dos2unix
   (notDarwin eternal-terminal)
-  (notDarwin exa)
+  exa
   fd
   file
   fzf
