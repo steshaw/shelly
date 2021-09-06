@@ -1,9 +1,7 @@
 #!/bin/sh
 
-if true || [[ ${SHELLY_OS} == 'darwin' ]]; then
-  isBash && sourceExists ~/.iterm2_shell_integration.bash
-  isZsh && sourceExists ~/.iterm2_shell_integration.zsh
-fi
+isBash && sourceExists ~/.iterm2_shell_integration.bash
+isZsh && sourceExists ~/.iterm2_shell_integration.zsh
 
 iterm-colour() {
   if [[ $ITERM_COLOUR == 'dark' ]]; then
