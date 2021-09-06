@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+setEditor() {
+  editor=$1
+  Echo "Trying $editor"
+  if has "$editor"; then
+    export VISUAL
+    VISUAL=$(command -v "$editor")
+    Echo "VISUAL=$VISUAL"
+    return 0
+  else
+    Echo "We don't have $editor"
+    return 1
+  fi
+}
+
+unset EDITOR
+unset VISUAL
+setEditor nvim || setEditor vim
+[[ -n $VISUAL ]] && export EDITOR=$VISUAL
+
+set -o vi 2>/dev/null || Echo 'Cannot set vi editing mode'

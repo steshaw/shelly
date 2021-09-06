@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+alias wi='type -ap' # Where are all matching commands on PATH.
+
+# Make file ops safer.
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias cx='chmod +x'
+alias cw='chmod +w'
+
+alias history-reload='history -a && history -r'
+
+alias d='date --rfc-3339=seconds'
+
+alias vo="edit-overlay"
+
+alias sghci='stack exec -- ghci'
+
+alias pj='pijul'
+
+alias k8s='kubectl'
+alias kube='kubectl'
+alias bj='jq | bat --language=json'
+
+alias clear='clear -x'
+
+alias path='ppath'
+alias cdpath='echo $CDPATH | tr : "\n"'
+
+if [[ ${SHELLY_OS} != 'darwin' ]]; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
+alias sml='rlwrap sml'
+alias ocaml='rlwrap ocaml'

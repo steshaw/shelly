@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+cdpath-update() {
+  # This cdpath array works out-of-box for zsh.
+  # For bash, it's processed into CDPATH.
+  cdpath=(
+    .
+    ~/Code
+  )
+
+  cached=~/.cache/shelly/code_dirs.txt
+  find_code_dirs() {
+    find ~/Code -maxdepth 4 -type d -name .git 2>/dev/null |
+      perl -pe 's~/[^/]*/.git$~~' |
+      grep -v -E 'nvim.mine|\.archive|node_modules' |
+      sort -u
+  }
+  cdpath-load() {
+    while read -r dir; do
+      [[ -d ${dir} && ${dir} ]] && cdpath=("${cdpath[@]}" "${dir}")
+    done <${cached}
+
+    if isBash; then
+      CDPATH=$(IFS=':'; echo "${cdpath[*]}")
+      unset cdpath
+    fi
+  }
+  cdpath-write-cache() {
+    mkdir -p "$(dirname ${cached})"
+    find_code_dirs >|${cached}
+  }
+  cdpath-refresh() {
+    cdpath-write-cache
+    cdpath-load
+  }
+  cdpath-check-cache() {
+    # Write a new cache when expired or non-existant.
+    # Cache for 5 hours
+    hours=5
+    minutes=$((hours * 60))
+    if [[ ! -f ${cached} || -n $(find ${cached} -mmin +${minutes}) ]]; then
+      cdpath-write-cache
+    fi
+  }
+  cdpath-check-cache
+  cdpath-load
+}
+cdpath-update

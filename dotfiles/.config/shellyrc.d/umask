@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Set umask to 077. No default group or other access.
+umask go-rwx
