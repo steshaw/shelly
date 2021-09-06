@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-if false; then
-  precmd_functions+=(bash-wakatime)
-fi
