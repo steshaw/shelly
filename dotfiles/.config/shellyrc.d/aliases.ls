@@ -8,7 +8,7 @@ enable_lsd=0
 
 if [[ $enable_exa -ne 0 ]] && has exa; then
   alias ls='exa --classify'
-  alias l='ls --long'
+  alias l='ls --long --group-directories-first'
   alias ll='l --all'
   # Fallback to GNU ls.
   alias la='ll --all'
