@@ -220,9 +220,6 @@ endtry
 
 " ==========================================================================
 
-autocmd BufNewFile,BufRead .Brewfile set filetype=ruby
-autocmd BufNewFile,BufRead .mrconfig set filetype=toml
-
 nnoremap <Leader><space> :nohlsearch<Enter>
 
 " ==========================================================================
