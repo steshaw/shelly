@@ -1,0 +1,5 @@
+# Add Stow-managed bin directory.
+# - Packages are installed at ~/.shelly/opt/<package>.
+# - Install script conventially localed at ~/.shelly/opt/stow.
+#   e.g. https://gist.github.com/steshaw/c5718f080c31235c6491025b602e7e08
+PATH=~/.shelly/local/bin:$PATH
