@@ -134,7 +134,7 @@ let g:colorscheme_switcher_keep_background = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " syntastic
-let g:syntastic_sh_shellcheck_args = "-x"
+let g:syntastic_sh_shellcheck_args = "--external-sources"
 
 " vim-airline
 let g:airline_powerline_fonts = 1
