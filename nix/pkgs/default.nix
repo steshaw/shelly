@@ -84,6 +84,7 @@ with pkgs; [
   rsync
   (notDarwin shellcheck)
   speedtest-cli
+  stow
   terraform
   tokei
   tree
