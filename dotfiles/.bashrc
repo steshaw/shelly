@@ -10,8 +10,8 @@ if [[ $IN_NIX_SHELL == pure ]]; then
 fi
 
 if [[ -z $SHELLY_HOME ]]; then
-  export SHELLY_DEV_DIR=~/Code
-  export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
+  export SHELLY_CODE_DIR=~/Code
+  export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 fi
 
 # shellcheck source=../scripts/functions.sh

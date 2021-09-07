@@ -57,5 +57,5 @@ case $org in
   ArdanaLabs) short_org='ardana';;
 esac
 
-cd "${SHELLY_DEV_DIR}"
+cd "${SHELLY_CODE_DIR}"
 git clone "${user}@${host}:${org}/${repo}" "${short_org}/${repo}"

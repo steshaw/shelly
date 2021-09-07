@@ -12,7 +12,7 @@ gist=${gist#https://gist.github.com/}
 dir=$2
 
 if false; then
-  root=${SHELLY_DEV_DIR}/${USER}
+  root=${SHELLY_CODE_DIR}/${USER}
   cd "$root"
 fi
 

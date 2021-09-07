@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-code_dir=${SHELLY_DEV_DIR}
+code_dir=${SHELLY_CODE_DIR}
 
 if [[ $# -ne 1 ]]; then
   echo "usage: $0 repo (i.e. leanprover/lean)"

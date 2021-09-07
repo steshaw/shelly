@@ -3,7 +3,7 @@
 set -euo pipefail
 
 mkdir -p .tmp
-script="${SHELLY_DEV_DIR}/NixOS/nixpkgs/nixos/maintainers/scripts/gce/create-gce.sh"
+script="${SHELLY_CODE_DIR}/NixOS/nixpkgs/nixos/maintainers/scripts/gce/create-gce.sh"
 script=~/.nix-defexpr/channels/nixpkgs/nixos/maintainers/scripts/gce/create-gce.sh
 BUCKET_NAME=morning-mist-images \
   BOTO_CONFIG=/dev/null \

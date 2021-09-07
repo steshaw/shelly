@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-export SHELLY_DEV_DIR=~/Code # XXX: Deprecated!
 export SHELLY_CODE_DIR=~/Code
 export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 # shellcheck disable=SC2034
@@ -65,7 +64,7 @@ if [[ ${profile_startup} -eq 1 ]]; then
   unset log
 fi
 
-# shellcheck disable=SC1090
+# shellcheck source=../scripts/functions.sh
 source $SHELLY_HOME/scripts/functions.sh
 shelly_determine_os
 
@@ -96,12 +95,6 @@ prettyPaths() {
     echo "}"
   fi
 }
-
-#
-# Shelly packages — if any.
-#
-# shellcheck disable=SC1090
-source ${SHELLY_HOME}/scripts/shelly-pkgs-env.sh
 
 #
 # Initialise preexec/precmd functions.
