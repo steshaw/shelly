@@ -14,7 +14,7 @@ if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 fi
 
-# shellcheck disable=SC1091
+# shellcheck source=../scripts/functions.sh
 source $SHELLY_HOME/scripts/functions.sh
 
 Echo Executing ~/.bashrc
@@ -112,5 +112,5 @@ for file in ~/.config/bashrc.d/*; do
   sourceExists "${file}"
 done
 
-# shellcheck disable=SC1091
+# shellcheck source=.config/shellyrc
 source $SHELLY_HOME/dotfiles/.config/shellyrc

@@ -1,3 +1,7 @@
+# Tell ShellCheck to use bash checking as zsh is not yet supported.
+# https://github.com/koalaman/shellcheck/issues/809
+# shellcheck shell=bash
+
 export SHELLY_DEV_DIR=~/Code
 export SHELLY_HOME=${SHELLY_DEV_DIR}/steshaw/shelly
 
