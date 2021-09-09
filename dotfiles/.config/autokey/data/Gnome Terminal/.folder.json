@@ -2,7 +2,7 @@
     "type": "folder",
     "title": "Gnome Terminal",
     "modes": [],
-    "usageCount": 9,
+    "usageCount": 60,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -18,6 +18,6 @@
     },
     "filter": {
         "regex": "gnome-terminal-server.Gnome-terminal",
-        "isRecursive": false
+        "isRecursive": true
     }
 }
