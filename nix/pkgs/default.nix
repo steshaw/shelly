@@ -76,6 +76,7 @@ with pkgs; [
   nodejs # Required for Coc.
   (notDarwin pandoc)
   peco
+  perl
   pstree
   pup
   python2
