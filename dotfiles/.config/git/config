@@ -17,9 +17,10 @@
   contributors = shortlog --summary --numbered --email --all
   contributors-single = shortlog --summary --numbered --email
   ff = pull --ff-only
-  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  graph = log --graph --date-order -C -M \
+    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(blue)[%an]%Creset' \
+    --abbrev-commit --date=relative
   l = log
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   ll = log -p
   llog = log --date=local
   ls = ls-files
