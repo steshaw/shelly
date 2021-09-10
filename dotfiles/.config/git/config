@@ -26,6 +26,7 @@
   ls = ls-files
   pf = push --force-with-lease
   pick = cherry-pick
+  push-set-upstream = push -u origin HEAD
   remotes = remote -v
   s = status --short --branch
   slog = log --oneline --decorate
