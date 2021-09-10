@@ -10,9 +10,9 @@ import qualified Data.List as List
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import qualified Data.Time as Time
-import Text.Printf (printf)
 import System.Environment as Sys
 import System.Exit as Sys
+import Text.Printf (printf)
 
 -- Astronomy examples
 --   https://www.timeanddate.com/astronomy/australia/brisbane
@@ -23,9 +23,9 @@ austin = 24 -- Austin, USA
 boston = 43 -- Boston, USA
 
 usa =
-  [ sf,
-    austin,
-    boston
+  [ sf
+  , austin
+  , boston
   ]
 
 toronto = 250 -- Toronto, Ontario, Canada
@@ -36,12 +36,13 @@ berlin = 37 -- Berlin, Germany
 moscow = 166
 russia = moscow
 warsaw = 262
+
 -- https://www.timeanddate.com/worldclock/meetingtime.html?iso=20210727&p1=250&p2=136&p3=262&p4=166&p5=47
 
 eu =
-  [ uk,
-    berlin,
-    moscow
+  [ uk
+  , berlin
+  , moscow
   ]
 
 bengaluru = 438 -- Bengaluru, India
@@ -52,10 +53,10 @@ auckland = 22 -- Auckland, New Zealand
 nz = auckland
 
 asiaPacific =
-  [ bengaluru,
-    manilla,
-    tokyo,
-    auckland
+  [ bengaluru
+  , manilla
+  , tokyo
+  , auckland
   ]
 
 brisbane = 47 -- Brisbane, Australia
@@ -87,8 +88,8 @@ cities :: [Int]
 cities = [london, sf, brisbane, sydney]
 
 cs = zipWith f ([1 ..] :: [Int]) cities
- where
-  f i city = T.pack $ printf "p%d=%d" i city
+  where
+    f i city = T.pack $ printf "p%d=%d" i city
 
 --
 -- For example:
@@ -113,9 +114,9 @@ time = do
 --
 clock = do
   T.putStrLn uri
- where
-  uri = base <> "?" <> T.intercalate "&" cs
-  base = "https://www.timeanddate.com/worldclock/personal.html"
+  where
+    uri = base <> "?" <> T.intercalate "&" cs
+    base = "https://www.timeanddate.com/worldclock/personal.html"
 
 main = do
   args <- Sys.getArgs
