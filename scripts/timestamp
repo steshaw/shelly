@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
-TZ=UTC printf '%(%Y%m%d-%H%M%S)T\n' -1
+current_time=-1
+TZ=UTC printf '%(%Y%m%d-%H%M%S)T\n' ${current_time}

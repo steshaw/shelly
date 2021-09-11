@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-date
+current_time=-1
+printf '%(%a %Y-%m-%d %H:%M:%S)T\n' ${current_time}
