@@ -3,8 +3,8 @@
 alias wi='type -ap' # Where are all matching commands on PATH.
 
 # Make file ops safer.
-alias cp='cp -i'
-alias mv='mv -i'
+alias cp='cp -iv'
+alias mv='mv -iv'
 alias rm='rm -i'
 
 alias cx='chmod +x'
