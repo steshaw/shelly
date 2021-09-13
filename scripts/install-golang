@@ -2,7 +2,9 @@
 
 set -euo pipefail
 
-cd ~/.shelly/local
+install_dir=~/.shelly/opt
+mkdir -p ${install_dir}
+cd ${install_dir}
 
 os=$(uname)
 os=${os,,} # lowercase
