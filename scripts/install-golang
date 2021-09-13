@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-install_dir=~/.shelly/opt
-mkdir -p ${install_dir}
-cd ${install_dir}
+opt_dir=~/.shelly/opt
+mkdir -p ${opt_dir}
+cd ${opt_dir}
 
 os=$(uname)
 os=${os,,} # lowercase
@@ -18,8 +18,9 @@ fi
 version=${1#go}
 tarball="go${version}.${os}-${arch}.tar.gz"
 url="https://golang.org/dl/${tarball}"
-dir="go-${version}"
 
-mkdir "${dir}"
 curl --continue-at - -L -o "${tarball}" "${url}" || true
-tar -x -C "${dir}" --strip-components=1 -f "${tarball}"
+
+install_dir="go-${version}"
+mkdir -p "${install_dir}"
+tar -x -C "${install_dir}" --strip-components=1 -f "${tarball}"
