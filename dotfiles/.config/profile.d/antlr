@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [[ -d ${HOME}/.shelly/local/antlr ]]; then
-  alias antlr4="java -jar ${HOME}/.shelly/local/antlr/antlr-4.1-complete.jar"
-  alias grun="java -cp .:${HOME}/.shelly/local/antlr/antlr-4.1-complete.jar org.antlr.v4.runtime.misc.TestRig"
-fi
