@@ -5,12 +5,14 @@
 
 set -euo pipefail
 
-git checkout -q master
+default_branch=$(git-default-branch)
+
+git checkout -q "${default_branch}"
 git for-each-ref refs/heads/ --format='%(refname:short)' | while read -r branch; do
-  merge_base=$(git merge-base master "${branch}")
+  merge_base=$(git merge-base "${default_branch}" "${branch}")
   branch_tree=$(git rev-parse "${branch}^{tree}")
   commit_tree=$(git commit-tree "${branch_tree}" -p "${merge_base}" -m _)
-  if [[ $(git cherry master "${commit_tree}") == "-"* ]]; then
+  if [[ $(git cherry "${default_branch}" "${commit_tree}") == "-"* ]]; then
     echo git branch -D "${branch}"
   fi
 done

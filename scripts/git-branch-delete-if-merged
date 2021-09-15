@@ -3,10 +3,11 @@
 set -euo pipefail
 
 branch=$1
+default_branch=$(git-default-branch)
 
 git branch --delete "${branch}" || (
   git checkout "${branch}"
-  git rebase origin/master
-  git checkout master
+  git rebase "origin/${default_branch}"
+  git checkout "${default_branch}"
   git branch --delete "${branch}"
 )
