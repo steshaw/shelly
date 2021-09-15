@@ -18,33 +18,11 @@ with pkgs; [
   nixpkgs-fmt
   nox
 
-  #
-  # Command line utilities.
-  #
-  # Shells.
-  fish
-  zsh
-  bashInteractive_5
-
   bash-completion
   nix-bash-completions
 
-  # Git.
-  git
-  gti # Humourous wrapper for git.
-
-  #
-  # Security
-  #
-  gnupg
-  gopass
-  pass
-
-  # direnv
-  direnv
-  nix-direnv
-
   # Other utilities.
+  bashInteractive_5
   bat
   bind # for dig. XXX: Any smaller package?
   buildkite-cli
@@ -54,12 +32,18 @@ with pkgs; [
   dbxcli # Defined in overlay/dbxcli.nix
   delta
   (notDarwin dhall)
+  direnv
   dos2unix
   (notDarwin eternal-terminal)
   exa
   fd
   file
+  fish
   fzf
+  git
+  gnupg
+  gopass
+  gti # Humourous wrapper for git.
   (notDarwin hledger)
   htop
   httpie
@@ -73,8 +57,10 @@ with pkgs; [
   mtr
   ncdu # NCurses Disk Usage
   neofetch
+  nix-direnv
   nodejs # Required for Coc.
   (notDarwin pandoc)
+  pass
   peco
   perl
   pstree
@@ -96,6 +82,7 @@ with pkgs; [
   wget
   youtube-dl
   yq
+  zsh
 
   gitAndTools.git-filter-repo
   nodePackages.gitmoji-cli
@@ -123,6 +110,10 @@ with pkgs; [
   (notDarwin idris2)
   (notDarwin agda)
   rustup
+
+  # Go
+  go
+  golangci-lint
 
   # Haskell.
   (notDarwin haskellPackages.pointfree)
