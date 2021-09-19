@@ -3,7 +3,11 @@
 set -euo pipefail
 
 branch=$1
-default_branch=$(git-default-branch)
+if [[ $# -eq 2 ]]; then
+  default_branch=$2
+else
+  default_branch=$(git-default-branch)
+fi
 
 git branch --delete "${branch}" || (
   git checkout "${branch}"
