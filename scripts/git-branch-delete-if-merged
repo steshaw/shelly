@@ -6,7 +6,7 @@ branch=$1
 if [[ $# -eq 2 ]]; then
   default_branch=$2
 else
-  default_branch=$(git-default-branch)
+  default_branch=$(git branch --show-current)
 fi
 
 git branch --delete "${branch}" || (
