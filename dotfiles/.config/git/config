@@ -1,114 +1,114 @@
 [user]
-  name = "Steven Shaw"
-  email = steven@steshaw.org
-  signingkey = "0afe77f7474d1596ee557a291d9a17dfd23dcb91"
+	name = "Steven Shaw"
+	email = steven@steshaw.org
+	signingkey = "0afe77f7474d1596ee557a291d9a17dfd23dcb91"
 
 [alias]
-  aa = add --all
-  alias = "!f() { git config --get-regexp "^alias.${1}$" ; }; f"
-  aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
-  annotate = blame
-  ap = add --patch
-  branch-upstream = rev-parse --abbrev-ref @{upstream}
-  branches = branch -a
-  ci = commit
-  co = checkout
-  cd = checkout
-  contributors = shortlog --summary --numbered --email --all
-  contributors-single = shortlog --summary --numbered --email
-  ff = pull --ff-only
-  graph = log --graph --date-order -C -M \
-    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(blue)[%an]%Creset' \
-    --abbrev-commit --date=relative
-  l = log
-  ll = log -p
-  llog = log --date=local
-  ls = ls-files
-  pf = push --force-with-lease
-  pick = cherry-pick
-  push-set-upstream = push -u origin HEAD
-  remotes = remote -v
-  s = status --short --branch
-  slog = log --oneline --decorate
-  slogv   = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#1BDEE4)%aE %Creset%s'"
-  slogvI  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%aE %Creset%s'"
-  slogvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%aE %Creset%s'"
-  slogvvv  = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%aE %Creset%s'"
-  st = status
-  tags = tag -l
-  tracking = branch -vv
-  undo = reset HEAD^
-  untracked=ls-files --others --exclude-standard
-  wdiff = diff --word-diff
-  who = blame
+	aa = add --all
+	alias = "!f() { git config --get-regexp "^alias.${1}$" ; }; f"
+	aliases = !git config --get-regexp ^alias\\. | sed -e s/^alias.// -e s/\\ /\\ $(printf \"\\043\")--\\>\\ / | column -t -s $(printf \"\\043\") | sort -k 1
+	annotate = blame
+	ap = add --patch
+	branch-upstream = rev-parse --abbrev-ref @{upstream}
+	branches = branch -a
+	ci = commit
+	co = checkout
+	cd = checkout
+	contributors = shortlog --summary --numbered --email --all
+	contributors-single = shortlog --summary --numbered --email
+	ff = pull --ff-only
+	graph = log --graph --date-order -C -M \
+	  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(blue)[%an]%Creset' \
+	  --abbrev-commit --date=relative
+	l = log
+	ll = log -p
+	llog = log --date=local
+	ls = ls-files
+	pf = push --force-with-lease
+	pick = cherry-pick
+	push-set-upstream = push -u origin HEAD
+	remotes = remote -v
+	s = status --short --branch
+	slog = log --oneline --decorate
+	slogv   = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%ai %C(#1BDEE4)%aE %Creset%s'"
+	slogvI  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%aE %Creset%s'"
+	slogvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%aE %Creset%s'"
+	slogvvv  = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%aE %Creset%s'"
+	st = status
+	tags = tag -l
+	tracking = branch -vv
+	undo = reset HEAD^
+	untracked=ls-files --others --exclude-standard
+	wdiff = diff --word-diff
+	who = blame
 
 [credential]
-  helper = cache --timeout 36000
+	helper = cache --timeout 36000
 
 [log]
-  date = human
+	date = human
 
 [format]
-  pretty = fuller
+	pretty = fuller
 
 [push]
-  default = simple
+	default = simple
 
 [rerere]
-  enabled = true
+	enabled = true
 
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 
 [pull]
-  rebase = true
+	rebase = true
 
 [fetch]
-  prune = true
+	prune = true
 
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [commit]
-  gpgsign = true
-  verbose = true
+	gpgsign = true
+	verbose = true
 
 [magithub]
-  online = false
+	online = false
 [magithub "status"]
-  includeStatusHeader = false
-  includePullRequestsSection = false
-  includeIssuesSection = false
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
 
 [mailmap]
-  file=~/.config/git/mailmap
+	file=~/.config/git/mailmap
 
 [pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
-;  features = side-by-side line-numbers decorations
-  features = line-numbers decorations
-;  whitespace-error-style = 22 reverse
+;features = side-by-side line-numbers decorations
+	features = line-numbers decorations
+;whitespace-error-style = 22 reverse
 
 [delta "decorations"]
-  commit-decoration-style = bold yellow box ul
-  file-style = bold yellow ul
-  file-decoration-style = none
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [url "git@bitbucket.org:"]
-  insteadOf = https://bitbucket.org/
+	insteadOf = https://bitbucket.org/
 
 [includeIf "gitdir:~/Code/sbs/"]
-  path = sbs.config
+	path = sbs.config
 [gpg]
 	program = gpg
