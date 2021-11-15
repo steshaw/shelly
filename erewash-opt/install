@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pkgs=(
+  doom-emacs
+  dotnet
+  gh_2.0.0_linux_amd64
+  ghc-9.0.1
+  go-1.17.3
+  goland
+)
+
+stow --target ../local --stow "${pkgs[@]}"
