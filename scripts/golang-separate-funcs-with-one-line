@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Explanation of strange Perlness:
+#
+#   * -0400 means that we slurp the whole file rather than operating on a
+#     line-by-line basis.
+#   * /gms means global, multiline, '.' can match '\n' (probably not needed in
+#     this case).
+#
+perl -00400 -i -pe 's/^}\nfunc/}\n\nfunc/gms' "${@}"
