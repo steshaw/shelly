@@ -99,7 +99,7 @@ with pkgs; [
   emacs
   hunspell
   hunspellDicts.en-gb-large
-  (if false then neovim-nightly else neovim)
+  neovim
   python
 
   #
