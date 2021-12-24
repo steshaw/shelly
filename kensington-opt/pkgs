@@ -9,7 +9,6 @@ usage() {
 
 pkgs=(
   doom-emacs
-  gh_2.0.0_macOS_amd64
   go-1.18beta1
 )
 
