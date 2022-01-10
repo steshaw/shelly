@@ -41,6 +41,7 @@ with pkgs; [
   fish
   fzf
   git
+  github-cli
   gnupg
   gopass
   gti # Humourous wrapper for git.
