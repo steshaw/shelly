@@ -37,6 +37,7 @@ with pkgs; [
   direnv
   dos2unix
   du-dust
+  dutree
   (notDarwin eternal-terminal)
   exa
   fd
