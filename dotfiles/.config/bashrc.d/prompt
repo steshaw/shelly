@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if has starship; then
+  eval "$(starship init bash)"
+else
+  source $(dirname "${BASH_SOURCE[0]}")/prompt.custom.disabled
+fi
