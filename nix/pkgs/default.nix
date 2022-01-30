@@ -74,6 +74,7 @@ with pkgs; [
   rsync
   (notDarwin shellcheck)
   speedtest-cli
+  starship
   stow
   terraform
   tokei

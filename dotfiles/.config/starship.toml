@@ -1,0 +1,9 @@
+[aws]
+disabled = true
+
+[hostname]
+ssh_only = false
+
+[username]
+show_always = true
+format = "[$user]($style)@"
