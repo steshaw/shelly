@@ -108,9 +108,11 @@ sourceExists /google/devshell/bashrc.google
 
 # --------------------------------------------------------------------------
 
+GLOBIGNORE=~/.config/bashrc.d/*.disabled
 for file in ~/.config/bashrc.d/*; do
   sourceExists "${file}"
 done
+unset GLOBIGNORE
 
 # shellcheck source=.config/shellyrc
 source $SHELLY_HOME/dotfiles/.config/shellyrc
