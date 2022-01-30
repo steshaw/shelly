@@ -1,9 +1,18 @@
 [aws]
 disabled = true
 
-[hostname]
-ssh_only = false
+[character]
+format = "[╰─](green)$symbol "
+
+[directory]
+truncation_symbol = "…/"
 
 [username]
 show_always = true
-format = "[$user]($style)@"
+style_user = "cyan"
+format = "[╭─](green)[$user@]($style)"
+
+[hostname]
+ssh_only = false
+style = "cyan"
+format = "[$hostname]($style):"
