@@ -34,6 +34,7 @@ with pkgs; [
   (notDarwin dhall)
   direnv
   dos2unix
+  du-dust
   (notDarwin eternal-terminal)
   exa
   fd
