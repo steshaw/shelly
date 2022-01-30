@@ -25,6 +25,7 @@ with pkgs; [
   bashInteractive_5
   bat
   bind # for dig. XXX: Any smaller package?
+  bottom
   buildkite-cli
   (notDarwin cabal2nix)
   coreutils
