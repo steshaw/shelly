@@ -23,6 +23,7 @@ with pkgs; [
 
   # Other utilities.
   bashInteractive_5
+  bandwhich
   bat
   bind # for dig. XXX: Any smaller package?
   bottom
