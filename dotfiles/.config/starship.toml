@@ -6,6 +6,7 @@ format = "[╰─](green)$symbol "
 
 [directory]
 truncation_symbol = "…/"
+style = "bold blue"
 
 [username]
 show_always = true
