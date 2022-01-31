@@ -3,7 +3,7 @@
 if has starship; then
   function set_win_title(){
     cwd=$(echo $PWD | sed "s@^$HOME@~@")
-    echo -ne "\033]0;${USER}@${HOSTNAME}:${cwd}\007"
+    echo -ne "\033]0;${USER}@$(hostname -s):${cwd}\007"
   }
   starship_precmd_user_func="set_win_title"
   eval "$(starship init bash)"
