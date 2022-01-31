@@ -3,10 +3,14 @@ disabled = true
 
 [character]
 format = "[╰─](green)$symbol "
+success_symbol = "[\\$](bold green) "
+error_symbol = "[✗](bold red) "
 
 [directory]
-truncation_symbol = "…/"
 style = "bold blue"
+truncate_to_repo = false
+truncation_symbol = "…/"
+truncation_length = 5
 
 [username]
 show_always = true
