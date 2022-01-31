@@ -1,8 +1,77 @@
+format = """
+[╭─](green)\
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+[╰─](green)\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
 [aws]
 disabled = true
 
 [character]
-format = "[╰─](green)$symbol "
 success_symbol = "[\\$](bold green)"
 error_symbol = "[✗](bold red)"
 
@@ -15,7 +84,7 @@ truncation_length = 5
 [username]
 show_always = true
 style_user = "cyan"
-format = "[╭─](green)[$user@]($style)"
+format = "[$user@]($style)"
 
 [hostname]
 ssh_only = false
