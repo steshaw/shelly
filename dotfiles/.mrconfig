@@ -20,11 +20,5 @@ checkout = git clone git@github.com:steshaw/notes
 [.emacs.d.doom]
 checkout = git clone 'https://github.com/hlissner/doom-emacs' '.emacs.d.doom'
 
-[.oh-my-zsh]
-checkout = git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
-
-[.oh-my-zsh/custom/plugins/zsh-completions]
-checkout = git clone https://github.com/zsh-users/zsh-completions
-
 [.fzf]
 checkout = git clone 'https://github.com/junegunn/fzf.git' '.fzf'
