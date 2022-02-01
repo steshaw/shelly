@@ -3,19 +3,8 @@ gc = git gc "$@"
 sync = git sync-upstream-master
 fork = hub fork --remote-name origin
 
-# --------------------------------------------------------------------------
-# Personal repositories.
-# --------------------------------------------------------------------------
-
 [Code/steshaw/shelly]
 checkout = git clone git@github.com:steshaw/shelly
-
-[Code/steshaw/notes]
-checkout = git clone git@github.com:steshaw/notes
-
-# --------------------------------------------------------------------------
-# Tools
-# --------------------------------------------------------------------------
 
 [.emacs.d.doom]
 checkout = git clone 'https://github.com/hlissner/doom-emacs' '.emacs.d.doom'
