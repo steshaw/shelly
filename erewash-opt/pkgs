@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+usage() {
+  echo "usage $0: install | delete pkg"
+  exit 2
+}
+
+pkgs=(
+  doom-emacs
+  dotnet
+  goland
+)
+
+install_dir=../local
+mkdir -p $install_dir
+
+if [[ $# -eq 1 && $1 == install ]]; then
+  stow --target $install_dir --stow "${pkgs[@]}"
+elif [[ $# -eq 2 && $1 == delete ]]; then
+  stow --target $install_dir --delete "$2"
+else
+  usage
+fi
