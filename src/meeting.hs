@@ -79,16 +79,12 @@ home =
 freetime = [london, sf]
 
 cities :: [Int]
-cities = [sf, london, paris, berlin, brisbane]
-
-cs = zipWith f ([1 ..] :: [Int]) cities
-  where
-    f i city = T.pack $ printf "p%d=%d" i city
+cities = [sf, london, paris, brisbane]
 
 --
 -- For example:
---   San Francisco, Austin, Boston, London, Moscow, Bengaluru, Brisbane, Auckland
---   https://www.timeanddate.com/worldclock/meetingtime.html?cities=224,24,43,136,166,438,47,22&wch=2
+--   San Francisco, London, Paris, Brisbane
+--   https://www.timeanddate.com/worldclock/meetingtime.html?p1=224&p2=136&p3=195&p4=47&iso=20220206
 --
 time = do
   c <- Time.getCurrentTime
@@ -97,20 +93,24 @@ time = do
   let date = T.pack $ printf "%4d%02d%02d" y m d
   T.putStrLn $ uri date
   where
+    cs = zipWith f ([1 ..] :: [Int]) cities
+    f i city = T.pack $ printf "p%d=%d" i city
     ps d = cs <> ["iso=" <> d]
     uri d = base <> "?" <> T.intercalate "&" (ps d)
     base = "https://www.timeanddate.com/worldclock/meetingtime.html"
 
 --
 -- For example:
---   San Francisco, Austin, Boston, London, Moscow, Bengaluru, Brisbane, Auckland
---   https://www.timeanddate.com/worldclock/personal.html?cities=224,24,43,136,166,438,47,22&wch=2
+--   San Francisco, London, Paris, Brisbane
+--   https://www.timeanddate.com/worldclock/personal.html?cities=224,136,195,47
 --
 clock = do
   T.putStrLn uri
   where
-    uri = base <> "?" <> T.intercalate "&" cs
+    uri = base <> "?" <> "cities=" <> cs
     base = "https://www.timeanddate.com/worldclock/personal.html"
+    cs = T.intercalate "," (map tshow cities)
+    tshow = T.pack . show
 
 main = do
   args <- Sys.getArgs
