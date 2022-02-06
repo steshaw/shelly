@@ -1,3 +1,5 @@
+command_timeout = 200
+
 format = """
 [╭─](green)\
 $username\
