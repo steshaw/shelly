@@ -108,7 +108,5 @@
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
 
-[includeIf "gitdir:~/Code/sbs/"]
-	path = sbs.config
 [gpg]
 	program = gpg
