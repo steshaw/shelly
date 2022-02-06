@@ -32,6 +32,7 @@ toronto = 250 -- Toronto, Ontario, Canada
 
 london = 136 -- London, England
 uk = london
+paris = 195
 berlin = 37 -- Berlin, Germany
 moscow = 166
 russia = moscow
@@ -41,7 +42,7 @@ warsaw = 262
 
 eu =
   [ uk
-  , berlin
+  , paris
   , moscow
   ]
 
@@ -75,17 +76,10 @@ home =
   [ brisbane
   ]
 
-mlabs = [sf, austin, toronto, uk, russia, bengaluru, brisbane, nz]
-team = [toronto, uk, warsaw, russia, brisbane]
-
-sbs = [london, sf, brisbane, sydney]
-
-work = sbs
-
 freetime = [london, sf]
 
 cities :: [Int]
-cities = [london, sf, brisbane, sydney]
+cities = [sf, london, paris, berlin, brisbane]
 
 cs = zipWith f ([1 ..] :: [Int]) cities
   where
