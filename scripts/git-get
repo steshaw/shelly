@@ -44,17 +44,8 @@ esac
 user='git'
 short_org=$org
 case $org in
-  sbsaustralia)
-    host='bitbucket.org'
-    short_org='sbs';;
-  sbs)
-    host='bitbucket.org'
-    org='sbsaustralia';;
   input-output-hk) short_org='iohk';;
   iohk) org='input-output-hk';;
-  mlabs-haskell) short_org='mlabs';;
-  mlabs) org='mlabs-haskell';;
-  ArdanaLabs) short_org='ardana';;
 esac
 
 cd "${SHELLY_CODE_DIR}"
