@@ -14,8 +14,8 @@
 	ci = commit
 	co = checkout
 	cd = checkout
-	contributors = shortlog --summary --numbered --email --all
-	contributors-single = shortlog --summary --numbered --email
+	contributors     = shortlog --summary --numbered --email
+	contributors-all = contributors --all
 	ff = pull --ff-only
 	graph = log --graph --date-order -C -M \
 	  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(blue)[%an]%Creset' \
