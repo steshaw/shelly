@@ -1,4 +1,4 @@
-command_timeout = 500
+command_timeout = 800
 
 format = """
 [╭─](green)\
