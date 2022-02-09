@@ -50,8 +50,6 @@ in
   ''
   # Warning: this file is generated from nix.conf.dhall!
 
-  #experimental-features = nix-command flakes ca-references
-
   # Unfortunately, an absolute path to netrc is required meaning that we
   # need different locations for linux and macOS.
   netrc-file = ${env:PWD as Text}/netrc
