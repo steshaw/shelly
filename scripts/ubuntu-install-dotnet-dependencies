@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pkgs=(
+    'libc6'
+    'libgcc1'
+    'libgssapi-krb5-2'
+    'libicu66'
+    'libssl1.1'
+    'libstdc++6'
+    'zlib1g'
+)
+
+sudo apt -y install "${pkgs[@]}"
