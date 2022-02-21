@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+output=$(gtf 3440 1440 40)
+# shellcheck disable=SC2086
+modeline=$(echo $output | perl -ne '/Modeline +".*" (.*)$/ && print $1')
+# shellcheck disable=SC2086
+mode_name=$(echo ${output} | perl -ne '/"(.*)"/ && print $1;')
+
+# shellcheck disable=SC2086
+xrandr --newmode $mode_name $modeline
+xrandr --addmode HDMI-1 "$mode_name"
+xrandr --output HDMI-1 --mode "$mode_name"
