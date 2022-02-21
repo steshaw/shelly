@@ -92,7 +92,6 @@ with pkgs; [
 
   gitAndTools.git-filter-repo
   nodePackages.gitmoji-cli
-  pkgs.gitAndTools.hub
   pkgs.gitAndTools.lab
 
   # Tmux.
