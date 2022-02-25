@@ -8,12 +8,12 @@ upstream_exists() {
 
 if upstream_exists; then
   default_branch=$(git-default-branch)
-  if [[ $(git branch --show-current) != ${default_branch} ]]; then
-    git checkout ${default_branch}
+  if [[ $(git branch --show-current) != "${default_branch}" ]]; then
+    git checkout "${default_branch}"
   fi
   git fetch upstream
-  git merge --ff-only upstream/${default_branch}
-  git push origin ${default_branch}
+  git merge --ff-only "upstream/${default_branch}"
+  git push origin "${default_branch}"
 else
   echo 'No upstream remote'
 fi
