@@ -15,7 +15,7 @@ hash git || (
 )
 
 export SHELLY_CODE_DIR=~/Code
-SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
+export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 
 if [[ ! -d $SHELLY_HOME ]]; then
   git clone https://github.com/steshaw/shelly.git "$SHELLY_HOME"
