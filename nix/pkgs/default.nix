@@ -6,7 +6,6 @@ let
   broken = avoid;
 in
 with pkgs; [
-  hub ## FIXME: Delete this line.
   #
   # Nix.
   #
