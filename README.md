@@ -31,7 +31,8 @@ sudo apt install -y curl git stow
 bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/scripts/shelly-bootstrap)
 ```
 
-This downloads this repo and links my dotfiles. Open a new terminal.
+This downloads this repo and links my dotfiles.
+
 Stop right here for a minimal setup, or install packages for a complete
 setup.
 
