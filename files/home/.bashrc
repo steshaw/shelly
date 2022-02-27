@@ -115,4 +115,4 @@ done
 unset GLOBIGNORE
 
 # shellcheck source=.config/shellyrc
-source $SHELLY_HOME/dotfiles/.config/shellyrc
+source ~/.config/shellyrc

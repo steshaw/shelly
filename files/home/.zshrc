@@ -214,6 +214,6 @@ $fg[green]╰─${exit_status}%{$reset_color%} "
 fi
 
 # shellcheck source=scripts/shrc
-source $SHELLY_HOME/dotfiles/.config/shellyrc
+source ~/.config/shellyrc
 
 # }}}
