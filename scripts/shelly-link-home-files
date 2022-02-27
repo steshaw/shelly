@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+stow --dir $SHELLY_HOME/files --target=$HOME home
