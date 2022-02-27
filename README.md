@@ -10,13 +10,22 @@ dotfile management.
 
 ### Install dotfiles
 
-First, move any existing dotfiles aside. For example,
+1. First, move any existing dotfiles aside. For example,
 
 ```bash
 mkdir dotfiles.bup && mv .profile .bashrc .bash_logout dotfiles.bup/
 ```
 
-Bootstrap my dotfiles on a new machine like this:
+2. Install prerequisites
+
+You'll need `curl`, `git`, and `stow`. For example, on Ubuntu this will
+install the prerequisites:
+
+```bash
+sudo apt install -y curl git stow
+```
+
+3. Bootstrap my dotfiles on a new machine like this:
 
 ``` sh-session
 bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/scripts/shelly-bootstrap)
