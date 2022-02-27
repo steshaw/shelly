@@ -7,6 +7,8 @@ usage() {
   exit 2
 }
 
+cd $SHELLY_HOME/files/home/.shelly/opt
+
 # shellcheck disable=SC2086
 readarray -t pkgs < "$(hostname -s).pkgs"
 
