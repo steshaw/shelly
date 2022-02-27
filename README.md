@@ -11,7 +11,7 @@ My [dotfiles](./files/home),
 Bootstrap my dotfiles on a new machine like this:
 
 ``` sh-session
-bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/scripts/bootstrap)
+bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/scripts/bootstrap)
 ```
 
 This downloads this repo and links my dotfiles. Open a new terminal.
