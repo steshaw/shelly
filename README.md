@@ -71,23 +71,30 @@ setup.
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
 
-3.  Add a new SSH key to GitHub
+4.  Install packages
 
-    First, generate the SSH key:
+    This will install packages.
+
+    ```bash
+    shelly-bootstrap-pkgs
+    ```
+
+### Set up SSH+Git+GitHub (optional)
+
+1.  Generate an SSH key:
+
     ```bash
     generate-ssh-key
     ```
 
-    Then authenticate with GitHub:
+2.  Authenticate with GitHub:
 
     ```bash
     gh auth login
     ```
 
-4.  Run post-bootstrap
-
-    This will install packages and clone my Git repos.
+3.  Clone my repos
 
     ```bash
-    post-bootstrap
+    cd ~/Code && mr checkout
     ```
