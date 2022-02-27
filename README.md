@@ -11,7 +11,7 @@ My [dotfiles](./files/home),
 Bootstrap my dotfiles on a new machine like this:
 
 ``` sh-session
-$ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/scripts/bootstrap)
+bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/master/scripts/bootstrap)
 ```
 
 This downloads this repo and links my dotfiles. Open a new terminal.
@@ -26,15 +26,22 @@ setup.
 
     For other Linux systems:
 
-    ``` sh-session
-    $ sh <(curl -fsSL https://nixos.org/nix/install) --daemon
+    ```bash
+    sh <(curl -fsSL https://nixos.org/nix/install) --daemon
     ```
 
     For macOS systems:
 
-    ``` sh-session
-    $ umask 022
-    $ sh <(curl -fsSL https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
+    You may need to set the umask to the traditional value:
+
+    ```bash
+    umask 022
+    ```
+
+    Install Nix with the following options:
+
+    ```bash
+    sh <(curl -fsSL https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
     ```
 
 2.  Install [Homebrew](https://brew.sh) on macOS
@@ -42,21 +49,27 @@ setup.
     This is used primarily to install desktop applications via Homebrew
     Cask.
 
-    ``` sh-session
-    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
 
-3.  Generate a new SSH and add to GitHub
+3.  Add a new SSH key to GitHub
 
-    ``` sh-session
-    $ generate-ssh-key
-    $ GITHUB_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX github-add-key
+    First, generate the SSH key:
+    ```bash
+    generate-ssh-key
+    ```
+
+    Then add it to GitHub. You will require a GitHub token to achieve this
+    at the command line:
+    ```bash
+    GITHUB_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX github-add-key
     ```
 
 4.  Run post-bootstrap
 
     This will install packages and clone my Git repos.
 
-    ``` sh-session
-    $ post-bootstrap
+    ```bash
+    post-bootstrap
     ```
