@@ -9,14 +9,13 @@ usage() {
 
 pkgs=(
   doom-emacs
-  go-1.18beta1
 )
 
 install_dir=../local
 mkdir -p $install_dir
 
 if [[ $# -eq 1 && $1 == install ]]; then
-  stow --target $install_dir --stow "${pkgs[@]}"
+  stow --target $install_dir --restow "${pkgs[@]}"
 elif [[ $# -eq 2 && $1 == delete ]]; then
   stow --target $install_dir --delete "$2"
 else
