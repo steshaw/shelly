@@ -4,13 +4,19 @@ set -euo pipefail
 
 echo Bootstrapping shelly...
 
+script_name='bootstrap'
+
 if [[ -n ${SHELLY_HOME+unset} ]]; then
-  echo "bootrap: SHELLY_HOME already defined" >&2
+  echo "${script_name}: SHELLY_HOME already defined" >&2
   exit 1
 fi
 
 hash git || (
-  echo "bootrap: Please ensure git is installed" >&2
+  echo "${script_name}: Please ensure git is installed" >&2
+  exit 1
+)
+hash stow || (
+  echo "${script_name}: Please ensure stow is installed" >&2
   exit 1
 )
 
