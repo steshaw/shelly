@@ -3,7 +3,7 @@
 set -euo pipefail
 
 usage() {
-  echo "usage $0: install | delete pkg"
+  echo "usage $0: install"
   exit 2
 }
 
@@ -17,8 +17,6 @@ mkdir -p $install_dir
 
 if [[ $# -eq 1 && $1 == install ]]; then
   stow --target $install_dir --restow "${pkgs[@]}"
-elif [[ $# -eq 2 && $1 == delete ]]; then
-  stow --target $install_dir --delete "$2"
 else
   usage
 fi
