@@ -4,44 +4,13 @@ set -euo pipefail
 
 pkgs_home="${SHELLY_HOME}/nix"
 
-if false && [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
-  export NIX_PATH="nixpkgs=${pkgs_home}"
+if [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
+  #export NIX_PATH="nixpkgs=${pkgs_home}"
   if [[ $# -eq 1 && ( $1 == '--dry-run' || $1 == '-n' ) ]]; then
     nix-what-rebuild
   else
     ~/.nix-profile/bin/nix-rebuild "$@"
   fi
 else
-  # Install user packages.
-  nix-env \
-    --file "${pkgs_home}" \
-    --install --remove-all --attr userPackages "$@"
-
-  # Install user packages on Darwin that are not available as
-  # aarch64-darwin.
-  if [[ $(uname) == Darwin ]]; then
-    # Ask niv for the nixpkgs tarball pin.
-    nixpkgs_tarball=$(
-      cd "${SHELLY_HOME}";
-      niv show nixpkgs |
-        perl -ne '(/.*url: (.*)/) && print "$1\n"'
-    )
-
-    export NIX_PATH="nixpkgs=${nixpkgs_tarball}"
-    nix-env -e nix-bash-completions
-    nix profile install \
-      nixpkgs#legacyPackages.x86_64-darwin.cabal2nix \
-      nixpkgs#legacyPackages.x86_64-darwin.cachix \
-      nixpkgs#legacyPackages.x86_64-darwin.dhall \
-      nixpkgs#legacyPackages.x86_64-darwin.hledger \
-      nixpkgs#legacyPackages.x86_64-darwin.idris2 \
-      nixpkgs#legacyPackages.x86_64-darwin.niv \
-      nixpkgs#legacyPackages.x86_64-darwin.pandoc \
-      nixpkgs#legacyPackages.x86_64-darwin.stack \
-      nixpkgs#legacyPackages.x86_64-darwin.haskell.compiler.ghc921 \
-      nixpkgs#legacyPackages.x86_64-darwin.haskellPackages.fourmolu \
-      nixpkgs#legacyPackages.x86_64-darwin.hlint \
-      nixpkgs#legacyPackages.x86_64-darwin.cabal-install \
-      #
-  fi
+  nix-rebuild-init
 fi

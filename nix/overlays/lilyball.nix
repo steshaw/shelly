@@ -1,7 +1,6 @@
 # https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74#gistcomment-3372828
 self: super:
 let
-  multiuser = true;
   genAttrSet = l: (super.lib.foldl
     (a: b: {
       name = "a${a.name}";
@@ -15,7 +14,7 @@ in
   userPackages = super.userPackages or { }
     // super.recurseIntoAttrs (genAttrSet (import ../pkgs self))
     // super.lib.optionalAttrs (builtins.pathExists ./local.nix) (import ./local.nix self super)
-    // (if multiuser then { } else {
+    // (if self.multiUser then { } else {
     # Default packages for single-user; don't include this for multi-user
     inherit (self) cacert nix;
   })
@@ -30,7 +29,7 @@ in
       IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
       export NIX_PATH="nixpkgs=$SHELLY_HOME/nix"
-      nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+      nix-env -f '<nixpkgs>' --arg multiUser ${self.lib.boolToString self.multiUser} -r -iA userPackages "$@"
       IFS=- read -r _ newGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       ${self.diffutils}/bin/diff --color -u --label "generation $oldGen" $oldVersions \
         --label "generation $newGen" ~/.nix-profile/package_versions \
@@ -45,7 +44,7 @@ in
       export NIX_PATH="nixpkgs=$SHELLY_HOME/nix"
       IFS=- read -r _ oldGen _ <<<"$(readlink "$(readlink ~/.nix-profile)")"
       oldVersions=$(readlink ~/.nix-profile/package_versions || echo "/dev/null")
-      newVersions=$(nix-build --no-out-link -A userPackages.packageVersions '<nixpkgs>')
+      newVersions=$(nix-build --arg multiUser ${self.lib.boolToString self.multiUser} --no-out-link -A userPackages.packageVersions '<nixpkgs>')
       ${self.diffutils}/bin/diff --color -u --label "generation $oldGen" "$oldVersions" \
         --label "after rebuild" "$newVersions" \
         && echo "no changes" \
