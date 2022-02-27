@@ -23,8 +23,6 @@ if [[ ! -d $SHELLY_HOME ]]; then
     cd "$SHELLY_HOME"
     git remote set-url origin git@github.com:steshaw/shelly.git
   )
-  # Git doesn't remember the file attributes of directories
-  chmod 700 $SHELLY_HOME/dotfiles/.gnupg
 fi
 
 $SHELLY_HOME/scripts/shelly-link-dotfiles
