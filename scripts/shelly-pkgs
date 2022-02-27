@@ -17,7 +17,7 @@ install_dir=../local
 mkdir -p $install_dir
 
 if [[ $# -eq 1 && $1 == install ]]; then
-  stow --target $install_dir --restow "${pkgs[@]}"
+  stow --verbose --target $install_dir --restow "${pkgs[@]}"
 elif [[ $# -eq 1 && $1 == list ]]; then
   list_pkgs() {
     local IFS=$'\n'
