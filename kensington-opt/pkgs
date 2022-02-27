@@ -3,21 +3,24 @@
 set -euo pipefail
 
 usage() {
-  echo "usage $0: install | delete pkg"
+  echo "usage $0: install | list"
   exit 2
 }
 
-pkgs=(
-  doom-emacs
-)
+# shellcheck disable=SC2086
+readarray -t pkgs < $(hostname -s).pkgs
 
 install_dir=../local
 mkdir -p $install_dir
 
 if [[ $# -eq 1 && $1 == install ]]; then
   stow --target $install_dir --restow "${pkgs[@]}"
-elif [[ $# -eq 2 && $1 == delete ]]; then
-  stow --target $install_dir --delete "$2"
+elif [[ $# -eq 1 && $1 == list ]]; then
+  list_pkgs() {
+    local IFS=$'\n'
+    echo "${pkgs[*]}"
+  }
+  list_pkgs
 else
   usage
 fi
