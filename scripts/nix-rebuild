@@ -2,10 +2,7 @@
 
 set -euo pipefail
 
-pkgs_home="${SHELLY_HOME}/nix"
-
 if [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
-  #export NIX_PATH="nixpkgs=${pkgs_home}"
   if [[ $# -eq 1 && ( $1 == '--dry-run' || $1 == '-n' ) ]]; then
     nix-what-rebuild
   else
