@@ -1,13 +1,13 @@
 [idris-lang/Idris2]
-checkout = git clone-fork idris-lang/Idris2
+checkout = github-clone-fork idris-lang/Idris2
 update = mr sync
 
 [NixOS/nix]
-checkout = git clone-fork NixOS/nix
+checkout = github-clone-fork NixOS/nix
 update = mr sync
 
 [NixOS/nixpkgs]
-checkout = git clone-fork NixOS/nixpkgs
+checkout = github-clone-fork NixOS/nixpkgs
 update = mr sync
 
 [ghc/ghc]
@@ -29,7 +29,7 @@ checkout = git clone 'git@gist.github.com:a0e0938113b193d6b9c1c0620d853784.git' 
 checkout = git clone 'git@github.com:AndrasKovacs/smalltt' 'smalltt'
 
 [edwinb/SPLV20]
-checkout = git clone-fork edwinb/SPLV20
+checkout = github-clone-fork edwinb/SPLV20
 update = mr sync
 
 [mgrabmueller/AlgorithmW]

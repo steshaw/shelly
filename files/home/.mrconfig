@@ -1,7 +1,6 @@
 [DEFAULT]
 gc = git gc "$@"
 sync = git sync-upstream
-fork = gh repo fork
 
 [Code/steshaw/shelly]
 checkout = git clone git@github.com:steshaw/shelly

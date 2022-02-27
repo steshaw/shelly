@@ -21,6 +21,4 @@ user=${fields[0]}
 repo=${fields[1]}
 
 cd "$code_dir/${user}"
-hub clone "${user}/${repo}"
-cd "${repo}"
-mr fork
+gh repo fork --clone "${user}/${repo}"
