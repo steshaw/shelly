@@ -1,7 +1,5 @@
 # https://gist.github.com/LnL7/570349866bb69467d0caf5cb175faa74#gistcomment-3372828
-let enable = true;
-in
-self: super: if !enable then { } else
+self: super:
 let
   multiuser = true;
   genAttrSet = l: (super.lib.foldl
