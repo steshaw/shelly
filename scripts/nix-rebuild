@@ -12,13 +12,6 @@ if false && [[ -x ~/.nix-profile/bin/nix-rebuild ]]; then
     ~/.nix-profile/bin/nix-rebuild "$@"
   fi
 else
-  # Ask niv for the nixpkgs tarball pin.
-  nixpkgs_tarball=$(
-    cd "${SHELLY_HOME}";
-    niv show nixpkgs |
-      perl -ne '(/.*url: (.*)/) && print "$1\n"'
-  )
-
   # Install user packages.
   nix-env \
     --file "${pkgs_home}" \
@@ -27,6 +20,13 @@ else
   # Install user packages on Darwin that are not available as
   # aarch64-darwin.
   if [[ $(uname) == Darwin ]]; then
+    # Ask niv for the nixpkgs tarball pin.
+    nixpkgs_tarball=$(
+      cd "${SHELLY_HOME}";
+      niv show nixpkgs |
+        perl -ne '(/.*url: (.*)/) && print "$1\n"'
+    )
+
     export NIX_PATH="nixpkgs=${nixpkgs_tarball}"
     nix-env -e nix-bash-completions
     nix profile install \
