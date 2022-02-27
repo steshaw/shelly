@@ -3,7 +3,8 @@
 set -euo pipefail
 
 usage() {
-  echo "usage $0: install | list"
+  script_name=$(basename $0)
+  echo "usage ${script_name}: install | list"
   exit 2
 }
 
