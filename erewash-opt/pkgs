@@ -8,7 +8,7 @@ usage() {
 }
 
 # shellcheck disable=SC2086
-readarray -t pkgs < $(hostname -s).pkgs
+readarray -t pkgs < "$(hostname -s).pkgs"
 
 install_dir=../local
 mkdir -p $install_dir
