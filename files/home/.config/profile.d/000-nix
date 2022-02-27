@@ -1,13 +1,27 @@
 #!/usr/bin/env bash
 
-# Ensure we have configured Nix.
-sourceExists '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+setupNix() {
+  setupLocalArchive() {
+    # Ensure that Nix-installed packages can find locale referred to by LANG.
+    # See https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
+    locale_dir=~/.nix-profile/lib/locale
+    if [[ -d ${locale_dir} ]]; then
+      LOCALE_ARCHIVE="$(readlink ${locale_dir})/locale-archive"
+      export LOCALE_ARCHIVE
+    fi
+    unset locale_dir
+  }
 
-# Ensure that Nix-installed packages can find locale referred to by LANG.
-# See https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
-locale_dir=~/.nix-profile/lib/locale
-if [[ -d ${locale_dir} ]]; then
-  LOCALE_ARCHIVE="$(readlink ${locale_dir})/locale-archive"
-  export LOCALE_ARCHIVE
-fi
-unset locale_dir
+  local nix0='/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+  local nix1=~/.nix-profile/etc/profile.d/nix.sh
+  if [[ -r $nix0 ]]; then
+    source "$nix0"
+    setupLocalArchive
+  elif [[ -r $nix1 ]]; then
+    source "$nix1"
+    setupLocalArchive
+  fi
+  unset setupLocalArchive
+}
+setupNix
+unset setupNix
