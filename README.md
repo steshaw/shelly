@@ -1,6 +1,6 @@
 # Shelly
 
-My [dotfiles](./dotfiles),
+My [dotfiles](./files/home),
 [shell scripts](./scripts), and
 [packages](./nix).
 
