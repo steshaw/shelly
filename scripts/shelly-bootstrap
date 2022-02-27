@@ -33,4 +33,5 @@ fi
 
 $SHELLY_HOME/scripts/shelly-link-home-files
 
-echo -e "\nSource .profile or start a new shell to get started."
+echo
+echo 'Source .profile or start a new shell to get started.'
