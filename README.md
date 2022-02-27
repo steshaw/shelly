@@ -78,10 +78,10 @@ setup.
     generate-ssh-key
     ```
 
-    Then add it to GitHub. You will require a GitHub token to achieve this
-    at the command line:
+    Then authenticate with GitHub:
+
     ```bash
-    GITHUB_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX github-add-key
+    gh auth login
     ```
 
 4.  Run post-bootstrap
