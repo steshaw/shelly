@@ -1,12 +1,20 @@
 # Shelly
 
-My [dotfiles](./files/home),
-[shell scripts](./scripts), and
-[packages](./nix).
+My [dotfiles](./files/home), [shell scripts](./scripts), and [packages](./nix).
+
+Note that this is a "note to self". I don't imagine anyone else will want to
+install my dotfiles :). It could provide some inspiration for your own
+dotfile management.
 
 ## Installation
 
 ### Install dotfiles
+
+First, move any existing dotfiles aside. For example,
+
+```bash
+mkdir dotfiles.bup && mv .profile .bashrc .bash_logout dotfiles.bup/
+```
 
 Bootstrap my dotfiles on a new machine like this:
 
