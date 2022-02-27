@@ -13,7 +13,6 @@ with pkgs; [
   glibcLocales # Fix for locale issue.
   (notDarwin niv)
   nix-prefetch-scripts
-  nixUnstable
   (notDarwin nixfmt)
   nixpkgs-fmt
   nox
