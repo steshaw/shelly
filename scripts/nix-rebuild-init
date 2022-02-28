@@ -15,21 +15,14 @@ nix-env \
   --arg multiUser $multiUser \
   --install --remove-all --attr userPackages "$@"
 
-# Install user packages on Darwin that are not available as
-# aarch64-darwin.
-if false && [[ $(uname) == Darwin ]]; then
+# Quick hack to install some packages that are broken on aarch64-darwin.
+if [[ $(uname) == Darwin ]]; then
   # Ask niv for the nixpkgs tarball pin.
   nixpkgs_tarball=$(
     cd "${SHELLY_HOME}";
     jq -r .nixpkgs.url <nix/sources.json
   )
 
-  export NIX_PATH="nixpkgs=${nixpkgs_tarball}"
-  nix-env -e nix-bash-completions
-  nix profile install \
-    nixpkgs#legacyPackages.x86_64-darwin.cabal2nix \
-    nixpkgs#legacyPackages.x86_64-darwin.hledger \
-    nixpkgs#legacyPackages.x86_64-darwin.idris2 \
-    nixpkgs#legacyPackages.x86_64-darwin.niv \
-    #
+  nix-env --argstr system "x86_64-darwin" -f $nixpkgs_tarball --install \
+    --attr cabal2nix --attr hledger --attr idris2 --attr niv --prebuilt-only
 fi
