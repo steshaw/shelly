@@ -115,10 +115,6 @@ with pkgs; [
   (notDarwin agda)
   rustup
 
-  # Go
-  go
-  golangci-lint
-
   # Haskell.
   (notDarwin haskellPackages.pointfree)
   (notDarwin haskellPackages.brittany)
