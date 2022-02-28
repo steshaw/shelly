@@ -140,7 +140,6 @@ with pkgs; [
   kind
   kube-prompt
   kubectl
-  kubectl-argo-rollouts
   kubectx
   kubernetes-helm
   kubespy
