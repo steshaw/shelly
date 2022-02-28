@@ -17,7 +17,7 @@ nix-env \
 
 # Install user packages on Darwin that are not available as
 # aarch64-darwin.
-if [[ $(uname) == Darwin ]]; then
+if false && [[ $(uname) == Darwin ]]; then
   # Ask niv for the nixpkgs tarball pin.
   nixpkgs_tarball=$(
     cd "${SHELLY_HOME}";
@@ -28,16 +28,8 @@ if [[ $(uname) == Darwin ]]; then
   nix-env -e nix-bash-completions
   nix profile install \
     nixpkgs#legacyPackages.x86_64-darwin.cabal2nix \
-    nixpkgs#legacyPackages.x86_64-darwin.cachix \
-    nixpkgs#legacyPackages.x86_64-darwin.dhall \
     nixpkgs#legacyPackages.x86_64-darwin.hledger \
     nixpkgs#legacyPackages.x86_64-darwin.idris2 \
     nixpkgs#legacyPackages.x86_64-darwin.niv \
-    nixpkgs#legacyPackages.x86_64-darwin.pandoc \
-    nixpkgs#legacyPackages.x86_64-darwin.stack \
-    nixpkgs#legacyPackages.x86_64-darwin.haskell.compiler.ghc921 \
-    nixpkgs#legacyPackages.x86_64-darwin.haskellPackages.fourmolu \
-    nixpkgs#legacyPackages.x86_64-darwin.hlint \
-    nixpkgs#legacyPackages.x86_64-darwin.cabal-install \
     #
 fi

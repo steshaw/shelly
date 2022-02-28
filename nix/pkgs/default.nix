@@ -9,7 +9,7 @@ with pkgs; [
   #
   # Nix.
   #
-  (notDarwin cachix)
+  cachix
   glibcLocales # Fix for locale issue.
   (notDarwin niv)
   (notDarwin nix-prefetch-scripts)
@@ -32,7 +32,7 @@ with pkgs; [
   curl
   dbxcli # Defined in overlay/dbxcli.nix
   delta
-  (notDarwin dhall)
+  dhall
   direnv
   dos2unix
   du-dust
@@ -48,7 +48,7 @@ with pkgs; [
   gnupg
   gopass
   gti # Humourous wrapper for git.
-  (notDarwin hledger)
+  hledger
   htop
   httpie
   jq
@@ -63,7 +63,7 @@ with pkgs; [
   neofetch
   nix-direnv
   nodejs # Required for Coc.
-  (notDarwin pandoc)
+  pandoc
   pass
   peco
   perl
@@ -122,13 +122,12 @@ with pkgs; [
   # Haskell.
   (notDarwin haskellPackages.pointfree)
   (notDarwin haskellPackages.brittany)
-  (notDarwin cabal-install)
+  cabal-install
   (notDarwin ghcid)
   (notDarwin haskell.compiler.ghc901)
-  (notDarwin haskellPackages.fourmolu)
-  (notDarwin hlint)
-  (notDarwin ormolu)
-  (notDarwin stack)
+  haskellPackages.fourmolu
+  hlint
+  stack
 
   # Docker
   docker
