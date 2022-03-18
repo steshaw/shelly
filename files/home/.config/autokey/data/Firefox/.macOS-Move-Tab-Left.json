@@ -4,7 +4,7 @@
     "modes": [
         3
     ],
-    "usageCount": 62,
+    "usageCount": 70,
     "prompt": false,
     "omitTrigger": false,
     "matchCase": false,
@@ -25,7 +25,7 @@
         "hotKey": "<left>"
     },
     "filter": {
-        "regex": "Navigator.firefox",
+        "regex": null,
         "isRecursive": false
     },
     "sendMode": "kb"
