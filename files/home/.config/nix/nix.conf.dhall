@@ -54,6 +54,9 @@ in
   # need different locations for linux and macOS.
   netrc-file = ${env:PWD as Text}/netrc
 
+  keep-derivations = true
+  keep-outputs = true
+
   '' ++
   conf_line "substituters" substituters ++
   conf_line "trusted-public-keys" trusted-public-keys
