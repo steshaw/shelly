@@ -44,6 +44,7 @@ with pkgs; [
   fish
   fzf
   git
+  git-lfs
   github-cli
   gnupg
   gopass
