@@ -109,3 +109,6 @@
 
 [gpg]
 	program = gpg
+
+[includeIf "gitdir:~/Code/tweag/"]
+	path = ~/Code/tweag/.gitconfig
