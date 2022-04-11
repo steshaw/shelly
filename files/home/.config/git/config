@@ -107,8 +107,5 @@
 [init]
 	defaultBranch = main
 
-[url "git@bitbucket.org:"]
-	insteadOf = https://bitbucket.org/
-
 [gpg]
 	program = gpg
