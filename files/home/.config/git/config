@@ -37,7 +37,7 @@
 	st = status
 	tags = tag -l
 	tracking = branch -vv
-	undo = reset HEAD^
+	undo = reset HEAD~
 	untracked=ls-files --others --exclude-standard
 	wdiff = diff --word-diff
 	who = blame
