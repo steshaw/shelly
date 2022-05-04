@@ -404,5 +404,8 @@ EOF
 end
 
 " OCaml Merlin
-let g:opamshare = substitute(system('opam var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+try
+  let g:opamshare = substitute(system('opam var share'),'\n$','','''')
+  execute "set rtp+=" . g:opamshare . "/merlin/vim"
+catch
+endtry
