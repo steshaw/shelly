@@ -77,9 +77,10 @@
 ;(auto-save-visited-mode +1)
 
 ; Wakatime
-(use-package wakatime-mode
-  :ensure t)
-(global-wakatime-mode)
+(when nil
+  (use-package wakatime-mode
+    :ensure t)
+  (global-wakatime-mode))
 
 ;; AsciiDoc
 ;(add-hook! adoc-mode
