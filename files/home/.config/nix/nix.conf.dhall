@@ -14,9 +14,10 @@ let substituters = [
 --  "https://ghcide-nix.cachix.org",
 --  "https://nixcache.reflex-frp.org",
 
---  "https://mlabs.cachix.org",
   "https://steshaw.cachix.org",
 --  "https://ghc-nix.cachix.org",
+
+  "https://nickel.cachix.org",
 ]
 
 let trusted-public-keys = [
@@ -37,6 +38,8 @@ let trusted-public-keys = [
   "mlabs.cachix.org-1:gStKdEqNKcrlSQw5iMW6wFCj3+b+1ASpBVY2SYuNV2M=",
   "steshaw.cachix.org-1:l/+4nVnZ9ldk0kCKphhmSsJ5wI3Wr5p4S+c/3mJnPi0=",
   "ghc-nix.cachix.org-1:wI8l3tirheIpjRnr2OZh6YXXNdK2fVQeOI4SVz/X8nA=",
+
+  "nickel.cachix.org-1:ABoCOGpTJbAum7U6c+04VbjvLxG9f0gJP5kYihRRdQs=",
 ]
 
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep
