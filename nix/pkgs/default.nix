@@ -77,6 +77,7 @@ with pkgs; [
   (notDarwin shellcheck)
   speedtest-cli
   starship
+  step-cli
   stow
   terraform
   tokei
