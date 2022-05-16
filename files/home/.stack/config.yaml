@@ -1,13 +1,10 @@
-templates:
-  params:
-    author-name: Steven Shaw
-    author-email: steven@steshaw.org
-    # Using "license" here does not work. We'd need to provide an alternative
-    # LICENCE file anyhow...
-    license: MIT
-    copyright: (c) 2019, Steven Shaw
-    github-username: steshaw
-    category: Example
-
 nix:
   enable: false
+templates:
+  params:
+    author-email: steven@steshaw.org
+    copyright: (c) 2019, Steven Shaw
+    category: Example
+    github-username: steshaw
+    author-name: Steven Shaw
+    license: MIT
