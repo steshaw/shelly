@@ -1,0 +1,9 @@
+# See https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+
+# open terminal, blazingly fast compared to iTerm/Hyper
+#cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+ctrl - return : open -a iTerm --new
+
+# open qutebrowser
+#cmd + shift - return : ~/Scripts/qtb.sh
+ctrl + shift - return : open -a Firefox --new
