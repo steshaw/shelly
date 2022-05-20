@@ -74,7 +74,7 @@ with pkgs; [
   ripgrep
   rlwrap
   rsync
-  (notDarwin shellcheck)
+  shellcheck
   speedtest-cli
   starship
   step-cli
