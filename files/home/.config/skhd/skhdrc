@@ -2,8 +2,6 @@
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 #cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-ctrl - return : open -a iTerm --new
+ctrl - return : ~/Code/steshaw/shelly/scripts/iterm-new-window
 
-# open qutebrowser
-#cmd + shift - return : ~/Scripts/qtb.sh
 ctrl + shift - return : open -a Firefox --new

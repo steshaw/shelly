@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dir=$(dirname "$0")
+
+osascript "$dir/iterm-new-window.applescript"
