@@ -2,6 +2,7 @@ pkgs:
 let
   conditionalPkg = condition: pkg: if condition then pkg else false;
   notDarwin = pkg: conditionalPkg (!pkgs.stdenv.isDarwin) pkg;
+  notARM = pkg: conditionalPkg (!pkgs.stdenv.hostPlatform.isAarch64) pkg;
   avoid = conditionalPkg false;
   broken = avoid;
 in
@@ -113,7 +114,7 @@ with pkgs; [
   #
   (notDarwin ats2)
   (notDarwin coq)
-  (notDarwin idris2)
+  (notARM (notDarwin idris2))
   (notDarwin agda)
   rustup
 
