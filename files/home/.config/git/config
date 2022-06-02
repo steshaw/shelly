@@ -1,6 +1,5 @@
 [user]
 	name = "Steven Shaw"
-	email = steven@steshaw.org
 	signingkey = "0afe77f7474d1596ee557a291d9a17dfd23dcb91"
 
 [alias]
@@ -110,7 +109,9 @@
 [gpg]
 	program = gpg
 
-[includeIf "gitdir:~/Code/tweag/"]
+[include]
 	path = ~/.config/git/tweag.gitconfig
-[includeIf "gitdir:~/Code/iohk/"]
-	path = ~/.config/git/tweag.gitconfig
+[includeIf "gitdir:~/Code/steshaw/shelly/"]
+	path = ~/.config/git/personal.gitconfig
+[includeIf "gitdir:~/Code/steshaw/notes/"]
+	path = ~/.config/git/personal.gitconfig
