@@ -79,7 +79,7 @@ home =
 freetime = [london, sf]
 
 cities :: [Int]
-cities = [sf, london, paris, brisbane]
+cities = [sf, austin, boston, london, paris, perth, brisbane]
 
 --
 -- For example:
