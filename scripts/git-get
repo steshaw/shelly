@@ -41,6 +41,9 @@ case ${#fields[@]} in
     ;;
 esac
 
+# Remove tidle ~
+org=${org/\~/}
+
 user='git'
 short_org=$org
 case $org in
