@@ -1,26 +1,18 @@
--- substituters        = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/
-
--- trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-
 let substituters = [
   "https://cache.nixos.org",
---  "https://nix-community.cachix.org",
+  "https://nix-community.cachix.org",
   "https://niv.cachix.org",
---  "https://hercules-ci.cachix.org",
-
+  "https://hercules-ci.cachix.org",
   "https://hydra.iohk.io",
   "https://iohk.cachix.org",
-
---  "https://pre-commit-hooks.cachix.org",
-
---  "https://all-hies.cachix.org",
---  "https://ghcide-nix.cachix.org",
---  "https://nixcache.reflex-frp.org",
-
+  "https://pre-commit-hooks.cachix.org",
+  "https://all-hies.cachix.org",
+  "https://ghcide-nix.cachix.org",
+  "https://nixcache.reflex-frp.org",
   "https://steshaw.cachix.org",
---  "https://ghc-nix.cachix.org",
-
+  "https://ghc-nix.cachix.org",
   "https://nickel.cachix.org",
+  "https://storage.googleapis.com/zeuslogics-nix-cache-buildkite"
 ]
 
 let trusted-public-keys = [
@@ -28,21 +20,17 @@ let trusted-public-keys = [
   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=",
   "niv.cachix.org-1:X32PCg2e/zAm3/uD1ScqW2z/K0LtDyNV7RdaxIuLgQM=",
   "hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0=",
-
   "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=",
   "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=",
-
   "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc=",
-
   "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k=",
   "ghcide-nix.cachix.org-1:ibAY5FD+XWLzbLr8fxK6n8fL9zZe7jS+gYeyxyWYK5c=",
   "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=",
-
   "mlabs.cachix.org-1:gStKdEqNKcrlSQw5iMW6wFCj3+b+1ASpBVY2SYuNV2M=",
   "steshaw.cachix.org-1:l/+4nVnZ9ldk0kCKphhmSsJ5wI3Wr5p4S+c/3mJnPi0=",
   "ghc-nix.cachix.org-1:wI8l3tirheIpjRnr2OZh6YXXNdK2fVQeOI4SVz/X8nA=",
-
   "nickel.cachix.org-1:ABoCOGpTJbAum7U6c+04VbjvLxG9f0gJP5kYihRRdQs=",
+  "zeuslogics-nix-cache-buildkite:RpfcOgIp6w2cvPyhTfErGcWkR9QSHc1gpp4UwyH3ovU=",
 ]
 
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep
