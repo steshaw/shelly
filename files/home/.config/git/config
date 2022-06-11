@@ -111,7 +111,5 @@
 
 [include]
 	path = ~/.config/git/tweag.gitconfig
-[includeIf "gitdir:~/Code/steshaw/shelly/"]
-	path = ~/.config/git/personal.gitconfig
-[includeIf "gitdir:~/Code/steshaw/notes/"]
+[includeIf "gitdir:~/Code/steshaw/"]
 	path = ~/.config/git/personal.gitconfig
