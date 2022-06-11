@@ -47,8 +47,8 @@ org=${org/\~/}
 user='git'
 short_org=$org
 case $org in
-  input-output-hk) short_org='io';;
-  io) org='input-output-hk';;
+  input-output-hk) short_org='iog';;
+  iog) org='input-output-hk';;
 esac
 
 cd "${SHELLY_CODE_DIR}"
