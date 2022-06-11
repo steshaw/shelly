@@ -5,22 +5,22 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "9cb7ef336bb71fd1ca84fc7f2dff15ef4b033f2a",
-        "sha256": "1ajyqr8zka1zlb25jx1v4xys3zqmdy3prbm1vxlid6ah27a8qnzh",
+        "rev": "82e5cd1ad3c387863f0545d7591512e76ab0fc41",
+        "sha256": "090l219mzc0gi33i3psgph6s2pwsc8qy4lyrqjdj4qzkvmaj65a7",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/9cb7ef336bb71fd1ca84fc7f2dff15ef4b033f2a.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/82e5cd1ad3c387863f0545d7591512e76ab0fc41.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "nixpkgs-21.11-darwin",
+        "branch": "nixpkgs-22.05-darwin",
         "description": "Nix Packages collection",
         "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1622abf0e7890a3dac995f6eb5a92f56819ae38e",
-        "sha256": "0xf1simacmyjimkb9k3wbq7d1cyypfz5rdssyz3fgcz4fh1i6c60",
+        "rev": "a7f0b0832f9da86d25089ea2b4cacdea64072d7f",
+        "sha256": "1zcqji4bidf3ykbpk0qlq86kzg1fimivzciv3lxwvmkfkdpa68r2",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/1622abf0e7890a3dac995f6eb5a92f56819ae38e.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/a7f0b0832f9da86d25089ea2b4cacdea64072d7f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
