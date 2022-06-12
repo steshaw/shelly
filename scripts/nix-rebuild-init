@@ -23,6 +23,6 @@ if [[ $(uname) == Darwin ]]; then
     jq -r .nixpkgs.url <nix/sources.json
   )
 
-  nix-env --argstr system "x86_64-darwin" -f $nixpkgs_tarball --install \
+  nix-env --argstr system "x86_64-darwin" -f "$nixpkgs_tarball" --install \
     --attr cabal2nix --attr hledger --attr idris2 --attr niv --prebuilt-only
 fi
