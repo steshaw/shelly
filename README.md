@@ -13,7 +13,7 @@ dotfile management.
 1. First, move any existing dotfiles aside. For example,
 
 ```bash
-mkdir dotfiles.bup && mv .profile .bashrc .bash_logout dotfiles.bup/
+mkdir dotfiles.bup && mv .profile .bashrc .bash_logout .zshrc dotfiles.bup/
 ```
 
 2. Install prerequisites
