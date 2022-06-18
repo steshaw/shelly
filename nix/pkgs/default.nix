@@ -28,7 +28,7 @@ with pkgs; [
   bind # for dig. XXX: Any smaller package?
   bottom
   buildkite-cli
-  (notDarwin cabal2nix)
+  cabal2nix
   coreutils
   curl
   dbxcli # Defined in overlay/dbxcli.nix
