@@ -18,9 +18,15 @@ import Text.Printf (printf)
 --   https://www.timeanddate.com/astronomy/australia/brisbane
 --   https://www.timeanddate.com/astronomy/uk/nottingham
 
-sf = 224 -- San Francisco, USA
-austin = 24 -- Austin, USA
-boston = 43 -- Boston, USA
+-- Americas
+
+-- USA
+sf = 224 -- San Francisco, CA
+la = 137 -- Los Angeles, CA
+austin = 24 -- Austin, TX
+chicago = 64 -- Chicago, IL
+boston = 43 -- Boston, MA
+reston = 3810 -- Reston, VA
 
 usa =
   [ sf
@@ -28,17 +34,26 @@ usa =
   , boston
   ]
 
+-- Canada
 toronto = 250 -- Toronto, Ontario, Canada
+canada = toronto
+
+-- South America
+montevideo = 163
+uruguay = montevideo
+
+-- Europe
 
 london = 136 -- London, England
 uk = london
 paris = 195
+france = paris
 berlin = 37 -- Berlin, Germany
+germany = berlin
 moscow = 166
 russia = moscow
 warsaw = 262
-
--- https://www.timeanddate.com/worldclock/meetingtime.html?iso=20210727&p1=250&p2=136&p3=262&p4=166&p5=47
+poland = warsaw
 
 eu =
   [ uk
@@ -46,10 +61,14 @@ eu =
   , moscow
   ]
 
+-- Asia/Pacific
 bengaluru = 438 -- Bengaluru, India
 india = bengaluru
+pune = 1038 -- Pune, Maharashtra,India
 manilla = 145 -- Manilla, Phillipines
+phillipines = manilla
 tokyo = 248 -- Tokyo, Japan
+japan = tokyo
 auckland = 22 -- Auckland, New Zealand
 nz = auckland
 
@@ -78,8 +97,20 @@ home =
 
 freetime = [london, sf]
 
+work =
+  [ la
+  , chicago
+  , reston
+  , montevideo
+  , london
+  , paris
+  , pune
+  , perth
+  , brisbane
+  ]
+
 cities :: [Int]
-cities = [sf, austin, boston, london, paris, india, perth, brisbane]
+cities = work
 
 --
 -- For example:
