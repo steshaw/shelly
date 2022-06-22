@@ -153,7 +153,8 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 set guicursor=
 
 set background=dark
-set cindent
+" Disable cindent as it is not nice for plain text files.
+"set cindent
 set cursorline
 set encoding=utf-8
 set expandtab
