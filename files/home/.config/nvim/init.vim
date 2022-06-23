@@ -152,7 +152,7 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " i.e. keep blinking underline from terminal configuration.
 set guicursor=
 
-set background=dark
+set background=dark " A default only. The colorscheme will update.
 " Disable cindent as it is not nice for plain text files.
 "set cindent
 set cursorline
@@ -206,10 +206,12 @@ try
     colorscheme ayu
   endif
 
-  colorscheme palenight
+  if 0
+    colorscheme palenight
+  endif
 
   " Light scheme if outside.
-  if 0
+  if 1
     colorscheme zellner
   endif
 catch
