@@ -55,7 +55,7 @@ with pkgs; [
   httpie
   jq
   killall
-  lastpass-cli
+  #lastpass-cli
   licensee
   lsd
   moreutils # ts and more
@@ -80,13 +80,13 @@ with pkgs; [
   starship
   step-cli
   stow
-  terraform
+  #terraform
   tokei
   tree
   unzip
   up
-  wakatime
-  watchman
+  #wakatime
+  #watchman
   wget
   youtube-dl
   yq
@@ -129,25 +129,25 @@ with pkgs; [
   stack
 
   # Docker
-  docker
-  docker-compose
-  docker-credential-gcr
-  amazon-ecr-credential-helper
+  #docker
+  #docker-compose
+  #docker-credential-gcr
+  #amazon-ecr-credential-helper
 
   # Kubernetes
-  argocd
-  kind
-  kube-prompt
-  kubectl
-  kubectx
-  kubernetes-helm
-  kubespy
-  kubetail
-  kustomize
+  #argocd
+  #kind
+  #kube-prompt
+  #kubectl
+  #kubectx
+  #kubernetes-helm
+  #kubespy
+  #kubetail
+  #kustomize
 
   # AWS
-  awscli2
-  python3Packages.ec2instanceconnectcli
+  #awscli2
+  #python3Packages.ec2instanceconnectcli
 
   #
   # Google Cloud SDK.
