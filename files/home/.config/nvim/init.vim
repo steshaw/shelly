@@ -206,12 +206,12 @@ try
     colorscheme ayu
   endif
 
-  if 0
+  if 1
     colorscheme palenight
   endif
 
   " Light scheme if outside.
-  if 1
+  if 0
     colorscheme zellner
   endif
 catch
