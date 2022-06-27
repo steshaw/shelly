@@ -8,3 +8,4 @@
 
 unset SHELLY_HOME
 unset SHELLY_CODE_DIR
+unset SHELLY_OS
