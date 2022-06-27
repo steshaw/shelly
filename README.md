@@ -84,7 +84,9 @@ setup.
     shelly-bootstrap-pkgs
     ```
 
-### Set up SSH+Git+GitHub (optional)
+### Set up SSH+Git+GitHub+GPG (optional)
+
+#### SSH
 
 1.  Generate an SSH key:
 
@@ -92,14 +94,27 @@ setup.
     generate-ssh-key
     ```
 
+#### GitHub
+
 2.  Authenticate with GitHub:
 
     ```bash
     gh auth login
     ```
 
+#### Myrepos
+
 3.  Clone my repos
 
     ```bash
     cd ~/Code && mr checkout
     ```
+#### GNU Privacy Guard
+
+4. On existing machine
+
+   1. `git-signing-key export`
+   2. `rsync-mv git-gpg-key-*.gpg new-machine:`
+   3. `ssh new-machine`
+   4. `git-signing-key import`
+   5. `rm git-gpg-key-*.gpg`
