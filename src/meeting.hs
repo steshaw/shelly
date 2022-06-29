@@ -97,7 +97,7 @@ home =
 
 freetime = [london, sf]
 
-work =
+tweag =
   [ la
   , chicago
   , reston
@@ -109,8 +109,21 @@ work =
   , brisbane
   ]
 
+cork = 2093
+belgrade = 35
+serbia = 35
+
+io =
+  [ cork
+  , london
+  , france
+  , germany
+  , serbia
+  , brisbane
+  ]
+
 cities :: [Int]
-cities = work
+cities = io
 
 --
 -- For example:
