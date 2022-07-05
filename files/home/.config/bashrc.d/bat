@@ -1,0 +1,4 @@
+# vim: set filetype=bash:
+# shellcheck shell=bash
+
+alias batnp='bat --pager=none'
