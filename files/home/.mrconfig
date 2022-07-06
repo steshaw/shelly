@@ -5,8 +5,8 @@ sync = git sync-upstream
 [Code/steshaw/shelly]
 checkout = git clone git@github.com:steshaw/shelly
 
-[.emacs.d.doom]
-checkout = git clone 'https://github.com/hlissner/doom-emacs' '.emacs.d.doom'
+[.emacs.d]
+checkout = git clone 'https://github.com/hlissner/doom-emacs' '.emacs.d'
 
 [.fzf]
 checkout = git clone 'https://github.com/junegunn/fzf.git' '.fzf'
