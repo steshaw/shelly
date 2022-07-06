@@ -49,5 +49,4 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! wakatime-mode)
 (package! adoc-mode)
