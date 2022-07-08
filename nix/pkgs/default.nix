@@ -119,6 +119,7 @@ with pkgs; [
   rustup
 
   # Haskell.
+  haskellPackages.implicit-hie # for gen-hie
   (notDarwin haskellPackages.pointfree)
   (notDarwin haskellPackages.brittany)
   cabal-install
