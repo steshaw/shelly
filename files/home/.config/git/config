@@ -33,6 +33,7 @@
 	slogvI  = "log '--pretty=format:%C(#DEE41B)%h %C(#E41BDE)%aI %C(#1BDEE4)%aE %Creset%s'"
 	slogvv = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#1BDEE4)%aE %Creset%s'"
 	slogvvv  = "log '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ai %C(#DEE41B)%ci %C(#1BDEE4)%aE %Creset%s'"
+	sloglocal = "log --date=iso-local '--pretty=format:%C(#DEE41B)%H %C(#E41BDE)%ad %C(#DEE41B)%cd %C(#1BDEE4)%aE %Creset%s'"
 	st = status
 	tags = tag -l
 	tracking = branch -vv
