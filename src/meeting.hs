@@ -27,6 +27,7 @@ austin = 24 -- Austin, TX
 chicago = 64 -- Chicago, IL
 boston = 43 -- Boston, MA
 reston = 3810 -- Reston, VA
+portland = 202 -- Portland, Oregon (OR)
 
 usa =
   [ sf
@@ -114,7 +115,8 @@ belgrade = 35
 serbia = 35
 
 io =
-  [ cork
+  [ portland
+  , cork
   , london
   , france
   , germany
