@@ -2,3 +2,29 @@
 # shellcheck shell=bash
 
 alias batnp='bat --pager=none'
+
+is_apple_dark() {
+  defaults read -globalDomain AppleInterfaceStyle &> /dev/null == 'Dark'
+}
+
+bat_default() {
+  dark_theme='Monokai Extended'
+  light_theme='OneHalfLight'
+
+  if is_apple_dark; then
+    theme=$dark_theme
+  else
+    theme=$light_theme
+  fi
+  command bat --theme="$theme" "$@"
+}
+
+alias bat=bat_default
+#alias bat='
+#  dark_theme="Monokai Extended"
+#  light_theme="OneHalfLight"
+#  theme=$light_theme
+#  is_apple_dark && theme=$dark_theme
+#  bat --theme="$theme"
+#'
+alias cat=bat
