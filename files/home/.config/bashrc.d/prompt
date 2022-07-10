@@ -2,11 +2,15 @@
 
 if has starship; then
   function set_win_title(){
-    cwd=$(echo $PWD | sed "s@^$HOME@~@")
+    # shellcheck disable=SC2001
+    cwd=$(echo "$PWD" | sed "s@^$HOME@~@")
     echo -ne "\033]0;${USER}@$(hostname -s):${cwd}\007"
   }
+  # shellcheck disable=SC2034
   starship_precmd_user_func="set_win_title"
   eval "$(starship init bash)"
 else
-  source $(dirname "${BASH_SOURCE[0]}")/prompt.custom.disabled
+  src="${BASH_SOURCE[0]}"
+  d=$(dirname "$src")
+  source "$d/prompt.custom.disabled"
 fi

@@ -3,10 +3,6 @@
 
 alias batnp='bat --pager=none'
 
-is_apple_dark() {
-  defaults read -globalDomain AppleInterfaceStyle &> /dev/null == 'Dark'
-}
-
 bat_default() {
   dark_theme='Monokai Extended'
   light_theme='OneHalfLight'

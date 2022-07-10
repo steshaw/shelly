@@ -1,0 +1,29 @@
+# vim: set filetype=bash:
+# shellcheck shell=bash
+
+is_apple_dark() {
+  defaults read -globalDomain AppleInterfaceStyle &> /dev/null == 'Dark'
+}
+
+is_dark_mode() {
+  [[ $ITERM_PROFILE == 'Dark' ]]
+}
+
+function set_iterm_profile {
+  profile="$1"
+  echo -e "\033]1337;SetProfile=$profile\a"
+  ITERM_PROFILE="$profile"
+  export ITERM_PROFILE
+}
+
+function adapt_mode {
+  if is_apple_dark; then
+    profile="Dark"
+  else
+    profile="Light"
+  fi
+
+  set_iterm_profile "$profile"
+}
+
+precmd_functions+=(adapt_mode)
