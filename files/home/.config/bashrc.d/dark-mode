@@ -13,7 +13,7 @@ shelly-is-dark-mode() {
 
 shelly-set-iterm-colour() {
   mode="$1"
-  dark_color_preset='One Dark'
+  dark_color_preset='Dracula'
   light_color_preset='Light Background'
 
   if [[ $mode == 'dark' ]]; then
