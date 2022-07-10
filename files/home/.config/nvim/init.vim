@@ -126,7 +126,7 @@ let maplocalleader = ','
 
 call Plug()
 
-let g:colorscheme_switcher_keep_background = 1
+"let g:colorscheme_switcher_keep_background = 1
 
 " ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -152,7 +152,7 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " i.e. keep blinking underline from terminal configuration.
 set guicursor=
 
-set background=dark " A default only. The colorscheme will update.
+"set background=dark " A default only. The colorscheme will update.
 " Disable cindent as it is not nice for plain text files.
 "set cindent
 set cursorline

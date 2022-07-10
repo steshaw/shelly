@@ -1,0 +1,19 @@
+# vim: set filetype=bash:
+# shellcheck shell=bash
+
+is_apple_dark() {
+  defaults read -globalDomain AppleInterfaceStyle &> /dev/null == 'Dark'
+}
+
+nvim_default() {
+  #dark_theme='Monokai Extended'
+  light_theme='zellner'
+
+  if is_apple_dark; then
+    nvim "$@"
+  else
+    command nvim +"colorscheme $light_theme" "$@"
+  fi
+}
+
+alias nvim=nvim_default
