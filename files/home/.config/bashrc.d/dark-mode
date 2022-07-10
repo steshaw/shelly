@@ -1,31 +1,48 @@
 # vim: set filetype=bash:
 # shellcheck shell=bash
 
-is_apple_dark() {
+export SHELLY_DARK_MODE=${SHELLY_DARK_MODE:-'dark'}
+
+shelly-is-apple-dark() {
   defaults read -globalDomain AppleInterfaceStyle &> /dev/null == 'Dark'
 }
 
-is_dark_mode() {
-  [[ $ITERM_PROFILE == 'Dark' ]]
+shelly-is-dark-mode() {
+  [[ $SHELLY_DARK_MODE == 'dark' ]]
 }
 
-function set_iterm_profile {
-  profile="$1"
-  echo -e "\033]1337;SetProfile=$profile\a"
-  ITERM_PROFILE="$profile"
-  export ITERM_PROFILE
-}
+shelly-set-iterm-colour() {
+  mode="$1"
+  dark_color_preset='One Dark'
+  light_color_preset='Light Background'
 
-function apple_adapt_mode {
-  if hash -is_apple_dark; then
-    profile="Dark"
+  if [[ $mode == 'dark' ]]; then
+    it2setcolor preset "$dark_color_preset"
   else
-    profile="Light"
+    it2setcolor preset "$light_color_preset"
   fi
 
-  set_iterm_profile "$profile"
+  export SHELLY_DARK_MODE=$mode
+}
+
+shelly-toggle-dark-mode() {
+  if shelly-is-dark-mode; then
+    shelly-set-iterm-colour 'light'
+  else
+    shelly-set-iterm-colour 'dark'
+  fi
+}
+
+shelly-apple-adapt-mode() {
+  if shelly-is-apple-dark; then
+    mode='dark'
+  else
+    mode='light'
+  fi
+
+  shelly-set-iterm-colour $mode
 }
 
 if [[ $SHELLY_OS == 'darwin' ]]; then
-  precmd_functions+=(apple_adapt_mode)
+  precmd_functions+=(shelly-apple-adapt-mode)
 fi

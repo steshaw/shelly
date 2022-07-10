@@ -4,10 +4,10 @@
 alias batnp='bat --pager=none'
 
 bat_default() {
-  dark_theme='Monokai Extended'
+  dark_theme='OneHalfDark'
   light_theme='OneHalfLight'
 
-  if is_apple_dark; then
+  if shelly-is-dark-mode; then
     theme=$dark_theme
   else
     theme=$light_theme
@@ -16,11 +16,4 @@ bat_default() {
 }
 
 alias bat=bat_default
-#alias bat='
-#  dark_theme="Monokai Extended"
-#  light_theme="OneHalfLight"
-#  theme=$light_theme
-#  is_apple_dark && theme=$dark_theme
-#  bat --theme="$theme"
-#'
 alias cat=bat

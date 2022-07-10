@@ -4,7 +4,7 @@
 nvim_default() {
   light_theme='zellner'
 
-  if is_dark_mode; then
+  if shelly-is-dark-mode; then
     nvim "$@"
   else
     command nvim +"colorscheme $light_theme" "$@"
