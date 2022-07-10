@@ -22,8 +22,8 @@ with pkgs; [
   nix-bash-completions
 
   # Other utilities.
-  bashInteractive_5
   bandwhich
+  bashInteractive_5
   bat
   bind # for dig. XXX: Any smaller package?
   bottom
@@ -38,7 +38,8 @@ with pkgs; [
   dos2unix
   du-dust
   dutree
-  (notDarwin eternal-terminal)
+  emacs
+  eternal-terminal
   exa
   fd
   file
@@ -53,9 +54,10 @@ with pkgs; [
   hledger
   htop
   httpie
+  hunspell
+  hunspellDicts.en-gb-large
   jq
   killall
-  #lastpass-cli
   licensee
   lsd
   moreutils # ts and more
@@ -63,6 +65,7 @@ with pkgs; [
   mtr
   ncdu # NCurses Disk Usage
   neofetch
+  neovim
   nix-direnv
   nodejs # Required for Coc.
   pandoc
@@ -71,6 +74,7 @@ with pkgs; [
   perl
   pstree
   pup
+  python
   python2
   ripgrep
   rlwrap
@@ -80,13 +84,13 @@ with pkgs; [
   starship
   step-cli
   stow
-  #terraform
+  tmate
+  tmux
+  tmuxPlugins.fzf-tmux-url
   tokei
   tree
   unzip
   up
-  #wakatime
-  #watchman
   wget
   youtube-dl
   yq
@@ -95,19 +99,6 @@ with pkgs; [
   gitAndTools.git-filter-repo
   nodePackages.gitmoji-cli
   pkgs.gitAndTools.lab
-
-  # Tmux.
-  tmux
-  tmuxPlugins.fzf-tmux-url
-
-  #
-  # Editors
-  #
-  emacs
-  hunspell
-  hunspellDicts.en-gb-large
-  neovim
-  python
 
   #
   # Programming Languages.
