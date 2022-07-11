@@ -152,7 +152,6 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " i.e. keep blinking underline from terminal configuration.
 set guicursor=
 
-"set background=dark " A default only. The colorscheme will update.
 " Disable cindent as it is not nice for plain text files.
 "set cindent
 set cursorline
@@ -201,17 +200,10 @@ try
 "  colorscheme Tomorrow-Night
 "  colorscheme synthwave84
 
-  if 0
-    let ayucolor="mirage"
-    colorscheme ayu
-  endif
-
-  if 1
+  let dark_mode = $SHELLY_DARK_MODE
+  if dark_mode == "dark"
     colorscheme palenight
-  endif
-
-  " Light scheme if outside.
-  if 0
+  else
     colorscheme zellner
   endif
 catch
