@@ -1,0 +1,1 @@
+bindsym Ctrl+Shift+Print exec "/usr/bin/flameshot gui"
