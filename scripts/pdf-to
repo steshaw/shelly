@@ -22,6 +22,8 @@ if [[ $type == 'mobile' ]]; then
   device='-w 720p -h 1280p -dpi 294'
 elif [[ $type == 'ipad' ]]; then
   device='-w 768p -h 1024p -dpi 132'
+elif [[ $type == 'kindle' ]]; then
+  device='-w 1236p -h 1648p -dpi 300'
 else
   Usage
 fi
