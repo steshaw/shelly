@@ -2,8 +2,10 @@
 
 set -euo pipefail
 
+script_name=$(basename "$0")
+
 function Usage {
-  echo "usage: $(basename $0) [mobile|ipad] filename" >&2
+  echo "usage: $script_name [mobile|ipad] filename" >&2
   exit 2
 }
 
@@ -24,6 +26,7 @@ else
   Usage
 fi
 
+# shellcheck disable=SC2086
 k2pdfopt \
   $device \
   $options \
@@ -31,7 +34,7 @@ k2pdfopt \
   -c \
   -bpc 8 \
   -fc- \
-  -o %s-$type \
+  -o "%s-$type" \
   "$file"
 
 #  -wrap \
