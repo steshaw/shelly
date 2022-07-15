@@ -4,25 +4,23 @@ set -euo pipefail
 
 script_name=$(basename "$0")
 
-function Usage {
-  echo "usage: $script_name [mobile|ipad] filename" >&2
+function usage {
+  echo "usage: $script_name [mobile|ipad|kindle] filename" >&2
   exit 2
 }
 
 if [[ $# -ne 2 ]]; then
-  Usage
+  usage
 fi
 
-type=$1; shift
+device_type=$1; shift
 file=$1; shift
 
-options='-mode 2col'
-
-if [[ $type == 'mobile' ]]; then
+if [[ $device_type == 'mobile' ]]; then
   device='-w 720p -h 1280p -dpi 294'
-elif [[ $type == 'ipad' ]]; then
+elif [[ $device_type == 'ipad' ]]; then
   device='-w 768p -h 1024p -dpi 132'
-elif [[ $type == 'kindle' ]]; then
+elif [[ $device_type == 'kindle' ]]; then
   device='-w 1236p -h 1648p -dpi 300'
 else
   Usage
@@ -31,14 +29,13 @@ fi
 # shellcheck disable=SC2086
 k2pdfopt \
   $device \
-  $options \
+  -col 1 \
   -om 0.2 \
   -c \
   -bpc 8 \
   -fc- \
-  -o "%s-$type" \
+  -x \
+  -ui- \
+  -o "%s-$device_type" \
+  "$@" \
   "$file"
-
-#  -wrap \
-#  -mag 2.0 -fc- \
-#k2pdfopt -ui- -h 1280p -w 720p -dpi 294 -fc- -c -bpc 8 -om 0.2s,0,0.2s,0 -x -o %s-phone.pdf
