@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Slugify all files
+#
+
+set -euo pipefail
+
+for file_path in "$@"; do
+  output=$file_path
+
+  # Remove punctuation.
+  output=$(echo "$output" | tr -d \'\"\!\,\;)
+
+  # Compress spaces.
+  output=$(echo "$output" | tr -s ' ')
+
+  # Endash+emdash to dash.
+  output=${output//–/-}
+  output=${output//—/-}
+
+  # Remove spaces next to dashes.
+  output=${output//- /-}
+  output=${output// -/-}
+  #output=$(echo "$output" | sed -e 's/\- /-/')
+  #output=$(echo "$output" | sed -e 's/ \-/-/')
+
+  # Spaces to dashes
+  output=$(echo "$output" | tr ' ' '-')
+
+  # lowercase
+  output=${output,,}
+
+  if [[ $file_path != output ]]; then
+    echo mv -iv "${file_path}" "${output}"
+  fi
+done
