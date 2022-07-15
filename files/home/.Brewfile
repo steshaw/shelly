@@ -5,7 +5,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "railwaycat/emacsmacport"
-brew "dnsmasq", restart_service: true
+brew "dnsmasq"
 brew "mas"
 brew "koekeishiya/formulae/skhd"
 cask "adobe-acrobat-reader"
