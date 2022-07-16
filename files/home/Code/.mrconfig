@@ -11,7 +11,7 @@ checkout = github-clone-fork NixOS/nixpkgs
 update = mr sync
 
 [ghc/ghc]
-checkout =
+checkout = 
 	git clone --recurse-submodules https://gitlab.haskell.org/ghc/ghc.git
 	cd ghc
 	git config submodule.recurse true
@@ -61,3 +61,21 @@ checkout = git clone 'git@github.com:steshaw/project-directory' 'project-directo
 
 [haskell/haskell-language-server]
 checkout = git clone 'git@github.com:haskell/haskell-language-server' 'haskell-language-server'
+
+[andreabedini/foliage]
+checkout = git clone 'git@github.com:andreabedini/foliage' 'foliage'
+
+[edwinb/Yaffle]
+checkout = git clone 'git@github.com:edwinb/Yaffle' 'Yaffle'
+
+[haskell/cabal]
+checkout = git clone 'git@github.com:haskell/cabal' 'cabal'
+
+[tweag/www]
+checkout = git clone 'git@github.com:tweag/www' 'www'
+
+[tweag/meta]
+checkout = git clone 'git@github.com:tweag/meta' 'meta'
+
+[tweag/nickel]
+checkout = git clone 'git@github.com:tweag/nickel' 'nickel'
