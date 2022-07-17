@@ -5,6 +5,12 @@
 
 set -euo pipefail
 
+if [[ $(uname) == 'Darwin' ]]; then
+  mv=/bin/mv
+else
+  mv=mv
+fi
+
 for file_path in "$@"; do
   output=$file_path
 
@@ -30,7 +36,7 @@ for file_path in "$@"; do
   # lowercase
   output=${output,,}
 
-  if [[ $file_path != output ]]; then
-    echo mv -iv "${file_path}" "${output}"
+  if [[ "$file_path" != "$output" ]]; then
+    $mv -iv "${file_path}" "${output}"
   fi
 done
