@@ -5,6 +5,7 @@ set -eu
 if [[ $# -eq 0 ]]; then exec rsync; fi
 
 exec rsync \
+  --rsync-path=~/.nix-profile/bin/rsync \
   --progress \
   --verbose \
   --archive \
