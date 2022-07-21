@@ -8,14 +8,14 @@ set -euo pipefail
 if [[ $(uname) == 'Darwin' ]]; then
   mv=/bin/mv
 else
-  mv=mv
+  mv='mv'
 fi
 
 for file_path in "$@"; do
   output=$file_path
 
   # Remove punctuation.
-  output=$(echo "$output" | tr -d \'\"\!\,\;)
+  output=$(echo "$output" | tr -d \'\"\!\,\;\.)
 
   # Compress spaces.
   output=$(echo "$output" | tr -s ' ')
