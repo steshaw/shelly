@@ -15,14 +15,20 @@ for file_path in "$@"; do
   output=$file_path
 
   # Remove punctuation.
-  output=$(echo "$output" | tr -d \'\"\!\,\;\.)
+  output=$(echo "$output" | tr -d \'\"\!\,\;)
+
+  # Remove newlines.
+  output=$(echo "$output" | tr -d '\n')
 
   # Compress spaces.
   output=$(echo "$output" | tr -s ' ')
 
   # Endash+emdash to dash.
   output=${output//–/-}
-  output=${output//—/-}
+  output=${output//–/-}
+
+  # Underscores to dash.
+  output=${output//_/-}
 
   # Remove spaces next to dashes.
   output=${output//- /-}
