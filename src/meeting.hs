@@ -110,17 +110,13 @@ tweag =
   , brisbane
   ]
 
-cork = 2093
 belgrade = 35
 serbia = 35
 
 io =
   [ portland
-  , cork
   , london
   , france
-  , germany
-  , serbia
   , brisbane
   ]
 
