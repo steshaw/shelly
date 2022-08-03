@@ -15,13 +15,6 @@ fun! Plugs()
     Plug 'ayu-theme/ayu-vim'
   endif
 
-  " Org mode.
-  Plug 'jceb/vim-orgmode'
-  Plug 'tpope/vim-speeddating' " Required dependency.
-  " SyntaxRange allows timedot in src blocks.
-  " See .config/nvim/after/syntax/org.vim
-  Plug 'vim-scripts/SyntaxRange'
-
   " Ledger.
   Plug 'ledger/vim-ledger'
   Plug '~/Code/steshaw/timedot-vim'
@@ -214,38 +207,6 @@ endtry
 " ==========================================================================
 
 nnoremap <Leader><space> :nohlsearch<Enter>
-
-" ==========================================================================
-" Org mode configuration.
-" ==========================================================================
-let g:org_agenda_files=['~/Code/steshaw/notes/work/logs/current/*.org']
-let g:org_heading_shade_leading_stars = 0
-let g:org_indent = 1
-let g:org_todo_keywords = ['TODO', 'BLOCKED', 'DOING', '|', 'DONE']
-let g:org_todo_keyword_faces =
-      \[
-      \   ['TODO',
-      \     [':foreground Yellow'
-      \     ]
-      \   ],
-      \   ['BLOCKED',
-      \     [':foreground Red'
-      \     ,':weight bold'
-      \     ,':slant italic'
-      \     ,':decoration reverse,NONE'
-      \     ]
-      \   ],
-      \   ['DOING',
-      \     [':foreground Yellow'
-      \     ,':weight bold'
-      \     ,':slant italic'
-      \     ]
-      \   ],
-      \   ['DONE',
-      \     [':foreground Green'
-      \     ]
-      \   ]
-      \ ]
 
 " ==========================================================================
 
