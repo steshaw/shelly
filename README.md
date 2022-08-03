@@ -1,6 +1,6 @@
 # Shelly
 
-My [dotfiles](./files/home), [shell scripts](./scripts), and [packages](./nix).
+My [dotfiles](./files/home), [shell scripts](./script), and [packages](./nix).
 
 Note that this is a "note to self". I don't imagine anyone else will want to
 install my dotfiles :). It could provide some inspiration for your own
@@ -28,7 +28,7 @@ sudo apt install -y curl git stow
 3. Bootstrap my dotfiles on a new machine like this:
 
 ``` sh-session
-bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/scripts/shelly-bootstrap)
+bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/script/shelly-bootstrap)
 ```
 
 or

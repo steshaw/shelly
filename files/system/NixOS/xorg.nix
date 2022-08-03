@@ -82,7 +82,7 @@ in
       sessionCommands =
         let
           shellyXInput = pkgs.writeScript "shelly-xinput"
-            (builtins.readFile ./scripts/shelly-xinput);
+            (builtins.readFile ./script/shelly-xinput);
         in
         ''
           ${pkgs.xss-lock}/bin/xss-lock -- ${myLocker} &

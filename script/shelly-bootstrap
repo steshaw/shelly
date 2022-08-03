@@ -31,7 +31,7 @@ if [[ ! -d $SHELLY_HOME ]]; then
   )
 fi
 
-$SHELLY_HOME/scripts/shelly-link-home-files
+$SHELLY_HOME/script/shelly-link-home-files
 
 echo
 echo 'Source .profile or start a new shell to get started.'

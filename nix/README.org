@@ -7,7 +7,7 @@ Initially install with
  $ nix-env -f . --install --remove-all --attr userPackages
 #+end_src
 
-or invoke the [[../scripts/nix-rebuild]] script.
+or invoke the [[../script/nix-rebuild]] script.
 
 Afterwards, edit [[pkgs/default.nix]] and run the following to update the user packages:
 

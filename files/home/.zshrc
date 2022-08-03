@@ -5,7 +5,7 @@ if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 fi
 
-source $SHELLY_HOME/scripts/functions.sh
+source $SHELLY_HOME/script/functions.sh
 
 Echo "Executing ~/.zshrc"
 
@@ -212,7 +212,7 @@ $fg[green]╭─%{$fg_bold[blue]%}%n@%m$fg_bold[magenta]:$fg_bold[cyan]%~
 $fg[green]╰─${exit_status}%{$reset_color%} "
 fi
 
-# shellcheck source=scripts/shrc
+# shellcheck source=files/home/.config/shellyrc
 source ~/.config/shellyrc
 
 # }}}

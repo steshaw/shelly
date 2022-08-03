@@ -3,5 +3,5 @@
 # open terminal, blazingly fast compared to iTerm/Hyper
 #cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
-ctrl + alt         - return : ~/Code/steshaw/shelly/scripts/iterm-new-window
+ctrl + alt         - return : ~/Code/steshaw/shelly/script/iterm-new-window
 ctrl + alt + shift - return : open -a Firefox --new

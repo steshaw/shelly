@@ -64,8 +64,8 @@ if [[ ${profile_startup} -eq 1 ]]; then
   unset log
 fi
 
-# shellcheck source=../scripts/functions.sh
-source $SHELLY_HOME/scripts/functions.sh
+# shellcheck source=../script/functions.sh
+source $SHELLY_HOME/script/functions.sh
 shelly_determine_os
 
 Echo Executing ~/.profile
@@ -73,7 +73,7 @@ Echo Executing ~/.profile
 prettyPath() {
   if shellyShouldEcho; then
     echo "$@" "{"
-    $SHELLY_HOME/scripts/ppath | perl -pe 's/^/  /'
+    $SHELLY_HOME/script/ppath | perl -pe 's/^/  /'
     echo "}"
   fi
 }
@@ -86,7 +86,7 @@ if isZsh; then
   autoload -U +X bashcompinit && bashcompinit
 fi
 
-prependPaths ${SHELLY_HOME}/scripts
+prependPaths ${SHELLY_HOME}/script
 
 prettyPaths() {
   if shellyShouldEcho; then

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-cd "${SHELLY_HOME}"/scripts
+cd "${SHELLY_HOME}"/script
 pkg=$1
 
 nix-instantiate \

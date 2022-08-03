@@ -14,8 +14,8 @@ if [[ -z $SHELLY_HOME ]]; then
   export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 fi
 
-# shellcheck source=../scripts/functions.sh
-source $SHELLY_HOME/scripts/functions.sh
+# shellcheck source=../script/functions.sh
+source $SHELLY_HOME/script/functions.sh
 
 Echo Executing ~/.bashrc
 
@@ -26,7 +26,7 @@ Echo Executing ~/.bashrc
 # --------------------------------------------------------------------------
 if isBash; then
   unset __bp_imported # In case of `source ~/.profile`.
-  sourceExists $SHELLY_HOME/scripts/bash-preexec.sh
+  sourceExists $SHELLY_HOME/script/bash-preexec.sh
 fi
 
 # --------------------------------------------------------------------------

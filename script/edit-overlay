@@ -20,4 +20,4 @@ getOverlay() {
 }
 
 overlay=$(getOverlay "$@")
-"${SHELLY_HOME}"/scripts/v "${overlay_dir}/${overlay}"
+"${SHELLY_HOME}"/script/v "${overlay_dir}/${overlay}"
