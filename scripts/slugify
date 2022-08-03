@@ -14,8 +14,14 @@ fi
 for file_path in "$@"; do
   output=$file_path
 
-  # Remove punctuation.
-  output=$(echo "$output" | tr -d \'\"\!\,\;)
+  # Remove some punctuation.
+  output=$(echo "$output" | tr -d \'\"\!)
+
+  # Replace other punctuation with dashes.
+  output=${output//[,;:]/-}
+
+  # PascalCase to lisp-case.
+  output=$(echo "$output" | perl -pe 's/([a-z0-9])([A-Z])/$1_\L$2/g')
 
   # Remove newlines.
   output=$(echo "$output" | tr -d '\n')
@@ -33,8 +39,6 @@ for file_path in "$@"; do
   # Remove spaces next to dashes.
   output=${output//- /-}
   output=${output// -/-}
-  #output=$(echo "$output" | sed -e 's/\- /-/')
-  #output=$(echo "$output" | sed -e 's/ \-/-/')
 
   # Spaces to dashes
   output=$(echo "$output" | tr ' ' '-')
