@@ -1,8 +1,6 @@
 # vim: set filetype=bash:
 # shellcheck shell=bash
 
-export SHELLY_DARK_MODE=${SHELLY_DARK_MODE:-'dark'}
-
 shelly-is-apple-dark() {
   defaults read -globalDomain AppleInterfaceStyle &> /dev/null == 'Dark'
 }
@@ -21,15 +19,34 @@ shelly-set-iterm-colour() {
   else
     it2setcolor preset "$light_color_preset"
   fi
+}
 
-  export SHELLY_DARK_MODE=$mode
+shelly-set-bat-theme() {
+  mode="$1"
+  # NOTE: Themes should be supported by both `bat` and `delta`. The `delta`
+  # Git diff tool uses BAT_THEME to select it's default syntax theme.
+  dark_theme='OneHalfDark'
+  light_theme='OneHalfLight'
+  if [[ $mode == 'dark' ]]; then
+    BAT_THEME="$dark_theme"
+  else
+    BAT_THEME="$light_theme"
+  fi
+  export BAT_THEME
+}
+
+shelly-set-theme() {
+  mode="$1"
+  shelly-set-iterm-colour "$mode"
+  shelly-set-bat-theme "$mode"
+  export SHELLY_DARK_MODE="$mode"
 }
 
 shelly-toggle-dark-mode() {
   if shelly-is-dark-mode; then
-    shelly-set-iterm-colour 'light'
+    shelly-set-theme 'light'
   else
-    shelly-set-iterm-colour 'dark'
+    shelly-set-theme 'dark'
   fi
 }
 
@@ -40,9 +57,11 @@ shelly-apple-adapt-mode() {
     mode='light'
   fi
 
-  shelly-set-iterm-colour $mode
+  shelly-set-theme "$mode"
 }
 
 if [[ $SHELLY_OS == 'darwin' ]]; then
   precmd_functions+=(shelly-apple-adapt-mode)
 fi
+
+shelly-set-theme "${SHELLY_DARK_MODE:-dark}"

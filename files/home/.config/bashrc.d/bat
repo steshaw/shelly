@@ -2,18 +2,4 @@
 # shellcheck shell=bash
 
 alias batnp='bat --pager=none'
-
-bat_default() {
-  dark_theme='OneHalfDark'
-  light_theme='OneHalfLight'
-
-  if shelly-is-dark-mode; then
-    theme=$dark_theme
-  else
-    theme=$light_theme
-  fi
-  command bat --theme="$theme" "$@"
-}
-
-alias bat=bat_default
 alias cat=bat
