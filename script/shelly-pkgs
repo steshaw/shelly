@@ -3,14 +3,13 @@
 set -euo pipefail
 
 usage() {
-  script_name=$(basename $0)
+  script_name=$(basename "$0")
   echo "usage ${script_name}: install | list"
   exit 2
 }
 
-cd $SHELLY_HOME/files/home/.shelly/opt
+cd "$SHELLY_HOME/files/home/.shelly/opt"
 
-# shellcheck disable=SC2086
 readarray -t pkgs < "$(hostname -s).pkgs"
 
 install_dir=../local
