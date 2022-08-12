@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Usage: eval "$(un-nix)"
+
+non-nix-paths() {
+  while IFS= read -r p; do
+    if [[ $p != ~/.nix-profile/bin && $p != /nix/* ]]; then
+      echo "$p"
+    fi
+  done < <(echo "$PATH" | tr : '\n')
+}
+
+new_path=''
+while IFS= read -r p; do
+  new_path=${new_path:+${new_path}:}$p
+done < <(non-nix-paths)
+
+cat <<!
+PATH="$new_path"
+export PATH
+unset GIT_SSL_CAINFO
+unset NIX_PROFILES
+unset NIX_SSL_CERT_FILE
+unset SSL_CERT_FILE
+!
+
