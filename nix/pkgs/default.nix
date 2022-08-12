@@ -4,6 +4,7 @@ let
   notDarwin = pkg: conditionalPkg (!pkgs.stdenv.isDarwin) pkg;
   notARM = pkg: conditionalPkg (!pkgs.stdenv.hostPlatform.isAarch64) pkg;
   avoid = conditionalPkg false;
+  include = conditionalPkg true;
   broken = avoid;
 in
 with pkgs; [
@@ -39,7 +40,7 @@ with pkgs; [
   du-dust
   dutree
   emacs
-  eternal-terminal
+  (notDarwin eternal-terminal)
   exa
   fd
   file
@@ -110,7 +111,8 @@ with pkgs; [
   rustup
 
   # Haskell.
-  haskellPackages.implicit-hie # for gen-hie
+  # implicit-hie conflicts with fourmolu on macOS.
+  (notDarwin haskellPackages.implicit-hie) # for gen-hie
   (notDarwin haskellPackages.pointfree)
   (notDarwin haskellPackages.brittany)
   cabal-install
