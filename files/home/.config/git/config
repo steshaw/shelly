@@ -108,9 +108,9 @@
 	program = gpg
 
 [include]
-	path = ~/.config/git/tweag.gitconfig
+	path = tweag.gitconfig
 [includeIf "gitdir:~/Code/steshaw/"]
-	path = ~/.config/git/personal.gitconfig
+	path = personal.gitconfig
 
 
 ;
