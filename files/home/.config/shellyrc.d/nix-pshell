@@ -1,0 +1,16 @@
+# vim: set filetype=bash:
+
+nix-pshell-refresh() {
+  d=.cache/nix/pshell
+  base="${d}/shell"
+  drv="${base}.drv"
+  nix-instantiate --add-root "$drv" shell.nix
+  echo "Wrote derivation root to $drv"
+  out="${base}.out"
+  nix-build shell.nix -A inputDerivation --out-link "$out"
+  echo "Wrote build output link to $out"
+}
+
+nix-pshell() {
+  nix-shell '.cache/nix/pshell/shell.drv'
+}
