@@ -6,6 +6,6 @@ i3-wm.gaps.outer.size: 0
 i3-wm.program.1: rescuetime
 i3-wm.window.border.size: 1
 regolith.lockscreen.wallpaper.file: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
-regolith.look.path: /usr/share/regolith-look/nord
 regolith.wallpaper.file: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
 regolith.wallpaper.options: zoom
+regolith.look.path: /usr/share/regolith-look/nord
