@@ -76,12 +76,6 @@
 ;(setq auto-save-visited-interval 1)
 ;(auto-save-visited-mode +1)
 
-; Wakatime
-(when nil
-  (use-package wakatime-mode
-    :ensure t)
-  (global-wakatime-mode))
-
 ;; AsciiDoc
 ;(add-hook! adoc-mode
 ; (add-to-list 'auto-mode-alist '("\\.adoc" . adoc-mode))
