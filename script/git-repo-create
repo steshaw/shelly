@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+name=$(basename "$PWD")
+gh repo create "$name" --confirm "$@"
