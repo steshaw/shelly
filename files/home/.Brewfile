@@ -24,7 +24,6 @@ cask "kindle"
 cask "nightfall"
 cask "postman"
 cask "skype"
-cask "slack"
 cask "spectacle"
 cask "transmission"
 cask "utm"
@@ -43,3 +42,4 @@ mas "Numbers", id: 409203825
 mas "Octotree", id: 1457450145
 mas "Pages", id: 409201541
 mas "Tailscale", id: 1475387142
+mas "Xcode", id: 497799835
