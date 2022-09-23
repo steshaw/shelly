@@ -5,3 +5,4 @@
 
 ctrl + alt         - return : ~/Code/steshaw/shelly/script/iterm-new-window
 ctrl + alt + shift - return : open -a Firefox --new
+fn + shift + ctrl - f10       : osascript ~/Code/steshaw/shelly/script/toggle-microphone.applescript
