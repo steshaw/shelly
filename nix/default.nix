@@ -1,4 +1,5 @@
 { sources ? import ./sources.nix
+, nixpkgs ? sources.nixpkgs
 , multiUser ? true
 }:
 let
@@ -15,8 +16,8 @@ let
           pathExists (path + ("/" + n + "/default.nix")))
         (attrNames (readDir path)));
 in
-builtins.trace "multiUser = ${(import sources.nixpkgs {}).lib.boolToString multiUser}"
-import sources.nixpkgs {
+builtins.trace "multiUser = ${(import nixpkgs {}).lib.boolToString multiUser}"
+import nixpkgs {
   overlays = [ overlay ] ++ overlays;
   config = { };
 }
