@@ -17,15 +17,3 @@ nix-env \
   --attr userPackages \
   --attr userPackagesIntel \
   "$@"
-
-# Quick hack to install some packages that are broken on aarch64-darwin.
-if [[ $(uname) == Darwin ]]; then
-  # Ask niv for the nixpkgs tarball pin.
-  nixpkgs_tarball=$(
-    cd "${SHELLY_HOME}";
-    jq -r .nixpkgs.url <nix/sources.json
-  )
-
-  nix-env --argstr system "x86_64-darwin" -f "$nixpkgs_tarball" --install \
-    --attr idris2 --attr niv --prebuilt-only
-fi
