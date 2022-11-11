@@ -13,7 +13,7 @@ with pkgs; [
   #
   cachix
   glibcLocales # Fix for locale issue.
-  niv
+  (broken niv)
   nix-prefetch-scripts
   nixfmt
   nixpkgs-fmt

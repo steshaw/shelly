@@ -13,7 +13,10 @@ fi
 nix-env \
   --file "${pkgs_home}" \
   --arg multiUser $multiUser \
-  --install --remove-all --attr userPackages "$@"
+  --install --remove-all \
+  --attr userPackages \
+  --attr userPackagesIntel \
+  "$@"
 
 # Quick hack to install some packages that are broken on aarch64-darwin.
 if [[ $(uname) == Darwin ]]; then
@@ -24,5 +27,5 @@ if [[ $(uname) == Darwin ]]; then
   )
 
   nix-env --argstr system "x86_64-darwin" -f "$nixpkgs_tarball" --install \
-    --attr cabal2nix --attr hledger --attr idris2 --attr niv --prebuilt-only
+    --attr idris2 --attr niv --prebuilt-only
 fi

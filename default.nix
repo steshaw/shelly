@@ -6,6 +6,13 @@
 #   nix-env -f ~/Code/steshaw/shelly --install --attr git-crypt
 #
 
-{ sources ? import ./nix/sources.nix }:
-import sources.nixpkgs
-  { overlays = [] ; config = {}; }
+{ sources ? import ./nix/sources.nix
+, nixpkgs ? sources.nixpkgs
+, system ? nixpkgs.localSystem
+}:
+import nixpkgs
+{
+  system = system;
+  overlays = [ ];
+  config = { };
+}
