@@ -15,5 +15,4 @@ nix-env \
   --arg multiUser $multiUser \
   --install --remove-all \
   --attr userPackages \
-  --attr userPackagesIntel \
   "$@"

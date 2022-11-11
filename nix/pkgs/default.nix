@@ -106,7 +106,9 @@ with pkgs; [
   #
   (notDarwin ats2)
   (notDarwin coq)
-  (notARM (notDarwin idris2))
+  (if pkgs.stdenv.isDarwin && pkgs.stdenv.hostPlatform.isAarch64 then
+    idris2Intel
+  else idris2)
   (notDarwin agda)
   rustup
 
