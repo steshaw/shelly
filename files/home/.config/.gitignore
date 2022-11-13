@@ -32,6 +32,7 @@
 /glib-2.0/
 /gnome-control-center/
 /gnome-initial-setup-done
+/goa-1.0/
 /google-chrome/
 /gpick/
 /.gsd-keyboard.settings-ported
@@ -119,6 +120,7 @@
 /systemmonitorrc
 /systemsettingsrc
 /teamviewer/
+/terminator/
 /terminology/
 /Thunar/
 /touchpadrc
