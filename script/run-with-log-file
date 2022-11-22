@@ -2,9 +2,9 @@
 
 set -eu
 
-command="$@"
+command="$*"
 first="${command%% *}"
 base="$(basename $first)"
-log="${base}.log"
+log="${base}.$(timestamp).log"
 
 $command 2>&1 | tee $log
