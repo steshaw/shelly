@@ -1,23 +1,20 @@
-# Probably for Stack 2.*
-
-/.stack-work/
+/build-plan/
+/build-plan-cache/
 /compiler-tools/
 /global-project/.stack-work/
+/hooks/
+/indices/
+/loaded-snapshot-cache/
 /pantry/
+/precompiled/
 /programs/
 /setup-exe-cache/
 /setup-exe-src/
 /snapshots/
 /stack.sqlite3
 /stack.sqlite3-journal
+/stack.sqlite3.pantry-write-lock
 /stack.sqlite3-shm
 /stack.sqlite3-wal
-/stack.sqlite3.pantry-write-lock
+/.stack-work/
 /templates/
-
-# Probably for Stack 1.*
-/build-plan-cache/
-/build-plan/
-/indices/
-/loaded-snapshot-cache/
-/precompiled/
