@@ -8,11 +8,9 @@
 
 { sources ? import ./nix/sources.nix
 , nixpkgs ? sources.nixpkgs
-, system ? nixpkgs.localSystem
 }:
 import nixpkgs
 {
-  system = system;
   overlays = [ ];
   config = { };
 }
