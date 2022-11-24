@@ -117,7 +117,7 @@ with pkgs; [
   (notDarwin haskellPackages.brittany)
   cabal-install
   (notDarwin ghcid)
-  (notDarwin haskell.compiler.ghc901)
+  haskell.compiler.ghc924
   haskellPackages.fourmolu
   hlint
   stack
