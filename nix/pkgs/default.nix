@@ -105,7 +105,7 @@ with pkgs; [
   # Programming Languages.
   #
   (notDarwin ats2)
-  (notDarwin coq)
+  coq
   idris2
   (notDarwin agda)
   rustup
