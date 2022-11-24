@@ -113,7 +113,7 @@ with pkgs; [
   (notDarwin haskellPackages.pointfree)
   (notDarwin haskellPackages.brittany)
   cabal-install
-  (notDarwin ghcid)
+  ghcid
   haskell.compiler.ghc924
   haskellPackages.fourmolu
   hlint
