@@ -3,7 +3,6 @@ let
   conditionalPkg = condition: pkg: if condition then pkg else false;
   notDarwin = pkg: conditionalPkg (!pkgs.stdenv.isDarwin) pkg;
   avoid = conditionalPkg false;
-  include = conditionalPkg true;
 in
 with pkgs; [
   #
