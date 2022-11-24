@@ -4,7 +4,6 @@ let
   notDarwin = pkg: conditionalPkg (!pkgs.stdenv.isDarwin) pkg;
   avoid = conditionalPkg false;
   include = conditionalPkg true;
-  broken = avoid;
 in
 with pkgs; [
   #
