@@ -37,7 +37,6 @@ with pkgs; [
   du-dust
   dutree
   emacs
-  (notDarwin eternal-terminal)
   exa
   fd
   file

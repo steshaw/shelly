@@ -2,11 +2,17 @@
 , nixpkgs ? sources.nixpkgs
 , multiUser ? true
 }:
-let multiUserOverlay = _: _: {
-  multiUser = multiUser;
-};
+let
+  pkgs = import nixpkgs { };
+  darwinIntelPkgs = import nixpkgs {
+    system = "x86_64-darwin";
+  };
+  multiUserOverlay = _: _: {
+    multiUser = multiUser;
+    darwinIntelPkgs = darwinIntelPkgs;
+  };
 in
-builtins.trace "multiUser = ${(import nixpkgs {}).lib.boolToString multiUser}"
+builtins.trace "multiUser = ${pkgs.lib.boolToString multiUser}"
   import
   nixpkgs
 {
