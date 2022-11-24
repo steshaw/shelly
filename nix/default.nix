@@ -4,16 +4,7 @@
 }:
 let multiUserOverlay = _: _: {
   multiUser = multiUser;
-}; in
-let
-  intelPkgs =
-    import nixpkgs {
-      multiUser = multiUser;
-      system = "x86_64-darwin";
-    };
-  idrisOverlay = _: _: {
-    idris2Intel = intelPkgs.idris2;
-  };
+};
 in
 builtins.trace "multiUser = ${(import nixpkgs {}).lib.boolToString multiUser}"
   import
@@ -22,7 +13,7 @@ builtins.trace "multiUser = ${(import nixpkgs {}).lib.boolToString multiUser}"
   overlays =
     let path = ./overlays; in
     with builtins;
-    [ multiUserOverlay idrisOverlay ] ++
+    [ multiUserOverlay ] ++
     map (n: import (path + ("/" + n)))
       (filter
         (n: match ".*\\.nix" n != null ||
