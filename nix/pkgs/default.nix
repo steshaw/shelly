@@ -107,16 +107,17 @@ with pkgs; [
   rustup
 
   # Haskell.
-  # implicit-hie conflicts with fourmolu on macOS.
-  (notDarwin haskellPackages.implicit-hie) # for gen-hie
-  (notDarwin haskellPackages.pointfree)
-  (notDarwin haskellPackages.brittany)
   cabal-install
   ghcid
   haskell.compiler.ghc924
-  haskellPackages.fourmolu
   hlint
   stack
+
+  # Unfortunately, these will build locally.
+  steshaw.brittany
+  steshaw.fourmolu
+  steshaw.gen-hie
+  steshaw.pointfree
 
   # Docker
   #docker
