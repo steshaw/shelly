@@ -31,11 +31,6 @@ sudo apt install -y curl git stow
 bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/script/shelly-bootstrap)
 ```
 
-or
-``` sh-session
-bash <(curl -sSL https://is.gd/shellybootstrap)
-```
-
 This downloads this repo and links my dotfiles.
 
 Stop right here for a minimal setup, or install packages for a complete
@@ -45,9 +40,11 @@ setup.
 
 1.  Install [Nix](https://nixos.org/nix)
 
-    On NixOS, Nix is already installed.
+    On NixOS, Nix is already installed. For other systems, follow the
+    [official installation instructions](https://nixos.org/download.html) or
+    try those that follow:
 
-    For other Linux systems:
+    Linux systems:
 
     ```bash
     sh <(curl -fsSL https://nixos.org/nix/install) --daemon
@@ -64,7 +61,7 @@ setup.
     Install Nix with the following options:
 
     ```bash
-    sh <(curl -fsSL https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
+    sh <(curl -L https://nixos.org/nix/install)
     ```
 
 2.  Install [Homebrew](https://brew.sh) on macOS
@@ -73,7 +70,7 @@ setup.
     Cask.
 
     ```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
 4.  Install packages
