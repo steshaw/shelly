@@ -1,16 +1,16 @@
-# Shelly
+# 🐚 Shelly
 
 My [dotfiles](./files/home), [shell scripts](./script), and [packages](./nix).
 
-Note that this is a "note to self". I don't imagine anyone else will want to
-install my dotfiles :). It could provide some inspiration for your own
-dotfile management.
+This is a "note to self". I don't imagine anyone else will want to install
+my dotfiles 😁. It could provide some inspiration for your own dotfile
+management.
 
-## Installation
 
-### Install dotfiles
+## Install dotfiles
 
-1. First, move any existing dotfiles aside. For example,
+1. First, move any existing dotfiles aside. For example, on a fresh machine,
+   you might need something like:
 
 ```bash
 mkdir dotfiles.bup && mv .profile .bashrc .bash_logout .zshrc dotfiles.bup/
@@ -18,14 +18,14 @@ mkdir dotfiles.bup && mv .profile .bashrc .bash_logout .zshrc dotfiles.bup/
 
 2. Install prerequisites
 
-You'll need `curl`, `git`, and `stow`. For example, on Ubuntu this will
-install the prerequisites:
+You'll need `curl`, `git`, and `stow`. For example, on Ubuntu, issue the
+following command:
 
 ```bash
 sudo apt install -y curl git stow
 ```
 
-3. Bootstrap my dotfiles on a new machine like this:
+3. Run the bootstrap script
 
 ``` sh-session
 bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/script/shelly-bootstrap)
@@ -33,10 +33,10 @@ bash <(curl -s https://raw.githubusercontent.com/steshaw/shelly/main/script/shel
 
 This downloads this repo and links my dotfiles.
 
-Stop right here for a minimal setup, or install packages for a complete
-setup.
+You can stop right here for a minimal setup.
 
-### Install packages (optional)
+
+## Install packages (optional)
 
 1.  Install [Nix](https://nixos.org/nix)
 
@@ -64,16 +64,15 @@ setup.
     sh <(curl -L https://nixos.org/nix/install)
     ```
 
-2.  Install [Homebrew](https://brew.sh) on macOS
+2.  Install [Homebrew](https://brew.sh) (macOS only)
 
-    This is used primarily to install desktop applications via Homebrew
-    Cask.
+    Homebrew is used primarily to install desktop applications.
 
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
-4.  Install packages
+3.  Install packages
 
     This will install packages.
 
@@ -81,37 +80,39 @@ setup.
     shelly-bootstrap-pkgs
     ```
 
-### Set up SSH+Git+GitHub+GPG (optional)
 
-#### SSH
+## Additional setup (optional)
 
-1.  Generate an SSH key:
+### SSH
 
-    ```bash
-    generate-ssh-key
-    ```
+Generate an SSH key:
 
-#### GitHub
+```bash
+generate-ssh-key
+```
 
-2.  Authenticate with GitHub:
+### GitHub
 
-    ```bash
-    gh auth login
-    ```
+Authenticate with GitHub:
 
-#### Myrepos
+```bash
+gh auth login
+```
 
-3.  Clone my repos
+### Myrepos
 
-    ```bash
-    cd ~/Code && mr checkout
-    ```
-#### GNU Privacy Guard
+Clone my repos
 
-4. On existing machine
+```bash
+cd ~/Code && mr checkout
+```
 
-   1. `git-signing-key export`
-   2. `rsync-mv git-gpg-key-*.gpg new-machine:`
-   3. `ssh new-machine`
-   4. `git-signing-key import`
-   5. `rm git-gpg-key-*.gpg`
+### GNU Privacy Guard
+
+On existing machine:
+
+  1. `git-signing-key export`
+  2. `rsync-mv git-gpg-key-*.gpg new-machine:`
+  3. `ssh new-machine`
+  4. `git-signing-key import`
+  5. `rm git-gpg-key-*.gpg`
