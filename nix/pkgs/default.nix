@@ -29,7 +29,6 @@ with pkgs; [
   cabal2nix
   coreutils
   curl
-  dbxcli # Defined in overlay/dbxcli.nix
   delta
   dhall
   direnv
