@@ -14,10 +14,12 @@ shelly-set-iterm-colour() {
   dark_color_preset='Dracula'
   light_color_preset='Light Background'
 
-  if [[ $mode == 'dark' ]]; then
-    it2setcolor preset "$dark_color_preset"
-  else
-    it2setcolor preset "$light_color_preset"
+  if [[ -r ~/.iterm2_shell_integration.bash ]]; then
+    if [[ $mode == 'dark' ]]; then
+      it2setcolor preset "$dark_color_preset"
+    else
+      it2setcolor preset "$light_color_preset"
+    fi
   fi
 }
 
