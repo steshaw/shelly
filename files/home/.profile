@@ -169,3 +169,5 @@ if [[ ${profile_startup} -eq 1 ]]; then
 fi
 
 export QT_QPA_PLATFORMTHEME=gtk2
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
