@@ -11,9 +11,9 @@ _main() {
 
     dockerEtc=/Applications/Docker.app/Contents/Resources/etc
 
-    sourceExists "${dockerEtc}/docker.${shell}-completion"
-    sourceExists "${dockerEtc}/docker-machine.${shell}-completion"
-    sourceExists "${dockerEtc}/docker-compose.${shell}-completion"
+    has docker && sourceExists "${dockerEtc}/docker.${shell}-completion"
+    has docker-machine && sourceExists "${dockerEtc}/docker-machine.${shell}-completion"
+    has docker-compose && sourceExists "${dockerEtc}/docker-compose.${shell}-completion"
   fi
 }
 _main
