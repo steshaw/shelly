@@ -6,6 +6,10 @@
 enable_exa=1
 enable_lsd=0
 
+is_gnu_ls() {
+  ls --classify >/dev/null 2>&1
+}
+
 if [[ $enable_exa -ne 0 ]] && has exa; then
   alias ls='exa --classify'
   alias l='ls --long --group-directories-first'
@@ -18,7 +22,7 @@ else
     alias l='ls -l --human-readable'
     alias ll='l --almost-all'
     alias la='l --all'
-  elif ls --color >/dev/null 2>&1; then
+  elif is_gnu_ls; then
     # GNU ls.
     alias ls='ls --color --classify'
     alias l='ls -l --human-readable'
