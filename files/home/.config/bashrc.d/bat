@@ -2,4 +2,3 @@
 # shellcheck shell=bash
 
 alias batnp='bat --pager=none'
-alias cat=bat
