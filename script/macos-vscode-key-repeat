@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+sudo defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
