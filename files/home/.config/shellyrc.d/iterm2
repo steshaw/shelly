@@ -1,16 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 isBash && sourceExists ~/.iterm2_shell_integration.bash
 isZsh && sourceExists ~/.iterm2_shell_integration.zsh
-
-iterm-colour() {
-  if [[ -r ~/.iterm2_shell_integration.bash ]]; then
-    if [[ $ITERM_COLOUR == 'dark' ]]; then
-      ITERM_COLOUR='light'
-      it2setcolor preset 'Light Background'
-    else
-      ITERM_COLOUR='dark'
-      it2setcolor preset 'Dark Background'
-    fi
-  fi
-}
