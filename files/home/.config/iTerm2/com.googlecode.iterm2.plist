@@ -1512,7 +1512,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.12650813466494845</real>
+			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1635,7 +1635,7 @@
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>TimeBetweenTips</key>
-	<real>86400</real>
+	<real>604800</real>
 	<key>TmuxUsesDedicatedProfile</key>
 	<false/>
 	<key>TmuxVariableWindowSizesSupported</key>
