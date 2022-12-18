@@ -5,7 +5,11 @@ command_timeout = 1000
 #   ╭─
 #   ╰─$
 #
-# It currently causes problems with long lines.
+# It currently causes breaks wrapping lines beyond the edge of the terminal.
+#
+# See:
+#  "Unicode characters break long command wrapping"
+#   https://github.com/starship/starship/issues/3250
 
 #format = """
 #[╭─](green)\
@@ -81,10 +85,16 @@ command_timeout = 1000
 
 #format = '$all'
 
+
 [aws]
 disabled = true
 
 [gcloud]
+disabled = true
+
+# Disable jobs while broken on macOS.
+# https://github.com/starship/starship/issues/3096#issuecomment-1116090294
+[jobs]
 disabled = true
 
 [character]
