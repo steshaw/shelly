@@ -1,74 +1,85 @@
 command_timeout = 1000
 
-format = """
-[╭─](green)\
-$username\
-$hostname\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$cobol\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$env_var\
-$crystal\
-$custom\
-$sudo\
-$cmd_duration\
-$line_break\
-[╰─](green)\
-$jobs\
-$battery\
-$time\
-$status\
-$shell\
-$character"""
+#
+# Comment out prompt with pipes. e.g.
+#   ╭─
+#   ╰─$
+#
+# It currently causes problems with long lines.
+
+#format = """
+#[╭─](green)\
+#format = """
+#[╭─](green)\
+#$username\
+#$hostname\
+#$shlvl\
+#$singularity\
+#$kubernetes\
+#$directory\
+#$vcsh\
+#$git_branch\
+#$git_commit\
+#$git_state\
+#$git_metrics\
+#$git_status\
+#$hg_branch\
+#$docker_context\
+#$package\
+#$cmake\
+#$cobol\
+#$dart\
+#$deno\
+#$dotnet\
+#$elixir\
+#$elm\
+#$erlang\
+#$golang\
+#$helm\
+#$java\
+#$julia\
+#$kotlin\
+#$lua\
+#$nim\
+#$nodejs\
+#$ocaml\
+#$perl\
+#$php\
+#$pulumi\
+#$purescript\
+#$python\
+#$rlang\
+#$red\
+#$ruby\
+#$rust\
+#$scala\
+#$swift\
+#$terraform\
+#$vlang\
+#$vagrant\
+#$zig\
+#$nix_shell\
+#$conda\
+#$memory_usage\
+#$aws\
+#$gcloud\
+#$openstack\
+#$azure\
+#$env_var\
+#$crystal\
+#$custom\
+#$sudo\
+#$cmd_duration\
+#$line_break\
+#[╰─](green)\
+#$jobs\
+#$battery\
+#$time\
+#$status\
+#$shell\
+#$character"""
+
+#format = '$all'
 
 [aws]
 disabled = true
@@ -77,8 +88,8 @@ disabled = true
 disabled = true
 
 [character]
-success_symbol = "[\\$](bold green)"
-error_symbol = "[✗](bold red)"
+success_symbol = '[\$](bold green)'
+error_symbol = '[✗](bold red)'
 
 [directory]
 style = "bold blue"
