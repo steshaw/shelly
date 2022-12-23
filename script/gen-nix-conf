@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+cd ~/.config/nix/
+
 timestamp() {
   TZ=UTC printf '%(%Y%m%d-%H%M%S)T\n' -1
 }

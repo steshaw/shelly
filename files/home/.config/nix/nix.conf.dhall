@@ -1,5 +1,6 @@
 let substituters = [
   "https://cache.nixos.org",
+  "https://cache.iog.io",
 ]
 
 let trusted-substituters = [
