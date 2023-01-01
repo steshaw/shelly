@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-version=2.10.1
+version=2.12.0
 
 if [[ $# -eq 1 ]]; then
   version="$1"
@@ -14,17 +14,19 @@ fi
 
 # shellcheck disable=SC2046
 nix=$(readlink -f $(which nix))
-#nix='/nix/store/5kdlfa4clss463zpf6wr6wnva1fczpfz-nix-2.10.1/bin/nix'
 # shellcheck disable=SC2046,SC2086
 nix_pkg=$(dirname $(dirname $nix))
-install_cmd="
-  $nix profile remove $nix_pkg;
-  $nix profile install --verbose nix/${version}
-"
+
+install_cmd() {
+  cat <<!
+    $nix profile remove $nix_pkg;
+    $nix profile install --verbose nix/${version}
+!
+}
 
 if [[ $(uname) == Darwin ]]; then
   sudo -i sh -e -c "
-    $install_cmd;
+    $(install_cmd);
     launchctl remove org.nixos.nix-daemon;
     launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist;
   "
@@ -32,12 +34,12 @@ else
   if [[ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
     echo Multi-user upgrade
     sudo -i sh -e -c "
-      $install_cmd nixpkgs#cacert;
+      $(install_cmd nixpkgs#cacert);
       systemctl daemon-reload;
       systemctl restart nix-daemon;
     "
   else
     echo Single-user upgrade
-    $install_cmd 'nixpkgs#cacert'
+    sh -c "$(install_cmd nixpkgs#cacert)"
   fi
 fi
