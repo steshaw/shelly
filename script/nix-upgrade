@@ -14,26 +14,27 @@ fi
 
 # shellcheck disable=SC2046
 nix=$(readlink -f $(which nix))
+#nix='/nix/store/5kdlfa4clss463zpf6wr6wnva1fczpfz-nix-2.10.1/bin/nix'
 # shellcheck disable=SC2046,SC2086
 nix_pkg=$(dirname $(dirname $nix))
 install_cmd="
-  $nix profile remove $nix_pkg &&
-    $nix profile install --verbose nix/${version}
+  $nix profile remove $nix_pkg;
+  $nix profile install --verbose nix/${version}
 "
 
 if [[ $(uname) == Darwin ]]; then
-  sudo -i sh -c "
-    $install_cmd &&
-      launchctl remove org.nixos.nix-daemon &&
-      launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist
+  sudo -i sh -e -c "
+    $install_cmd;
+    launchctl remove org.nixos.nix-daemon;
+    launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist;
   "
 else
   if [[ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
     echo Multi-user upgrade
-    sudo -i sh -c "
-      $install_cmd nixpkgs#cacert &&
-        systemctl daemon-reload &&
-        systemctl restart nix-daemon
+    sudo -i sh -e -c "
+      $install_cmd nixpkgs#cacert;
+      systemctl daemon-reload;
+      systemctl restart nix-daemon;
     "
   else
     echo Single-user upgrade
