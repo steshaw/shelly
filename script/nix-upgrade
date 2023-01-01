@@ -20,7 +20,7 @@ nix_pkg=$(dirname $(dirname $nix))
 install_cmd() {
   cat <<!
     $nix profile remove $nix_pkg;
-    $nix profile install --verbose nix/${version}
+    $nix profile install --verbose nix/${version} || $nix profile rollback
 !
 }
 
