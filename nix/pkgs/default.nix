@@ -88,7 +88,7 @@ with pkgs; [
   unzip
   up
   wget
-  youtube-dl
+  yt-dlp
   yq
   zsh
 
