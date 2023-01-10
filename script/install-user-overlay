@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-nix-env -f '<nixpkgs>' -r -iA userPackages
