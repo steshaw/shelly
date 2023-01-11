@@ -160,7 +160,7 @@ set smarttab
 set softtabstop=2
 set tabstop=4
 set termguicolors
-set textwidth=76
+set textwidth=80
 
 if &fileformat == 'dos'
   set nofixendofline
