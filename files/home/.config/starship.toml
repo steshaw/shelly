@@ -106,6 +106,7 @@ style = "bold blue"
 truncate_to_repo = false
 truncation_symbol = "…/"
 truncation_length = 5
+repo_root_style = 'bold cyan'
 
 [username]
 show_always = true
