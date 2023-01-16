@@ -4,4 +4,4 @@ set -euo pipefail
 
 project_root=$(git rev-parse --show-toplevel)
 name=$(basename "$project_root")
-echo gh repo create "$name" --private --confirm "$@"
+gh repo create "$name" --source "$project_root" --remote origin --private "$@"
