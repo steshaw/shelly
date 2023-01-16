@@ -51,6 +51,7 @@
 
 [push]
 	default = simple
+	autoSetupRemote = true
 
 [rerere]
 	enabled = true
