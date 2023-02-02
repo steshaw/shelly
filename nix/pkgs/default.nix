@@ -70,8 +70,7 @@ with pkgs; [
   perl
   pstree
   pup
-  python
-  python2
+  python3
   ripgrep
   rlwrap
   rsync
