@@ -85,3 +85,5 @@
    (append
      '(("\\.adoc\\'" . adoc-mode))
      auto-mode-alist))
+
+(setq org-duration-format (quote h:mm))
