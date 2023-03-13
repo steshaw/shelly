@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-sudo defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
