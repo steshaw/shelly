@@ -47,7 +47,7 @@ You can stop right here for a minimal setup.
     Linux systems:
 
     ```bash
-    sh <(curl -fsSL https://nixos.org/nix/install) --daemon
+    sh <(curl -fsSL https://nixos.org/nix/install) --daemon --yes
     ```
 
     For macOS systems:
