@@ -108,15 +108,22 @@ Clone my repos
 cd ~/Code && mr checkout
 ```
 
-### GNU Privacy Guard
+### Git signing key
 
 On existing machine:
 
-  1. `git-signing-key export`
-  2. `rsync-mv git-gpg-key-*.gpg new-machine:`
-  3. `ssh new-machine`
-  4. `git-signing-key import`
-  5. `rm git-gpg-key-*.gpg`
+```bash
+git-signing-key export
+```
+```bash
+rsync-mv git-gpg-key-*.gpg ${newMachine}:
+```
+```bash
+ssh $newMachine 'source .profile; git-signing-key import'
+```
+```bash
+ssh $newMachine 'rm git-gpg-key-*.gpg'
+```
 
 ### Doom Emacs
 
