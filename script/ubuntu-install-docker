@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-echo 'Installing docker and docker-compose ...'
-
-sudo apt-get -qqy install docker docker-compose
-sudo usermod -aG docker ${USER}
