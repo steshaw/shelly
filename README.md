@@ -88,6 +88,7 @@ You can stop right here for a minimal setup.
 Generate an SSH key:
 
 ```bash
+cd ~/.ssh
 generate-ssh-key
 ```
 
@@ -122,3 +123,11 @@ On existing machine:
 ```bash
 doom install
 ```
+
+### GitHub
+
+```bash
+gh auth login --git-protocol ssh --hostname github.com --web
+```
+
+If you are operating over ssh, you will get an error starting the browser (because the `DISPLAY` environment variable isn't available). Instead, go directly to https://github.com/login/device to enter your one-time code.
