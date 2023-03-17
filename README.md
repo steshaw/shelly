@@ -116,3 +116,9 @@ On existing machine:
   3. `ssh new-machine`
   4. `git-signing-key import`
   5. `rm git-gpg-key-*.gpg`
+
+### Doom Emacs
+
+```bash
+doom install
+```
