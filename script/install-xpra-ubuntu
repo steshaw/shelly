@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-curl -sS http://winswitch.org/gpg.asc | sudo apt-key add -
-echo "deb http://winswitch.org/ $(lsb_release -cs) main" |
-  sudo tee -a /etc/apt/sources.list.d/winswitch.list
-sudo apt-get update -qy
-sudo apt-get -qqy install xpra
