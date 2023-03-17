@@ -97,7 +97,17 @@ generate-ssh-key
 Authenticate with GitHub:
 
 ```bash
-gh auth login
+gh auth login --git-protocol ssh --hostname github.com --web
+```
+
+If you are operating over ssh, you will get an error starting the browser (because the `DISPLAY` environment variable isn't available). Instead, go directly to https://github.com/login/device to enter your one-time code.
+
+### Git signing key
+
+On existing machine:
+
+```bash
+git-signing-key copy $newMachine
 ```
 
 ### Myrepos
@@ -108,33 +118,8 @@ Clone my repos
 cd ~/Code && mr checkout
 ```
 
-### Git signing key
-
-On existing machine:
-
-```bash
-git-signing-key export
-```
-```bash
-rsync-mv git-gpg-key-*.gpg ${newMachine}:
-```
-```bash
-ssh $newMachine 'source .profile; git-signing-key import'
-```
-```bash
-ssh $newMachine 'rm git-gpg-key-*.gpg'
-```
-
 ### Doom Emacs
 
 ```bash
 doom install
 ```
-
-### GitHub
-
-```bash
-gh auth login --git-protocol ssh --hostname github.com --web
-```
-
-If you are operating over ssh, you will get an error starting the browser (because the `DISPLAY` environment variable isn't available). Instead, go directly to https://github.com/login/device to enter your one-time code.
