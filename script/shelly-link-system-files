@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $(uname) == 'Linux' ]]; then
+  package=linux
+else
+  echo 'Unsupported system'
+fi
+stow --verbose --dir "${SHELLY_HOME}/files/system" --target=/ "${package}"
