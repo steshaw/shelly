@@ -7,4 +7,4 @@ i3-wm.window.border.size: 1
 regolith.lockscreen.wallpaper.file: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
 regolith.wallpaper.file: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
 regolith.wallpaper.options: zoom
-regolith.look.path: /usr/share/regolith-look/blackhole
+regolith.look.path: /usr/share/regolith-look/default
