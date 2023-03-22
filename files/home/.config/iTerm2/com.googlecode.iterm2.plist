@@ -5,7 +5,7 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AutoCommandHistory</key>
-	<true/>
+	<false/>
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
 	<key>BracketedPasteMode</key>
