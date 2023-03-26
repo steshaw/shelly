@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
-defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
+if false; then
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+  defaults write com.jetbrains.intellij ApplePressAndHoldEnabled -bool false
+  defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
+else
+  # Let's try disabling globally so that JetBrains Client works okay.
+  defaults write -g ApplePressAndHoldEnabled -bool false
+fi
