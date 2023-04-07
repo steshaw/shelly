@@ -49,6 +49,8 @@ short_org=$org
 case $org in
   input-output-hk) short_org='io';;
   io) org='input-output-hk';;
+  ModusCreateOrg) short_org='modus';;
+  modus) org='ModusCreateOrg';;
 esac
 
 cd "${SHELLY_CODE_DIR}"
