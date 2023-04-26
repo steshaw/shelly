@@ -1,5 +1,6 @@
 [user]
 	name = "Steven Shaw"
+	email = steven@steshaw.org
 	signingkey = "0afe77f7474d1596ee557a291d9a17dfd23dcb91"
 
 [alias]
@@ -107,12 +108,6 @@
 
 [gpg]
 	program = gpg
-
-[include]
-	path = tweag.gitconfig
-[includeIf "gitdir:~/Code/steshaw/"]
-	path = personal.gitconfig
-
 
 ;
 ; Recommended delta configuration:
