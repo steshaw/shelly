@@ -16,5 +16,5 @@ if [[ -n ${DISPLAY:-} ]]; then
     "$@"
 else
   # Attempt to use the Emacs daemon or start if necessary.
-  emacsclient --alternate-editor='' "$@"
+  emacsclient --tty --alternate-editor='' "$@"
 fi
