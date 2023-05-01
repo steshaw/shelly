@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+# -*- mode: sh; -*-
+# vim: set filetype=bash:
+# shellcheck shell=bash
 
 if has starship; then
   function set_win_title(){

@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+# -*- mode: sh; -*-
+# vim: set filetype=bash:
+# shellcheck shell=bash
 
 simple_prompt() {
   PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
