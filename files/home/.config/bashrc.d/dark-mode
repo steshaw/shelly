@@ -37,10 +37,18 @@ shelly-set-bat-theme() {
   export BAT_THEME
 }
 
+shelly-set-emacs-theme() {
+  colour_scheme="$1"
+  # Switch Emacs daemon's theme (if started).
+  expr="(setq doom-theme ${colour_scheme}-theme)"
+  emacsclient --no-wait -e "$expr" >/dev/null 2>&1
+}
+
 shelly-set-theme() {
   mode="$1"
   shelly-set-iterm-colour "$mode"
   shelly-set-bat-theme "$mode"
+  shelly-set-emacs-theme "$mode"
   export SHELLY_DARK_MODE="$mode"
 }
 
