@@ -2,23 +2,19 @@
 
 set -euo pipefail
 
-if [[ ${1:-} == -nw ]]; then
+if [[ ${1:-} == '--tty' ]]; then
   unset DISPLAY
   shift
 fi
 
 if [[ -n ${DISPLAY:-} ]]; then
   # Attempt to open in the X Emacs.
-  # Fall back on `e -nw`.
+  # Fall back on `e --tty`.
   emacsclient \
     --no-wait \
-    --alternate-editor='e -nw' \
+    --alternate-editor='e --tty' \
     "$@"
 else
-  # Attempt to use the emacs daemon/service.
-  # Fall back on `emacs -nw`.
-  emacsclient \
-    --no-wait \
-    --alternate-editor='emacs -nw' \
-    "$@"
+  # Attempt to use the Emacs daemon or start if necessary.
+  emacsclient --alternate-editor='' "$@"
 fi
