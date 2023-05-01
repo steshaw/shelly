@@ -95,28 +95,6 @@ with pkgs; [
   nodePackages.gitmoji-cli
   pkgs.gitAndTools.lab
 
-  #
-  # Programming Languages.
-  #
-  (notDarwin ats2)
-  coq
-  idris2
-  (notDarwin agda)
-  rustup
-
-  # Haskell.
-  cabal-install
-  ghcid
-  haskell.compiler.ghc924
-  hlint
-  stack
-
-  # Unfortunately, these will build locally.
-  steshaw.brittany
-  steshaw.fourmolu
-  steshaw.gen-hie
-  steshaw.pointfree
-
   # Docker
   #docker
   #docker-compose
