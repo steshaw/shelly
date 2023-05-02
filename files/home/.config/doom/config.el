@@ -28,10 +28,20 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (defconst light-theme 'doom-acario-light)
-;(defconst dark-theme 'doom-one)
+
 ;(defconst dark-theme 'doom-dracula)
+;(defconst dark-theme 'doom-material-dark)
+;(defconst dark-theme 'doom-monokai-octagon)
 ;(defconst dark-theme 'doom-moonlight)
-(defconst dark-theme 'doom-palenight)
+;(defconst dark-theme 'doom-nord)
+;(defconst dark-theme 'doom-one)
+;(defconst dark-theme 'doom-palenight)
+;(defconst dark-theme 'doom-rouge)
+;(defconst dark-theme 'doom-snazzy)
+(defconst dark-theme 'doom-tokyo-night)
+;(defconst dark-theme 'doom-vibrant)
+;(defconst dark-theme 'doom-wilmersdorf)
+
 (message "SHELLY_DARK_MODE = %s" (getenv "SHELLY_DARK_MODE"))
 (setq doom-theme (if (equal (getenv "SHELLY_DARK_MODE") "dark")
                      dark-theme light-theme))
