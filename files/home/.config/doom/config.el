@@ -27,7 +27,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(defconst light-theme 'doom-acario-light)
+(defconst light-theme 'doom-one-light)
+;(defconst light-theme 'doom-acario-light)
 
 ;(defconst dark-theme 'doom-dracula)
 ;(defconst dark-theme 'doom-material-dark)
@@ -43,8 +44,14 @@
 ;(defconst dark-theme 'doom-wilmersdorf)
 
 (message "SHELLY_DARK_MODE = %s" (getenv "SHELLY_DARK_MODE"))
-(setq doom-theme (if (equal (getenv "SHELLY_DARK_MODE") "dark")
-                     dark-theme light-theme))
+(defun set-colour-scheme (dark-or-light)
+  (setq doom-theme
+        (if (equal dark-or-light "dark")
+            dark-theme
+            light-theme)))
+(defun update-colour-scheme ()
+  (set-colour-scheme (getenv "SHELLY_DARK_MODE")))
+(update-colour-scheme)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
