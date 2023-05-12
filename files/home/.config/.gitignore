@@ -1,15 +1,28 @@
+/.gsd-keyboard.settings-ported
+/Bitwarden CLI/
+/BraveSoftware/
+/Code/
+/Hyper/
+/JetBrains/
+/Keybase/
+/Microsoft/
+/QtProject.conf
+/QtProject/
+/RescueTime.com/
+/Slack/
+/Thunar/
+/Trolltech.conf
+/VirtualBox
+/Visual Studio Live Share/
 /akregatorrc
 /autostart/
 /autostart/keybase_autostart.desktop
 /balena-etcher-electron/
 /baloofilerc
-/Bitwarden CLI/
 /bluedevilglobalrc
-/BraveSoftware/
 /caja/
 /chromium/
 /coc/
-/Code/
 /composer/
 /configstore
 /containers/
@@ -37,19 +50,17 @@
 /goa-1.0/
 /google-chrome/
 /gpick/
-/.gsd-keyboard.settings-ported
+/grammarly-languageserver/
 /gtkrc
 /gtkrc-2.0
 /gwenviewrc
 /htop
 /hub
-/Hyper/
 /ibus/
 /inkscape/
-/JetBrains/
 /jgit/
-/kactivitymanagerdrc
 /kactivitymanagerd-statsrc
+/kactivitymanagerdrc
 /kateschemarc
 /katevirc
 /kcharselectrc
@@ -60,7 +71,6 @@
 /kded5rc
 /kdeglobals
 /keybase/
-/Keybase/
 /kfontinstuirc
 /kfontviewrc
 /kglobalshortcutsrc
@@ -87,7 +97,6 @@
 /libreoffice/
 /linkchecker/
 /menus/
-/Microsoft/
 /mimeapps.list
 /monitors.xml
 /nautilus/
@@ -95,12 +104,12 @@
 /nextjs-nodejs
 /okularpartrc
 /okularrc
-/pavucontrol.ini
 /pavucontrol-qt/
+/pavucontrol.ini
 /plasma-localerc
 /plasma-nm
-/plasmanotifyrc
 /plasma-org.kde.plasma.desktop-appletsrc
+/plasmanotifyrc
 /plasmarc
 /plasmashellrc
 /pluma/
@@ -111,11 +120,7 @@
 /pypoetry/
 /qt5ct/
 /qterminal.org/
-/QtProject/
-/QtProject.conf
-/RescueTime.com/
 /session/
-/Slack/
 /spectaclerc
 /startupconfig
 /startupconfigfiles
@@ -127,16 +132,12 @@
 /teamviewer/
 /terminator/
 /terminology/
-/Thunar/
 /touchpadrc
 /touchpadxlibinputrc
 /trashrc
-/Trolltech.conf
 /update-notifier
 /user-dirs.dirs
 /user-dirs.locale
-/VirtualBox
-/Visual Studio Live Share/
 /vlc/
 /xfce4/
 /yarn/
