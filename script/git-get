@@ -4,10 +4,14 @@ set -euo pipefail
 
 script_name=$(basename "$0")
 
-if [[ $# -ne 1 ]]; then
-  echo "usage: $script_name repo (i.e. leanprover/lean4)"
+if [[ $# -eq 0 ]]; then
+  echo "usage: $script_name repo (i.e. leanprover/lean4) [git arguments]"
   exit 2
 fi
+
+# ty : 'ssh' | 'https'
+ty='ssh'
+ty='https'
 
 repo_path=${1#https://}
 repo_path=${repo_path#git@}
@@ -20,6 +24,7 @@ repo_path=${repo_path%%/blob/*} # For GitHub
 repo_path=${repo_path%%/tree/*} # For GitHub
 repo_path=${repo_path%%/-/tree/*} # For GitLab
 repo_path=${repo_path%%/src/*} # For Bitbucket
+shift
 
 IFS=/ read -r -a fields <<<"$repo_path"
 case ${#fields[@]} in
@@ -54,4 +59,9 @@ case $org in
 esac
 
 cd "${SHELLY_CODE_DIR}"
-git clone "${user}@${host}:${org}/${repo}" "${short_org}/${repo}"
+if [[ $ty == 'ssh' ]]; then
+  git clone "$@" "${user}@${host}:${org}/${repo}.git" "${short_org}/${repo}"
+else
+  # ty = 'https'
+  git clone "$@" "https://${host}/${org}/${repo}.git" "${short_org}/${repo}"
+fi
