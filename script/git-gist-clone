@@ -7,8 +7,8 @@ if [[ $# -ne 2 ]]; then
   exit 2
 fi
 
-gist=${1#https://gist.github.com/*/}
-gist=${gist#https://gist.github.com/}
+gist_id=${1#https://gist.github.com/*/}
+gist_id=${gist_id#https://gist.github.com/}
 dir=$2
 
 if false; then
@@ -16,4 +16,4 @@ if false; then
   cd "$root"
 fi
 
-git clone "git@gist.github.com:${gist}.git" "${dir}"
+gh gist clone "${gist_id}" "${dir}"
