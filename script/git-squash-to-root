@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+commit=$(git commit-tree 'HEAD^{tree}' -m "🎉 Initialise")
+git reset "$commit"
