@@ -87,6 +87,7 @@ with pkgs; [
   unzip
   up
   wget
+  world
   yt-dlp
   yq
   zsh
