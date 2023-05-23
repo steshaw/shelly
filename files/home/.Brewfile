@@ -1,7 +1,5 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 brew "mas"
@@ -17,6 +15,7 @@ cask "intellij-idea"
 cask "iterm2"
 cask "karabiner-elements"
 cask "kindle"
+cask "microsoft-teams"
 cask "nightfall"
 cask "nomachine"
 cask "postman"
@@ -27,4 +26,6 @@ cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
 mas "HP Easy Scan", id: 967004861
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
 mas "Tailscale", id: 1475387142
