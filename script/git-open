@@ -11,6 +11,7 @@ url=$(git remote get-url --push origin)
 
 case $url in
   http*)
+    url="${url%%.git}"
     echo Opening "$url ..."
     o "$url"
     ;;
