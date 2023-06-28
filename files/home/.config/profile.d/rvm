@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if false; then
   if [[ -d ~/.rvm ]]; then

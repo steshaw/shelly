@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ -r ~/.asdf/asdf.sh ]]; then
   # local install
   sourceExists $HOME/.asdf/asdf.sh

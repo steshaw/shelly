@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Add Stow-managed bin directory.
 # - Packages are installed at ~/.shelly/opt/<package>.
 # - Install script conventionally localed at ~/.shelly/opt/install.

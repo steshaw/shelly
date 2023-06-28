@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if true; then
   if [[ -d ~/.rbenv ]]; then

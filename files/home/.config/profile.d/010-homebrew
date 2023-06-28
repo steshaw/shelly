@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Bail if HOMEBREW already configured.
 # This makes a _huge_ difference to shell start times (such as well

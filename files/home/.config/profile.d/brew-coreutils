@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if has brew; then
   coreutilsBase="${HOMEBREW_PREFIX}/opt/coreutils/libexec"
