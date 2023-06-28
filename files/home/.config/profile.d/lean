@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Configure the Lean version manager (ala rustup).
+sourceExists ~/.elan/env
