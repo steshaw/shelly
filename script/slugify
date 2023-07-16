@@ -15,7 +15,7 @@ for file_path in "$@"; do
   output=$file_path
 
   # Remove some punctuation.
-  output=$(echo "$output" | tr -d \'\"\!)
+  output=$(echo "$output" | tr -d \'\"\!\(\))
 
   # Replace other punctuation with dashes.
   output=${output//[,;:]/-}
