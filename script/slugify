@@ -36,6 +36,9 @@ for file_path in "$@"; do
   # Underscores to dash.
   output=${output//_/-}
 
+  # Plus to dash.
+  output=${output//+/-}
+
   # Remove spaces next to dashes.
   output=${output//- /-}
   output=${output// -/-}
