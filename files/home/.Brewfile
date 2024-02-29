@@ -7,7 +7,6 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 brew "koekeishiya/formulae/skhd", args: ["HEAD"]
 cask "amethyst"
-cask "android-platform-tools"
 cask "caffeine"
 cask "docker"
 cask "dropbox"
