@@ -91,6 +91,7 @@ with pkgs; [
   yt-dlp
   yq
   zsh
+  zstd
 
   gitAndTools.git-filter-repo
   nodePackages.gitmoji-cli
