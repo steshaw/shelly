@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [ -f "./gradlew" ]; then
+    ./gradlew "$@"
+else
+    gradle "$@"
+fi
