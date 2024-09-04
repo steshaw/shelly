@@ -18,10 +18,9 @@ nix=$(readlink -f $(which nix))
 nix_pkg=$(dirname $(dirname $nix))
 
 install_cmd() {
-  additional_pkg=$1
   cat <<!
     $nix profile remove $nix_pkg;
-    $nix profile install --verbose nix/${version} ${additional_pkg} || $nix profile rollback
+    $nix profile install --verbose nix/${version} || $nix profile rollback
 !
 }
 
