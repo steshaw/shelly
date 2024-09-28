@@ -1,9 +1,9 @@
 gnome.terminal.font: FiraCode Nerd Font Regular 12
 gnome.wallpaper: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
-i3-wm.gaps.focus_follows_mouse: 1
-i3-wm.gaps.inner.size: 1
-i3-wm.gaps.outer.size: 0
-i3-wm.window.border.size: 1
+wm.gaps.focus_follows_mouse: yes
+wm.gaps.inner.size: 0
+wm.gaps.outer.size: 0
+wm.window.border.size: 1
 regolith.lockscreen.wallpaper.file: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
 regolith.wallpaper.file: ~/Dropbox/Home/Wallpaper/johannes-plenio-317653-unsplash.jpg
 regolith.wallpaper.options: zoom
