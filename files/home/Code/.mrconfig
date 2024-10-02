@@ -15,68 +15,59 @@ checkout =
 	git clone --origin upstream --recurse-submodules https://gitlab.haskell.org/ghc/ghc.git
 	cd ghc
 	git config submodule.recurse true
-	git remote add origin git@gitlab.haskell.org:steshaw/ghc.git
+	git remote add origin https://gitlab.haskell.org/steshaw/ghc.git
 
 [ghc/ghc.nix]
 checkout = git clone https://github.com/alpmestan/ghc.nix
 
 [AndrasKovacs/elaboration-zoo]
-checkout = git clone 'git@github.com:AndrasKovacs/elaboration-zoo' 'elaboration-zoo'
+checkout = git clone 'https://github.com/AndrasKovacs/elaboration-zoo' 'elaboration-zoo'
 
 [AndrasKovacs/glued-eval-gist]
-checkout = git clone 'git@gist.github.com:a0e0938113b193d6b9c1c0620d853784.git' 'glued-eval-gist'
+checkout = git clone 'https://gist.github.com/a0e0938113b193d6b9c1c0620d853784.git' 'glued-eval-gist'
 
 [AndrasKovacs/smalltt]
-checkout = git clone 'git@github.com:AndrasKovacs/smalltt' 'smalltt'
+checkout = git clone 'https://github.com/AndrasKovacs/smalltt' 'smalltt'
 
 [edwinb/SPLV20]
 checkout = github-clone-fork edwinb/SPLV20
 update = mr sync
 
 [mgrabmueller/AlgorithmW]
-checkout = git clone 'git@github.com:mgrabmueller/AlgorithmW' 'AlgorithmW'
+checkout = git clone 'https://github.com/mgrabmueller/AlgorithmW' 'AlgorithmW'
 
 [mgrabmueller/disassembler]
-checkout = git clone 'git@github.com:mgrabmueller/disassembler' 'disassembler'
+checkout = git clone 'https://github.com/mgrabmueller/disassembler' 'disassembler'
 
 [mgrabmueller/down]
-checkout = git clone 'git@github.com:mgrabmueller/down' 'down'
+checkout = git clone 'https://github.com/mgrabmueller/down' 'down'
 
 [mgrabmueller/waddle]
-checkout = git clone 'git@github.com:mgrabmueller/waddle' 'waddle'
+checkout = git clone 'https://github.com/mgrabmueller/waddle' 'waddle'
 
 [stefan-hoeck/idris2-elab-util]
-checkout = git clone 'git@github.com:stefan-hoeck/idris2-elab-util' 'idris2-elab-util'
+checkout = git clone 'https://github.com/stefan-hoeck/idris2-elab-util' 'idris2-elab-util'
 
 [ocaml/ocaml]
-checkout = git clone 'git@github.com:ocaml/ocaml' 'ocaml'
+checkout = git clone 'https://github.com/ocaml/ocaml' 'ocaml'
 
 [camllight/camllight]
-checkout = git clone 'git@github.com:camllight/camllight' 'camllight'
+checkout = git clone 'https://github.com/camllight/camllight' 'camllight'
 
 [steshaw/project-scripts]
-checkout = git clone 'git@github.com:steshaw/project-scripts' 'project-scripts'
+checkout = git clone 'https://github.com/steshaw/project-scripts' 'project-scripts'
 
 [steshaw/project-directory]
-checkout = git clone 'git@github.com:steshaw/project-directory' 'project-directory'
+checkout = git clone 'https://github.com/steshaw/project-directory' 'project-directory'
 
 [haskell/haskell-language-server]
-checkout = git clone 'git@github.com:haskell/haskell-language-server' 'haskell-language-server'
+checkout = git clone 'https://github.com/haskell/haskell-language-server' 'haskell-language-server'
 
 [andreabedini/foliage]
-checkout = git clone 'git@github.com:andreabedini/foliage' 'foliage'
+checkout = git clone 'https://github.com/andreabedini/foliage' 'foliage'
 
 [edwinb/Yaffle]
-checkout = git clone 'git@github.com:edwinb/Yaffle' 'Yaffle'
+checkout = git clone 'https://github.com/edwinb/Yaffle' 'Yaffle'
 
 [haskell/cabal]
-checkout = git clone 'git@github.com:haskell/cabal' 'cabal'
-
-[tweag/www]
-checkout = git clone 'git@github.com:tweag/www' 'www'
-
-[tweag/meta]
-checkout = git clone 'git@github.com:tweag/meta' 'meta'
-
-[tweag/nickel]
-checkout = git clone 'git@github.com:tweag/nickel' 'nickel'
+checkout = git clone 'https://github.com/haskell/cabal' 'cabal'
