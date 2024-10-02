@@ -36,6 +36,7 @@ with pkgs; [
   du-dust
   dutree
   emacs
+  eternal-terminal
   exa
   fd
   file
