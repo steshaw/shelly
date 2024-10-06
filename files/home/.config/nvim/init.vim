@@ -34,6 +34,7 @@ fun! Plugs()
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'hashivim/vim-terraform'
   Plug 'idris-hackers/idris-vim'
+  Plug 'kmonad/kmonad-vim'
   Plug 'nelsyeung/twig.vim'
   Plug 'ollykel/v-vim'
   Plug 'purescript-contrib/purescript-vim'
