@@ -11,6 +11,7 @@ config.color_scheme = 'Dracula'
 --config.color_scheme = 'AdventureTime'
 
 config.window_decorations = "NONE"
+config.hide_tab_bar_if_only_one_tab = true
 
 config.font_size = 15.0
 
