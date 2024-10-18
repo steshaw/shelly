@@ -23,5 +23,7 @@ config.font = wezterm.font {
 --  weight = 'Regular',
 }
 
+-- config.debug_key_events = true
+
 -- and finally, return the configuration to wezterm
 return config
