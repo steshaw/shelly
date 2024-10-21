@@ -31,7 +31,7 @@ with pkgs; [
   bind # for dig. XXX: Any smaller package?
   bottom
   buildkite-cli
-  cabal2nix
+  (notDarwin cabal2nix)
   cmake
   coreutils
   curl
@@ -66,7 +66,7 @@ with pkgs; [
   moreutils # ts and more
   mr
   mtr
-  ncdu # NCurses Disk Usage
+  (notDarwin ncdu) # NCurses Disk Usage
   neofetch
   neovim
   #nix-direnv
