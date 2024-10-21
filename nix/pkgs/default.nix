@@ -12,7 +12,7 @@ with pkgs; [
   glibcLocales # Fix for locale issue.
   niv
   nix-prefetch-scripts
-  nixfmt
+  nixfmt-classic
   nixpkgs-fmt
   nox
 
@@ -42,7 +42,7 @@ with pkgs; [
   du-dust
   dutree
   eternal-terminal
-  exa
+  eza
   fd
   file
   fish
@@ -69,7 +69,7 @@ with pkgs; [
   ncdu # NCurses Disk Usage
   neofetch
   neovim
-  nix-direnv
+  #nix-direnv
   nodejs # Required for Coc.
   pandoc
   pass
