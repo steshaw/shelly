@@ -87,7 +87,6 @@
      '(("\\.lagda.md\\'" . agda2-mode))
      auto-mode-alist))
 
-(setq org-time-stamp-rounding-minutes '(0 30))
 
 ;; Reload files that have changed on disk.
 (global-auto-revert-mode t)
@@ -110,4 +109,8 @@
      '(("\\.adoc\\'" . adoc-mode))
      auto-mode-alist))
 
+; Org
+(setq org-time-stamp-rounding-minutes '(0 30))
 (setq org-duration-format (quote h:mm))
+; Try to stop weirld org parsing bug.
+(setq org-element-use-cache nil)
