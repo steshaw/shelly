@@ -7,6 +7,12 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 config.tab_bar_at_bottom = true
+config.audible_bell = 'Disabled'
+config.visual_bell = {
+  fade_in_duration_ms = 75,
+  fade_out_duration_ms = 75,
+  target = 'CursorColor',
+}
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Dracula'
