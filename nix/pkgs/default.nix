@@ -19,6 +19,11 @@ with pkgs; [
   bash-completion
   nix-bash-completions
 
+  # Emacs
+  (emacs29.pkgs.withPackages (epkgs: with epkgs; [
+    vterm
+  ]))
+
   # Other utilities.
   bandwhich
   bashInteractive_5
@@ -27,6 +32,7 @@ with pkgs; [
   bottom
   buildkite-cli
   cabal2nix
+  cmake
   coreutils
   curl
   delta
@@ -35,7 +41,6 @@ with pkgs; [
   dos2unix
   du-dust
   dutree
-  emacs
   eternal-terminal
   exa
   fd
@@ -55,6 +60,7 @@ with pkgs; [
   hunspellDicts.en-gb-large
   jq
   killall
+  libtool
   licensee
   lsd
   moreutils # ts and more
