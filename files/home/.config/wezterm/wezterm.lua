@@ -25,10 +25,10 @@ config.hide_tab_bar_if_only_one_tab = true
 -- -> => ++ <> >= <=
 config.font_size = 15.0
 config.font = wezterm.font {
-  family = 'Iosevka Term JBML',
---  family = 'Jetbrains Mono Nerd Font',
+  family = 'Iosevka Term JBMS',
+  weight = 'Regular',
+  stretch = 'Normal',
 --  stretch = 'Expanded',
---  weight = 'Regular',
 }
 
 -- config.debug_key_events = true
