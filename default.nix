@@ -8,9 +8,10 @@
 
 { sources ? import ./nix/sources.nix
 , nixpkgs ? sources.nixpkgs
+, system ? builtins.currentSystem
 }:
-import nixpkgs
-{
+import nixpkgs {
+  inherit system;
   overlays = [ ];
   config = { };
 }
