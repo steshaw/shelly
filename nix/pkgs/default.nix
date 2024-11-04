@@ -43,6 +43,7 @@ with pkgs; [
   dutree
   eternal-terminal
   eza
+  fastfetch
   fd
   file
   fish
@@ -67,7 +68,6 @@ with pkgs; [
   mr
   mtr
   (notDarwin ncdu) # NCurses Disk Usage
-  neofetch
   neovim
   #nix-direnv
   nodejs # Required for Coc.

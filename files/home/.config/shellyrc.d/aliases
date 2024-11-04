@@ -33,3 +33,5 @@ fi
 
 alias sml='rlwrap sml'
 alias ocaml='rlwrap ocaml'
+
+alias neofetch='fastfetch'
