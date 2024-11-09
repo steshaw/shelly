@@ -19,7 +19,7 @@ config.color_scheme = 'Dracula'
 
 config.default_cursor_style = 'BlinkingUnderline'
 
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 
 -- -> => ++ <> >= <=
