@@ -11,7 +11,7 @@ checkout = github-clone-fork NixOS/nixpkgs
 update = mr sync
 
 [ghc/ghc]
-checkout =
+checkout = 
 	git clone --origin upstream --recurse-submodules https://gitlab.haskell.org/ghc/ghc.git
 	cd ghc
 	git config submodule.recurse true
@@ -68,3 +68,6 @@ checkout = git clone 'https://github.com/edwinb/Yaffle' 'Yaffle'
 
 [haskell/cabal]
 checkout = git clone 'https://github.com/haskell/cabal' 'cabal'
+
+[steshaw/iosevka-term-jbms]
+checkout = git clone 'https://github.com/steshaw/iosevka-term-jbml.git' 'iosevka-term-jbms'
