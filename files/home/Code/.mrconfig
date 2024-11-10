@@ -63,9 +63,6 @@ checkout = git clone 'https://github.com/steshaw/project-directory' 'project-dir
 [haskell/haskell-language-server]
 checkout = git clone 'https://github.com/haskell/haskell-language-server' 'haskell-language-server'
 
-[andreabedini/foliage]
-checkout = git clone 'https://github.com/andreabedini/foliage' 'foliage'
-
 [edwinb/Yaffle]
 checkout = git clone 'https://github.com/edwinb/Yaffle' 'Yaffle'
 
