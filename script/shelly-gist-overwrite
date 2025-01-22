@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dir=$1
+gist=$2
+file=$3
+
+if [[ ! -d $dir ]]; then
+  gh gist clone "$gist" "$dir"
+fi
+
+cd "$dir"
+
+if [[ -n $(git status --porcelain) ]]; then
+  echo "Directory is not clean: $dir" >&2
+  exit 2
+fi
+
+git pull --ff-only
+cp "$file" "$dir/"
+git add --all
+git commit -m Update
+git squash-to-root
+git push --force-with-lease
