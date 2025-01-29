@@ -23,7 +23,7 @@ config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 
 -- -> => ++ <> >= <=
-config.font_size = 16.0
+config.font_size = 15.0
 config.font = wezterm.font {
   family = 'Iosevka Term JBMS',
   weight = 'Regular',
