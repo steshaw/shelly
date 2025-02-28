@@ -4,7 +4,7 @@ set -euo pipefail
 
 dir=$1
 gist=$2
-file=$(realpath -f "$3")
+file=$(realpath "$3")
 
 if [[ ! -d $dir ]]; then
   gh gist clone "$gist" "$dir"
