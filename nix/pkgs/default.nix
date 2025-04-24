@@ -20,7 +20,9 @@ with pkgs; [
   nix-bash-completions
 
   # Emacs
-  (emacs29.pkgs.withPackages (epkgs: with epkgs; [
+  # Disabling native compilation as workaround for
+  # https://github.com/NixOS/nixpkgs/issues/395169 on macOS.
+  ((emacs29.override { withNativeCompilation = false; }).pkgs.withPackages (epkgs: with epkgs; [
     vterm
   ]))
 
