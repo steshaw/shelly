@@ -107,7 +107,6 @@ If you are setting up a new computer over ssh, you will get an error starting th
 > - Authentication is now managed via the GitHub CLI (`gh`) using OAuth.
 > - Tokens are securely stored via `gh auth login --git-protocol https`.
 > - This provides better revocability, firewall compatibility, and zero SSH key management.
-> - The old SSH-based scripts have been removed or archived.
 
 
 ### Git signing key
