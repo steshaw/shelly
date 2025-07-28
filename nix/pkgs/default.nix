@@ -51,6 +51,7 @@ with pkgs; [
   fish
   fzf
   git
+  git-credential-manager
   git-lfs
   github-cli
   gnupg
