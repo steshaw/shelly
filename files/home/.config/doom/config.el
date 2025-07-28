@@ -110,7 +110,7 @@
      auto-mode-alist))
 
 ; Org
-(setq org-time-stamp-rounding-minutes '(0 30))
+(setq org-time-stamp-rounding-minutes '(0 15))
 (setq org-duration-format (quote h:mm))
 ; Try to stop weirld org parsing bug.
 (setq org-element-use-cache nil)
