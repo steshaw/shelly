@@ -97,10 +97,10 @@ generate-ssh-key
 Authenticate with GitHub:
 
 ```bash
-gh auth login --git-protocol ssh --hostname github.com --web
+gh auth login --git-protocol https --hostname github.com --web
 ```
 
-If you are operating over ssh, you will get an error starting the browser (because the `DISPLAY` environment variable isn't available). Instead, go directly to https://github.com/login/device to enter your one-time code.
+If you are setting up a new computer over ssh, you will get an error starting the browser (because the `DISPLAY` environment variable isn't available). Instead, go directly to https://github.com/login/device to enter your one-time code.
 
 ### Git signing key
 
