@@ -102,6 +102,14 @@ gh auth login --git-protocol https --hostname github.com --web
 
 If you are setting up a new computer over ssh, you will get an error starting the browser (because the `DISPLAY` environment variable isn't available). Instead, go directly to https://github.com/login/device to enter your one-time code.
 
+> **ℹ️ Note:**<br>
+> This setup has migrated from using SSH to HTTPS for GitHub access.
+> - Authentication is now managed via the GitHub CLI (`gh`) using OAuth.
+> - Tokens are securely stored via `gh auth login --git-protocol https`.
+> - This provides better revocability, firewall compatibility, and zero SSH key management.
+> - The old SSH-based scripts have been removed or archived.
+
+
 ### Git signing key
 
 On existing machine:
