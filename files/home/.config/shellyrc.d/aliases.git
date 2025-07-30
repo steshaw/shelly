@@ -20,3 +20,9 @@ alias gp='git push'
 alias gpfl='git push --force-with-lease'
 alias gpsu='git push -u origin HEAD'
 alias gst='git status'
+
+# worktree
+alias gwt='git worktree'
+alias gwtls='git worktree list'
+alias gwtmv='git worktree move'
+alias gwtrm='git worktree remove'
