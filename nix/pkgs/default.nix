@@ -72,7 +72,7 @@ with pkgs; [
   mtr
   (notDarwin ncdu) # NCurses Disk Usage
   neovim
-  #nix-direnv
+  nix-direnv
   nodejs # Required for Coc.
   pandoc
   pass
