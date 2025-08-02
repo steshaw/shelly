@@ -3,7 +3,7 @@ gc = git gc "$@"
 sync = git sync-upstream
 
 [Code/steshaw/shelly]
-checkout = git clone git@github.com:steshaw/shelly
+checkout = git clone https://github.com/steshaw/shelly.git
 
 [.emacs.d]
 checkout = git clone 'https://github.com/hlissner/doom-emacs' '.emacs.d'

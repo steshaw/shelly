@@ -25,10 +25,6 @@ export SHELLY_HOME=${SHELLY_CODE_DIR}/steshaw/shelly
 
 if [[ ! -d $SHELLY_HOME ]]; then
   git clone https://github.com/steshaw/shelly.git "$SHELLY_HOME"
-  (
-    cd "$SHELLY_HOME"
-    git remote set-url origin git@github.com:steshaw/shelly.git
-  )
 fi
 
 $SHELLY_HOME/script/shelly-link-home-files
