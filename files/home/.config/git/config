@@ -125,10 +125,10 @@
 	colorMoved = default
 [credential "https://github.com"]
 	helper =
-	helper = !~/.nix-profile/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
-	helper = !~/.nix-profile/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [include]
     path = local.gitconfig
 [includeIf "gitdir:~/Code/steshaw/"]
