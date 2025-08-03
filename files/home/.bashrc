@@ -116,3 +116,5 @@ unset GLOBIGNORE
 
 # shellcheck source=.config/shellyrc
 source ~/.config/shellyrc
+
+sourceExists ~/.bashrc.local
