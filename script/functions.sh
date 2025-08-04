@@ -54,7 +54,8 @@ homeFromBin() {
 
 has() {
   command=$1
-  type -p "$command" >/dev/null
+  # Also check that command is a file (and not an alias).
+  type -p "$command" >/dev/null && [[ "$(type -t $command)" = 'file' ]]
 }
 
 isBash() {
