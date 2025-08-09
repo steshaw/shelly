@@ -7,4 +7,4 @@ if [[ $(uname) == 'Linux' ]]; then
 else
   echo 'Unsupported system'
 fi
-stow --verbose --dir "${SHELLY_HOME}/files/system" --target=/ "${package}"
+stow --verbose --dir "${SHELLY_HOME}/files/system" --target=/ "${package}" "$@"
