@@ -1,0 +1,3 @@
+# vim: set syntax=bash
+
+MAVEN_OPTS="-Xmx4096m"
