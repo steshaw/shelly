@@ -28,6 +28,7 @@ repo_path=${repo_path%%/-/tree/*} # For GitLab
 repo_path=${repo_path%%/src/*} # For Bitbucket
 repo_path=${repo_path/\/_git/} # For ADO
 repo_path=${repo_path/\/MineStar%20Solution%20Train/\/mst} # For ADO
+repo_path=${repo_path/\/Cat%20OS%20Platform/\/catos} # For ADO
 shift
 
 IFS=/ read -r -a fields <<<"$repo_path"
@@ -64,14 +65,21 @@ case $org in
 esac
 
 cd "${SHELLY_CODE_DIR}"
+
+dir="${short_org}/${repo}"
+if [[ -d $dir ]]; then
+  echo "$dir already exists"
+  exit 1
+fi
+
 if [[ $short_org == 'cat' ]]; then
   # ADO like to receive the full URL.
-  git clone "$arg" "${short_org}/${repo}/main"
+  git clone "$arg" "${dir}/main"
 else
   if [[ $ty == 'ssh' ]]; then
-    git clone "$@" "${user}@${host}:${org}/${repo}.git" "${short_org}/${repo}"
+    git clone "$@" "${user}@${host}:${org}/${repo}.git" "${dir}"
   else
     # ty = 'https'
-    git clone "$@" "https://${host}/${org}/${repo}.git" "${short_org}/${repo}"
+    git clone "$@" "https://${host}/${org}/${repo}.git" "${dir}"
   fi
 fi
