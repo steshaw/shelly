@@ -13,7 +13,9 @@ fi
 ty='ssh'
 ty='https'
 
-repo_path=${1#https://}
+arg=$1
+repo_path=$arg
+repo_path=${repo_path#https://}
 repo_path=${repo_path#git@}
 repo_path=${repo_path%.git}
 repo_path=${repo_path%#*}
@@ -24,6 +26,8 @@ repo_path=${repo_path%%/blob/*} # For GitHub
 repo_path=${repo_path%%/tree/*} # For GitHub
 repo_path=${repo_path%%/-/tree/*} # For GitLab
 repo_path=${repo_path%%/src/*} # For Bitbucket
+repo_path=${repo_path/\/_git/} # For ADO
+repo_path=${repo_path/\/MineStar%20Solution%20Train/\/mst} # For ADO
 shift
 
 IFS=/ read -r -a fields <<<"$repo_path"
@@ -55,13 +59,19 @@ case $org in
   input-output-hk) short_org='io';;
   io) org='input-output-hk';;
   ModusCreateOrg) short_org='modus';;
+  cat-aa) short_org='cat';;
   modus) org='ModusCreateOrg';;
 esac
 
 cd "${SHELLY_CODE_DIR}"
-if [[ $ty == 'ssh' ]]; then
-  git clone "$@" "${user}@${host}:${org}/${repo}.git" "${short_org}/${repo}"
+if [[ $short_org == 'cat' ]]; then
+  # ADO like to receive the full URL.
+  git clone "$arg" "${short_org}/${repo}/main"
 else
-  # ty = 'https'
-  git clone "$@" "https://${host}/${org}/${repo}.git" "${short_org}/${repo}"
+  if [[ $ty == 'ssh' ]]; then
+    git clone "$@" "${user}@${host}:${org}/${repo}.git" "${short_org}/${repo}"
+  else
+    # ty = 'https'
+    git clone "$@" "https://${host}/${org}/${repo}.git" "${short_org}/${repo}"
+  fi
 fi
