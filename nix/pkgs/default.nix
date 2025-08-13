@@ -129,6 +129,12 @@ with pkgs; [
   #awscli2
   #python3Packages.ec2instanceconnectcli
 
+  # Azure DevOps (ADO/AzDO)
+  (azure-cli.withExtensions [ azure-cli.extensions.aks-preview ])
+  # azure-cli with all extensions
+#  (azure-cli.withExtensions
+#    (builtins.filter (item: lib.isDerivation item) (builtins.attrValues pkgs.azure-cli-extensions)))
+
   #
   # Google Cloud SDK.
   #
