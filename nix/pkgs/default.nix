@@ -130,7 +130,10 @@ with pkgs; [
   #python3Packages.ec2instanceconnectcli
 
   # Azure DevOps (ADO/AzDO)
-  (azure-cli.withExtensions [ azure-cli.extensions.aks-preview ])
+  (azure-cli.withExtensions [
+    azure-cli.extensions.aks-preview
+    azure-cli.extensions.azure-devops
+  ])
   # azure-cli with all extensions
 #  (azure-cli.withExtensions
 #    (builtins.filter (item: lib.isDerivation item) (builtins.attrValues pkgs.azure-cli-extensions)))
