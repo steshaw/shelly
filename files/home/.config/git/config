@@ -130,6 +130,6 @@
 	helper =
 	helper = !gh auth git-credential
 [include]
-    path = local.gitconfig
-[include]
     path = personal.gitconfig
+[include]
+    path = local.gitconfig
