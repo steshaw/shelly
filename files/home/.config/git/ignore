@@ -24,7 +24,6 @@
 .fseventsd
 .localized
 .save/
-/.idea/
 /.ideaHaskellLib/
 Icon
 Network Trash Folder
