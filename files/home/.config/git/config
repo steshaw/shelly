@@ -131,5 +131,5 @@
 	helper = !gh auth git-credential
 [include]
     path = local.gitconfig
-[includeIf "gitdir:~/Code/steshaw/"]
+[include]
     path = personal.gitconfig
