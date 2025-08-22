@@ -28,3 +28,9 @@ alias gwt='git worktree'
 alias gwtls='git worktree list'
 alias gwtmv='git worktree move'
 alias gwtrm='git worktree remove'
+
+# other
+# Change directory to project root.
+alias groot='cd $(git rev-parse --show-toplevel)'
+alias cdpr=groot
+alias cdr=groot
