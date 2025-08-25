@@ -107,6 +107,7 @@ truncate_to_repo = false
 truncation_symbol = "…/"
 truncation_length = 5
 repo_root_style = 'bold cyan'
+use_os_path_sep = false
 
 [username]
 show_always = true
