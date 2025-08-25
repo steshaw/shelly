@@ -1,12 +1,22 @@
 # -*- mode: sh; -*-
 # vim: set filetype=bash:
 # shellcheck shell=bash
+#
+
+short_hostname() {
+  if [[ $OS == 'Windows_NT' ]]; then
+    # Git Bash on Windows doesn't have `hostname -s`.
+    hostname
+  else
+    hostname -s
+  fi
+}
 
 if has starship; then
   function set_win_title(){
     # shellcheck disable=SC2001
     cwd=$(echo "$PWD" | sed "s@^$HOME@~@")
-    echo -ne "\033]0;${USER}@$(hostname -s):${cwd}\007"
+    echo -ne "\033]0;${USER}@$(short_hostname):${cwd}\007"
   }
   # shellcheck disable=SC2034
   starship_precmd_user_func="set_win_title"
