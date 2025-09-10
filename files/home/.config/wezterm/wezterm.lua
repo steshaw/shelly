@@ -23,12 +23,11 @@ config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 
 -- -> => ++ <> >= <=
-config.font_size = 15.0
-config.font = wezterm.font {
-  family = 'Iosevka Term JBMS',
-  weight = 'Regular',
-  stretch = 'Normal',
---  stretch = 'Expanded',
+config.font_size = 12.0
+config.font = wezterm.font_with_fallback {
+  { family = 'Iosevka Term JBMS',           weight = 'Regular', stretch = 'Normal'}, -- // OR stretch = 'Expanded'
+  { family = 'Iosevka Term Nerd Font Mono', weight = 'Regular', stretch = 'Normal'}, -- // OR stretch = 'Expanded'
+  { family = 'Cascadia Code', weight = 'Regular', stretch = 'Normal'}
 }
 
 -- config.debug_key_events = true
