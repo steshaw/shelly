@@ -1,36 +1,33 @@
--- Pull in the wezterm API
-local wezterm = require 'wezterm'
+-- vim: shiftwidth=2
+
+-- Copied from https://github.com/KevinSilvester/wezterm-config
+
+local Config = require('config')
+--local wezterm = require 'wezterm'
 
 -- This will hold the configuration.
-local config = wezterm.config_builder()
+--local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
+if false then
+  require('utils.backdrops')
+     -- :set_focus('#000000')
+     -- :set_images_dir(require('wezterm').home_dir .. '/Pictures/Wallpapers/')
+     :set_images()
+     :random()
+end
 
-config.tab_bar_at_bottom = true
-config.audible_bell = 'Disabled'
-config.visual_bell = {
-  fade_in_duration_ms = 75,
-  fade_out_duration_ms = 75,
-  target = 'CursorColor',
-}
+if false then
+  require('events.left-status').setup()
+  require('events.right-status').setup({ date_format = '%a %H:%M:%S' })
+  require('events.tab-title').setup({ hide_active_tab_unseen = false, unseen_icon = 'numbered_box' })
+  require('events.new-tab-button').setup()
+  require('events.gui-startup').setup()
+end
 
--- For example, changing the color scheme:
-config.color_scheme = 'Dracula'
-
-config.default_cursor_style = 'BlinkingUnderline'
-
-config.window_decorations = "RESIZE"
-config.hide_tab_bar_if_only_one_tab = true
-
--- -> => ++ <> >= <=
-config.font_size = 12.0
-config.font = wezterm.font_with_fallback {
---  { family = 'Iosevka Term JBMS',           weight = 'Regular', stretch = 'Normal'}, -- // OR stretch = 'Expanded'
-  { family = 'Iosevka Term Nerd Font Mono', weight = 'Regular', stretch = 'Normal'}, -- // OR stretch = 'Expanded'
-  { family = 'Cascadia Code', weight = 'Regular', stretch = 'Normal'}
-}
-
--- config.debug_key_events = true
-
--- and finally, return the configuration to wezterm
-return config
+return Config:init()
+  :append(require('config.appearance'))
+--  :append(require('config.bindings'))
+--  :append(require('config.domains'))
+  :append(require('config.fonts'))
+--  :append(require('config.general'))
+  :append(require('config.launch')).options
