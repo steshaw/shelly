@@ -112,7 +112,7 @@ return {
 -- Copy of https://github.com/KevinSilvester/wezterm-config/blob/master/config/appearance.lua
 local gpu_adapters = -- require('utils.gpu-adapter')
 local backdrops = -- require('utils.backdrops')
-local colors = -- require('colors.custom')
+local colors = require('colours.custom')
 
 return {
    max_fps = 120,

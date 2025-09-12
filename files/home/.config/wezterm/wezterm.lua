@@ -3,18 +3,12 @@
 -- Copied from https://github.com/KevinSilvester/wezterm-config
 
 local Config = require('config')
---local wezterm = require 'wezterm'
 
--- This will hold the configuration.
---local config = wezterm.config_builder()
-
-if false then
-  require('utils.backdrops')
-     -- :set_focus('#000000')
-     -- :set_images_dir(require('wezterm').home_dir .. '/Pictures/Wallpapers/')
-     :set_images()
-     :random()
-end
+require('utils.backdrops')
+  -- :set_focus('#000000')
+  -- :set_images_dir(require('wezterm').home_dir .. '/Pictures/Wallpapers/')
+  :set_images()
+  :random()
 
 if false then
   require('events.left-status').setup()
