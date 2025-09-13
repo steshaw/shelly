@@ -47,10 +47,10 @@ return {
     --config.font = wezterm.font('Hack Nerd Font')
     --config.font_size = 11
     --config.launch_menu = launch_menu
-    -- makes my cursor blink 
+    -- makes my cursor blink
     --config.default_cursor_style = 'BlinkingBar'
     --config.disable_default_key_bindings = true
-    -- this adds the ability to use ctrl+v to paste the system clipboard 
+    -- this adds the ability to use ctrl+v to paste the system clipboard
 
     -- These are vars to put things in later (i dont use em all yet)
     local config = {}
@@ -89,7 +89,7 @@ return {
       brightness = 1.5,
     }
 
-    -- This is used to set an image as my background 
+    -- This is used to set an image as my background
     config.background = {
 	{
 	  source = { File = {path = 'C:/Users/someuserboi/Pictures/Backgrounds/theone.gif', speed = 0.2}},
@@ -101,7 +101,7 @@ return {
   --]]
 
   -- Sets WSL2 the default when opening WezTerm.
-  default_domain = 'WSL:Ubuntu',
+  --default_domain = 'WSL:Ubuntu',
 }
 
 -- and finally, return the configuration to wezterm
