@@ -101,7 +101,7 @@ return {
   --]]
 
   -- Sets WSL2 the default when opening WezTerm.
-  --default_domain = 'WSL:Ubuntu',
+  default_domain = 'wsl:ubuntu-bash',
 }
 
 -- and finally, return the configuration to wezterm
