@@ -44,7 +44,7 @@ parseIsApple ("--non-apple":_) = return False
 parseIsApple (_:rest) = parseIsApple rest
 
 generateCommand :: Bool -> String
-generateCommand isApple = 
+generateCommand isApple =
   let otherOptions = if isApple then appleOptions else nonAppleOptions
       options =
         [ -- Make unmodified Caps Lock an additional Esc,
