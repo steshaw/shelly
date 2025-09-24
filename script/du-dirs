@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -uo pipefail
+
+for dir in */; do
+  du -hs "$dir"
+done | sort -h
