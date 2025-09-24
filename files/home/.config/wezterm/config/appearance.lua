@@ -102,6 +102,8 @@ return {
     }
   --]]
 
+  window_background_opacity = 0.8,
+
   -- Sets WSL2 the default when opening WezTerm.
   default_domain = 'wsl:ubuntu-bash',
 }
