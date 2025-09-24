@@ -24,12 +24,14 @@ return {
   default_cursor_style = 'BlinkingUnderline',
   window_decorations = "RESIZE",
   hide_tab_bar_if_only_one_tab = true,
+  --[[
   font_size = 11.0,
   font = wezterm.font_with_fallback {
   --  { family = 'Iosevka Term JBMS',           weight = 'Regular', stretch = 'Normal'}, -- // OR stretch = 'Expanded'
   --  { family = 'Iosevka Term Nerd Font Mono', weight = 'Regular', stretch = 'Normal'}, -- // OR stretch = 'Expanded'
     { family = 'Cascadia Code', weight = 'Regular', stretch = 'Normal'}
   },
+  --]]
 
   -- debug_key_events = true,
 
