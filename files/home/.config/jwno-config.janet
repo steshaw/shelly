@@ -874,7 +874,7 @@
      # hook that gets called when a new monitor is connected,
      # so it may be considered as a place to put our init code.
      #
-     (put (in frame :tags) :padding 1)))
+     (put (in frame :tags) :padding 0)))
 
 
 #===================#
