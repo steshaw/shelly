@@ -11,6 +11,29 @@ local wezterm = require 'wezterm'
 --local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
+--
+--
+
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'Dracula'
+  else
+    --return 'Builtin Solarized Light'
+    --return 'Gruvbox Light'
+    --return 'Gogh'
+    -- return 'Tinacious Design'
+    return 'Tokyo Night Day'
+  end
+end
 
 return {
   tab_bar_at_bottom = true,
@@ -20,7 +43,8 @@ return {
     fade_out_duration_ms = 75,
     target = 'CursorColor',
   },
-  color_scheme = 'Dracula',
+  --color_scheme = 'Dracula',
+  color_scheme = scheme_for_appearance(get_appearance()),
   default_cursor_style = 'BlinkingUnderline',
   window_decorations = "RESIZE",
   hide_tab_bar_if_only_one_tab = true,
