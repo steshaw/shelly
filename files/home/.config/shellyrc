@@ -4,7 +4,7 @@
 # Should be suitable for bash and zsh.
 #
 
-Echo "Executing shrc"
+Echo "Executing shellyrc"
 
 # Source .d files.
 for file in ~/.config/shellyrc.d/*; do

@@ -108,7 +108,7 @@ preexec_functions=()
 precmd_functions=()
 
 #
-# Source ~/.profile.d/*
+# Source ~/.config/profile.d/*
 #
 unset PROMPT_COMMAND # In case of `source ~/.profile`.
 for file in ~/.config/profile.d/*; do
@@ -122,8 +122,6 @@ prependPaths ~/.local/bin
 prependPathsExists ~/bin
 
 prettyPaths ".profile: After .profile.d/* and private bins"
-
-sourceExists ~/.profile.local
 
 #
 # Explicitly source `.bashrc`.
