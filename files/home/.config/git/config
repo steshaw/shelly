@@ -114,6 +114,7 @@
 [core]
 	pager = delta
 
+	symlinks = true
 [interactive]
 	diffFilter = delta --color-only
 [add.interactive]
