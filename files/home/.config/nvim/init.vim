@@ -198,7 +198,7 @@ try
   if dark_mode == "dark"
     colorscheme palenight
   else
-    colorscheme zellner
+    colorscheme shine
   endif
 catch
   " Fallback theme.
