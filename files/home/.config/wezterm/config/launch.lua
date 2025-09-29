@@ -9,13 +9,13 @@ if platform.is_win then
    options.default_prog = { 'pwsh', '-NoLogo' }
    options.launch_menu = {
       { label = 'PowerShell Core', args = { 'pwsh', '-NoLogo' } },
-      { label = 'PowerShell Desktop', args = { 'powershell' } },
+      { label = 'Windows PowerShell', args = { 'powershell' } },
       { label = 'Command Prompt', args = { 'cmd' } },
       { label = 'Nushell', args = { 'nu' } },
-      { label = 'Msys2', args = { 'ucrt64.cmd' } },
+--      { label = 'Msys2', args = { 'ucrt64.cmd' } },
       {
          label = 'Git Bash',
-         args = { 'C:\\Users\\shaws8\\scoop\\apps\\git\\current\\bin\\bash.exe' },
+         args = { 'D:/Apps/Git/bin/bash.exe', '-i', '-l' },
       },
    }
 elseif platform.is_mac then
