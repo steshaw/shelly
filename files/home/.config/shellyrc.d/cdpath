@@ -10,7 +10,7 @@ cdpath-update() {
 
   cached=~/.cache/shelly/code_dirs.txt
   find_code_dirs() {
-    find ~/Code -maxdepth 4 -type d -name .git 2>/dev/null |
+    find ~/Code -maxdepth 5 -type d -name .git 2>/dev/null |
       perl -pe 's~/[^/]*/.git$~~' |
       grep -v -E 'nvim.mine|\.archive|node_modules' |
       sort -u
