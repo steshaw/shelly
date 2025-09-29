@@ -25,13 +25,15 @@ end
 
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Dracula'
+    --return 'Dracula'
+    return 'OneHalfDark'
   else
     --return 'Builtin Solarized Light'
     --return 'Gruvbox Light'
     --return 'Gogh'
     -- return 'Tinacious Design'
-    return 'Tokyo Night Day'
+    --return 'Tokyo Night Day'
+    return 'OneHalfLight'
   end
 end
 
