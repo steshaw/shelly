@@ -74,6 +74,7 @@ with pkgs; [
   neovim
   nix-direnv
   nodejs # Required for Coc.
+  nushell
   pandoc
   pass
   peco
