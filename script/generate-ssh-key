@@ -2,19 +2,26 @@
 
 set -euo pipefail
 
+if [[ $OSTYPE == msys ]]; then
+  USER=$USERNAME
+  HOST=$(hostname)
+else
+  HOST=$(hostname -s)
+fi
+
 if [[ $# -eq 0 ]]; then
   key_type='ed25519'
   file="id_${key_type}"
-  comment="${USER}@$(hostname -s)"
+  comment="${USER}@${HOST}"
 elif [[ $# -eq 1 ]]; then
   key_type=$1
   file="id_${key_type}"
-  comment="${USER}@$(hostname -s)"
+  comment="${USER}@${HOST}"
 elif [[ $# -eq 2 ]]; then
   key_type=$1
   purpose=$2
   file="${purpose}_${key_type}"
-  comment="${USER}@$(hostname -s) — ${purpose}"
+  comment="${USER}@${HOST} — ${purpose}"
 else
   script_name=$(basename "$0")
   echo "usage: ${script_name} [key-type [purpose]]" >&2
