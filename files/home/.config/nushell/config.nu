@@ -66,20 +66,22 @@ match $nu.os-info.name {
 
     $env.CDPATH = [
       "."
-      "~"
+      ~/Code/steshaw
+      ~/Code
       "d:/Code/minestar"
       "d:/Code"
       "c:/sbox"
     ]
-
-    # 2) Load the module (it 'use's the `c` command for you)
-    #source ~/.config/nushell/cdpath.nu
-    source $"($nu.home-path)/.config/nushell/cdpath.nu"
   }
   _         => {
-    print "Not Windows" + $nu.os-info.name
+    $env.CDPATH = [
+      "."
+      ~/Code/steshaw
+      ~/Code
+    ]
 
     if ($env.WSL_DISTRO_NAME? | is-not-empty) {
+
       # WSL-specific.
       print "Running under WSL"
       export-env {
