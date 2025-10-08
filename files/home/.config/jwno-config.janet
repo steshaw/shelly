@@ -823,7 +823,7 @@
             # This means ALL windows on (virtual) Desktop 2 will be ignored,
             # essentially creating a "floating desktop" that Jwno will NOT
             # manage.
-            (= "Desktop 2" desktop-name)
+            (= "Floating" desktop-name)
             # Add your own rules here
             ))))
 
