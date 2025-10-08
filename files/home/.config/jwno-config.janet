@@ -107,7 +107,7 @@
 # in this config file only. We use ${MOD} as a placeholder for the
 # mod-key here.
 #
-(def mod-key "Win")
+(def mod-key "Alt")
 
 (unless (find |(= $ (string/ascii-lower mod-key)) ["win" "alt"])
   (errorf "unsupported mod key: %n" mod-key))
@@ -229,7 +229,7 @@
   (indicator/current-frame-area jwno/context))
 # The margin area reserved around the rectangle. Should match your
 # window margin settings.
-(put current-frame-area :margin 10)
+(put current-frame-area :margin 0)
 (:enable current-frame-area)
 
 #
@@ -833,7 +833,7 @@
 (:add-hook hook-man :window-created
    (fn [win uia-win _exe-path _desktop-info]
      (put (in win :tags) :anchor :center)
-     (put (in win :tags) :margin 10)
+     (put (in win :tags) :margin 0)
 
      (def class-name (:get_CachedClassName uia-win))
      (cond
@@ -937,3 +937,17 @@
         nil
         5000
         :center)))
+
+################################################################################
+################################################################################
+################################################################################
+
+# First set margin values for all windows
+(:add-hook (in jwno/context :hook-manager) :window-created
+   (fn [win _uia _exe _desktop]
+     (put (in win :tags) :margin 0)))
+
+# Then set padding values for top-level frames
+(:add-hook (in jwno/context :hook-manager) :monitor-updated
+   (fn [frame]
+     (put (in frame :tags) :padding 0)))
