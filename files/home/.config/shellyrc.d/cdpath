@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-cdpath-update() {
-  # This cdpath array works out-of-box for zsh.
-  # For bash, it's processed into CDPATH.
-  cdpath=(
-    .
-    ~/Code
-  )
+# This cdpath array works out-of-box for zsh.
+# For bash, it's processed into CDPATH.
+cdpath=(
+  .
+  ~/Code
+)
 
+cdpath-update() {
   cached=~/.cache/shelly/code_dirs.txt
   find_code_dirs() {
     find ~/Code -maxdepth 5 -type d -name .git 2>/dev/null |
