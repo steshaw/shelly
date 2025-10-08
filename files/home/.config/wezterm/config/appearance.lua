@@ -48,7 +48,7 @@ return {
   --color_scheme = 'Dracula',
   color_scheme = scheme_for_appearance(get_appearance()),
   default_cursor_style = 'BlinkingUnderline',
-  window_decorations = "RESIZE",
+  window_decorations = "TITLE | RESIZE",
   hide_tab_bar_if_only_one_tab = true,
   --[[
   font_size = 11.0,
