@@ -27,18 +27,22 @@ alias gd  = git diff
 def timestamp [] {
   date now | date to-timezone UTC | format date %Y%m%d-%H%M%S
 }
+def jwno-exes [] { tasklist | rg -i 'kmonad|jwno|glaze|explorer' | tee {save --append d:/.local/state/jwno/tasklist.log}; echo "---\n" | save --append d:/.local/state/jwno/tasklist.log}
 
-alias mstar = C:\Users\shaws8\scoop\shims\bash.exe mstar
+alias bash = C:\Users\shaws8\scoop\shims\bash.exe
+alias mstar = bash mstar
+alias mstarrun = mstar
 
 $env.EDITOR = 'nvim'
 $env.config.edit_mode = 'vi'
 
 $env.PATH = ($env.PATH | append (echo ~/Code/steshaw/larva-dev-notes/script | path expand))
 
+#$env.config.hooks.env_change.PWD = (
+#    $env.config.hooks.env_change.PWD | append (source ~/Code/nushell/nu_scripts/nu-hooks/nu-hooks/direnv/config.nu)
+#)
 
-
-
-
+########################################################################
 # Common aliases
 
 alias mstar-build-fastest = mvn -T 1C -P dev -P skipTestCompile install
@@ -56,6 +60,7 @@ alias mstar-clean-build-fast = mvn -T 1C -P dev -D skipTests clean install
 alias mstar-build = mvn -T 1C -D skipTests install
 alias mstar-build = mvn -T 1C -D skipTests install
 
+########################################################################
 
 match $nu.os-info.name {
   'windows' => { 
