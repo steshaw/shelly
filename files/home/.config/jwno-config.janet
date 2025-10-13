@@ -951,3 +951,31 @@
 (:add-hook (in jwno/context :hook-manager) :monitor-updated
    (fn [frame]
      (put (in frame :tags) :padding 0)))
+
+################################################################################
+################################################################################
+################################################################################
+
+(use jw32/_winuser)
+
+(defn get-taskbar-hwnd []
+  (def uia-man (in jwno/context :uia-manager))
+  (def uia-com (in uia-man :com))
+
+  (util/with-uia [root (:GetRootElement uia-com)]
+    (util/with-uia [tb-cond (:create-condition uia-man [:property UIA_NamePropertyId "Taskbar"])]
+      (util/with-uia [tb-elem (:FindFirst root TreeScope_Children tb-cond)]
+        (when tb-elem
+          (:get_CurrentNativeWindowHandle tb-elem))))))
+
+(defn log-taskbar-ids [&]
+  (if-let [hwnd (get-taskbar-hwnd)]
+    (do
+      (def tpid (GetWindowThreadProcessId hwnd))
+      (log/info "@@@@@@@@@ Current taskbar hwnd: %n" hwnd)
+      (log/info "@@@@@@@@@ Current taskbar pid: %n" (in tpid 1)))
+    # else
+    (log/info "@@@@@@@@@ Failed to get taskbar window")))
+
+(:add-hook hook-man :focus-changed log-taskbar-ids)
+(:add-hook hook-man :window-created log-taskbar-ids)
