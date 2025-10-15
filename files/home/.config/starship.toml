@@ -1,4 +1,4 @@
-command_timeout = 50
+command_timeout = 1500
 
 #
 # Comment out prompt with pipes. e.g.
