@@ -23,14 +23,23 @@ alias l = ls -al
 
 alias gst = git status
 alias gd  = git diff
+alias gaa = git add --all
 
 def timestamp [] {
   date now | date to-timezone UTC | format date %Y%m%d-%H%M%S
 }
-def jwno-exes [] { tasklist | rg -i 'kmonad|jwno|glaze|explorer' | tee {save --append d:/.local/state/jwno/tasklist.log}; echo "---\n" | save --append d:/.local/state/jwno/tasklist.log}
+
+def jwno-exes [] {
+    tasklist |
+        rg -i 'kmonad|jwno|glaze|explorer' |
+	tee {save --append d:/.local/state/jwno/logs/tasklist.log}; echo "---\n" |
+	save --append d:/.local/state/jwno/logs/tasklist.log
+}
 
 alias bash = C:\Users\shaws8\scoop\shims\bash.exe
 alias mstar = bash mstar
+alias mstar-cherry-pick-wsl = bash mstar-cherry-pick-wsl
+alias mstar-cherry-pick-wt = bash mstar-cherry-pick-wt
 alias mstarrun = mstar
 
 $env.EDITOR = 'nvim'
