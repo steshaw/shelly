@@ -17,12 +17,15 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+hide-env XDG_CONFIG_HOME
+
 $env.config.show_banner = false
 
 alias l = ls -al
 
 alias gst = git status
 alias gd  = git diff
+alias gds = git diff --staged
 alias gaa = git add --all
 
 def timestamp [] {
