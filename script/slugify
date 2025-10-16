@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 #
-# Slugify all files
+# Slugify files or strings
+#
+# Usage:
+#   slugify file1 file2 ...           # Rename files
+#   slugify -s "String to slugify"    # Slugify a string
+#   echo "text" | slugify             # Slugify from stdin
 #
 
 set -euo pipefail
@@ -11,8 +16,9 @@ else
   mv='mv'
 fi
 
-for file_path in "$@"; do
-  output=$file_path
+# Function to perform the slugification
+slugify_text() {
+  local output="$1"
 
   # Remove some characters.
   output=$(echo "$output" | tr -d \'\"\!\(\)\®)
@@ -49,6 +55,36 @@ for file_path in "$@"; do
   # lowercase
   output=${output,,}
 
+  echo "$output"
+}
+
+# Parse arguments
+string_mode=false
+if [[ "${1:-}" == "-s" ]] || [[ "${1:-}" == "--string" ]]; then
+  string_mode=true
+  shift
+fi
+
+# Handle stdin (no arguments)
+if [[ $# -eq 0 ]]; then
+  while IFS= read -r line; do
+    slugify_text "$line"
+  done
+  exit 0
+fi
+
+# String mode - just output slugified strings
+if [[ "$string_mode" == true ]]; then
+  for text in "$@"; do
+    slugify_text "$text"
+  done
+  exit 0
+fi
+
+# File mode - rename files
+for file_path in "$@"; do
+  output=$(slugify_text "$file_path")
+  
   if [[ "$file_path" != "$output" ]]; then
     $mv -iv "${file_path}" "${output}"
   fi
