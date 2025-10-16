@@ -7,7 +7,7 @@
 # (or import) custom commands, or run any other startup tasks.
 # See https://www.nushell.sh/book/configuration.html
 #
-# Nushell sets "sensible defaults" for most configuration settings, 
+# Nushell sets "sensible defaults" for most configuration settings,
 # so your `config.nu` only needs to override these defaults if desired.
 #
 # You can open this file in your default editor using:
@@ -17,7 +17,9 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
-hide-env XDG_CONFIG_HOME
+try {
+    hide-env XDG_CONFIG_HOME
+} catch {}
 
 $env.config.show_banner = false
 
@@ -39,7 +41,9 @@ def jwno-exes [] {
 	save --append d:/.local/state/jwno/logs/tasklist.log
 }
 
-alias bash = C:\Users\shaws8\scoop\shims\bash.exe
+if $nu.os-info.name  == 'windows' {
+    alias bash = C:\Users\shaws8\scoop\shims\bash.exe
+}
 alias mstar = bash mstar
 alias mstar-cherry-pick-wsl = bash mstar-cherry-pick-wsl
 alias mstar-cherry-pick-wt = bash mstar-cherry-pick-wt
@@ -75,7 +79,7 @@ alias mstar-build = mvn -T 1C -D skipTests install
 ########################################################################
 
 match $nu.os-info.name {
-  'windows' => { 
+  'windows' => {
     alias idea = d:/.local/ideaIU-2025.2.win/bin/idea64.exe
 
     # This is added in user environment variables, so no need to do it here too.
