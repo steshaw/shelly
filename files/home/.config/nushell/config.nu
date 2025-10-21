@@ -36,9 +36,13 @@ def timestamp [] {
 
 def jwno-exes [] {
     tasklist |
-        rg -i 'kmonad|jwno|glaze|explorer' |
-	tee {save --append d:/.local/state/jwno/logs/tasklist.log}; echo "---\n" |
-	save --append d:/.local/state/jwno/logs/tasklist.log
+        rg -i 'kmonad|jwno|glaze|explorer|TranslucentTB' |
+        tee {save --append d:/.local/state/jwno/logs/tasklist.log}; echo "---\n" |
+        save --append d:/.local/state/jwno/logs/tasklist.log
+}
+
+def jwno-tasklist [lines: int] {
+    open d:/.local/state/jwno/logs/tasklist.log | lines | last $lines
 }
 
 if $nu.os-info.name  == 'windows' {
@@ -82,8 +86,6 @@ match $nu.os-info.name {
   'windows' => {
     alias idea = d:/.local/ideaIU-2025.2.win/bin/idea64.exe
 
-    # This is added in user environment variables, so no need to do it here too.
-    #PATH=/d/.local/bin:$PATH
 
     $env.CDPATH = [
       "."
@@ -102,15 +104,14 @@ match $nu.os-info.name {
     ]
 
     if ($env.WSL_DISTRO_NAME? | is-not-empty) {
-
-      # WSL-specific.
-      print "Running under WSL"
+      # WSL-specific configuration.
       export-env {
         $env.CNI_PATH = $"($nu.home-path)/.local/nerdctl-2.1.3/libexec/cni"
       }
       alias idea = /mnt/d/.local/ideaIU-2025.2.win/bin/idea64.exe
     } else {
-      print "Not WSL"
+      # Configuration that will not work under WSL.
+      # Nothing so far!
     }
   }
 }
