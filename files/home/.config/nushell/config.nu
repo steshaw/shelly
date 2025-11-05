@@ -29,6 +29,7 @@ alias gst = git status
 alias gd  = git diff
 alias gds = git diff --staged
 alias gaa = git add --all
+alias groot = cd (git rev-parse --show-toplevel)
 
 def timestamp [] {
   date now | date to-timezone UTC | format date %Y%m%d-%H%M%S
@@ -45,12 +46,14 @@ def jwno-tasklist [lines: int] {
     open d:/.local/state/jwno/logs/tasklist.log | lines | last $lines
 }
 
-if $nu.os-info.name  == 'windows' {
-    alias bash = C:\Users\shaws8\scoop\shims\bash.exe
+if $nu.os-info.name == 'windows' {
+    alias b = ~/scoop/shims/bash
+} else {
+    alias b = /usr/bin/bash
 }
-alias mstar = bash mstar
-alias mstar-cherry-pick-wsl = bash mstar-cherry-pick-wsl
-alias mstar-cherry-pick-wt = bash mstar-cherry-pick-wt
+alias mstar = b mstar
+alias mstar-cherry-pick-wsl = b mstar-cherry-pick-wsl
+alias mstar-cherry-pick-wt = b mstar-cherry-pick-wt
 alias mstarrun = mstar
 
 $env.EDITOR = 'nvim'
@@ -66,18 +69,9 @@ $env.PATH = ($env.PATH | append (echo ~/Code/steshaw/larva-dev-notes/script | pa
 # Common aliases
 
 alias mstar-build-fastest = mvn -T 1C -P dev -P skipTestCompile install
-alias mstar-build-fastest = mvn -T 1C -P dev -P skipTestCompile install
-
 alias mstar-clean-build-fastest = mvn -T 1C -P dev -P skipTestCompile clean install
-alias mstar-clean-build-fastest = mvn -T 1C -P dev -P skipTestCompile clean install
-
 alias mstar-build-fast = mvn -T 1C -P dev -D skipTests install
-alias mstar-build-fast = mvn -T 1C -P dev -D skipTests install
-
 alias mstar-clean-build-fast = mvn -T 1C -P dev -D skipTests clean install
-alias mstar-clean-build-fast = mvn -T 1C -P dev -D skipTests clean install
-
-alias mstar-build = mvn -T 1C -D skipTests install
 alias mstar-build = mvn -T 1C -D skipTests install
 
 ########################################################################
