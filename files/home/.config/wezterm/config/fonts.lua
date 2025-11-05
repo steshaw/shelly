@@ -6,7 +6,7 @@ local platform = require('utils.platform')
 local font_family = 'IosevkaTerm Nerd Font Mono'
 -- local font_family = 'CartographCF Nerd Font'
 
-local font_size = platform.is_mac and 12 or 14
+local font_size = platform.is_mac and 12 or 13
 
 return {
    font = wezterm.font({
