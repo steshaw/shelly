@@ -219,6 +219,16 @@ local keys = {
    },
 }
 
+-- Let's have MoveTab from https://wezterm.org/config/lua/keyassignment/MoveTab.html
+for i = 1, 8 do
+  -- CTRL+ALT + number to move to that position
+  table.insert(keys, {
+    key = tostring(i),
+    mods = 'CTRL|ALT',
+    action = wezterm.action.MoveTab(i - 1),
+  })
+end
+
 -- stylua: ignore
 local key_tables = {
    resize_font = {
