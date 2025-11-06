@@ -66,8 +66,8 @@ local keys = {
    -- tabs: navigation
    { key = '[',          mods = mod.SUPER,     action = act.ActivateTabRelative(-1) },
    { key = ']',          mods = mod.SUPER,     action = act.ActivateTabRelative(1) },
-   { key = '[',          mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
-   { key = ']',          mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
+   { key = '{',          mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
+   { key = '}',          mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
 
    -- tab: title
    { key = '0',          mods = mod.SUPER,     action = act.EmitEvent('tabs.manual-update-tab-title') },
