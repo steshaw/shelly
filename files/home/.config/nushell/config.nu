@@ -1,4 +1,5 @@
 # config.nu
+
 #
 # Installed by:
 # version = "0.107.0"
@@ -70,9 +71,8 @@ $env.PATH = ($env.PATH | append (echo ~/Code/steshaw/larva-dev-notes/script | pa
 
 alias mstar-build-fastest = mvn -T 1C -P dev -P skipTestCompile install
 alias mstar-clean-build-fastest = mvn -T 1C -P dev -P skipTestCompile clean install
-alias mstar-build-fast = mvn -T 1C -P dev -D skipTests install
-alias mstar-clean-build-fast = mvn -T 1C -P dev -D skipTests clean install
-alias mstar-build = mvn -T 1C -D skipTests install
+alias mstar-build = mvn -T 1C -P dev install
+alias mstar-clean-build = mvn -T 1C -P dev clean install
 
 ########################################################################
 
