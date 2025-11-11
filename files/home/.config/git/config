@@ -141,4 +141,4 @@
 [credential "helperselector"]
 	selected = manager
 [lfs]
-	locksverify = true
+	locksverify = false
